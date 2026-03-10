@@ -1,0 +1,29 @@
+# Regras do Projeto - Álbum Copa 2026
+
+Estas regras devem ser seguidas por todos os agentes de IA ao ler ou escrever código neste repositório.
+
+## 1. Estilização
+- **Sempre** use `nativewind` (Tailwind CSS para React Native) para estilização via `className`.
+- Evite estilos inline (`style={{...}}`) a menos que sejam para valores calculados no runtime (como opacidade dinâmica ou larguras baseadas em fórmulas complexas de layout).
+
+## 2. Tematização e Responsividade
+- O aplicativo suporta múltiplos temas. **Sempre** use as variáveis de tema (ex: `bg-surface`, `text-gold`, `border-border`) mapeadas no `tailwind.config.js`.
+- Todo novo componente ou alteração deve ser testado para garantir que responde corretamente à mudança de tema.
+
+## 3. Qualidade do Código e Comentários
+- **Não** coloque comentários desnecessários ou óbvios.
+- Comentários são permitidos **apenas** para explicar lógicas muito específicas, complexas ou decisões de design não triviais.
+
+## 4. Idioma e Nomenclatura
+- **Comunicação**: O agente deve se comunicar em **Português**. Termos técnicos em Inglês são permitidos.
+- **Interface do Usuário (UI)**: O aplicativo é em **Português**. Textos exibidos para o usuário devem ser em Português.
+- **Código**: Variáveis, funções, classes, componentes e arquivos devem ser escritos sempre em **Inglês**.
+
+## 5. Arquitetura
+- **Componentização**: Sempre que possível, extraia lógica e UI para componentes menores e reutilizáveis na pasta `src/components`.
+- Mantenha os arquivos das abas (`app/(tabs)/*`) focados na estrutura da página e orquestração.
+
+## 6. Performance
+- Use `@shopify/flash-list` em vez de `FlatList` para listas longas.
+- Utilize hooks de memorização (`useMemo`, `useCallback`) de forma consciente para evitar re-renderizações desnecessárias em componentes pesados.
+- Priorize a fluidez das animações e interações.

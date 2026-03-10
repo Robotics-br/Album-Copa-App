@@ -16,7 +16,7 @@ export default function ProgressRing({ percent, size = 140, strokeWidth = 6 }: P
   const progress = circumference - (percent / 100) * circumference;
 
   return (
-    <View style={{ width: size, height: size, alignItems: 'center', justifyContent: 'center' }}>
+    <View className="items-center justify-center" style={{ width: size, height: size }}>
       <Svg width={size} height={size} style={{ position: 'absolute' }}>
         <Circle
           cx={size / 2}
@@ -40,8 +40,8 @@ export default function ProgressRing({ percent, size = 140, strokeWidth = 6 }: P
           origin={`${size / 2}, ${size / 2}`}
         />
       </Svg>
-      <Text style={{ fontSize: 32, fontWeight: '800', color: t.gold }}>{percent}%</Text>
-      <Text style={{ fontSize: 11, color: t.textSecondary, marginTop: 2 }}>completo</Text>
+      <Text className="text-[32px] font-extrabold text-gold">{percent}%</Text>
+      <Text className="text-text-secondary mt-0.5 text-[11px]">completo</Text>
     </View>
   );
 }

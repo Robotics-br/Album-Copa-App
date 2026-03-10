@@ -12,21 +12,11 @@ export default function ProgressBar({ percent, height = 8 }: ProgressBarProps) {
 
   return (
     <View
-      style={{
-        height,
-        backgroundColor: t.surfaceLight,
-        borderRadius: 999,
-        overflow: 'hidden',
-        borderWidth: 1,
-        borderColor: t.border,
-      }}>
+      className="border-border overflow-hidden rounded-full border bg-surface-light"
+      style={{ height }}>
       <View
-        style={{
-          height: '100%',
-          width: `${Math.min(100, percent)}%`,
-          backgroundColor: t.gold,
-          borderRadius: 999,
-        }}
+        className="h-full rounded-full bg-gold"
+        style={{ width: `${Math.min(100, percent)}%` }}
       />
     </View>
   );
