@@ -28,7 +28,7 @@ function TeamTab({ item }: { item: Team }) {
         borderRadius: 12,
         borderWidth: 2,
         borderColor: active ? t.gold : t.border,
-        backgroundColor: active ? `${t.gold}18` : t.surfaceLight,
+        backgroundColor: active ? `${t.gold}18` : t.additionalSurface,
         minWidth: 56,
       }}>
       <Text style={{ fontSize: 22 }}>{item.flag}</Text>

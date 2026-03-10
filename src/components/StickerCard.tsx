@@ -25,11 +25,11 @@ const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 function StickerCard({ sticker, onLongPress }: StickerCardProps) {
   const t = useTheme();
-  const qty = useCollectionStore((s) => s.collection[sticker.id] ?? 0);
+  const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
   const soundEnabled = useSettingsStore((s) => s.soundEnabled);
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
-  const team = getTeamById(sticker.teamId);
+  const team = getTeamById(sticker.section);
 
   const scale = useSharedValue(1);
   const brightness = useSharedValue(1);
@@ -40,9 +40,9 @@ function StickerCard({ sticker, onLongPress }: StickerCardProps) {
   }));
 
   const handlePress = useCallback(() => {
-    const currentQty = useCollectionStore.getState().collection[sticker.id] ?? 0;
+    const currentQty = useCollectionStore.getState().collection[sticker.code] ?? 0;
     const wasOwned = currentQty > 0;
-    toggleSticker(sticker.id);
+    toggleSticker(sticker.code);
 
     if (wasOwned) {
       if (soundEnabled) playStickerRemovedSound();
@@ -69,7 +69,7 @@ function StickerCard({ sticker, onLongPress }: StickerCardProps) {
         withTiming(1, { duration: 300 })
       );
     }
-  }, [sticker.id, toggleSticker, scale, brightness, soundEnabled]);
+  }, [sticker.code, toggleSticker, scale, brightness, soundEnabled]);
 
   const handleLongPress = useCallback(() => {
     lightTap();
@@ -81,7 +81,7 @@ function StickerCard({ sticker, onLongPress }: StickerCardProps) {
       ? `${t.owned}30`
       : status === 'duplicate'
         ? `${t.duplicate}30`
-        : t.surfaceLight;
+        : t.additionalSurface;
 
   const borderColor =
     status === 'owned' ? `${t.owned}80` : status === 'duplicate' ? t.gold : t.border;
@@ -137,9 +137,7 @@ function StickerCard({ sticker, onLongPress }: StickerCardProps) {
           }}>
           {sticker.name}
         </Text>
-        <Text style={{ fontSize: 8, fontWeight: '700', color: t.gold }}>
-          #{String(sticker.id).padStart(3, '0')}
-        </Text>
+        <Text style={{ fontSize: 8, fontWeight: '700', color: t.gold }}>{sticker.code}</Text>
       </View>
     </AnimatedPressable>
   );

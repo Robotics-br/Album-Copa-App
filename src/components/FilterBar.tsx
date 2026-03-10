@@ -35,7 +35,7 @@ export default function FilterBar() {
               paddingVertical: 6,
               paddingHorizontal: 14,
               borderRadius: 999,
-              backgroundColor: active ? t.gold : t.surfaceLight,
+              backgroundColor: active ? t.gold : t.additionalSurface,
               borderWidth: 1,
               borderColor: active ? t.gold : t.border,
             }}>

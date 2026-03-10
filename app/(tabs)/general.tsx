@@ -11,7 +11,7 @@ export default function GeneralScreen() {
   const collection = useCollectionStore((s) => s.collection);
 
   const ownedCount = useMemo(
-    () => stickers.filter((s) => (collection[s.id] ?? 0) > 0).length,
+    () => stickers.filter((s) => (collection[s.code] ?? 0) > 0).length,
     [collection]
   );
   const pct = Math.round((ownedCount / totalStickers) * 100);
@@ -47,7 +47,7 @@ export default function GeneralScreen() {
 
         {teams.map((team) => {
           const teamStickers = getStickersByTeam(team.id);
-          const teamOwned = teamStickers.filter((s) => (collection[s.id] ?? 0) > 0).length;
+          const teamOwned = teamStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
 
           return (
             <View key={team.id} style={{ marginBottom: 16 }}>
@@ -64,11 +64,11 @@ export default function GeneralScreen() {
 
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 6 }}>
                 {teamStickers.map((sticker) => {
-                  const qty = collection[sticker.id] ?? 0;
+                  const qty = collection[sticker.code] ?? 0;
                   const owned = qty > 0;
                   return (
                     <View
-                      key={sticker.id}
+                      key={sticker.code}
                       style={{
                         width: 44,
                         height: 44,
@@ -85,7 +85,7 @@ export default function GeneralScreen() {
                           fontWeight: '700',
                           color: owned ? '#fff' : t.textSecondary,
                         }}>
-                        {sticker.id}
+                        {sticker.code}
                       </Text>
                       {qty > 1 && (
                         <View

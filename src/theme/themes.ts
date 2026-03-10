@@ -4,6 +4,7 @@ export interface ThemeColors {
   bg: string;
   surface: string;
   surfaceLight: string;
+  additionalSurface: string;
   text: string;
   textSecondary: string;
   border: string;
@@ -20,6 +21,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#1e293b',
     surface: '#212d40',
     surfaceLight: '#2a384d',
+    additionalSurface: '#2a384d',
     text: '#E6EDF3',
     textSecondary: '#9ca3af',
     border: '#334155',
@@ -34,6 +36,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#eef2ff',
     surface: '#ffffff',
     surfaceLight: '#f5f7ff',
+    additionalSurface: '#ffffff',
     text: '#1e293b',
     textSecondary: '#64748b',
     border: '#c7d2fe',
@@ -48,6 +51,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#87a557',
     surface: '#c4b896',
     surfaceLight: '#d4c9a8',
+    additionalSurface: '#d4c9a8',
     text: '#2d2a26',
     textSecondary: '#5c5346',
     border: '#8b7355',
@@ -62,6 +66,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#1e1b4b',
     surface: '#312e81',
     surfaceLight: '#4338ca',
+    additionalSurface: '#4338ca',
     text: '#e0e7ff',
     textSecondary: '#a5b4fc',
     border: '#4f46e5',
@@ -76,6 +81,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#fef3c7',
     surface: '#ffffff',
     surfaceLight: '#fef9c3',
+    additionalSurface: '#fef9c3',
     text: '#1f2937',
     textSecondary: '#92400e',
     border: '#f59e0b',
@@ -90,6 +96,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#0f172a',
     surface: '#1e293b',
     surfaceLight: '#334155',
+    additionalSurface: '#334155',
     text: '#f1f5f9',
     textSecondary: '#94a3b8',
     border: '#475569',
@@ -104,6 +111,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#1c1917',
     surface: '#292524',
     surfaceLight: '#44403c',
+    additionalSurface: '#44403c',
     text: '#fafaf9',
     textSecondary: '#a8a29e',
     border: '#57534e',
@@ -118,6 +126,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#1e1b4b',
     surface: '#312e81',
     surfaceLight: '#4338ca',
+    additionalSurface: '#4338ca',
     text: '#e0e7ff',
     textSecondary: '#a5b4fc',
     border: '#6366f1',
@@ -132,6 +141,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#ecfdf5',
     surface: '#ffffff',
     surfaceLight: '#d1fae5',
+    additionalSurface: '#d1fae5',
     text: '#064e3b',
     textSecondary: '#047857',
     border: '#10b981',
@@ -146,6 +156,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     bg: '#fef3c7',
     surface: '#ffffff',
     surfaceLight: '#fef9c3',
+    additionalSurface: '#fef9c3',
     text: '#1f2937',
     textSecondary: '#b45309',
     border: '#f59e0b',

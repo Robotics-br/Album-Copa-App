@@ -12,7 +12,7 @@ export default function StatsScreen() {
   const collection = useCollectionStore((s) => s.collection);
 
   const stats = useMemo(() => {
-    const owned = stickers.filter((s) => (collection[s.id] ?? 0) > 0).length;
+    const owned = stickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
     const totalDuplicates = Object.values(collection).reduce(
       (sum, q) => sum + Math.max(0, q - 1),
       0
@@ -21,7 +21,7 @@ export default function StatsScreen() {
 
     const teamStats = teams.map((team) => {
       const teamStickers = getStickersByTeam(team.id);
-      const teamOwned = teamStickers.filter((s) => (collection[s.id] ?? 0) > 0).length;
+      const teamOwned = teamStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
       const teamPct = Math.round((teamOwned / teamStickers.length) * 100);
       return { team, owned: teamOwned, total: teamStickers.length, pct: teamPct };
     });

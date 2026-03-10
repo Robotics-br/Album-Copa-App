@@ -6,16 +6,15 @@ export interface Team {
 }
 
 export interface Sticker {
-  id: number;
   code: string;
+  albumIndex: number;
   name: string;
-  teamId: string;
-  type: 'badge' | 'team_photo' | 'player';
-  position?: 'GOL' | 'DEF' | 'MEI' | 'ATA';
+  section: string;
+  isShiny: boolean;
 }
 
 export interface UserCollection {
-  [stickerId: number]: number;
+  [stickerCode: string]: number;
 }
 
 export type ThemeStyle =

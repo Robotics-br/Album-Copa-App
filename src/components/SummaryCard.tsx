@@ -9,7 +9,7 @@ export default function SummaryCard() {
   const t = useTheme();
   const collection = useCollectionStore((s) => s.collection);
 
-  const ownedCount = stickers.filter((s) => (collection[s.id] ?? 0) > 0).length;
+  const ownedCount = stickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
   const pct = Math.round((ownedCount / totalStickers) * 100);
 
   return (

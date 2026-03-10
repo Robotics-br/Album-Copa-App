@@ -17,7 +17,7 @@ export const useAlbumFiltersStore = create<AlbumFiltersState>()((set) => ({
   currentTeam: null,
   searchQuery: '',
 
-  setFilter: (filter) => set({ stickerFilter: filter, currentTeam: null }),
+  setFilter: (filter) => set({ stickerFilter: filter }),
   setTeam: (teamId) => set({ currentTeam: teamId }),
   setSearchQuery: (query) => set({ searchQuery: query }),
   clearFilters: () => set({ stickerFilter: 'all', currentTeam: null, searchQuery: '' }),

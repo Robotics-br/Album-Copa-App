@@ -56,7 +56,6 @@ export default function SettingsScreen() {
         style={{ flex: 1 }}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ padding: 16, gap: 16 }}>
-        {/* Estilo visual */}
         <View
           style={{
             backgroundColor: t.surface,
@@ -121,7 +120,6 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        {/* Acessibilidade */}
         <View
           style={{
             backgroundColor: t.surface,
@@ -191,7 +189,6 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        {/* Perigo */}
         <View
           style={{
             backgroundColor: t.surface,
@@ -213,7 +210,6 @@ export default function SettingsScreen() {
           </Pressable>
         </View>
 
-        {/* Sobre */}
         <View style={{ alignItems: 'center', paddingVertical: 24 }}>
           <Text style={{ fontSize: 13, color: t.textSecondary }}>Minha Copa 2026</Text>
           <Text style={{ fontSize: 11, color: t.textSecondary, opacity: 0.7, marginTop: 4 }}>

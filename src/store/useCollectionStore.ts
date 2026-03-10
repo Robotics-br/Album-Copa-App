@@ -5,9 +5,9 @@ import type { UserCollection } from '../types';
 
 interface CollectionState {
   collection: UserCollection;
-  toggleSticker: (id: number) => void;
-  setQuantity: (id: number, qty: number) => void;
-  getQuantity: (id: number) => number;
+  toggleSticker: (code: string) => void;
+  setQuantity: (code: string, qty: number) => void;
+  getQuantity: (code: string) => number;
   reset: () => void;
 }
 
@@ -16,22 +16,22 @@ export const useCollectionStore = create<CollectionState>()(
     (set, get) => ({
       collection: {},
 
-      toggleSticker: (id: number) => {
-        const current = get().collection[id] ?? 0;
+      toggleSticker: (code: string) => {
+        const current = get().collection[code] ?? 0;
         const next = current === 0 ? 1 : 0;
         set((state) => ({
-          collection: { ...state.collection, [id]: next },
+          collection: { ...state.collection, [code]: next },
         }));
       },
 
-      setQuantity: (id: number, qty: number) => {
+      setQuantity: (code: string, qty: number) => {
         const val = Math.max(0, qty);
         set((state) => ({
-          collection: { ...state.collection, [id]: val },
+          collection: { ...state.collection, [code]: val },
         }));
       },
 
-      getQuantity: (id: number) => get().collection[id] ?? 0,
+      getQuantity: (code: string) => get().collection[code] ?? 0,
 
       reset: () => set({ collection: {} }),
     }),

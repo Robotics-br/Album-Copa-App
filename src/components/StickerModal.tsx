@@ -21,15 +21,15 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
   const [qty, setQty] = useState(0);
 
   useEffect(() => {
-    if (sticker) setQty(getQuantity(sticker.id));
+    if (sticker) setQty(getQuantity(sticker.code));
   }, [sticker, getQuantity]);
 
   if (!sticker) return null;
-  const team = getTeamById(sticker.teamId);
+  const team = getTeamById(sticker.section);
 
   const handleSave = () => {
-    const prevQty = getQuantity(sticker.id);
-    setQuantity(sticker.id, qty);
+    const prevQty = getQuantity(sticker.code);
+    setQuantity(sticker.code, qty);
 
     if (qty > 0 && prevQty === 0) {
       if (soundEnabled) playStickerCollectedSound();
@@ -81,7 +81,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
             <View>
               <Text style={{ fontSize: 18, fontWeight: '700', color: t.text }}>{sticker.name}</Text>
               <Text style={{ fontSize: 13, color: t.textSecondary }}>
-                {team?.name} · #{sticker.id}
+                {team?.name} · {sticker.code}
               </Text>
             </View>
           </View>

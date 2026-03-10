@@ -20,10 +20,18 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const GAP = 6;
 const ITEM_WIDTH = (SCREEN_WIDTH - 16 - GAP * (COLUMNS - 1)) / COLUMNS;
 
-type TeamHeaderItem = { type: 'team-header'; teamId: string; count: number; owned: number };
+type TeamHeaderItem = { type: 'team-header'; sectionId: string; count: number; owned: number };
 type StickerRowItem = { type: 'sticker-row'; stickers: Sticker[] };
 type EmptyItem = { type: 'empty' };
 type ListItem = TeamHeaderItem | StickerRowItem | EmptyItem;
+
+function normalize(str: string): string {
+  return str
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-zA-Z0-9\s]/g, '')
+    .toLowerCase();
+}
 
 function chunkArray<T>(arr: T[], size: number): T[][] {
   const chunks: T[][] = [];
@@ -40,34 +48,29 @@ export default function AlbumScreen() {
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const getQty = useCallback((id: number) => collection[id] ?? 0, [collection]);
+  const getQty = useCallback((code: string) => collection[code] ?? 0, [collection]);
 
   const filtered = useMemo(() => {
     let result = allStickers;
 
-    // Filtro por coleção
     switch (stickerFilter) {
       case 'missing':
-        result = result.filter((s) => getQty(s.id) === 0);
+        result = result.filter((s) => getQty(s.code) === 0);
         break;
       case 'owned':
-        result = result.filter((s) => getQty(s.id) >= 1);
+        result = result.filter((s) => getQty(s.code) >= 1);
         break;
       case 'duplicates':
-        result = result.filter((s) => getQty(s.id) > 1);
+        result = result.filter((s) => getQty(s.code) > 1);
         break;
     }
-
-    // Filtro por busca (nome do jogador ou código da figurinha)
-    const q = searchQuery.trim().toLowerCase();
+    const q = normalize(searchQuery.trim());
     if (q) {
       result = result.filter((s) => {
-        const idStr = String(s.id);
         return (
-          s.name.toLowerCase().includes(q) ||
+          normalize(s.name).includes(q) ||
           s.code.toLowerCase().includes(q) ||
-          idStr === q ||
-          idStr.padStart(3, '0').includes(q)
+          String(s.albumIndex).includes(q)
         );
       });
     }
@@ -77,7 +80,7 @@ export default function AlbumScreen() {
 
   const listData = useMemo((): ListItem[] => {
     if (currentTeam) {
-      const teamStickers = filtered.filter((s) => s.teamId === currentTeam);
+      const teamStickers = filtered.filter((s) => s.section === currentTeam);
       if (teamStickers.length === 0) return [{ type: 'empty' }];
       return chunkArray(teamStickers, COLUMNS).map((row) => ({
         type: 'sticker-row' as const,
@@ -87,19 +90,19 @@ export default function AlbumScreen() {
 
     const byTeam = new Map<string, Sticker[]>();
     for (const s of filtered) {
-      const list = byTeam.get(s.teamId) ?? [];
+      const list = byTeam.get(s.section) ?? [];
       list.push(s);
-      byTeam.set(s.teamId, list);
+      byTeam.set(s.section, list);
     }
 
     const items: ListItem[] = [];
     for (const team of teams) {
       const stickers = byTeam.get(team.id);
       if (!stickers?.length) continue;
-      const ownedInTeam = stickers.filter((s) => getQty(s.id) > 0).length;
+      const ownedInTeam = stickers.filter((s) => getQty(s.code) > 0).length;
       items.push({
         type: 'team-header',
-        teamId: team.id,
+        sectionId: team.id,
         count: stickers.length,
         owned: ownedInTeam,
       });
@@ -124,7 +127,7 @@ export default function AlbumScreen() {
       }
 
       if (item.type === 'team-header') {
-        const team = getTeamById(item.teamId);
+        const team = getTeamById(item.sectionId);
         return (
           <View
             style={{
@@ -147,7 +150,6 @@ export default function AlbumScreen() {
         );
       }
 
-      // sticker-row
       return (
         <View
           style={{
@@ -156,7 +158,7 @@ export default function AlbumScreen() {
             marginBottom: GAP,
           }}>
           {item.stickers.map((sticker) => (
-            <View key={sticker.id} style={{ width: ITEM_WIDTH, marginRight: GAP }}>
+            <View key={sticker.code} style={{ width: ITEM_WIDTH, marginRight: GAP }}>
               <StickerCard sticker={sticker} onLongPress={setSelectedSticker} />
             </View>
           ))}
@@ -206,8 +208,8 @@ export default function AlbumScreen() {
 
   const keyExtractor = useCallback((item: ListItem, index: number) => {
     if (item.type === 'empty') return 'empty';
-    if (item.type === 'team-header') return `header-${item.teamId}`;
-    return `row-${item.stickers[0].id}`;
+    if (item.type === 'team-header') return `header-${item.sectionId}`;
+    return `row-${item.stickers[0].code}`;
   }, []);
 
   const getItemType = useCallback((item: ListItem) => item.type, []);
