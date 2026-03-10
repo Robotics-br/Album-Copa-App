@@ -32,11 +32,11 @@ export default function FilterBar() {
               setFilter(key);
             }}
             className={`rounded-full border px-3.5 py-1.5 ${
-              active ? 'border-gold bg-gold' : 'bg-additional-surface border-border'
+              active ? 'border-gold bg-gold' : 'border-border bg-surface-light'
             }`}>
             <Text
               className={`text-[13px] ${
-                active ? 'font-bold text-[#0F1923]' : 'text-text-secondary font-medium'
+                active ? 'font-bold text-[#0F1923]' : 'font-medium text-text-secondary'
               }`}>
               {label}
             </Text>

@@ -68,7 +68,7 @@ function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
       ? `${t.owned}30`
       : status === 'duplicate'
         ? `${t.duplicate}30`
-        : t.additionalSurface;
+        : t.surfaceLight;
 
   const borderColor =
     status === 'owned' ? `${t.owned}80` : status === 'duplicate' ? t.gold : t.border;
@@ -90,7 +90,7 @@ function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
         <Text className="text-[14px]">{flag}</Text>
         {status !== 'missing' && <Text className="text-[10px] text-gold">★</Text>}
         {qty > 1 && (
-          <View className="bg-duplicate rounded-full px-1.5 py-0.5">
+          <View className="rounded-full bg-duplicate px-1.5 py-0.5">
             <Text className="text-[10px] font-bold text-white">×{qty}</Text>
           </View>
         )}

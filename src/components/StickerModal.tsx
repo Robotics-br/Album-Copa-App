@@ -50,25 +50,25 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
       <Pressable className="flex-1 justify-end bg-black/50" onPress={onClose}>
         <Pressable
           onPress={(e) => e.stopPropagation()}
-          className="border-border rounded-t-[24px] border-t bg-surface p-6 pb-10">
+          className="rounded-t-[24px] border-t border-border bg-surface p-6 pb-10">
           <AnimatedPressable
             onPress={onClose}
             scaleDown={0.85}
-            className="absolute right-4 top-4 h-8 w-8 items-center justify-center rounded-full bg-surface-light">
+            className="absolute right-4 top-4 h-8 w-8 items-center justify-center rounded-full border-2 border-border bg-surface-light">
             <X size={20} color={t.textSecondary} />
           </AnimatedPressable>
 
           <View className="mb-6 flex-row items-center gap-3">
             <Text className="text-[32px]">{team?.flag}</Text>
             <View>
-              <Text className="text-text text-[18px] font-bold">{sticker.name}</Text>
-              <Text className="text-text-secondary text-[13px]">
+              <Text className="text-[18px] font-bold text-text">{sticker.name}</Text>
+              <Text className="text-[13px] text-text-secondary">
                 {team?.name} · {sticker.code}
               </Text>
             </View>
           </View>
 
-          <Text className="text-text-secondary mb-4 text-center text-[13px]">
+          <Text className="mb-4 text-center text-[13px] text-text-secondary">
             Quantas figurinhas você tem?
           </Text>
 
@@ -79,7 +79,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                 setQty(Math.max(0, qty - 1));
               }}
               scaleDown={0.88}
-              className="border-border h-[52px] w-[52px] items-center justify-center rounded-full border-2 bg-surface-light">
+              className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface-light">
               <Minus size={22} color={t.gold} />
             </AnimatedPressable>
             <Text className="min-w-[60px] text-center text-[32px] font-bold text-gold">{qty}</Text>
@@ -89,7 +89,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                 setQty(qty + 1);
               }}
               scaleDown={0.88}
-              className="border-border h-[52px] w-[52px] items-center justify-center rounded-full border-2 bg-surface-light">
+              className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface-light">
               <Plus size={22} color={t.gold} />
             </AnimatedPressable>
           </View>

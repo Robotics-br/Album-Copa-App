@@ -17,7 +17,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         '--theme-bg': colors.bg,
         '--theme-surface': colors.surface,
         '--theme-surfaceLight': colors.surfaceLight,
-        '--theme-additionalSurface': colors.additionalSurface,
         '--theme-border': colors.border,
         '--theme-text': colors.text,
         '--theme-textSecondary': colors.textSecondary,
