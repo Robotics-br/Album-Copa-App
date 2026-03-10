@@ -22,10 +22,16 @@ export default function SummaryCard() {
         padding: 12,
         marginHorizontal: 12,
         marginTop: 8,
-      }}
-    >
+      }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-        <Text style={{ fontSize: 14, fontWeight: '700', color: t.text, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontWeight: '700',
+            color: t.text,
+            textTransform: 'uppercase',
+            letterSpacing: 0.5,
+          }}>
           SEU ÁLBUM
         </Text>
         <View style={{ flex: 1 }}>

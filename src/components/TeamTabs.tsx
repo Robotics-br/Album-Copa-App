@@ -36,16 +36,14 @@ export default function TeamTabs() {
                 borderColor: active ? t.gold : 'transparent',
                 backgroundColor: active ? `${t.gold}18` : t.surfaceLight,
                 minWidth: 56,
-              }}
-            >
+              }}>
               <Text style={{ fontSize: 22 }}>{item.flag}</Text>
               <Text
                 style={{
                   fontSize: 10,
                   fontWeight: '600',
                   color: active ? t.gold : t.textSecondary,
-                }}
-              >
+                }}>
                 {item.code}
               </Text>
             </Pressable>

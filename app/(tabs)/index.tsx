@@ -30,7 +30,7 @@ export default function AlbumScreen() {
     } else {
       const lower = q.toLowerCase();
       const team = teams.find(
-        (t) => t.name.toLowerCase().startsWith(lower) || t.code.toLowerCase().startsWith(lower),
+        (t) => t.name.toLowerCase().startsWith(lower) || t.code.toLowerCase().startsWith(lower)
       );
       if (team) setTeam(team.id);
     }
@@ -69,7 +69,14 @@ export default function AlbumScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
       <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text style={{ fontSize: 14, fontWeight: '700', color: t.gold, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontWeight: '700',
+            color: t.gold,
+            textTransform: 'uppercase',
+            letterSpacing: 0.5,
+          }}>
           MINHA COPA 2026
         </Text>
       </View>
@@ -77,7 +84,14 @@ export default function AlbumScreen() {
       <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
         <SummaryCard />
 
-        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 12, paddingVertical: 10 }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 8,
+            paddingHorizontal: 12,
+            paddingVertical: 10,
+          }}>
           <Search size={18} color={t.gold} />
           <TextInput
             value={searchQuery}
@@ -99,8 +113,12 @@ export default function AlbumScreen() {
           />
           <Pressable
             onPress={handleSearch}
-            style={{ paddingVertical: 10, paddingHorizontal: 16, borderRadius: 12, backgroundColor: t.gold }}
-          >
+            style={{
+              paddingVertical: 10,
+              paddingHorizontal: 16,
+              borderRadius: 12,
+              backgroundColor: t.gold,
+            }}>
             <Text style={{ fontWeight: '700', fontSize: 13, color: '#0F1923' }}>Buscar</Text>
           </Pressable>
         </View>
@@ -110,7 +128,8 @@ export default function AlbumScreen() {
 
         {currentTeam && selectedTeamStickers ? (
           selectedTeamStickers.length === 0 ? (
-            <Text style={{ textAlign: 'center', padding: 48, color: t.textSecondary, fontSize: 13 }}>
+            <Text
+              style={{ textAlign: 'center', padding: 48, color: t.textSecondary, fontSize: 13 }}>
               Nenhuma figurinha nesta categoria
             </Text>
           ) : (
@@ -125,12 +144,30 @@ export default function AlbumScreen() {
             const team = getTeamById(teamId);
             const ownedInTeam = stickers.filter((s) => getQuantity(s.id) > 0).length;
             return (
-              <View key={teamId} style={{ marginTop: 4, borderTopWidth: 1, borderTopColor: t.border, paddingTop: 6 }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingHorizontal: 12, paddingVertical: 6 }}>
+              <View
+                key={teamId}
+                style={{
+                  marginTop: 4,
+                  borderTopWidth: 1,
+                  borderTopColor: t.border,
+                  paddingTop: 6,
+                }}>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 8,
+                    paddingHorizontal: 12,
+                    paddingVertical: 6,
+                  }}>
                   <Text style={{ fontSize: 15 }}>{team?.flag}</Text>
-                  <Text style={{ fontSize: 14, fontWeight: '600', color: t.text }}>{team?.name}</Text>
+                  <Text style={{ fontSize: 14, fontWeight: '600', color: t.text }}>
+                    {team?.name}
+                  </Text>
                   <Text style={{ marginLeft: 'auto', fontSize: 12, color: t.textSecondary }}>
-                    {stickerFilter === 'all' ? `${ownedInTeam}/${stickers.length}` : stickers.length}
+                    {stickerFilter === 'all'
+                      ? `${ownedInTeam}/${stickers.length}`
+                      : stickers.length}
                   </Text>
                 </View>
                 <StickerGrid stickers={stickers} onLongPress={setSelectedSticker} />

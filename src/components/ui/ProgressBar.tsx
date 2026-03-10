@@ -19,8 +19,7 @@ export default function ProgressBar({ percent, height = 8 }: ProgressBarProps) {
         overflow: 'hidden',
         borderWidth: 1,
         borderColor: t.border,
-      }}
-    >
+      }}>
       <View
         style={{
           height: '100%',

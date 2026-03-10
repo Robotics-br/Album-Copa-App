@@ -8,11 +8,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const style = useSettingsStore((s) => s.style);
   const colors = useMemo(() => themeMap[style] ?? themeMap['original-dark'], [style]);
 
-  return (
-    <ThemeContext.Provider value={colors}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={colors}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme(): ThemeColors {

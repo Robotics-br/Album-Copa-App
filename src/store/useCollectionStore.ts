@@ -38,6 +38,6 @@ export const useCollectionStore = create<CollectionState>()(
     {
       name: '@copa2026/collection',
       storage: createJSONStorage(() => AsyncStorage),
-    },
-  ),
+    }
+  )
 );

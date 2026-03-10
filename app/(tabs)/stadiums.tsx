@@ -10,7 +10,7 @@ export default function StadiumsScreen() {
   const t = useTheme();
   const groups = useMemo(() => getStadiumsByCountry(), []);
   const [expanded, setExpanded] = useState<Record<string, boolean>>(
-    Object.fromEntries(Object.keys(groups).map((k) => [k, true])),
+    Object.fromEntries(Object.keys(groups).map((k) => [k, true]))
   );
 
   const toggleGroup = (key: string) => {
@@ -22,7 +22,8 @@ export default function StadiumsScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
       <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text style={{ fontSize: 18, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
+        <Text
+          style={{ fontSize: 18, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
           Estádios da Copa 2026
         </Text>
         <Text style={{ fontSize: 13, color: t.textSecondary }}>
@@ -30,7 +31,10 @@ export default function StadiumsScreen() {
         </Text>
       </View>
 
-      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 12, gap: 12 }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ padding: 12, gap: 12 }}>
         {Object.entries(groups).map(([country, stadiumList]) => (
           <View
             key={country}
@@ -40,8 +44,7 @@ export default function StadiumsScreen() {
               borderColor: t.border,
               borderRadius: 16,
               overflow: 'hidden',
-            }}
-          >
+            }}>
             <Pressable
               onPress={() => toggleGroup(country)}
               style={{
@@ -49,12 +52,21 @@ export default function StadiumsScreen() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: 14,
-              }}
-            >
+              }}>
               <Text style={{ fontSize: 15, fontWeight: '700', color: t.text }}>{country}</Text>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                <View style={{ backgroundColor: t.surfaceLight, paddingHorizontal: 10, paddingVertical: 2, borderRadius: 999, borderWidth: 1, borderColor: t.border }}>
-                  <Text style={{ fontSize: 11, fontWeight: '700', color: t.gold }}>{stadiumList.length}</Text>
+                <View
+                  style={{
+                    backgroundColor: t.surfaceLight,
+                    paddingHorizontal: 10,
+                    paddingVertical: 2,
+                    borderRadius: 999,
+                    borderWidth: 1,
+                    borderColor: t.border,
+                  }}>
+                  <Text style={{ fontSize: 11, fontWeight: '700', color: t.gold }}>
+                    {stadiumList.length}
+                  </Text>
                 </View>
                 {expanded[country] ? (
                   <ChevronUp size={18} color={t.textSecondary} />
@@ -64,9 +76,8 @@ export default function StadiumsScreen() {
               </View>
             </Pressable>
 
-            {expanded[country] && stadiumList.map((stadium) => (
-              <StadiumCard key={stadium.name} stadium={stadium} />
-            ))}
+            {expanded[country] &&
+              stadiumList.map((stadium) => <StadiumCard key={stadium.name} stadium={stadium} />)}
           </View>
         ))}
       </ScrollView>

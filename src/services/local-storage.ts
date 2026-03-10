@@ -19,7 +19,9 @@ export const localStorage: StorageService = {
   async saveCollection(collection: UserCollection): Promise<void> {
     try {
       await AsyncStorage.setItem(COLLECTION_KEY, JSON.stringify(collection));
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   },
 
   async loadSettings(): Promise<AppSettings | null> {
@@ -34,7 +36,9 @@ export const localStorage: StorageService = {
   async saveSettings(settings: AppSettings): Promise<void> {
     try {
       await AsyncStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
-    } catch { /* ignore */ }
+    } catch {
+      /* ignore */
+    }
   },
 
   async exportBackup(): Promise<BackupData> {

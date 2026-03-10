@@ -24,8 +24,7 @@ export default function MatchCard({ match }: { match: Match }) {
         borderRadius: 12,
         padding: 14,
         gap: 6,
-      }}
-    >
+      }}>
       <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
         <Text style={{ fontSize: 15, fontWeight: '700', color: t.text }}>
           {home.flag} {home.name}
@@ -41,9 +40,7 @@ export default function MatchCard({ match }: { match: Match }) {
         </Text>
         <Text style={{ fontSize: 13, fontWeight: '600', color: t.gold }}>às {match.time}</Text>
       </View>
-      {match.venue && (
-        <Text style={{ fontSize: 11, color: t.textSecondary }}>{match.venue}</Text>
-      )}
+      {match.venue && <Text style={{ fontSize: 11, color: t.textSecondary }}>{match.venue}</Text>}
     </View>
   );
 }

@@ -1,12 +1,27 @@
-// Sons são placeholders — substituir por arquivos .mp3 quando disponíveis
-// expo-audio usa a nova API com useAudioPlayer ou Audio.Sound
+import { createAudioPlayer } from 'expo-audio';
+
+// Instanciamos os players globalmente para não criar um novo a cada chamada
+export const addStickerPlayer = createAudioPlayer(require('../../assets/sounds/add_sticker.mp3'));
+export const removeStickerPlayer = createAudioPlayer(
+  require('../../assets/sounds/remove_sticker.mp3')
+);
 
 export async function playStickerCollectedSound() {
-  // TODO: reproduzir som de coleta via expo-audio
+  try {
+    addStickerPlayer.seekTo(0);
+    addStickerPlayer.play();
+  } catch (error) {
+    console.warn('Erro ao reproduzir som de coleta:', error);
+  }
 }
 
 export async function playStickerRemovedSound() {
-  // TODO: reproduzir som de remoção via expo-audio
+  try {
+    removeStickerPlayer.seekTo(0);
+    removeStickerPlayer.play();
+  } catch (error) {
+    console.warn('Erro ao reproduzir som de remoção:', error);
+  }
 }
 
 export async function playDuplicateSetSound() {

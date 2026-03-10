@@ -40,11 +40,11 @@ Após iniciar, escaneie o QR code exibido no terminal com o app **Expo Go**.
 
 ### Outros comandos
 
-| Comando | Descrição |
-|---|---|
+| Comando           | Descrição                  |
+| ----------------- | -------------------------- |
 | `npm run android` | Inicia no emulador Android |
-| `npm run ios` | Inicia no simulador iOS |
-| `npm run web` | Inicia no navegador |
+| `npm run ios`     | Inicia no simulador iOS    |
+| `npm run web`     | Inicia no navegador        |
 
 ## Estrutura do projeto
 

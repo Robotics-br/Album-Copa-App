@@ -13,6 +13,7 @@ import { useCollectionStore } from '../store/useCollectionStore';
 import { useSettingsStore } from '../store/useSettingsStore';
 import { getTeamById } from '../data/teams';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
+import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
 import type { Sticker } from '../types';
 
 interface StickerCardProps {
@@ -43,29 +44,31 @@ export default function StickerCard({ sticker, onLongPress }: StickerCardProps) 
     toggleSticker(sticker.id);
 
     if (wasOwned) {
+      if (soundEnabled) playStickerRemovedSound();
       errorNotification();
       scale.value = withSequence(
         withTiming(1.08, { duration: 80 }),
         withTiming(0.95, { duration: 100 }),
-        withSpring(1, { damping: 12 }),
+        withSpring(1, { damping: 12 })
       );
       brightness.value = withSequence(
         withTiming(0.7, { duration: 100 }),
-        withTiming(1, { duration: 200 }),
+        withTiming(1, { duration: 200 })
       );
     } else {
+      if (soundEnabled) playStickerCollectedSound();
       successNotification();
       scale.value = withSequence(
         withTiming(1.35, { duration: 100 }),
         withTiming(0.9, { duration: 120 }),
-        withSpring(1, { damping: 8, stiffness: 200 }),
+        withSpring(1, { damping: 8, stiffness: 200 })
       );
       brightness.value = withSequence(
         withTiming(1.3, { duration: 100 }),
-        withTiming(1, { duration: 300 }),
+        withTiming(1, { duration: 300 })
       );
     }
-  }, [sticker.id, getQuantity, toggleSticker, scale, brightness]);
+  }, [sticker.id, getQuantity, toggleSticker, scale, brightness, soundEnabled]);
 
   const handleLongPress = useCallback(() => {
     lightTap();
@@ -80,11 +83,7 @@ export default function StickerCard({ sticker, onLongPress }: StickerCardProps) 
         : t.surfaceLight;
 
   const borderColor =
-    status === 'owned'
-      ? `${t.owned}80`
-      : status === 'duplicate'
-        ? t.gold
-        : t.border;
+    status === 'owned' ? `${t.owned}80` : status === 'duplicate' ? t.gold : t.border;
 
   return (
     <AnimatedPressable
@@ -103,15 +102,24 @@ export default function StickerCard({ sticker, onLongPress }: StickerCardProps) 
           alignItems: 'center',
           justifyContent: 'space-between',
         },
-      ]}
-    >
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
+      ]}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          width: '100%',
+          alignItems: 'center',
+        }}>
         <Text style={{ fontSize: 14 }}>{team?.flag}</Text>
-        {status !== 'missing' && (
-          <Star size={12} fill="#FFD700" color="#FFD700" />
-        )}
+        {status !== 'missing' && <Star size={12} fill="#FFD700" color="#FFD700" />}
         {qty > 1 && (
-          <View style={{ backgroundColor: t.duplicate, paddingHorizontal: 6, paddingVertical: 1, borderRadius: 999 }}>
+          <View
+            style={{
+              backgroundColor: t.duplicate,
+              paddingHorizontal: 6,
+              paddingVertical: 1,
+              borderRadius: 999,
+            }}>
             <Text style={{ fontSize: 10, fontWeight: '700', color: '#fff' }}>×{qty}</Text>
           </View>
         )}
@@ -125,8 +133,7 @@ export default function StickerCard({ sticker, onLongPress }: StickerCardProps) 
             fontWeight: '600',
             color: status === 'missing' ? t.textSecondary : t.text,
             textAlign: 'center',
-          }}
-        >
+          }}>
           {sticker.name}
         </Text>
         <Text style={{ fontSize: 8, fontWeight: '700', color: t.gold }}>

@@ -4,7 +4,7 @@ import { FlashList } from '@shopify/flash-list';
 import StickerCard from './StickerCard';
 import type { Sticker } from '../types';
 
-const COLUMNS = 7;
+const COLUMNS = 5;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const GAP = 6;
 const ITEM_WIDTH = (SCREEN_WIDTH - 16 - GAP * (COLUMNS - 1)) / COLUMNS;

@@ -20,8 +20,7 @@ export default function FilterBar() {
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ paddingHorizontal: 16, paddingVertical: 8, gap: 6 }}
-    >
+      contentContainerStyle={{ paddingHorizontal: 16, paddingVertical: 8, gap: 6 }}>
       {filters.map(({ key, label }) => {
         const active = stickerFilter === key;
         return (
@@ -38,15 +37,13 @@ export default function FilterBar() {
               backgroundColor: active ? t.gold : t.surfaceLight,
               borderWidth: 1,
               borderColor: active ? t.gold : t.border,
-            }}
-          >
+            }}>
             <Text
               style={{
                 fontSize: 13,
                 fontWeight: active ? '700' : '500',
                 color: active ? '#0F1923' : t.textSecondary,
-              }}
-            >
+              }}>
               {label}
             </Text>
           </Pressable>

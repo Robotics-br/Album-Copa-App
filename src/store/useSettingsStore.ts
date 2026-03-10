@@ -37,6 +37,6 @@ export const useSettingsStore = create<SettingsState>()(
     {
       name: '@copa2026/settings',
       storage: createJSONStorage(() => AsyncStorage),
-    },
-  ),
+    }
+  )
 );

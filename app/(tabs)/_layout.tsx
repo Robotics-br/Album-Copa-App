@@ -24,8 +24,7 @@ export default function TabLayout() {
           fontSize: 10,
           fontWeight: '500',
         },
-      }}
-    >
+      }}>
       <Tabs.Screen
         name="index"
         options={{

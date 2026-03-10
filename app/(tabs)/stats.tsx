@@ -15,7 +15,7 @@ export default function StatsScreen() {
     const owned = stickers.filter((s) => (collection[s.id] ?? 0) > 0).length;
     const totalDuplicates = Object.values(collection).reduce(
       (sum, q) => sum + Math.max(0, q - 1),
-      0,
+      0
     );
     const pct = Math.round((owned / totalStickers) * 100);
 
@@ -34,12 +34,16 @@ export default function StatsScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
       <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text style={{ fontSize: 14, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
+        <Text
+          style={{ fontSize: 14, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
           MEU PROGRESSO
         </Text>
       </View>
 
-      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 16, gap: 16 }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ padding: 16, gap: 16 }}>
         <View style={{ alignItems: 'center', paddingVertical: 16 }}>
           <ProgressRing percent={stats.pct} />
         </View>
@@ -60,15 +64,21 @@ export default function StatsScreen() {
                 borderRadius: 12,
                 padding: 16,
                 alignItems: 'center',
-              }}
-            >
+              }}>
               <Text style={{ fontSize: 24, fontWeight: '800', color: t.gold }}>{value}</Text>
               <Text style={{ fontSize: 11, color: t.textSecondary, marginTop: 2 }}>{label}</Text>
             </View>
           ))}
         </View>
 
-        <View style={{ backgroundColor: t.surface, borderWidth: 1, borderColor: t.border, borderRadius: 16, padding: 16 }}>
+        <View
+          style={{
+            backgroundColor: t.surface,
+            borderWidth: 1,
+            borderColor: t.border,
+            borderRadius: 16,
+            padding: 16,
+          }}>
           <Text style={{ fontSize: 15, fontWeight: '600', color: t.text, marginBottom: 16 }}>
             Progresso por Seleção
           </Text>
@@ -76,7 +86,9 @@ export default function StatsScreen() {
             <View key={team.id} style={{ marginBottom: 14 }}>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
                 <Text style={{ fontSize: 18 }}>{team.flag}</Text>
-                <Text style={{ fontSize: 13, fontWeight: '500', color: t.text, flex: 1 }}>{team.name}</Text>
+                <Text style={{ fontSize: 13, fontWeight: '500', color: t.text, flex: 1 }}>
+                  {team.name}
+                </Text>
                 <Text style={{ fontSize: 11, color: t.textSecondary, fontWeight: '600' }}>
                   {owned}/{total}
                 </Text>

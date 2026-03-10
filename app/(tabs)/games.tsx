@@ -4,7 +4,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { teams } from '../../src/data/teams';
-import { matches, getUniqueDates, getMatchesByTeam, getMatchesByDate } from '../../src/data/matches';
+import {
+  matches,
+  getUniqueDates,
+  getMatchesByTeam,
+  getMatchesByDate,
+} from '../../src/data/matches';
 import MatchCard from '../../src/components/MatchCard';
 
 type FilterKind = 'all' | 'team' | 'day';
@@ -37,7 +42,8 @@ export default function GamesScreen() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
       <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text style={{ fontSize: 18, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
+        <Text
+          style={{ fontSize: 18, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
           Todos os jogos
         </Text>
         <Text style={{ fontSize: 13, color: t.textSecondary }}>Copa do Mundo FIFA 2026</Text>
@@ -59,9 +65,13 @@ export default function GamesScreen() {
                   borderWidth: 1,
                   borderColor: active ? t.gold : t.border,
                   alignItems: 'center',
-                }}
-              >
-                <Text style={{ fontSize: 13, fontWeight: '600', color: active ? '#0F1923' : t.textSecondary }}>
+                }}>
+                <Text
+                  style={{
+                    fontSize: 13,
+                    fontWeight: '600',
+                    color: active ? '#0F1923' : t.textSecondary,
+                  }}>
                   {label}
                 </Text>
               </Pressable>
@@ -70,8 +80,18 @@ export default function GamesScreen() {
         </View>
 
         {filterKind === 'team' && (
-          <View style={{ borderRadius: 12, borderWidth: 1, borderColor: t.border, backgroundColor: t.surface, overflow: 'hidden' }}>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ padding: 8, gap: 6 }}>
+          <View
+            style={{
+              borderRadius: 12,
+              borderWidth: 1,
+              borderColor: t.border,
+              backgroundColor: t.surface,
+              overflow: 'hidden',
+            }}>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={{ padding: 8, gap: 6 }}>
               {teams.map((team) => {
                 const active = teamId === team.id;
                 return (
@@ -85,9 +105,13 @@ export default function GamesScreen() {
                       backgroundColor: active ? t.gold : t.surfaceLight,
                       borderWidth: 1,
                       borderColor: active ? t.gold : t.border,
-                    }}
-                  >
-                    <Text style={{ fontSize: 12, fontWeight: '600', color: active ? '#0F1923' : t.text }}>
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 12,
+                        fontWeight: '600',
+                        color: active ? '#0F1923' : t.text,
+                      }}>
                       {team.flag} {team.code}
                     </Text>
                   </Pressable>
@@ -98,7 +122,10 @@ export default function GamesScreen() {
         )}
 
         {filterKind === 'day' && (
-          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ gap: 6 }}>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ gap: 6 }}>
             {uniqueDates.map((date) => {
               const active = selectedDate === date;
               return (
@@ -112,9 +139,9 @@ export default function GamesScreen() {
                     backgroundColor: active ? t.gold : t.surfaceLight,
                     borderWidth: 1,
                     borderColor: active ? t.gold : t.border,
-                  }}
-                >
-                  <Text style={{ fontSize: 12, fontWeight: '600', color: active ? '#0F1923' : t.text }}>
+                  }}>
+                  <Text
+                    style={{ fontSize: 12, fontWeight: '600', color: active ? '#0F1923' : t.text }}>
                     {formatDateOption(date)}
                   </Text>
                 </Pressable>

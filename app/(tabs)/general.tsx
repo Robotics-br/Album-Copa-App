@@ -12,22 +12,35 @@ export default function GeneralScreen() {
 
   const ownedCount = useMemo(
     () => stickers.filter((s) => (collection[s.id] ?? 0) > 0).length,
-    [collection],
+    [collection]
   );
   const pct = Math.round((ownedCount / totalStickers) * 100);
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
       <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text style={{ fontSize: 14, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
+        <Text
+          style={{ fontSize: 14, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
           VISÃO GERAL
         </Text>
       </View>
 
-      <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} contentContainerStyle={{ padding: 12 }}>
-        <View style={{ backgroundColor: t.surface, borderWidth: 1, borderColor: t.border, borderRadius: 12, padding: 14, marginBottom: 12 }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ padding: 12 }}>
+        <View
+          style={{
+            backgroundColor: t.surface,
+            borderWidth: 1,
+            borderColor: t.border,
+            borderRadius: 12,
+            padding: 14,
+            marginBottom: 12,
+          }}>
           <Text style={{ fontSize: 13, color: t.textSecondary, marginBottom: 8 }}>
-            <Text style={{ color: t.gold, fontSize: 18, fontWeight: '800' }}>{ownedCount}</Text> / {totalStickers} figurinhas ({pct}%)
+            <Text style={{ color: t.gold, fontSize: 18, fontWeight: '800' }}>{ownedCount}</Text> /{' '}
+            {totalStickers} figurinhas ({pct}%)
           </Text>
           <ProgressBar percent={pct} />
         </View>
@@ -38,9 +51,12 @@ export default function GeneralScreen() {
 
           return (
             <View key={team.id} style={{ marginBottom: 16 }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 8 }}>
+              <View
+                style={{ flexDirection: 'row', alignItems: 'center', gap: 8, paddingVertical: 8 }}>
                 <Text style={{ fontSize: 20 }}>{team.flag}</Text>
-                <Text style={{ fontSize: 15, fontWeight: '600', color: t.text, flex: 1 }}>{team.name}</Text>
+                <Text style={{ fontSize: 15, fontWeight: '600', color: t.text, flex: 1 }}>
+                  {team.name}
+                </Text>
                 <Text style={{ fontSize: 13, color: t.textSecondary, fontWeight: '500' }}>
                   {teamOwned}/{teamStickers.length}
                 </Text>
@@ -62,9 +78,13 @@ export default function GeneralScreen() {
                         backgroundColor: owned ? t.owned : t.surfaceLight,
                         borderWidth: 1,
                         borderColor: owned ? t.owned : t.border,
-                      }}
-                    >
-                      <Text style={{ fontSize: 11, fontWeight: '700', color: owned ? '#fff' : t.textSecondary }}>
+                      }}>
+                      <Text
+                        style={{
+                          fontSize: 11,
+                          fontWeight: '700',
+                          color: owned ? '#fff' : t.textSecondary,
+                        }}>
                         {sticker.id}
                       </Text>
                       {qty > 1 && (
@@ -76,9 +96,10 @@ export default function GeneralScreen() {
                             backgroundColor: t.duplicate,
                             paddingHorizontal: 4,
                             borderRadius: 999,
-                          }}
-                        >
-                          <Text style={{ fontSize: 9, fontWeight: '700', color: '#fff' }}>×{qty}</Text>
+                          }}>
+                          <Text style={{ fontSize: 9, fontWeight: '700', color: '#fff' }}>
+                            ×{qty}
+                          </Text>
                         </View>
                       )}
                     </View>

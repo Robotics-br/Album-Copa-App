@@ -15,8 +15,7 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
         gap: 12,
         padding: 12,
         backgroundColor: t.surface,
-      }}
-    >
+      }}>
       <View
         style={{
           width: 90,
@@ -26,8 +25,7 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
           backgroundColor: t.surfaceLight,
           borderWidth: 1,
           borderColor: t.border,
-        }}
-      >
+        }}>
         {!imgError ? (
           <Image
             source={{ uri: stadium.image }}

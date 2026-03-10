@@ -29,9 +29,6 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "plugins": [
-      "expo-router",
-      "expo-audio"
-    ]
+    "plugins": ["expo-router", "expo-audio"]
   }
 }
