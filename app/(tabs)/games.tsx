@@ -41,38 +41,28 @@ export default function GamesScreen() {
   ];
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
-      <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text
-          style={{ fontSize: 18, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
-          Todos os jogos
-        </Text>
-        <Text style={{ fontSize: 13, color: t.textSecondary }}>Copa do Mundo FIFA 2026</Text>
+    <SafeAreaView className="bg-bg flex-1" edges={['top']}>
+      <View className="px-3 py-2">
+        <Text className="text-[18px] font-bold uppercase text-gold">Todos os jogos</Text>
+        <Text className="text-text-secondary text-[13px]">Copa do Mundo FIFA 2026</Text>
       </View>
 
-      <View style={{ paddingHorizontal: 12, gap: 10, marginBottom: 8 }}>
-        <View style={{ flexDirection: 'row', gap: 6 }}>
+      <View className="mb-2 gap-2.5 px-3">
+        <View className="flex-row gap-1.5">
           {filterTabs.map(({ key, label }) => {
             const active = filterKind === key;
             return (
               <AnimatedPressable
                 key={key}
                 onPress={() => setFilterKind(key)}
+                className="flex-1 items-center rounded-xl border py-2.5"
                 style={{
-                  flex: 1,
-                  paddingVertical: 10,
-                  borderRadius: 12,
                   backgroundColor: active ? t.gold : t.surfaceLight,
-                  borderWidth: 1,
                   borderColor: active ? t.gold : t.border,
-                  alignItems: 'center',
                 }}>
                 <Text
-                  style={{
-                    fontSize: 13,
-                    fontWeight: '600',
-                    color: active ? '#0F1923' : t.textSecondary,
-                  }}>
+                  className="text-[13px] font-semibold"
+                  style={{ color: active ? '#0F1923' : t.textSecondary }}>
                   {label}
                 </Text>
               </AnimatedPressable>
@@ -81,14 +71,7 @@ export default function GamesScreen() {
         </View>
 
         {filterKind === 'team' && (
-          <View
-            style={{
-              borderRadius: 12,
-              borderWidth: 1,
-              borderColor: t.border,
-              backgroundColor: t.surface,
-              overflow: 'hidden',
-            }}>
+          <View className="border-border overflow-hidden rounded-xl border bg-surface">
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -99,20 +82,14 @@ export default function GamesScreen() {
                   <AnimatedPressable
                     key={team.id}
                     onPress={() => setTeamId(team.id)}
+                    className="rounded-lg border px-3 py-1.5"
                     style={{
-                      paddingVertical: 6,
-                      paddingHorizontal: 12,
-                      borderRadius: 8,
                       backgroundColor: active ? t.gold : t.surfaceLight,
-                      borderWidth: 1,
                       borderColor: active ? t.gold : t.border,
                     }}>
                     <Text
-                      style={{
-                        fontSize: 12,
-                        fontWeight: '600',
-                        color: active ? '#0F1923' : t.text,
-                      }}>
+                      className="text-[12px] font-semibold"
+                      style={{ color: active ? '#0F1923' : t.text }}>
                       {team.flag} {team.code}
                     </Text>
                   </AnimatedPressable>
@@ -133,16 +110,14 @@ export default function GamesScreen() {
                 <AnimatedPressable
                   key={date}
                   onPress={() => setSelectedDate(date)}
+                  className="rounded-lg border px-3.5 py-2"
                   style={{
-                    paddingVertical: 8,
-                    paddingHorizontal: 14,
-                    borderRadius: 8,
                     backgroundColor: active ? t.gold : t.surfaceLight,
-                    borderWidth: 1,
                     borderColor: active ? t.gold : t.border,
                   }}>
                   <Text
-                    style={{ fontSize: 12, fontWeight: '600', color: active ? '#0F1923' : t.text }}>
+                    className="text-[12px] font-semibold"
+                    style={{ color: active ? '#0F1923' : t.text }}>
                     {formatDateOption(date)}
                   </Text>
                 </AnimatedPressable>
@@ -152,16 +127,14 @@ export default function GamesScreen() {
         )}
       </View>
 
-      <View style={{ flex: 1, paddingHorizontal: 12 }}>
+      <View className="flex-1 px-3">
         {filteredMatches.length === 0 ? (
-          <Text style={{ textAlign: 'center', padding: 24, color: t.textSecondary }}>
-            Nenhum jogo encontrado
-          </Text>
+          <Text className="text-text-secondary p-6 text-center">Nenhum jogo encontrado</Text>
         ) : (
           <FlashList
             data={filteredMatches}
             keyExtractor={(item) => item.id}
-            ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
+            ItemSeparatorComponent={() => <View className="h-2" />}
             renderItem={({ item }) => <MatchCard match={item} />}
             showsVerticalScrollIndicator={false}
           />

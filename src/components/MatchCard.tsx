@@ -16,31 +16,23 @@ export default function MatchCard({ match }: { match: Match }) {
   if (!home || !away) return null;
 
   return (
-    <View
-      style={{
-        backgroundColor: t.surface,
-        borderWidth: 1,
-        borderColor: t.border,
-        borderRadius: 12,
-        padding: 14,
-        gap: 6,
-      }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
-        <Text style={{ fontSize: 15, fontWeight: '700', color: t.text }}>
+    <View className="gap-1.5 rounded-xl border border-border bg-surface p-3.5">
+      <View className="flex-row flex-wrap items-center gap-2">
+        <Text className="text-[15px] font-bold text-text">
           {home.flag} {home.name}
         </Text>
-        <Text style={{ fontSize: 13, fontWeight: '600', color: t.textSecondary }}>×</Text>
-        <Text style={{ fontSize: 15, fontWeight: '700', color: t.text }}>
+        <Text className="text-[13px] font-semibold text-text-secondary">×</Text>
+        <Text className="text-[15px] font-bold text-text">
           {away.flag} {away.name}
         </Text>
       </View>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-        <Text style={{ fontSize: 13, fontWeight: '600', color: t.gold, fontStyle: 'italic' }}>
+      <View className="flex-row items-center gap-2">
+        <Text className="text-[13px] font-semibold italic text-gold">
           dia {formatDate(match.date)}
         </Text>
-        <Text style={{ fontSize: 13, fontWeight: '600', color: t.gold }}>às {match.time}</Text>
+        <Text className="text-[13px] font-semibold text-gold">às {match.time}</Text>
       </View>
-      {match.venue && <Text style={{ fontSize: 11, color: t.textSecondary }}>{match.venue}</Text>}
+      {match.venue && <Text className="text-[11px] text-text-secondary">{match.venue}</Text>}
     </View>
   );
 }

@@ -20,24 +20,15 @@ function TeamTab({ item }: { item: Team }) {
         selectionTap();
         setTeam(active ? null : item.id);
       }}
+      className="mr-1.5 min-w-[56px] items-center rounded-xl border-2 px-3 py-2"
       style={{
-        alignItems: 'center',
-        paddingVertical: 8,
-        paddingHorizontal: 12,
-        marginRight: 6,
-        borderRadius: 12,
-        borderWidth: 2,
         borderColor: active ? t.gold : t.border,
         backgroundColor: active ? `${t.gold}18` : t.additionalSurface,
-        minWidth: 56,
       }}>
-      <Text style={{ fontSize: 22 }}>{item.flag}</Text>
+      <Text className="text-[22px]">{item.flag}</Text>
       <Text
-        style={{
-          fontSize: 10,
-          fontWeight: '600',
-          color: active ? t.gold : t.textSecondary,
-        }}>
+        style={{ color: active ? t.gold : t.textSecondary }}
+        className="text-[10px] font-semibold">
         {item.code}
       </Text>
     </AnimatedPressable>
@@ -50,7 +41,7 @@ export default function TeamTabs() {
   const renderItem = useCallback(({ item }: { item: Team }) => <MemoizedTeamTab item={item} />, []);
 
   return (
-    <View style={{ height: 64 }}>
+    <View className="h-16">
       <FlashList
         data={teams}
         horizontal

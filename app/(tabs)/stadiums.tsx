@@ -20,53 +20,29 @@ export default function StadiumsScreen() {
   const totalCount = Object.values(groups).flat().length;
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
-      <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text
-          style={{ fontSize: 18, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
-          Estádios da Copa 2026
-        </Text>
-        <Text style={{ fontSize: 13, color: t.textSecondary }}>
+    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
+      <View className="px-3 py-2">
+        <Text className="text-[18px] font-bold uppercase text-gold">Estádios da Copa 2026</Text>
+        <Text className="text-[13px] text-text-secondary">
           {totalCount} estádios em {Object.keys(groups).length} países
         </Text>
       </View>
 
       <ScrollView
-        style={{ flex: 1 }}
+        className="flex-1"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ padding: 12, gap: 12 }}>
         {Object.entries(groups).map(([country, stadiumList]) => (
           <View
             key={country}
-            style={{
-              backgroundColor: t.surface,
-              borderWidth: 1,
-              borderColor: t.border,
-              borderRadius: 16,
-              overflow: 'hidden',
-            }}>
+            className="overflow-hidden rounded-2xl border border-border bg-surface">
             <Pressable
               onPress={() => toggleGroup(country)}
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                padding: 14,
-              }}>
-              <Text style={{ fontSize: 15, fontWeight: '700', color: t.text }}>{country}</Text>
-              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                <View
-                  style={{
-                    backgroundColor: t.surfaceLight,
-                    paddingHorizontal: 10,
-                    paddingVertical: 2,
-                    borderRadius: 999,
-                    borderWidth: 1,
-                    borderColor: t.border,
-                  }}>
-                  <Text style={{ fontSize: 11, fontWeight: '700', color: t.gold }}>
-                    {stadiumList.length}
-                  </Text>
+              className="flex-row items-center justify-between p-3.5">
+              <Text className="text-[15px] font-bold text-text">{country}</Text>
+              <View className="flex-row items-center gap-2">
+                <View className="rounded-full border border-border bg-surface-light px-2.5 py-0.5">
+                  <Text className="text-[11px] font-bold text-gold">{stadiumList.length}</Text>
                 </View>
                 {expanded[country] ? (
                   <ChevronUp size={18} color={t.textSecondary} />

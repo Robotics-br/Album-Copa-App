@@ -78,53 +78,32 @@ function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
       onPress={handlePress}
       onLongPress={handleLongPress}
       delayLongPress={500}
+      className="h-[80px] items-center justify-between rounded-lg border-[1.5px] p-1.5"
       style={[
         animatedStyle,
         {
-          height: 80,
-          borderRadius: 8,
-          borderWidth: 1.5,
           borderColor,
           backgroundColor: bgColor,
-          padding: 6,
-          alignItems: 'center',
-          justifyContent: 'space-between',
         },
       ]}>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          width: '100%',
-          alignItems: 'center',
-        }}>
-        <Text style={{ fontSize: 14 }}>{flag}</Text>
-        {status !== 'missing' && <Text style={{ fontSize: 10, color: '#FFD700' }}>★</Text>}
+      <View className="w-full flex-row items-center justify-between">
+        <Text className="text-[14px]">{flag}</Text>
+        {status !== 'missing' && <Text className="text-[10px] text-gold">★</Text>}
         {qty > 1 && (
-          <View
-            style={{
-              backgroundColor: t.duplicate,
-              paddingHorizontal: 6,
-              paddingVertical: 1,
-              borderRadius: 999,
-            }}>
-            <Text style={{ fontSize: 10, fontWeight: '700', color: '#fff' }}>×{qty}</Text>
+          <View className="bg-duplicate rounded-full px-1.5 py-0.5">
+            <Text className="text-[10px] font-bold text-white">×{qty}</Text>
           </View>
         )}
       </View>
 
-      <View style={{ alignItems: 'center', width: '100%' }}>
+      <View className="w-full items-center">
         <Text
           numberOfLines={1}
-          style={{
-            fontSize: 10,
-            fontWeight: '600',
-            color: status === 'missing' ? t.textSecondary : t.text,
-            textAlign: 'center',
-          }}>
+          style={{ color: status === 'missing' ? t.textSecondary : t.text }}
+          className="text-center text-[10px] font-semibold">
           {sticker.name}
         </Text>
-        <Text style={{ fontSize: 8, fontWeight: '700', color: t.gold }}>{sticker.code}</Text>
+        <Text className="text-[8px] font-bold text-gold">{sticker.code}</Text>
       </View>
     </AnimatedPressable>
   );

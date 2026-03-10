@@ -16,34 +16,14 @@ function SummaryCard() {
   const pct = Math.round((ownedCount / totalStickers) * 100);
 
   return (
-    <View
-      style={{
-        backgroundColor: t.surface,
-        borderWidth: 1,
-        borderColor: t.border,
-        borderRadius: 12,
-        padding: 12,
-        marginHorizontal: 12,
-        marginTop: 8,
-      }}>
-      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-        <Text
-          style={{
-            fontSize: 14,
-            fontWeight: '700',
-            color: t.text,
-            textTransform: 'uppercase',
-            letterSpacing: 0.5,
-          }}>
-          SEU ÁLBUM
-        </Text>
-        <View style={{ flex: 1 }}>
+    <View className="border-border mx-3 mt-2 rounded-xl border bg-surface p-3">
+      <View className="flex-row items-center gap-2">
+        <Text className="text-text text-[14px] font-bold uppercase tracking-widest">SEU ÁLBUM</Text>
+        <View className="flex-1">
           <ProgressBar percent={pct} height={8} />
         </View>
-        <Text style={{ fontSize: 15, fontWeight: '800', color: t.gold }}>{pct}%</Text>
-        <Text style={{ fontSize: 11, fontWeight: '600', color: t.accent, fontStyle: 'italic' }}>
-          {100 - pct}% faltando
-        </Text>
+        <Text className="text-[15px] font-extrabold text-gold">{pct}%</Text>
+        <Text className="text-[11px] font-semibold italic text-accent">{100 - pct}% faltando</Text>
       </View>
     </View>
   );

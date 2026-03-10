@@ -47,110 +47,54 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
 
   return (
     <Modal visible transparent animationType="slide" onRequestClose={onClose}>
-      <Pressable
-        style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'flex-end' }}
-        onPress={onClose}>
+      <Pressable className="flex-1 justify-end bg-black/50" onPress={onClose}>
         <Pressable
           onPress={(e) => e.stopPropagation()}
-          style={{
-            backgroundColor: t.surface,
-            borderTopLeftRadius: 24,
-            borderTopRightRadius: 24,
-            borderTopWidth: 1,
-            borderColor: t.border,
-            padding: 24,
-            paddingBottom: 40,
-          }}>
+          className="border-border rounded-t-[24px] border-t bg-surface p-6 pb-10">
           <AnimatedPressable
             onPress={onClose}
             scaleDown={0.85}
-            style={{
-              position: 'absolute',
-              top: 16,
-              right: 16,
-              width: 32,
-              height: 32,
-              borderRadius: 16,
-              backgroundColor: t.surfaceLight,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
+            className="absolute right-4 top-4 h-8 w-8 items-center justify-center rounded-full bg-surface-light">
             <X size={20} color={t.textSecondary} />
           </AnimatedPressable>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 24 }}>
-            <Text style={{ fontSize: 32 }}>{team?.flag}</Text>
+          <View className="mb-6 flex-row items-center gap-3">
+            <Text className="text-[32px]">{team?.flag}</Text>
             <View>
-              <Text style={{ fontSize: 18, fontWeight: '700', color: t.text }}>{sticker.name}</Text>
-              <Text style={{ fontSize: 13, color: t.textSecondary }}>
+              <Text className="text-text text-[18px] font-bold">{sticker.name}</Text>
+              <Text className="text-text-secondary text-[13px]">
                 {team?.name} · {sticker.code}
               </Text>
             </View>
           </View>
 
-          <Text
-            style={{ fontSize: 13, color: t.textSecondary, textAlign: 'center', marginBottom: 16 }}>
+          <Text className="text-text-secondary mb-4 text-center text-[13px]">
             Quantas figurinhas você tem?
           </Text>
 
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 24,
-              marginBottom: 16,
-            }}>
+          <View className="mb-4 flex-row items-center justify-center gap-6">
             <AnimatedPressable
               onPress={() => {
                 lightTap();
                 setQty(Math.max(0, qty - 1));
               }}
               scaleDown={0.88}
-              style={{
-                width: 52,
-                height: 52,
-                borderRadius: 26,
-                backgroundColor: t.surfaceLight,
-                borderWidth: 2,
-                borderColor: t.border,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
+              className="border-border h-[52px] w-[52px] items-center justify-center rounded-full border-2 bg-surface-light">
               <Minus size={22} color={t.gold} />
             </AnimatedPressable>
-            <Text
-              style={{
-                fontSize: 32,
-                fontWeight: '700',
-                color: t.gold,
-                minWidth: 60,
-                textAlign: 'center',
-              }}>
-              {qty}
-            </Text>
+            <Text className="min-w-[60px] text-center text-[32px] font-bold text-gold">{qty}</Text>
             <AnimatedPressable
               onPress={() => {
                 lightTap();
                 setQty(qty + 1);
               }}
               scaleDown={0.88}
-              style={{
-                width: 52,
-                height: 52,
-                borderRadius: 26,
-                backgroundColor: t.surfaceLight,
-                borderWidth: 2,
-                borderColor: t.border,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
+              className="border-border h-[52px] w-[52px] items-center justify-center rounded-full border-2 bg-surface-light">
               <Plus size={22} color={t.gold} />
             </AnimatedPressable>
           </View>
 
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'center', gap: 8, marginBottom: 20 }}>
+          <View className="mb-5 flex-row justify-center gap-2">
             {[0, 1, 2, 3, 5].map((n) => (
               <AnimatedPressable
                 key={n}
@@ -159,22 +103,14 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                   setQty(n);
                 }}
                 scaleDown={0.88}
+                className="h-11 w-11 items-center justify-center rounded-xl border-2"
                 style={{
-                  width: 44,
-                  height: 44,
-                  borderRadius: 12,
                   backgroundColor: qty === n ? t.gold : t.surfaceLight,
-                  borderWidth: 2,
                   borderColor: qty === n ? t.gold : t.border,
-                  alignItems: 'center',
-                  justifyContent: 'center',
                 }}>
                 <Text
-                  style={{
-                    fontSize: 15,
-                    fontWeight: '600',
-                    color: qty === n ? '#0F1923' : t.textSecondary,
-                  }}>
+                  className="text-[15px] font-semibold"
+                  style={{ color: qty === n ? '#0F1923' : t.textSecondary }}>
                   {n}
                 </Text>
               </AnimatedPressable>
@@ -183,13 +119,8 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
 
           <AnimatedPressable
             onPress={handleSave}
-            style={{
-              backgroundColor: t.gold,
-              borderRadius: 12,
-              paddingVertical: 14,
-              alignItems: 'center',
-            }}>
-            <Text style={{ fontSize: 15, fontWeight: '700', color: '#0F1923' }}>Salvar</Text>
+            className="items-center rounded-xl bg-gold py-3.5">
+            <Text className="text-[15px] font-bold text-[#0F1923]">Salvar</Text>
           </AnimatedPressable>
         </Pressable>
       </Pressable>

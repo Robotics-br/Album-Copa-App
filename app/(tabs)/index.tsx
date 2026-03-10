@@ -147,7 +147,7 @@ export default function AlbumScreen() {
     ({ item }: { item: ListItem }) => {
       if (item.type === 'empty') {
         return (
-          <Text style={{ textAlign: 'center', padding: 48, color: t.textSecondary, fontSize: 13 }}>
+          <Text className="text-text-secondary p-12 text-center text-[13px]">
             Nenhuma figurinha nesta categoria
           </Text>
         );
@@ -158,12 +158,7 @@ export default function AlbumScreen() {
       }
 
       return (
-        <View
-          style={{
-            flexDirection: 'row',
-            paddingHorizontal: 8,
-            marginBottom: GAP,
-          }}>
+        <View className="mb-1.5 flex-row px-2">
           {item.stickers.map((sticker) => (
             <View key={sticker.code} style={{ width: ITEM_WIDTH, marginRight: GAP }}>
               <StickerCard
@@ -188,23 +183,16 @@ export default function AlbumScreen() {
   const getItemType = useCallback((item: ListItem) => item.type, []);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
-      <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text
-          style={{
-            fontSize: 14,
-            fontWeight: '700',
-            color: t.gold,
-            textTransform: 'uppercase',
-            letterSpacing: 0.5,
-          }}>
+    <SafeAreaView className="bg-bg flex-1" edges={['top']}>
+      <View className="px-3 py-2">
+        <Text className="text-[14px] font-bold uppercase tracking-widest text-gold">
           MINHA COPA 2026
         </Text>
       </View>
 
       <MainHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
-      <View style={{ flex: 1 }}>
+      <View className="flex-1">
         <FlashList
           ref={listRef}
           data={listData}
@@ -213,7 +201,7 @@ export default function AlbumScreen() {
           getItemType={getItemType}
           extraData={collection}
           drawDistance={300}
-          ListFooterComponent={<View style={{ height: 20 }} />}
+          ListFooterComponent={<View className="h-5" />}
           showsVerticalScrollIndicator={false}
         />
       </View>

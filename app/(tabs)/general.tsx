@@ -59,17 +59,9 @@ export default function GeneralScreen() {
     ({ item }: { item: ListItem }) => {
       if (item.type === 'header') {
         return (
-          <View
-            style={{
-              backgroundColor: t.surface,
-              borderWidth: 1,
-              borderColor: t.border,
-              borderRadius: 12,
-              padding: 14,
-              margin: PADDING,
-            }}>
-            <Text style={{ fontSize: 13, color: t.textSecondary, marginBottom: 8 }}>
-              <Text style={{ color: t.gold, fontSize: 18, fontWeight: '800' }}>{ownedCount}</Text> /{' '}
+          <View className="border-border m-3 rounded-xl border bg-surface p-3.5">
+            <Text className="text-text-secondary mb-2 text-[13px]">
+              <Text className="text-[18px] font-extrabold text-gold">{ownedCount}</Text> /{' '}
               {totalStickers} figurinhas ({pct}%)
             </Text>
             <ProgressBar percent={pct} />
@@ -79,20 +71,10 @@ export default function GeneralScreen() {
 
       if (item.type === 'team-header') {
         return (
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: 8,
-              paddingVertical: 8,
-              paddingHorizontal: PADDING,
-              marginTop: 8,
-            }}>
-            <Text style={{ fontSize: 20 }}>{item.team.flag}</Text>
-            <Text style={{ fontSize: 15, fontWeight: '600', color: t.text, flex: 1 }}>
-              {item.team.name}
-            </Text>
-            <Text style={{ fontSize: 13, color: t.textSecondary, fontWeight: '500' }}>
+          <View className="mt-2 flex-row items-center gap-2 px-3 py-2">
+            <Text className="text-[20px]">{item.team.flag}</Text>
+            <Text className="text-text flex-1 text-[15px] font-semibold">{item.team.name}</Text>
+            <Text className="text-text-secondary text-[13px] font-medium">
               {item.owned}/{item.total}
             </Text>
           </View>
@@ -100,49 +82,29 @@ export default function GeneralScreen() {
       }
 
       return (
-        <View
-          style={{
-            flexDirection: 'row',
-            paddingHorizontal: PADDING,
-            marginBottom: GAP,
-          }}>
+        <View className="mb-1.5 flex-row px-3">
           {item.stickers.map((sticker) => {
             const qty = collection[sticker.code] ?? 0;
             const owned = qty > 0;
             return (
               <View
                 key={sticker.code}
+                className="mr-1.5 items-center justify-center rounded-lg border"
                 style={{
                   width: ITEM_SIZE,
                   height: ITEM_SIZE,
-                  borderRadius: 8,
-                  alignItems: 'center',
-                  justifyContent: 'center',
                   backgroundColor: owned ? t.owned : t.surfaceLight,
-                  borderWidth: 1,
                   borderColor: owned ? t.owned : t.border,
-                  marginRight: GAP,
                 }}>
                 <Text
                   numberOfLines={1}
-                  style={{
-                    fontSize: 9,
-                    fontWeight: '700',
-                    color: owned ? '#fff' : t.textSecondary,
-                  }}>
+                  className="text-[9px] font-bold"
+                  style={{ color: owned ? '#fff' : t.textSecondary }}>
                   {sticker.code}
                 </Text>
                 {qty > 1 && (
-                  <View
-                    style={{
-                      position: 'absolute',
-                      top: -2,
-                      right: -2,
-                      backgroundColor: t.duplicate,
-                      paddingHorizontal: 4,
-                      borderRadius: 999,
-                    }}>
-                    <Text style={{ fontSize: 8, fontWeight: '700', color: '#fff' }}>×{qty}</Text>
+                  <View className="bg-duplicate absolute -right-0.5 -top-0.5 rounded-full px-1">
+                    <Text className="text-[8px] font-bold text-white">×{qty}</Text>
                   </View>
                 )}
               </View>
@@ -163,12 +125,9 @@ export default function GeneralScreen() {
   const getItemType = useCallback((item: ListItem) => item.type, []);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
-      <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text
-          style={{ fontSize: 14, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
-          VISÃO GERAL
-        </Text>
+    <SafeAreaView className="bg-bg flex-1" edges={['top']}>
+      <View className="px-3 py-2">
+        <Text className="text-[14px] font-bold uppercase text-gold">VISÃO GERAL</Text>
       </View>
 
       <FlashList

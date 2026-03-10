@@ -44,74 +44,37 @@ export default function SettingsScreen() {
   };
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
-      <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text
-          style={{ fontSize: 14, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
-          AJUSTES
-        </Text>
+    <SafeAreaView className="bg-bg flex-1" edges={['top']}>
+      <View className="px-3 py-2">
+        <Text className="text-[14px] font-bold uppercase text-gold">AJUSTES</Text>
       </View>
 
       <ScrollView
-        style={{ flex: 1 }}
+        className="flex-1"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ padding: 16, gap: 16 }}>
-        <View
-          style={{
-            backgroundColor: t.surface,
-            borderWidth: 1,
-            borderColor: t.border,
-            borderRadius: 16,
-            overflow: 'hidden',
-          }}>
-          <Text
-            style={{
-              fontSize: 12,
-              fontWeight: '600',
-              color: t.textSecondary,
-              padding: 12,
-              paddingBottom: 0,
-              textTransform: 'uppercase',
-              letterSpacing: 0.5,
-            }}>
+        <View className="border-border overflow-hidden rounded-2xl border bg-surface">
+          <Text className="text-text-secondary p-3 pb-0 text-[12px] font-semibold uppercase tracking-widest">
             Estilo visual
           </Text>
-          <Text
-            style={{
-              fontSize: 11,
-              color: t.textSecondary,
-              paddingHorizontal: 12,
-              paddingTop: 4,
-              paddingBottom: 12,
-            }}>
+          <Text className="text-text-secondary px-3 pb-3 pt-1 text-[11px]">
             Temas inspirados em jogos populares
           </Text>
-          <View
-            style={{
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              gap: 8,
-              paddingHorizontal: 16,
-              paddingBottom: 16,
-            }}>
+          <View className="flex-row flex-wrap gap-2 px-4 pb-4">
             {styleOptions.map(({ id, label }) => {
               const active = style === id;
               return (
                 <AnimatedPressable
                   key={id}
                   onPress={() => setStyle(id)}
+                  className="w-[47%] items-center rounded-xl border-2 px-2 py-2.5"
                   style={{
-                    width: '47%',
-                    paddingVertical: 10,
-                    paddingHorizontal: 8,
-                    borderRadius: 12,
-                    borderWidth: 2,
                     borderColor: active ? t.gold : t.border,
                     backgroundColor: active ? `${t.gold}25` : t.surfaceLight,
-                    alignItems: 'center',
                   }}>
                   <Text
-                    style={{ fontSize: 12, fontWeight: '600', color: active ? t.gold : t.text }}>
+                    className="text-[12px] font-semibold"
+                    style={{ color: active ? t.gold : t.text }}>
                     {label}
                   </Text>
                 </AnimatedPressable>
@@ -120,99 +83,53 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        <View
-          style={{
-            backgroundColor: t.surface,
-            borderWidth: 1,
-            borderColor: t.border,
-            borderRadius: 16,
-            overflow: 'hidden',
-          }}>
-          <Text
-            style={{
-              fontSize: 12,
-              fontWeight: '600',
-              color: t.textSecondary,
-              padding: 12,
-              textTransform: 'uppercase',
-              letterSpacing: 0.5,
-            }}>
+        <View className="border-border overflow-hidden rounded-2xl border bg-surface">
+          <Text className="text-text-secondary p-3 text-[12px] font-semibold uppercase tracking-widest">
             Acessibilidade
           </Text>
 
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              paddingHorizontal: 16,
-              paddingVertical: 14,
-              borderTopWidth: 1,
-              borderTopColor: t.border,
-            }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <View className="border-border flex-row items-center justify-between border-t px-4 py-3.5">
+            <View className="flex-row items-center gap-3">
               <Eye size={20} color={t.text} />
               <View>
-                <Text style={{ fontSize: 15, fontWeight: '500', color: t.text }}>Modo Sênior</Text>
-                <Text style={{ fontSize: 11, color: t.textSecondary }}>
-                  Botões e textos maiores
-                </Text>
+                <Text className="text-text text-[15px] font-medium">Modo Sênior</Text>
+                <Text className="text-text-secondary text-[11px]">Botões e textos maiores</Text>
               </View>
             </View>
             <Toggle value={seniorMode} onValueChange={toggleSeniorMode} />
           </View>
 
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              paddingHorizontal: 16,
-              paddingVertical: 14,
-              borderTopWidth: 1,
-              borderTopColor: t.border,
-            }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <View className="border-border flex-row items-center justify-between border-t px-4 py-3.5">
+            <View className="flex-row items-center gap-3">
               {soundEnabled ? (
                 <Volume2 size={20} color={t.text} />
               ) : (
                 <VolumeX size={20} color={t.text} />
               )}
               <View>
-                <Text style={{ fontSize: 15, fontWeight: '500', color: t.text }}>Som</Text>
-                <Text style={{ fontSize: 11, color: t.textSecondary }}>
-                  Sons ao coletar figurinhas
-                </Text>
+                <Text className="text-text text-[15px] font-medium">Som</Text>
+                <Text className="text-text-secondary text-[11px]">Sons ao coletar figurinhas</Text>
               </View>
             </View>
             <Toggle value={soundEnabled} onValueChange={toggleSound} />
           </View>
         </View>
 
-        <View
-          style={{
-            backgroundColor: t.surface,
-            borderWidth: 1,
-            borderColor: 'rgba(229,57,53,0.3)',
-            borderRadius: 16,
-            overflow: 'hidden',
-          }}>
+        <View className="overflow-hidden rounded-2xl border border-red-500/30 bg-surface">
           <Pressable
             onPress={handleReset}
             className="flex-row items-center gap-3 p-4 active:opacity-50">
             <Trash2 size={20} color="#E53935" />
             <View>
-              <Text style={{ fontSize: 15, fontWeight: '500', color: '#E53935' }}>Apagar tudo</Text>
-              <Text style={{ fontSize: 11, color: t.textSecondary }}>
-                Remove todas as figurinhas
-              </Text>
+              <Text className="text-[15px] font-medium text-[#E53935]">Apagar tudo</Text>
+              <Text className="text-text-secondary text-[11px]">Remove todas as figurinhas</Text>
             </View>
           </Pressable>
         </View>
 
-        <View style={{ alignItems: 'center', paddingVertical: 24 }}>
-          <Text style={{ fontSize: 13, color: t.textSecondary }}>Minha Copa 2026</Text>
-          <Text style={{ fontSize: 11, color: t.textSecondary, opacity: 0.7, marginTop: 4 }}>
+        <View className="items-center py-6">
+          <Text className="text-text-secondary text-[13px]">Minha Copa 2026</Text>
+          <Text className="text-text-secondary mt-1 text-[11px] opacity-70">
             v1.0.0 • by Robotics
           </Text>
         </View>

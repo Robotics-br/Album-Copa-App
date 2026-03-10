@@ -32,23 +32,20 @@ export default function StatsScreen() {
   }, [collection]);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: t.bg }} edges={['top']}>
-      <View style={{ paddingHorizontal: 12, paddingVertical: 8 }}>
-        <Text
-          style={{ fontSize: 14, fontWeight: '700', color: t.gold, textTransform: 'uppercase' }}>
-          MEU PROGRESSO
-        </Text>
+    <SafeAreaView className="bg-bg flex-1" edges={['top']}>
+      <View className="px-3 py-2">
+        <Text className="text-[14px] font-bold uppercase text-gold">MEU PROGRESSO</Text>
       </View>
 
       <ScrollView
-        style={{ flex: 1 }}
+        className="flex-1"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ padding: 16, gap: 16 }}>
-        <View style={{ alignItems: 'center', paddingVertical: 16 }}>
+        <View className="items-center py-4">
           <ProgressRing percent={stats.pct} />
         </View>
 
-        <View style={{ flexDirection: 'row', gap: 10 }}>
+        <View className="flex-row gap-2.5">
           {[
             { label: 'Figurinhas', value: stats.owned },
             { label: 'Faltam', value: totalStickers - stats.owned },
@@ -56,40 +53,21 @@ export default function StatsScreen() {
           ].map(({ label, value }) => (
             <View
               key={label}
-              style={{
-                flex: 1,
-                backgroundColor: t.surface,
-                borderWidth: 1,
-                borderColor: t.border,
-                borderRadius: 12,
-                padding: 16,
-                alignItems: 'center',
-              }}>
-              <Text style={{ fontSize: 24, fontWeight: '800', color: t.gold }}>{value}</Text>
-              <Text style={{ fontSize: 11, color: t.textSecondary, marginTop: 2 }}>{label}</Text>
+              className="border-border flex-1 items-center rounded-xl border bg-surface p-4">
+              <Text className="text-[24px] font-extrabold text-gold">{value}</Text>
+              <Text className="text-text-secondary mt-0.5 text-[11px]">{label}</Text>
             </View>
           ))}
         </View>
 
-        <View
-          style={{
-            backgroundColor: t.surface,
-            borderWidth: 1,
-            borderColor: t.border,
-            borderRadius: 16,
-            padding: 16,
-          }}>
-          <Text style={{ fontSize: 15, fontWeight: '600', color: t.text, marginBottom: 16 }}>
-            Progresso por Seleção
-          </Text>
+        <View className="border-border rounded-2xl border bg-surface p-4">
+          <Text className="text-text mb-4 text-[15px] font-semibold">Progresso por Seleção</Text>
           {stats.teamStats.map(({ team, owned, total, pct }) => (
-            <View key={team.id} style={{ marginBottom: 14 }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-                <Text style={{ fontSize: 18 }}>{team.flag}</Text>
-                <Text style={{ fontSize: 13, fontWeight: '500', color: t.text, flex: 1 }}>
-                  {team.name}
-                </Text>
-                <Text style={{ fontSize: 11, color: t.textSecondary, fontWeight: '600' }}>
+            <View key={team.id} className="mb-3.5">
+              <View className="mb-1.5 flex-row items-center gap-2">
+                <Text className="text-[18px]">{team.flag}</Text>
+                <Text className="text-text flex-1 text-[13px] font-medium">{team.name}</Text>
+                <Text className="text-text-secondary text-[11px] font-semibold">
                   {owned}/{total}
                 </Text>
               </View>

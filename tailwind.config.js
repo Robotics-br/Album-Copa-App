@@ -5,12 +5,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gold: '#FFD700',
-        'gold-dark': '#B8960C',
-        accent: '#E53935',
-        surface: '#212d40',
-        'surface-light': '#2a384d',
-        missing: '#252f42',
+        bg: 'var(--theme-bg)',
+        surface: 'var(--theme-surface)',
+        'surface-light': 'var(--theme-surfaceLight)',
+        'additional-surface': 'var(--theme-additionalSurface)',
+        border: 'var(--theme-border)',
+        text: 'var(--theme-text)',
+        'text-secondary': 'var(--theme-textSecondary)',
+        gold: 'var(--theme-gold)',
+        accent: 'var(--theme-accent)',
+        owned: 'var(--theme-owned)',
+        duplicate: 'var(--theme-duplicate)',
       },
     },
   },

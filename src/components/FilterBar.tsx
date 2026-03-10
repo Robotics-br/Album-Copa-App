@@ -31,20 +31,13 @@ export default function FilterBar() {
               selectionTap();
               setFilter(key);
             }}
-            style={{
-              paddingVertical: 6,
-              paddingHorizontal: 14,
-              borderRadius: 999,
-              backgroundColor: active ? t.gold : t.additionalSurface,
-              borderWidth: 1,
-              borderColor: active ? t.gold : t.border,
-            }}>
+            className={`rounded-full border px-3.5 py-1.5 ${
+              active ? 'border-gold bg-gold' : 'bg-additional-surface border-border'
+            }`}>
             <Text
-              style={{
-                fontSize: 13,
-                fontWeight: active ? '700' : '500',
-                color: active ? '#0F1923' : t.textSecondary,
-              }}>
+              className={`text-[13px] ${
+                active ? 'font-bold text-[#0F1923]' : 'text-text-secondary font-medium'
+              }`}>
               {label}
             </Text>
           </AnimatedPressable>

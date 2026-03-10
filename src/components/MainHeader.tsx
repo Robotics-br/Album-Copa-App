@@ -16,20 +16,9 @@ const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
   const t = useTheme();
 
   return (
-    <View style={{ backgroundColor: t.bg, paddingBottom: 8 }}>
+    <View className="bg-bg pb-2">
       <SummaryCard />
-      <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          marginHorizontal: 12,
-          marginVertical: 10,
-          borderRadius: 12,
-          borderWidth: 1,
-          borderColor: t.border,
-          backgroundColor: t.surface,
-          paddingHorizontal: 12,
-        }}>
+      <View className="border-border mx-3 my-2.5 flex-row items-center rounded-xl border bg-surface px-3">
         <Search size={16} color={t.textSecondary} />
         <TextInput
           value={searchQuery}
@@ -37,26 +26,14 @@ const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
           placeholder="Nome do jogador ou código"
           placeholderTextColor={t.textSecondary}
           returnKeyType="search"
-          style={{
-            flex: 1,
-            paddingVertical: 10,
-            paddingHorizontal: 8,
-            color: t.text,
-            fontSize: 13,
-          }}
+          style={{ color: t.text }}
+          className="flex-1 px-2 py-2.5 text-[13px]"
         />
         {searchQuery.length > 0 && (
           <AnimatedPressable
             onPress={() => setSearchQuery('')}
             scaleDown={0.8}
-            style={{
-              width: 24,
-              height: 24,
-              borderRadius: 12,
-              backgroundColor: t.surfaceLight,
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
+            className="h-6 w-6 items-center justify-center rounded-full bg-surface-light">
             <X size={14} color={t.textSecondary} />
           </AnimatedPressable>
         )}
