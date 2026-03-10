@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useEffect, useRef } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -17,12 +17,12 @@ import type { Sticker, Team } from '../types';
 interface StickerCardProps {
   sticker: Sticker;
   flag: string;
-  onLongPress: (sticker: Sticker) => void;
+  onPress: (sticker: Sticker) => void;
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
+function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
   const t = useTheme();
   const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
@@ -30,24 +30,14 @@ function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
 
   const scale = useSharedValue(1);
+  const prevQty = useRef(qty);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
   }));
 
-  const handlePress = useCallback(() => {
-    const currentQty = useCollectionStore.getState().collection[sticker.code] ?? 0;
-    const wasOwned = currentQty > 0;
-    toggleSticker(sticker.code);
-
-    if (wasOwned) {
-      if (soundEnabled) playStickerRemovedSound();
-      errorNotification();
-      scale.value = withSequence(
-        withTiming(0.92, { duration: 80 }),
-        withTiming(1, { duration: 150 })
-      );
-    } else {
+  useEffect(() => {
+    if (qty > prevQty.current) {
       if (soundEnabled) playStickerCollectedSound();
       successNotification();
       scale.value = withSequence(
@@ -55,13 +45,28 @@ function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
         withTiming(0.95, { duration: 80 }),
         withTiming(1, { duration: 120 })
       );
+    } else if (qty < prevQty.current) {
+      if (soundEnabled) playStickerRemovedSound();
+      errorNotification();
+      scale.value = withSequence(
+        withTiming(0.92, { duration: 80 }),
+        withTiming(1, { duration: 150 })
+      );
     }
-  }, [sticker.code, toggleSticker, scale, soundEnabled]);
+    prevQty.current = qty;
+  }, [qty, soundEnabled, scale]);
 
-  const handleLongPress = useCallback(() => {
-    lightTap();
-    onLongPress(sticker);
-  }, [sticker, onLongPress]);
+  const handlePress = useCallback(() => {
+    const currentQty = useCollectionStore.getState().collection[sticker.code] ?? 0;
+    const isOwned = currentQty > 0;
+
+    if (!isOwned) {
+      toggleSticker(sticker.code);
+    } else {
+      lightTap();
+      onPress(sticker); // Abre o modal
+    }
+  }, [sticker, toggleSticker, onPress]);
 
   const bgColor =
     status === 'owned'
@@ -76,8 +81,6 @@ function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
   return (
     <AnimatedPressable
       onPress={handlePress}
-      onLongPress={handleLongPress}
-      delayLongPress={500}
       className="h-[80px] items-center justify-between rounded-lg border-[1.5px] p-1.5"
       style={[
         animatedStyle,
@@ -91,7 +94,7 @@ function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
         {status !== 'missing' && <Text className="text-[10px] text-gold">★</Text>}
         {qty > 1 && (
           <View className="rounded-full bg-duplicate px-1.5 py-0.5">
-            <Text className="text-[10px] font-bold text-white">×{qty}</Text>
+            <Text className="text-[10px] font-bold text-white">+{qty - 1}</Text>
           </View>
         )}
       </View>

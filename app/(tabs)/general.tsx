@@ -59,8 +59,8 @@ export default function GeneralScreen() {
     ({ item }: { item: ListItem }) => {
       if (item.type === 'header') {
         return (
-          <View className="border-border m-3 rounded-xl border bg-surface p-3.5">
-            <Text className="text-text-secondary mb-2 text-[13px]">
+          <View className="m-3 rounded-xl border border-border bg-surface p-3.5">
+            <Text className="mb-2 text-[13px] text-text-secondary">
               <Text className="text-[18px] font-extrabold text-gold">{ownedCount}</Text> /{' '}
               {totalStickers} figurinhas ({pct}%)
             </Text>
@@ -73,8 +73,8 @@ export default function GeneralScreen() {
         return (
           <View className="mt-2 flex-row items-center gap-2 px-3 py-2">
             <Text className="text-[20px]">{item.team.flag}</Text>
-            <Text className="text-text flex-1 text-[15px] font-semibold">{item.team.name}</Text>
-            <Text className="text-text-secondary text-[13px] font-medium">
+            <Text className="flex-1 text-[15px] font-semibold text-text">{item.team.name}</Text>
+            <Text className="text-[13px] font-medium text-text-secondary">
               {item.owned}/{item.total}
             </Text>
           </View>
@@ -103,8 +103,8 @@ export default function GeneralScreen() {
                   {sticker.code}
                 </Text>
                 {qty > 1 && (
-                  <View className="bg-duplicate absolute -right-0.5 -top-0.5 rounded-full px-1">
-                    <Text className="text-[8px] font-bold text-white">×{qty}</Text>
+                  <View className="absolute -right-0.5 -top-0.5 rounded-full bg-duplicate px-1">
+                    <Text className="text-[8px] font-bold text-white">+{qty - 1}</Text>
                   </View>
                 )}
               </View>
@@ -125,7 +125,7 @@ export default function GeneralScreen() {
   const getItemType = useCallback((item: ListItem) => item.type, []);
 
   return (
-    <SafeAreaView className="bg-bg flex-1" edges={['top']}>
+    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
       <View className="px-3 py-2">
         <Text className="text-[14px] font-bold uppercase text-gold">VISÃO GERAL</Text>
       </View>

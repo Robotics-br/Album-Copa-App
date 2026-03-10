@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { View, Text, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { FlashList } from '@shopify/flash-list';
+import { FlashList, FlashListRef } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
@@ -46,23 +46,23 @@ export default function AlbumScreen() {
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const listRef = useRef<any>(null);
+  const listRef = useRef<FlashListRef<ListItem>>(null);
 
   useEffect(() => {
     if (listRef.current && listData && listData.length > 0) {
-      listRef.current.scrollToOffset({ offset: 0, animated: true });
+      listRef.current.scrollToTop({ animated: true });
     }
   }, [stickerFilter]);
 
   useEffect(() => {
     if (searchQuery === '' && listRef.current && listData && listData.length > 0) {
-      listRef.current.scrollToOffset({ offset: 0, animated: true });
+      listRef.current.scrollToTop({ animated: true });
     }
   }, [searchQuery]);
 
   useEffect(() => {
     if (listRef.current && listData && listData.length > 0) {
-      listRef.current.scrollToOffset({ offset: 0, animated: true });
+      listRef.current.scrollToTop({ animated: true });
     }
   }, [currentTeam]);
 
@@ -147,7 +147,7 @@ export default function AlbumScreen() {
     ({ item }: { item: ListItem }) => {
       if (item.type === 'empty') {
         return (
-          <Text className="text-text-secondary p-12 text-center text-[13px]">
+          <Text className="p-12 text-center text-[13px] text-text-secondary">
             Nenhuma figurinha nesta categoria
           </Text>
         );
@@ -164,7 +164,7 @@ export default function AlbumScreen() {
               <StickerCard
                 sticker={sticker}
                 flag={teamMap.get(sticker.section)?.flag ?? ''}
-                onLongPress={setSelectedSticker}
+                onPress={setSelectedSticker}
               />
             </View>
           ))}
@@ -183,7 +183,7 @@ export default function AlbumScreen() {
   const getItemType = useCallback((item: ListItem) => item.type, []);
 
   return (
-    <SafeAreaView className="bg-bg flex-1" edges={['top']}>
+    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
       <View className="px-3 py-2">
         <Text className="text-[14px] font-bold uppercase tracking-widest text-gold">
           MINHA COPA 2026
