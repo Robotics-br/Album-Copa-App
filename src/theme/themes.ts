@@ -36,7 +36,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     surfaceLight: '#f5f7ff',
     text: '#1e293b',
     textSecondary: '#64748b',
-    border: '#6366f1',
+    border: '#c7d2fe',
     gold: '#FFD700',
     goldDark: '#B8960C',
     owned: '#00C853',

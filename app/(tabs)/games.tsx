@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, Pressable, ScrollView } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -11,6 +11,7 @@ import {
   getMatchesByDate,
 } from '../../src/data/matches';
 import MatchCard from '../../src/components/MatchCard';
+import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 
 type FilterKind = 'all' | 'team' | 'day';
 
@@ -54,7 +55,7 @@ export default function GamesScreen() {
           {filterTabs.map(({ key, label }) => {
             const active = filterKind === key;
             return (
-              <Pressable
+              <AnimatedPressable
                 key={key}
                 onPress={() => setFilterKind(key)}
                 style={{
@@ -74,7 +75,7 @@ export default function GamesScreen() {
                   }}>
                   {label}
                 </Text>
-              </Pressable>
+              </AnimatedPressable>
             );
           })}
         </View>
@@ -95,7 +96,7 @@ export default function GamesScreen() {
               {teams.map((team) => {
                 const active = teamId === team.id;
                 return (
-                  <Pressable
+                  <AnimatedPressable
                     key={team.id}
                     onPress={() => setTeamId(team.id)}
                     style={{
@@ -114,7 +115,7 @@ export default function GamesScreen() {
                       }}>
                       {team.flag} {team.code}
                     </Text>
-                  </Pressable>
+                  </AnimatedPressable>
                 );
               })}
             </ScrollView>
@@ -129,7 +130,7 @@ export default function GamesScreen() {
             {uniqueDates.map((date) => {
               const active = selectedDate === date;
               return (
-                <Pressable
+                <AnimatedPressable
                   key={date}
                   onPress={() => setSelectedDate(date)}
                   style={{
@@ -144,7 +145,7 @@ export default function GamesScreen() {
                     style={{ fontSize: 12, fontWeight: '600', color: active ? '#0F1923' : t.text }}>
                     {formatDateOption(date)}
                   </Text>
-                </Pressable>
+                </AnimatedPressable>
               );
             })}
           </ScrollView>

@@ -6,6 +6,7 @@ import { useTheme } from '../../src/theme/ThemeProvider';
 import { useSettingsStore } from '../../src/store/useSettingsStore';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import Toggle from '../../src/components/ui/Toggle';
+import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import type { ThemeStyle } from '../../src/types';
 
 const styleOptions: { id: ThemeStyle; label: string }[] = [
@@ -97,7 +98,7 @@ export default function SettingsScreen() {
             {styleOptions.map(({ id, label }) => {
               const active = style === id;
               return (
-                <Pressable
+                <AnimatedPressable
                   key={id}
                   onPress={() => setStyle(id)}
                   style={{
@@ -114,7 +115,7 @@ export default function SettingsScreen() {
                     style={{ fontSize: 12, fontWeight: '600', color: active ? t.gold : t.text }}>
                     {label}
                   </Text>
-                </Pressable>
+                </AnimatedPressable>
               );
             })}
           </View>
@@ -201,7 +202,7 @@ export default function SettingsScreen() {
           }}>
           <Pressable
             onPress={handleReset}
-            style={{ flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16 }}>
+            className="flex-row items-center gap-3 p-4 active:opacity-50">
             <Trash2 size={20} color="#E53935" />
             <View>
               <Text style={{ fontSize: 15, fontWeight: '500', color: '#E53935' }}>Apagar tudo</Text>

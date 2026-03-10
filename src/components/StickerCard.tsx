@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -23,11 +23,11 @@ interface StickerCardProps {
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-export default function StickerCard({ sticker, onLongPress }: StickerCardProps) {
+function StickerCard({ sticker, onLongPress }: StickerCardProps) {
   const t = useTheme();
-  const { getQuantity, toggleSticker } = useCollectionStore();
+  const qty = useCollectionStore((s) => s.collection[sticker.id] ?? 0);
+  const toggleSticker = useCollectionStore((s) => s.toggleSticker);
   const soundEnabled = useSettingsStore((s) => s.soundEnabled);
-  const qty = getQuantity(sticker.id);
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
   const team = getTeamById(sticker.teamId);
 
@@ -40,7 +40,8 @@ export default function StickerCard({ sticker, onLongPress }: StickerCardProps) 
   }));
 
   const handlePress = useCallback(() => {
-    const wasOwned = getQuantity(sticker.id) > 0;
+    const currentQty = useCollectionStore.getState().collection[sticker.id] ?? 0;
+    const wasOwned = currentQty > 0;
     toggleSticker(sticker.id);
 
     if (wasOwned) {
@@ -68,7 +69,7 @@ export default function StickerCard({ sticker, onLongPress }: StickerCardProps) 
         withTiming(1, { duration: 300 })
       );
     }
-  }, [sticker.id, getQuantity, toggleSticker, scale, brightness, soundEnabled]);
+  }, [sticker.id, toggleSticker, scale, brightness, soundEnabled]);
 
   const handleLongPress = useCallback(() => {
     lightTap();
@@ -143,3 +144,5 @@ export default function StickerCard({ sticker, onLongPress }: StickerCardProps) 
     </AnimatedPressable>
   );
 }
+
+export default React.memo(StickerCard);

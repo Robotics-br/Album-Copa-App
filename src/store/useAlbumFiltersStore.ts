@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import type { StickerFilter } from '../types';
 
-interface NavigationState {
+interface AlbumFiltersState {
   stickerFilter: StickerFilter;
   currentTeam: string | null;
   searchQuery: string;
@@ -12,7 +12,7 @@ interface NavigationState {
   clearFilters: () => void;
 }
 
-export const useNavigationStore = create<NavigationState>()((set) => ({
+export const useAlbumFiltersStore = create<AlbumFiltersState>()((set) => ({
   stickerFilter: 'all',
   currentTeam: null,
   searchQuery: '',

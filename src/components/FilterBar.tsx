@@ -1,9 +1,10 @@
 import React from 'react';
-import { ScrollView, Pressable, Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
-import { useNavigationStore } from '../store/useNavigationStore';
 import { selectionTap } from '../utils/haptics';
 import type { StickerFilter } from '../types';
+import { useAlbumFiltersStore } from '@/store/useAlbumFiltersStore';
+import AnimatedPressable from './ui/AnimatedPressable';
 
 const filters: { key: StickerFilter; label: string }[] = [
   { key: 'all', label: 'Todas' },
@@ -14,7 +15,7 @@ const filters: { key: StickerFilter; label: string }[] = [
 
 export default function FilterBar() {
   const t = useTheme();
-  const { stickerFilter, setFilter } = useNavigationStore();
+  const { stickerFilter, setFilter } = useAlbumFiltersStore();
 
   return (
     <ScrollView
@@ -24,7 +25,7 @@ export default function FilterBar() {
       {filters.map(({ key, label }) => {
         const active = stickerFilter === key;
         return (
-          <Pressable
+          <AnimatedPressable
             key={key}
             onPress={() => {
               selectionTap();
@@ -46,7 +47,7 @@ export default function FilterBar() {
               }}>
               {label}
             </Text>
-          </Pressable>
+          </AnimatedPressable>
         );
       })}
     </ScrollView>
