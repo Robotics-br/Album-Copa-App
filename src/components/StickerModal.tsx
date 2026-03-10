@@ -7,6 +7,7 @@ import { useSettingsStore } from '../store/useSettingsStore';
 import { getTeamById } from '../data/teams';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
+import AnimatedPressable from './ui/AnimatedPressable';
 import type { Sticker } from '../types';
 
 interface StickerModalProps {
@@ -60,8 +61,9 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
             padding: 24,
             paddingBottom: 40,
           }}>
-          <Pressable
+          <AnimatedPressable
             onPress={onClose}
+            scaleDown={0.85}
             style={{
               position: 'absolute',
               top: 16,
@@ -74,7 +76,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               justifyContent: 'center',
             }}>
             <X size={20} color={t.textSecondary} />
-          </Pressable>
+          </AnimatedPressable>
 
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 24 }}>
             <Text style={{ fontSize: 32 }}>{team?.flag}</Text>
@@ -99,11 +101,12 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               gap: 24,
               marginBottom: 16,
             }}>
-            <Pressable
+            <AnimatedPressable
               onPress={() => {
                 lightTap();
                 setQty(Math.max(0, qty - 1));
               }}
+              scaleDown={0.88}
               style={{
                 width: 52,
                 height: 52,
@@ -115,7 +118,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                 justifyContent: 'center',
               }}>
               <Minus size={22} color={t.gold} />
-            </Pressable>
+            </AnimatedPressable>
             <Text
               style={{
                 fontSize: 32,
@@ -126,11 +129,12 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               }}>
               {qty}
             </Text>
-            <Pressable
+            <AnimatedPressable
               onPress={() => {
                 lightTap();
                 setQty(qty + 1);
               }}
+              scaleDown={0.88}
               style={{
                 width: 52,
                 height: 52,
@@ -142,18 +146,19 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                 justifyContent: 'center',
               }}>
               <Plus size={22} color={t.gold} />
-            </Pressable>
+            </AnimatedPressable>
           </View>
 
           <View
             style={{ flexDirection: 'row', justifyContent: 'center', gap: 8, marginBottom: 20 }}>
             {[0, 1, 2, 3, 5].map((n) => (
-              <Pressable
+              <AnimatedPressable
                 key={n}
                 onPress={() => {
                   lightTap();
                   setQty(n);
                 }}
+                scaleDown={0.88}
                 style={{
                   width: 44,
                   height: 44,
@@ -172,11 +177,11 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                   }}>
                   {n}
                 </Text>
-              </Pressable>
+              </AnimatedPressable>
             ))}
           </View>
 
-          <Pressable
+          <AnimatedPressable
             onPress={handleSave}
             style={{
               backgroundColor: t.gold,
@@ -185,7 +190,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               alignItems: 'center',
             }}>
             <Text style={{ fontSize: 15, fontWeight: '700', color: '#0F1923' }}>Salvar</Text>
-          </Pressable>
+          </AnimatedPressable>
         </Pressable>
       </Pressable>
     </Modal>

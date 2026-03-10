@@ -2,16 +2,17 @@ import React, { useState, useMemo, useCallback } from 'react';
 import { View, Text, TextInput, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
-import { Search } from 'lucide-react-native';
+import { Search, X } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
-import { teams, stickers as allStickers, getTeamById } from '../../src/data/teams';
+import { teams, stickers as allStickers } from '../../src/data/teams';
 import SummaryCard from '../../src/components/SummaryCard';
 import FilterBar from '../../src/components/FilterBar';
 import TeamTabs from '../../src/components/TeamTabs';
 import StickerCard from '../../src/components/StickerCard';
 import StickerModal from '../../src/components/StickerModal';
+import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 
 import type { Sticker } from '../../src/types';
 
@@ -40,6 +41,8 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
   }
   return chunks;
 }
+
+const teamMap = new Map(teams.map((t) => [t.id, t]));
 
 export default function AlbumScreen() {
   const t = useTheme();
@@ -127,7 +130,7 @@ export default function AlbumScreen() {
       }
 
       if (item.type === 'team-header') {
-        const team = getTeamById(item.sectionId);
+        const team = teamMap.get(item.sectionId);
         return (
           <View
             style={{
@@ -159,7 +162,11 @@ export default function AlbumScreen() {
           }}>
           {item.stickers.map((sticker) => (
             <View key={sticker.code} style={{ width: ITEM_WIDTH, marginRight: GAP }}>
-              <StickerCard sticker={sticker} onLongPress={setSelectedSticker} />
+              <StickerCard
+                sticker={sticker}
+                flag={teamMap.get(sticker.section)?.flag ?? ''}
+                onLongPress={setSelectedSticker}
+              />
             </View>
           ))}
         </View>
@@ -176,11 +183,15 @@ export default function AlbumScreen() {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            gap: 8,
+            marginHorizontal: 12,
+            marginVertical: 10,
+            borderRadius: 12,
+            borderWidth: 1,
+            borderColor: t.border,
+            backgroundColor: t.surface,
             paddingHorizontal: 12,
-            paddingVertical: 10,
           }}>
-          <Search size={18} color={t.gold} />
+          <Search size={16} color={t.textSecondary} />
           <TextInput
             value={searchQuery}
             onChangeText={setSearchQuery}
@@ -189,15 +200,27 @@ export default function AlbumScreen() {
             returnKeyType="search"
             style={{
               flex: 1,
-              padding: 10,
-              borderRadius: 12,
-              borderWidth: 1,
-              borderColor: t.border,
-              backgroundColor: t.surface,
+              paddingVertical: 10,
+              paddingHorizontal: 8,
               color: t.text,
               fontSize: 13,
             }}
           />
+          {searchQuery.length > 0 && (
+            <AnimatedPressable
+              onPress={() => setSearchQuery('')}
+              scaleDown={0.8}
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 12,
+                backgroundColor: t.surfaceLight,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <X size={14} color={t.textSecondary} />
+            </AnimatedPressable>
+          )}
         </View>
         <TeamTabs />
         <FilterBar />
@@ -235,6 +258,7 @@ export default function AlbumScreen() {
         keyExtractor={keyExtractor}
         getItemType={getItemType}
         extraData={collection}
+        drawDistance={300}
         ListHeaderComponent={ListHeader}
         ListFooterComponent={<View style={{ height: 20 }} />}
         showsVerticalScrollIndicator={false}

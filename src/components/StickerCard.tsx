@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -7,36 +7,32 @@ import Animated, {
   withTiming,
   withSpring,
 } from 'react-native-reanimated';
-import { Star } from 'lucide-react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { useSettingsStore } from '../store/useSettingsStore';
-import { getTeamById } from '../data/teams';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
-import type { Sticker } from '../types';
+import type { Sticker, Team } from '../types';
 
 interface StickerCardProps {
   sticker: Sticker;
+  flag: string;
   onLongPress: (sticker: Sticker) => void;
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-function StickerCard({ sticker, onLongPress }: StickerCardProps) {
+function StickerCard({ sticker, flag, onLongPress }: StickerCardProps) {
   const t = useTheme();
   const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
   const soundEnabled = useSettingsStore((s) => s.soundEnabled);
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
-  const team = getTeamById(sticker.section);
 
   const scale = useSharedValue(1);
-  const brightness = useSharedValue(1);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
-    opacity: brightness.value,
   }));
 
   const handlePress = useCallback(() => {
@@ -48,28 +44,19 @@ function StickerCard({ sticker, onLongPress }: StickerCardProps) {
       if (soundEnabled) playStickerRemovedSound();
       errorNotification();
       scale.value = withSequence(
-        withTiming(1.08, { duration: 80 }),
-        withTiming(0.95, { duration: 100 }),
-        withSpring(1, { damping: 12 })
-      );
-      brightness.value = withSequence(
-        withTiming(0.7, { duration: 100 }),
-        withTiming(1, { duration: 200 })
+        withTiming(0.92, { duration: 80 }),
+        withTiming(1, { duration: 150 })
       );
     } else {
       if (soundEnabled) playStickerCollectedSound();
       successNotification();
       scale.value = withSequence(
-        withTiming(1.35, { duration: 100 }),
-        withTiming(0.9, { duration: 120 }),
-        withSpring(1, { damping: 8, stiffness: 200 })
-      );
-      brightness.value = withSequence(
-        withTiming(1.3, { duration: 100 }),
-        withTiming(1, { duration: 300 })
+        withTiming(1.15, { duration: 100 }),
+        withTiming(0.95, { duration: 80 }),
+        withTiming(1, { duration: 120 })
       );
     }
-  }, [sticker.code, toggleSticker, scale, brightness, soundEnabled]);
+  }, [sticker.code, toggleSticker, scale, soundEnabled]);
 
   const handleLongPress = useCallback(() => {
     lightTap();
@@ -111,8 +98,8 @@ function StickerCard({ sticker, onLongPress }: StickerCardProps) {
           width: '100%',
           alignItems: 'center',
         }}>
-        <Text style={{ fontSize: 14 }}>{team?.flag}</Text>
-        {status !== 'missing' && <Star size={12} fill="#FFD700" color="#FFD700" />}
+        <Text style={{ fontSize: 14 }}>{flag}</Text>
+        {status !== 'missing' && <Text style={{ fontSize: 10, color: '#FFD700' }}>★</Text>}
         {qty > 1 && (
           <View
             style={{

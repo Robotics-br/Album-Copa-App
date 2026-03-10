@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { totalStickers, stickers } from '../data/teams';
 import ProgressBar from './ui/ProgressBar';
 
-export default function SummaryCard() {
+function SummaryCard() {
   const t = useTheme();
   const collection = useCollectionStore((s) => s.collection);
 
-  const ownedCount = stickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
+  const ownedCount = useMemo(
+    () => stickers.filter((s) => (collection[s.code] ?? 0) > 0).length,
+    [collection]
+  );
   const pct = Math.round((ownedCount / totalStickers) * 100);
 
   return (
@@ -45,3 +48,5 @@ export default function SummaryCard() {
     </View>
   );
 }
+
+export default React.memo(SummaryCard);

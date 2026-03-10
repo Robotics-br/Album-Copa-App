@@ -1022,8 +1022,15 @@ function buildStickers(): Sticker[] {
 export const stickers: Sticker[] = buildStickers();
 export const totalStickers = stickers.length;
 
+const stickersBySection = new Map<string, Sticker[]>();
+for (const s of stickers) {
+  const list = stickersBySection.get(s.section);
+  if (list) list.push(s);
+  else stickersBySection.set(s.section, [s]);
+}
+
 export function getStickersByTeam(sectionId: string): Sticker[] {
-  return stickers.filter((s) => s.section === sectionId);
+  return stickersBySection.get(sectionId) ?? [];
 }
 
 export function getTeamById(teamId: string): Team | undefined {
