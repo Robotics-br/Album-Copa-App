@@ -6,13 +6,13 @@ import { Search } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
-import { teams, stickers as allStickers, getTeamById, getStickerById } from '../../src/data/teams';
+import { teams, stickers as allStickers, getTeamById } from '../../src/data/teams';
 import SummaryCard from '../../src/components/SummaryCard';
 import FilterBar from '../../src/components/FilterBar';
 import TeamTabs from '../../src/components/TeamTabs';
 import StickerCard from '../../src/components/StickerCard';
 import StickerModal from '../../src/components/StickerModal';
-import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
+
 import type { Sticker } from '../../src/types';
 
 const COLUMNS = 5;
@@ -40,36 +40,40 @@ export default function AlbumScreen() {
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleSearch = useCallback(() => {
-    const q = searchQuery.trim();
-    if (!q) return;
-    const num = parseInt(q, 10);
-    if (!Number.isNaN(num) && num >= 1) {
-      const sticker = getStickerById(num);
-      if (sticker) setTeam(sticker.teamId);
-    } else {
-      const lower = q.toLowerCase();
-      const team = teams.find(
-        (t) => t.name.toLowerCase().startsWith(lower) || t.code.toLowerCase().startsWith(lower)
-      );
-      if (team) setTeam(team.id);
-    }
-  }, [searchQuery, setTeam]);
-
   const getQty = useCallback((id: number) => collection[id] ?? 0, [collection]);
 
   const filtered = useMemo(() => {
+    let result = allStickers;
+
+    // Filtro por coleção
     switch (stickerFilter) {
       case 'missing':
-        return allStickers.filter((s) => getQty(s.id) === 0);
+        result = result.filter((s) => getQty(s.id) === 0);
+        break;
       case 'owned':
-        return allStickers.filter((s) => getQty(s.id) >= 1);
+        result = result.filter((s) => getQty(s.id) >= 1);
+        break;
       case 'duplicates':
-        return allStickers.filter((s) => getQty(s.id) > 1);
-      default:
-        return allStickers;
+        result = result.filter((s) => getQty(s.id) > 1);
+        break;
     }
-  }, [stickerFilter, getQty]);
+
+    // Filtro por busca (nome do jogador ou código da figurinha)
+    const q = searchQuery.trim().toLowerCase();
+    if (q) {
+      result = result.filter((s) => {
+        const idStr = String(s.id);
+        return (
+          s.name.toLowerCase().includes(q) ||
+          s.code.toLowerCase().includes(q) ||
+          idStr === q ||
+          idStr.padStart(3, '0').includes(q)
+        );
+      });
+    }
+
+    return result;
+  }, [stickerFilter, getQty, searchQuery]);
 
   const listData = useMemo((): ListItem[] => {
     if (currentTeam) {
@@ -178,8 +182,7 @@ export default function AlbumScreen() {
           <TextInput
             value={searchQuery}
             onChangeText={setSearchQuery}
-            onSubmitEditing={handleSearch}
-            placeholder="Nº ou nome da seleção"
+            placeholder="Nome do jogador ou código"
             placeholderTextColor={t.textSecondary}
             returnKeyType="search"
             style={{
@@ -193,22 +196,12 @@ export default function AlbumScreen() {
               fontSize: 13,
             }}
           />
-          <AnimatedPressable
-            onPress={handleSearch}
-            style={{
-              paddingVertical: 10,
-              paddingHorizontal: 16,
-              borderRadius: 12,
-              backgroundColor: t.gold,
-            }}>
-            <Text style={{ fontWeight: '700', fontSize: 13, color: '#0F1923' }}>Buscar</Text>
-          </AnimatedPressable>
         </View>
         <TeamTabs />
         <FilterBar />
       </>
     ),
-    [t, searchQuery, handleSearch]
+    [t, searchQuery]
   );
 
   const keyExtractor = useCallback((item: ListItem, index: number) => {
