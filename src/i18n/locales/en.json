@@ -133,7 +133,8 @@
     "stadiums": "Stadiums",
     "games": "Matches",
     "stats": "Progress",
-    "settings": "Settings"
+    "settings": "Settings",
+    "events": "Events"
   },
   "album": {
     "title": "MY WORLD CUP 2026",
@@ -156,5 +157,13 @@
   "stickers": {
     "badge": "Badge",
     "team": "Team"
+  },
+  "events": {
+    "title": "Events",
+    "subtitle": "FIFA World Cup 2026",
+    "tabs": {
+      "games": "Matches",
+      "stadiums": "Stadiums"
+    }
   }
 }

@@ -1,8 +1,12 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Pressable } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
+import { ChevronDown, ChevronUp } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
+import { useTranslation } from 'react-i18next';
+
+// Data
 import { teams } from '../../src/data/teams';
 import {
   matches,
@@ -10,26 +14,44 @@ import {
   getMatchesByTeam,
   getMatchesByDate,
 } from '../../src/data/matches';
+import { getStadiumsByCountry } from '../../src/data/stadiums';
+
+// Components
 import MatchCard from '../../src/components/MatchCard';
+import StadiumCard from '../../src/components/StadiumCard';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
-import { useTranslation } from 'react-i18next';
 
 type FilterKind = 'all' | 'team' | 'day';
+type GlobalTab = 'games' | 'stadiums';
 
 function formatDateOption(dateStr: string): string {
   const [, m, d] = dateStr.split('-');
   return `${d}/${m}`;
 }
 
-export default function GamesScreen() {
+export default function EventsScreen() {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
+
+  const [activeTab, setActiveTab] = useState<GlobalTab>('games');
+
+  // Games State
   const [filterKind, setFilterKind] = useState<FilterKind>('all');
   const [teamId, setTeamId] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
 
-  const uniqueDates = useMemo(() => getUniqueDates(matches), []);
+  // Stadiums State
+  const stadiumGroups = useMemo(() => getStadiumsByCountry(), []);
+  const [expandedStadiums, setExpandedStadiums] = useState<Record<string, boolean>>(
+    Object.fromEntries(Object.keys(stadiumGroups).map((k) => [k, true]))
+  );
 
+  const toggleStadiumGroup = (key: string) => {
+    setExpandedStadiums((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  // Memos
+  const uniqueDates = useMemo(() => getUniqueDates(matches), []);
   const filteredMatches = useMemo(() => {
     if (filterKind === 'team' && teamId) return getMatchesByTeam(matches, teamId);
     if (filterKind === 'day' && selectedDate) return getMatchesByDate(matches, selectedDate);
@@ -42,13 +64,8 @@ export default function GamesScreen() {
     { key: 'day', label: i18n_t('games.filters.day') },
   ];
 
-  return (
-    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
-      <View className="px-3 py-2">
-        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('games.title')}</Text>
-        <Text className="text-[13px] text-text-secondary">{i18n_t('games.subtitle')}</Text>
-      </View>
-
+  const renderGames = () => (
+    <>
       <View className="mb-2 gap-2.5 px-3">
         <View className="flex-row gap-1.5">
           {filterTabs.map(({ key, label }) => {
@@ -142,6 +159,72 @@ export default function GamesScreen() {
           />
         )}
       </View>
+    </>
+  );
+
+  const renderStadiums = () => (
+    <ScrollView
+      className="flex-1"
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ padding: 12, gap: 12 }}>
+      {Object.entries(stadiumGroups).map(([country, stadiumList]) => (
+        <View key={country} className="overflow-hidden rounded-2xl border border-border bg-surface">
+          <Pressable
+            onPress={() => toggleStadiumGroup(country)}
+            className="flex-row items-center justify-between p-3.5">
+            <Text className="text-[15px] font-bold text-text">{country}</Text>
+            <View className="flex-row items-center gap-2">
+              <View className="rounded-full border border-border bg-surface-light px-2.5 py-0.5">
+                <Text className="text-[11px] font-bold text-gold">{stadiumList.length}</Text>
+              </View>
+              {expandedStadiums[country] ? (
+                <ChevronUp size={18} color={t.textSecondary} />
+              ) : (
+                <ChevronDown size={18} color={t.textSecondary} />
+              )}
+            </View>
+          </Pressable>
+
+          {expandedStadiums[country] &&
+            stadiumList.map((stadium) => <StadiumCard key={stadium.name} stadium={stadium} />)}
+        </View>
+      ))}
+    </ScrollView>
+  );
+
+  return (
+    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
+      <View className="px-3 py-2">
+        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('events.title')}</Text>
+        <Text className="text-[13px] text-text-secondary">{i18n_t('events.subtitle')}</Text>
+      </View>
+
+      <View className="mb-3 px-3">
+        <View className="flex-row items-center rounded-xl border border-border bg-surface-light p-1">
+          <AnimatedPressable
+            onPress={() => setActiveTab('games')}
+            className="flex-1 items-center justify-center rounded-lg py-2"
+            style={{ backgroundColor: activeTab === 'games' ? t.gold : 'transparent' }}>
+            <Text
+              className="text-[14px] font-bold"
+              style={{ color: activeTab === 'games' ? '#0F1923' : t.textSecondary }}>
+              {i18n_t('events.tabs.games')}
+            </Text>
+          </AnimatedPressable>
+          <AnimatedPressable
+            onPress={() => setActiveTab('stadiums')}
+            className="flex-1 items-center justify-center rounded-lg py-2"
+            style={{ backgroundColor: activeTab === 'stadiums' ? t.gold : 'transparent' }}>
+            <Text
+              className="text-[14px] font-bold"
+              style={{ color: activeTab === 'stadiums' ? '#0F1923' : t.textSecondary }}>
+              {i18n_t('events.tabs.stadiums')}
+            </Text>
+          </AnimatedPressable>
+        </View>
+      </View>
+
+      {activeTab === 'games' ? renderGames() : renderStadiums()}
     </SafeAreaView>
   );
 }

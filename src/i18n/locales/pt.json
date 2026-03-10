@@ -133,7 +133,8 @@
     "stadiums": "Estádios",
     "games": "Jogos",
     "stats": "Progresso",
-    "settings": "Ajustes"
+    "settings": "Ajustes",
+    "events": "Eventos"
   },
   "album": {
     "title": "MINHA COPA 2026",
@@ -156,5 +157,13 @@
   "stickers": {
     "badge": "Escudo",
     "team": "Seleção"
+  },
+  "events": {
+    "title": "Eventos",
+    "subtitle": "Copa do Mundo FIFA 2026",
+    "tabs": {
+      "games": "Jogos",
+      "stadiums": "Estádios"
+    }
   }
 }

@@ -42,16 +42,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="stadiums"
+        name="events"
         options={{
-          title: i18n_t('tabs.stadiums'),
-          tabBarIcon: ({ color, size }) => <Trophy size={size} color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="games"
-        options={{
-          title: i18n_t('tabs.games'),
+          title: i18n_t('tabs.events'),
           tabBarIcon: ({ color, size }) => <Calendar size={size} color={color} />,
         }}
       />

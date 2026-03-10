@@ -33,6 +33,7 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
 
   const scale = useSharedValue(1);
   const prevQty = useRef(qty);
+  const justTapped = useRef(false);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
@@ -40,13 +41,15 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
 
   useEffect(() => {
     if (qty > prevQty.current) {
-      if (soundEnabled) playStickerCollectedSound();
-      successNotification();
-      scale.value = withSequence(
-        withTiming(1.15, { duration: 100 }),
-        withTiming(0.95, { duration: 80 }),
-        withTiming(1, { duration: 120 })
-      );
+      if (!justTapped.current) {
+        if (soundEnabled) playStickerCollectedSound();
+        successNotification();
+        scale.value = withSequence(
+          withTiming(1.15, { duration: 100 }),
+          withTiming(0.95, { duration: 80 }),
+          withTiming(1, { duration: 120 })
+        );
+      }
     } else if (qty < prevQty.current) {
       if (soundEnabled) playStickerRemovedSound();
       errorNotification();
@@ -56,6 +59,7 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
       );
     }
     prevQty.current = qty;
+    justTapped.current = false;
   }, [qty, soundEnabled, scale]);
 
   const handlePress = useCallback(() => {
@@ -63,6 +67,16 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
     const isOwned = currentQty > 0;
 
     if (!isOwned) {
+      // Optimistic UI response
+      justTapped.current = true;
+      if (useSettingsStore.getState().soundEnabled) playStickerCollectedSound();
+      successNotification();
+      scale.value = withSequence(
+        withTiming(1.15, { duration: 100 }),
+        withTiming(0.95, { duration: 80 }),
+        withTiming(1, { duration: 120 })
+      );
+
       toggleSticker(sticker.code);
     } else {
       lightTap();

@@ -133,7 +133,8 @@
     "stadiums": "Stades",
     "games": "Matchs",
     "stats": "Progrès",
-    "settings": "Paramètres"
+    "settings": "Paramètres",
+    "events": "Événements"
   },
   "album": {
     "title": "MA COUPE DU MONDE 2026",
@@ -156,5 +157,13 @@
   "stickers": {
     "badge": "Écusson",
     "team": "Équipe"
+  },
+  "events": {
+    "title": "Événements",
+    "subtitle": "Coupe du Monde de la FIFA 2026",
+    "tabs": {
+      "games": "Matchs",
+      "stadiums": "Stades"
+    }
   }
 }

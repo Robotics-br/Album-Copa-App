@@ -133,7 +133,8 @@
     "stadiums": "Stadi",
     "games": "Partite",
     "stats": "Progressi",
-    "settings": "Impostazioni"
+    "settings": "Impostazioni",
+    "events": "Eventi"
   },
   "album": {
     "title": "IL MIO MONDIALE 2026",
@@ -156,5 +157,13 @@
   "stickers": {
     "badge": "Scudetto",
     "team": "Squadra"
+  },
+  "events": {
+    "title": "Eventi",
+    "subtitle": "Coppa del Mondo FIFA 2026",
+    "tabs": {
+      "games": "Partite",
+      "stadiums": "Stadi"
+    }
   }
 }
