@@ -1,19 +1,15 @@
-import React, { useState, useMemo, useCallback } from 'react';
-import { View, Text, TextInput, Dimensions } from 'react-native';
+import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
+import { View, Text, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
-import { Search, X } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
 import { teams, stickers as allStickers, getStickersByTeam, teamMap } from '../../src/data/teams';
-import SummaryCard from '../../src/components/SummaryCard';
-import FilterBar from '../../src/components/FilterBar';
-import TeamTabs from '../../src/components/TeamTabs';
+import MainHeader from '../../src/components/MainHeader';
 import StickerCard from '../../src/components/StickerCard';
 import StickerModal from '../../src/components/StickerModal';
 import TeamHeader from '../../src/components/TeamHeader';
-import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 
 import type { Sticker } from '../../src/types';
 
@@ -46,9 +42,29 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 export default function AlbumScreen() {
   const t = useTheme();
   const collection = useCollectionStore((s) => s.collection);
-  const { stickerFilter, currentTeam, setTeam } = useAlbumFiltersStore();
+  const { stickerFilter, currentTeam } = useAlbumFiltersStore();
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+
+  const listRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (listRef.current && listData && listData.length > 0) {
+      listRef.current.scrollToOffset({ offset: 0, animated: true });
+    }
+  }, [stickerFilter]);
+
+  useEffect(() => {
+    if (searchQuery === '' && listRef.current && listData && listData.length > 0) {
+      listRef.current.scrollToOffset({ offset: 0, animated: true });
+    }
+  }, [searchQuery]);
+
+  useEffect(() => {
+    if (listRef.current && listData && listData.length > 0) {
+      listRef.current.scrollToOffset({ offset: 0, animated: true });
+    }
+  }, [currentTeam]);
 
   const getQty = useCallback((code: string) => collection[code] ?? 0, [collection]);
 
@@ -84,10 +100,21 @@ export default function AlbumScreen() {
     if (currentTeam) {
       const teamStickers = filtered.filter((s) => s.section === currentTeam);
       if (teamStickers.length === 0) return [{ type: 'empty' }];
-      return chunkArray(teamStickers, COLUMNS).map((row) => ({
+
+      const items: ListItem[] = [
+        {
+          type: 'team-header',
+          sectionId: currentTeam,
+          totalCount: getStickersByTeam(currentTeam).length,
+        },
+      ];
+
+      const rows = chunkArray(teamStickers, COLUMNS).map((row) => ({
         type: 'sticker-row' as const,
         stickers: row,
       }));
+
+      return [...items, ...rows];
     }
 
     const byTeam = new Map<string, Sticker[]>();
@@ -152,60 +179,6 @@ export default function AlbumScreen() {
     [t, stickerFilter, setSelectedSticker]
   );
 
-  const ListHeader = useMemo(
-    () => (
-      <>
-        <SummaryCard />
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginHorizontal: 12,
-            marginVertical: 10,
-            borderRadius: 12,
-            borderWidth: 1,
-            borderColor: t.border,
-            backgroundColor: t.surface,
-            paddingHorizontal: 12,
-          }}>
-          <Search size={16} color={t.textSecondary} />
-          <TextInput
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-            placeholder="Nome do jogador ou código"
-            placeholderTextColor={t.textSecondary}
-            returnKeyType="search"
-            style={{
-              flex: 1,
-              paddingVertical: 10,
-              paddingHorizontal: 8,
-              color: t.text,
-              fontSize: 13,
-            }}
-          />
-          {searchQuery.length > 0 && (
-            <AnimatedPressable
-              onPress={() => setSearchQuery('')}
-              scaleDown={0.8}
-              style={{
-                width: 24,
-                height: 24,
-                borderRadius: 12,
-                backgroundColor: t.surfaceLight,
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <X size={14} color={t.textSecondary} />
-            </AnimatedPressable>
-          )}
-        </View>
-        <TeamTabs />
-        <FilterBar />
-      </>
-    ),
-    [t, searchQuery]
-  );
-
   const keyExtractor = useCallback((item: ListItem, index: number) => {
     if (item.type === 'empty') return 'empty';
     if (item.type === 'team-header') return `header-${item.sectionId}`;
@@ -229,17 +202,21 @@ export default function AlbumScreen() {
         </Text>
       </View>
 
-      <FlashList
-        data={listData}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        getItemType={getItemType}
-        extraData={collection}
-        drawDistance={300}
-        ListHeaderComponent={ListHeader}
-        ListFooterComponent={<View style={{ height: 20 }} />}
-        showsVerticalScrollIndicator={false}
-      />
+      <MainHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
+      <View style={{ flex: 1 }}>
+        <FlashList
+          ref={listRef}
+          data={listData}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+          getItemType={getItemType}
+          extraData={collection}
+          drawDistance={300}
+          ListFooterComponent={<View style={{ height: 20 }} />}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
 
       <StickerModal sticker={selectedSticker} onClose={() => setSelectedSticker(null)} />
     </SafeAreaView>
