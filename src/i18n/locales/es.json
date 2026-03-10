@@ -1,0 +1,160 @@
+{
+  "settings": {
+    "title": "AJUSTES",
+    "visualStyle": "Estilo visual",
+    "themesSubtitle": "Temas inspirados en juegos populares",
+    "themes": {
+      "original-dark": "Original oscuro",
+      "original-light": "Original claro",
+      "minecraft": "Minecraft",
+      "fortnite": "Fortnite",
+      "mario": "Mario",
+      "gta": "GTA",
+      "freefire": "Free Fire",
+      "genshin": "Genshin Impact",
+      "roblox": "Roblox",
+      "lego": "Lego"
+    },
+    "accessibility": "Accesibilidad",
+    "seniorMode": "Modo Senior",
+    "seniorModeDesc": "Botones y textos más grandes",
+    "sound": "Sonido",
+    "soundDesc": "Sonidos al recolectar cromos",
+    "language": "Idioma",
+    "languageDesc": "Seleccione el idioma de la aplicación",
+    "languages": {
+      "system": "Sistema",
+      "pt": "Portugués",
+      "en": "Inglés",
+      "es": "Español",
+      "de": "Alemán",
+      "it": "Italiano",
+      "fr": "Francés"
+    },
+    "deleteAll": "Borrar todo",
+    "deleteAllDesc": "Elimina todos los cromos",
+    "deleteAllAlertDesc": "¿Estás seguro de que quieres borrar todos los cromos? Esta acción no se puede deshacer.",
+    "cancel": "Cancelar",
+    "delete": "Borrar",
+    "footerTitle": "Mi Mundial 2026",
+    "footerSubtitle": "v1.0.0 • por Robotics"
+  },
+  "stats": {
+    "title": "MI PROGRESO",
+    "stickers": "Cromos",
+    "missing": "Faltan",
+    "repeated": "Repetidos",
+    "progressByTeam": "Progreso por Equipo"
+  },
+  "stadiums": {
+    "title": "Estadios del Mundial 2026",
+    "subtitle": "{{totalCount}} estadios en {{countryCount}} países"
+  },
+  "summary": {
+    "title": "TU ÁLBUM",
+    "missing": "{{percent}}% faltante"
+  },
+  "stickerModal": {
+    "question1": "¿Cuántos cromos <1>repetidos</1> tienes?",
+    "saveRepeated": "Guardar Repetidos",
+    "removeFromAlbum": "Eliminar del Álbum"
+  },
+  "matchCard": {
+    "day": "día {{date}}",
+    "at": "a las {{time}}"
+  },
+  "filters": {
+    "all": "Todos",
+    "missing": "Faltan",
+    "owned": "Tengo",
+    "duplicates": "Repetidos"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "completo"
+    },
+    "mainHeader": {
+      "search": "Buscar..."
+    }
+  },
+  "teams": {
+    "mex": "México",
+    "afs": "Sudáfrica",
+    "cds": "Corea del Sur",
+    "cze": "Rep. Checa",
+    "can": "Canadá",
+    "ita": "Italia",
+    "qat": "Catar",
+    "sui": "Suiza",
+    "bra": "Brasil",
+    "mar": "Marruecos",
+    "hai": "Haití",
+    "esc": "Escocia",
+    "eua": "EE. UU.",
+    "par": "Paraguay",
+    "aus": "Australia",
+    "tur": "Turquía",
+    "ale": "Alemania",
+    "cuw": "Curazao",
+    "cmf": "Costa de Marfil",
+    "ecu": "Ecuador",
+    "hol": "Países Bajos",
+    "jap": "Japón",
+    "ucr": "Ucrania",
+    "tun": "Túnez",
+    "bel": "Bélgica",
+    "egi": "Egipto",
+    "ira": "Irán",
+    "nzl": "Nueva Zelanda",
+    "esp": "España",
+    "cpv": "Cabo Verde",
+    "ars": "Arabia Saudita",
+    "uru": "Uruguay",
+    "fra": "Francia",
+    "sen": "Senegal",
+    "bol": "Bolivia",
+    "nor": "Noruega",
+    "arg": "Argentina",
+    "alg": "Argelia",
+    "aut": "Austria",
+    "jor": "Jordania",
+    "por": "Portugal",
+    "rdc": "RD Congo",
+    "uzb": "Uzbekistán",
+    "col": "Colombia",
+    "ing": "Inglaterra",
+    "cro": "Croacia",
+    "gha": "Ghana",
+    "pan": "Panamá"
+  },
+  "tabs": {
+    "album": "Álbum",
+    "general": "General",
+    "stadiums": "Estadios",
+    "games": "Partidos",
+    "stats": "Progreso",
+    "settings": "Ajustes"
+  },
+  "album": {
+    "title": "MI MUNDIAL 2026",
+    "empty": "Ningún cromo en esta categoría"
+  },
+  "general": {
+    "title": "VISTA GENERAL",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} cromos ({{pct}}%)"
+  },
+  "games": {
+    "title": "Todos los partidos",
+    "subtitle": "Mundial FIFA 2026",
+    "filters": {
+      "all": "Todos",
+      "team": "Equipo",
+      "day": "Día"
+    },
+    "empty": "No se encontraron partidos"
+  },
+  "stickers": {
+    "badge": "Escudo",
+    "team": "Selección"
+  }
+}

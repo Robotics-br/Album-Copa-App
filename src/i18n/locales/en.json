@@ -1,0 +1,160 @@
+{
+  "settings": {
+    "title": "SETTINGS",
+    "visualStyle": "Visual style",
+    "themesSubtitle": "Themes inspired by popular games",
+    "themes": {
+      "original-dark": "Original dark",
+      "original-light": "Original light",
+      "minecraft": "Minecraft",
+      "fortnite": "Fortnite",
+      "mario": "Mario",
+      "gta": "GTA",
+      "freefire": "Free Fire",
+      "genshin": "Genshin Impact",
+      "roblox": "Roblox",
+      "lego": "Lego"
+    },
+    "accessibility": "Accessibility",
+    "seniorMode": "Senior Mode",
+    "seniorModeDesc": "Larger buttons and texts",
+    "sound": "Sound",
+    "soundDesc": "Sounds when collecting stickers",
+    "language": "Language",
+    "languageDesc": "Select the app language",
+    "languages": {
+      "system": "System",
+      "pt": "Portuguese",
+      "en": "English",
+      "es": "Spanish",
+      "de": "German",
+      "it": "Italian",
+      "fr": "French"
+    },
+    "deleteAll": "Delete all",
+    "deleteAllDesc": "Removes all stickers",
+    "deleteAllAlertDesc": "Are you sure you want to delete all stickers? This action cannot be undone.",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "footerTitle": "My World Cup 2026",
+    "footerSubtitle": "v1.0.0 • by Robotics"
+  },
+  "stats": {
+    "title": "MY PROGRESS",
+    "stickers": "Stickers",
+    "missing": "Missing",
+    "repeated": "Repeated",
+    "progressByTeam": "Progress by Team"
+  },
+  "stadiums": {
+    "title": "2026 World Cup Stadiums",
+    "subtitle": "{{totalCount}} stadiums in {{countryCount}} countries"
+  },
+  "summary": {
+    "title": "YOUR ALBUM",
+    "missing": "{{percent}}% missing"
+  },
+  "stickerModal": {
+    "question1": "How many <1>repeated</1> stickers do you have?",
+    "saveRepeated": "Save Repeated",
+    "removeFromAlbum": "Remove from Album"
+  },
+  "matchCard": {
+    "day": "day {{date}}",
+    "at": "at {{time}}"
+  },
+  "filters": {
+    "all": "All",
+    "missing": "Missing",
+    "owned": "Owned",
+    "duplicates": "Repeated"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "complete"
+    },
+    "mainHeader": {
+      "search": "Search..."
+    }
+  },
+  "teams": {
+    "mex": "Mexico",
+    "afs": "South Africa",
+    "cds": "South Korea",
+    "cze": "Czech Rep.",
+    "can": "Canada",
+    "ita": "Italy",
+    "qat": "Qatar",
+    "sui": "Switzerland",
+    "bra": "Brazil",
+    "mar": "Morocco",
+    "hai": "Haiti",
+    "esc": "Scotland",
+    "eua": "USA",
+    "par": "Paraguay",
+    "aus": "Australia",
+    "tur": "Turkey",
+    "ale": "Germany",
+    "cuw": "Curaçao",
+    "cmf": "Ivory Coast",
+    "ecu": "Ecuador",
+    "hol": "Netherlands",
+    "jap": "Japan",
+    "ucr": "Ukraine",
+    "tun": "Tunisia",
+    "bel": "Belgium",
+    "egi": "Egypt",
+    "ira": "Iran",
+    "nzl": "New Zealand",
+    "esp": "Spain",
+    "cpv": "Cape Verde",
+    "ars": "Saudi Arabia",
+    "uru": "Uruguay",
+    "fra": "France",
+    "sen": "Senegal",
+    "bol": "Bolivia",
+    "nor": "Norway",
+    "arg": "Argentina",
+    "alg": "Algeria",
+    "aut": "Austria",
+    "jor": "Jordan",
+    "por": "Portugal",
+    "rdc": "DR Congo",
+    "uzb": "Uzbekistan",
+    "col": "Colombia",
+    "ing": "England",
+    "cro": "Croatia",
+    "gha": "Ghana",
+    "pan": "Panama"
+  },
+  "tabs": {
+    "album": "Album",
+    "general": "General",
+    "stadiums": "Stadiums",
+    "games": "Matches",
+    "stats": "Progress",
+    "settings": "Settings"
+  },
+  "album": {
+    "title": "MY WORLD CUP 2026",
+    "empty": "No stickers in this category"
+  },
+  "general": {
+    "title": "OVERVIEW",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} stickers ({{pct}}%)"
+  },
+  "games": {
+    "title": "All matches",
+    "subtitle": "2026 FIFA World Cup",
+    "filters": {
+      "all": "All",
+      "team": "Team",
+      "day": "Day"
+    },
+    "empty": "No matches found"
+  },
+  "stickers": {
+    "badge": "Badge",
+    "team": "Team"
+  }
+}

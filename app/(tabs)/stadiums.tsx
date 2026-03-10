@@ -5,9 +5,11 @@ import { ChevronDown, ChevronUp } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { getStadiumsByCountry } from '../../src/data/stadiums';
 import StadiumCard from '../../src/components/StadiumCard';
+import { useTranslation } from 'react-i18next';
 
 export default function StadiumsScreen() {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
   const groups = useMemo(() => getStadiumsByCountry(), []);
   const [expanded, setExpanded] = useState<Record<string, boolean>>(
     Object.fromEntries(Object.keys(groups).map((k) => [k, true]))
@@ -22,9 +24,11 @@ export default function StadiumsScreen() {
   return (
     <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
       <View className="px-3 py-2">
-        <Text className="text-[18px] font-bold uppercase text-gold">Estádios da Copa 2026</Text>
+        <Text className="text-[18px] font-bold uppercase text-gold">
+          {i18n_t('stadiums.title')}
+        </Text>
         <Text className="text-[13px] text-text-secondary">
-          {totalCount} estádios em {Object.keys(groups).length} países
+          {i18n_t('stadiums.subtitle', { totalCount, countryCount: Object.keys(groups).length })}
         </Text>
       </View>
 

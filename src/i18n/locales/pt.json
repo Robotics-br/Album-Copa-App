@@ -1,0 +1,160 @@
+{
+  "settings": {
+    "title": "AJUSTES",
+    "visualStyle": "Estilo visual",
+    "themesSubtitle": "Temas inspirados em jogos populares",
+    "themes": {
+      "original-dark": "Original escuro",
+      "original-light": "Original claro",
+      "minecraft": "Minecraft",
+      "fortnite": "Fortnite",
+      "mario": "Mario",
+      "gta": "GTA",
+      "freefire": "Free Fire",
+      "genshin": "Genshin Impact",
+      "roblox": "Roblox",
+      "lego": "Lego"
+    },
+    "accessibility": "Acessibilidade",
+    "seniorMode": "Modo Sênior",
+    "seniorModeDesc": "Botões e textos maiores",
+    "sound": "Som",
+    "soundDesc": "Sons ao coletar figurinhas",
+    "language": "Idioma",
+    "languageDesc": "Selecione o idioma do aplicativo",
+    "languages": {
+      "system": "Sistema",
+      "pt": "Português",
+      "en": "Inglês",
+      "es": "Espanhol",
+      "de": "Alemão",
+      "it": "Italiano",
+      "fr": "Francês"
+    },
+    "deleteAll": "Apagar tudo",
+    "deleteAllDesc": "Remove todas as figurinhas",
+    "deleteAllAlertDesc": "Tem certeza que deseja apagar todas as figurinhas? Esta ação não pode ser desfeita.",
+    "cancel": "Cancelar",
+    "delete": "Apagar",
+    "footerTitle": "Minha Copa 2026",
+    "footerSubtitle": "v1.0.0 • by Robotics"
+  },
+  "stats": {
+    "title": "MEU PROGRESSO",
+    "stickers": "Figurinhas",
+    "missing": "Faltam",
+    "repeated": "Repetidas",
+    "progressByTeam": "Progresso por Seleção"
+  },
+  "stadiums": {
+    "title": "Estádios da Copa 2026",
+    "subtitle": "{{totalCount}} estádios em {{countryCount}} países"
+  },
+  "summary": {
+    "title": "SEU ÁLBUM",
+    "missing": "{{percent}}% faltando"
+  },
+  "stickerModal": {
+    "question1": "Quantas figurinhas <1>repetidas</1> você tem?",
+    "saveRepeated": "Salvar Repetidas",
+    "removeFromAlbum": "Remover do Álbum"
+  },
+  "matchCard": {
+    "day": "dia {{date}}",
+    "at": "às {{time}}"
+  },
+  "filters": {
+    "all": "Todas",
+    "missing": "Faltam",
+    "owned": "Tenho",
+    "duplicates": "Repetidas"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "completo"
+    },
+    "mainHeader": {
+      "search": "Buscar..."
+    }
+  },
+  "teams": {
+    "mex": "México",
+    "afs": "África do Sul",
+    "cds": "Coreia do Sul",
+    "cze": "Rep. Tcheca",
+    "can": "Canadá",
+    "ita": "Itália",
+    "qat": "Catar",
+    "sui": "Suíça",
+    "bra": "Brasil",
+    "mar": "Marrocos",
+    "hai": "Haiti",
+    "esc": "Escócia",
+    "eua": "EUA",
+    "par": "Paraguai",
+    "aus": "Austrália",
+    "tur": "Turquia",
+    "ale": "Alemanha",
+    "cuw": "Curaçao",
+    "cmf": "Costa do Marfim",
+    "ecu": "Equador",
+    "hol": "Holanda",
+    "jap": "Japão",
+    "ucr": "Ucrânia",
+    "tun": "Tunísia",
+    "bel": "Bélgica",
+    "egi": "Egito",
+    "ira": "Irã",
+    "nzl": "Nova Zelândia",
+    "esp": "Espanha",
+    "cpv": "Cabo Verde",
+    "ars": "Arábia Saudita",
+    "uru": "Uruguai",
+    "fra": "França",
+    "sen": "Senegal",
+    "bol": "Bolívia",
+    "nor": "Noruega",
+    "arg": "Argentina",
+    "alg": "Argélia",
+    "aut": "Áustria",
+    "jor": "Jordânia",
+    "por": "Portugal",
+    "rdc": "RD Congo",
+    "uzb": "Uzbequistão",
+    "col": "Colômbia",
+    "ing": "Inglaterra",
+    "cro": "Croácia",
+    "gha": "Gana",
+    "pan": "Panamá"
+  },
+  "tabs": {
+    "album": "Álbum",
+    "general": "Geral",
+    "stadiums": "Estádios",
+    "games": "Jogos",
+    "stats": "Progresso",
+    "settings": "Ajustes"
+  },
+  "album": {
+    "title": "MINHA COPA 2026",
+    "empty": "Nenhuma figurinha nesta categoria"
+  },
+  "general": {
+    "title": "VISÃO GERAL",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} figurinhas ({{pct}}%)"
+  },
+  "games": {
+    "title": "Todos os jogos",
+    "subtitle": "Copa do Mundo FIFA 2026",
+    "filters": {
+      "all": "Todos",
+      "team": "Seleção",
+      "day": "Dia"
+    },
+    "empty": "Nenhum jogo encontrado"
+  },
+  "stickers": {
+    "badge": "Escudo",
+    "team": "Seleção"
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import Svg, { Circle } from 'react-native-svg';
 import { useTheme } from '../../theme/ThemeProvider';
+import { useTranslation } from 'react-i18next';
 
 interface ProgressRingProps {
   percent: number;
@@ -11,6 +12,7 @@ interface ProgressRingProps {
 
 export default function ProgressRing({ percent, size = 140, strokeWidth = 6 }: ProgressRingProps) {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const progress = circumference - (percent / 100) * circumference;
@@ -41,7 +43,9 @@ export default function ProgressRing({ percent, size = 140, strokeWidth = 6 }: P
         />
       </Svg>
       <Text className="text-[32px] font-extrabold text-gold">{percent}%</Text>
-      <Text className="text-text-secondary mt-0.5 text-[11px]">completo</Text>
+      <Text className="mt-0.5 text-[11px] text-text-secondary">
+        {i18n_t('components.progressRing.complete')}
+      </Text>
     </View>
   );
 }

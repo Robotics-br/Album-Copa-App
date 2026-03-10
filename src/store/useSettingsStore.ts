@@ -8,11 +8,13 @@ interface SettingsState {
   seniorMode: boolean;
   soundEnabled: boolean;
   favoriteTeam: string | null;
+  language: string | null;
 
   setStyle: (style: ThemeStyle) => void;
   toggleSeniorMode: () => void;
   toggleSound: () => void;
   setFavoriteTeam: (teamId: string | null) => void;
+  setLanguage: (lang: string) => void;
   resetSettings: () => void;
 }
 
@@ -21,6 +23,7 @@ const defaults = {
   seniorMode: false,
   soundEnabled: true,
   favoriteTeam: null,
+  language: null,
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -32,6 +35,7 @@ export const useSettingsStore = create<SettingsState>()(
       toggleSeniorMode: () => set((s) => ({ seniorMode: !s.seniorMode })),
       toggleSound: () => set((s) => ({ soundEnabled: !s.soundEnabled })),
       setFavoriteTeam: (teamId) => set({ favoriteTeam: teamId }),
+      setLanguage: (lang) => set({ language: lang }),
       resetSettings: () => set(defaults),
     }),
     {

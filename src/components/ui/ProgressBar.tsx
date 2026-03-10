@@ -12,7 +12,7 @@ export default function ProgressBar({ percent, height = 8 }: ProgressBarProps) {
 
   return (
     <View
-      className="border-border overflow-hidden rounded-full border bg-surface-light"
+      className="overflow-hidden rounded-full border border-border bg-surface-light"
       style={{ height }}>
       <View
         className="h-full rounded-full bg-gold"

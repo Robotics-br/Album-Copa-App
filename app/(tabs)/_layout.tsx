@@ -2,9 +2,11 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { Album, LayoutGrid, Trophy, Calendar, Settings } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
+import { useTranslation } from 'react-i18next';
 
 export default function TabLayout() {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
 
   return (
     <Tabs
@@ -28,42 +30,42 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Álbum',
+          title: i18n_t('tabs.album'),
           tabBarIcon: ({ color, size }) => <Album size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="general"
         options={{
-          title: 'Geral',
+          title: i18n_t('tabs.general'),
           tabBarIcon: ({ color, size }) => <LayoutGrid size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="stadiums"
         options={{
-          title: 'Estádios',
+          title: i18n_t('tabs.stadiums'),
           tabBarIcon: ({ color, size }) => <Trophy size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="games"
         options={{
-          title: 'Jogos',
+          title: i18n_t('tabs.games'),
           tabBarIcon: ({ color, size }) => <Calendar size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="stats"
         options={{
-          title: 'Progresso',
+          title: i18n_t('tabs.stats'),
           tabBarIcon: ({ color, size }) => <Trophy size={size} color={color} />,
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: 'Ajustes',
+          title: i18n_t('tabs.settings'),
           tabBarIcon: ({ color, size }) => <Settings size={size} color={color} />,
         }}
       />

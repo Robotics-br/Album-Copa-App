@@ -12,6 +12,7 @@ import { useCollectionStore } from '../store/useCollectionStore';
 import { useSettingsStore } from '../store/useSettingsStore';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
+import { useTranslation } from 'react-i18next';
 import type { Sticker, Team } from '../types';
 
 interface StickerCardProps {
@@ -24,6 +25,7 @@ const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
   const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
   const soundEnabled = useSettingsStore((s) => s.soundEnabled);
@@ -104,7 +106,11 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
           numberOfLines={1}
           style={{ color: status === 'missing' ? t.textSecondary : t.text }}
           className="text-center text-[10px] font-semibold">
-          {sticker.name}
+          {sticker.name.startsWith('Escudo ')
+            ? `${i18n_t('stickers.badge')} ${i18n_t(`teams.${sticker.section}`)}`
+            : sticker.name.startsWith('Seleção ')
+              ? `${i18n_t('stickers.team')} ${i18n_t(`teams.${sticker.section}`)}`
+              : sticker.name}
         </Text>
         <Text className="text-[8px] font-bold text-gold">{sticker.code}</Text>
       </View>

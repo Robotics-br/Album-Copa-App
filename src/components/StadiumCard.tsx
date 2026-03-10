@@ -10,7 +10,7 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
 
   return (
     <View className="flex-row gap-3 bg-surface p-3">
-      <View className="border-border h-16 w-[90px] overflow-hidden rounded-lg border bg-surface-light">
+      <View className="h-16 w-[90px] overflow-hidden rounded-lg border border-border bg-surface-light">
         {!imgError ? (
           <Image
             source={{ uri: stadium.image }}
@@ -25,11 +25,11 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
         )}
       </View>
       <View className="flex-1 justify-center gap-1">
-        <Text className="text-text text-[13px] font-bold">{stadium.name}</Text>
+        <Text className="text-[13px] font-bold text-text">{stadium.name}</Text>
         <View className="flex-row gap-3">
           <View className="flex-row items-center gap-1">
             <MapPin size={12} color={t.textSecondary} />
-            <Text className="text-text-secondary text-[11px]">{stadium.city}</Text>
+            <Text className="text-[11px] text-text-secondary">{stadium.city}</Text>
           </View>
           <View className="flex-row items-center gap-1">
             <Users size={12} color={t.gold} />

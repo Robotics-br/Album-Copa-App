@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { teamMap, getStickersByTeam } from '../data/teams';
+import { useTranslation } from 'react-i18next';
 
 interface TeamHeaderProps {
   sectionId: string;
@@ -11,6 +12,7 @@ interface TeamHeaderProps {
 
 const TeamHeader = ({ sectionId, totalCount }: TeamHeaderProps) => {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
 
   const ownedCount = useCollectionStore(
     useCallback(
@@ -25,12 +27,14 @@ const TeamHeader = ({ sectionId, totalCount }: TeamHeaderProps) => {
   const team = teamMap.get(sectionId);
 
   return (
-    <View className="border-border bg-bg mt-1 flex-row items-center justify-between border-t px-3 pb-1 pt-1.5">
+    <View className="mt-1 flex-row items-center justify-between border-t border-border bg-bg px-3 pb-1 pt-1.5">
       <View className="flex-row items-center gap-2">
         <Text className="text-[20px]">{team?.flag}</Text>
-        <Text className="text-text-secondary text-[13px] font-bold uppercase">{team?.name}</Text>
+        <Text className="text-[13px] font-bold uppercase text-text-secondary">
+          {team ? i18n_t(`teams.${team.id}`) : ''}
+        </Text>
       </View>
-      <View className="border-border rounded-md border bg-surface-light px-2 py-0.5">
+      <View className="rounded-md border border-border bg-surface-light px-2 py-0.5">
         <Text className="text-[11px] font-extrabold text-gold">
           {ownedCount} / {totalCount}
         </Text>

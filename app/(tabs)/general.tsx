@@ -6,6 +6,7 @@ import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { teams, stickers, totalStickers, getStickersByTeam } from '../../src/data/teams';
 import ProgressBar from '../../src/components/ui/ProgressBar';
+import { useTranslation, Trans } from 'react-i18next';
 import type { Team, Sticker } from '../../src/types';
 
 const COLUMNS = 7;
@@ -29,6 +30,7 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 
 export default function GeneralScreen() {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
   const collection = useCollectionStore((s) => s.collection);
 
   const ownedCount = useMemo(
@@ -61,8 +63,11 @@ export default function GeneralScreen() {
         return (
           <View className="m-3 rounded-xl border border-border bg-surface p-3.5">
             <Text className="mb-2 text-[13px] text-text-secondary">
-              <Text className="text-[18px] font-extrabold text-gold">{ownedCount}</Text> /{' '}
-              {totalStickers} figurinhas ({pct}%)
+              <Trans
+                i18nKey="general.summary"
+                values={{ ownedCount, totalStickers, pct }}
+                components={{ 1: <Text className="text-[18px] font-extrabold text-gold" /> }}
+              />
             </Text>
             <ProgressBar percent={pct} />
           </View>
@@ -73,7 +78,9 @@ export default function GeneralScreen() {
         return (
           <View className="mt-2 flex-row items-center gap-2 px-3 py-2">
             <Text className="text-[20px]">{item.team.flag}</Text>
-            <Text className="flex-1 text-[15px] font-semibold text-text">{item.team.name}</Text>
+            <Text className="flex-1 text-[15px] font-semibold text-text">
+              {i18n_t(`teams.${item.team.id}`)}
+            </Text>
             <Text className="text-[13px] font-medium text-text-secondary">
               {item.owned}/{item.total}
             </Text>
@@ -127,7 +134,7 @@ export default function GeneralScreen() {
   return (
     <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
       <View className="px-3 py-2">
-        <Text className="text-[14px] font-bold uppercase text-gold">VISÃO GERAL</Text>
+        <Text className="text-[14px] font-bold uppercase text-gold">{i18n_t('general.title')}</Text>
       </View>
 
       <FlashList

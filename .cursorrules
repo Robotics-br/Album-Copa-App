@@ -14,9 +14,10 @@ Estas regras devem ser seguidas por todos os agentes de IA ao ler ou escrever c�
 - **Não** coloque comentários desnecessários ou óbvios.
 - Comentários são permitidos **apenas** para explicar lógicas muito específicas, complexas ou decisões de design não triviais.
 
-## 4. Idioma e Nomenclatura
+## 4. Idioma, Nomenclatura e Internacionalização (i18n)
 - **Comunicação**: O agente deve se comunicar em **Português**. Termos técnicos em Inglês são permitidos.
-- **Interface do Usuário (UI)**: O aplicativo é em **Português**. Textos exibidos para o usuário devem ser em Português.
+- **Interface do Usuário**: Textos exibidos para o usuário NUNCA devem ser inseridos diretamente (hardcoded). **Sempre** utilize a lib `i18next` em conjunto com o hook `useTranslation` (passando as chaves de tradução pelo hook `t()`). Adicione as traduções necessárias aos arquivos `json` na pasta `/src/i18n/locales`.
+- Quando criando textos dinâmicos repassados pelas props, crie a chave no json de tradução e chame o translation via o hook na UI.
 - **Código**: Variáveis, funções, classes, componentes e arquivos devem ser escritos sempre em **Inglês**.
 
 ## 5. Arquitetura

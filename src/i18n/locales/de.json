@@ -1,0 +1,160 @@
+{
+  "settings": {
+    "title": "EINSTELLUNGEN",
+    "visualStyle": "Visueller Stil",
+    "themesSubtitle": "Von beliebten Spielen inspirierte Designs",
+    "themes": {
+      "original-dark": "Original dunkel",
+      "original-light": "Original hell",
+      "minecraft": "Minecraft",
+      "fortnite": "Fortnite",
+      "mario": "Mario",
+      "gta": "GTA",
+      "freefire": "Free Fire",
+      "genshin": "Genshin Impact",
+      "roblox": "Roblox",
+      "lego": "Lego"
+    },
+    "accessibility": "Barrierefreiheit",
+    "seniorMode": "Seniorenmodus",
+    "seniorModeDesc": "Größere Schaltflächen und Texte",
+    "sound": "Ton",
+    "soundDesc": "Töne beim Sammeln von Stickern",
+    "language": "Sprache",
+    "languageDesc": "Wählen Sie die App-Sprache",
+    "languages": {
+      "system": "System",
+      "pt": "Portugiesisch",
+      "en": "Englisch",
+      "es": "Spanisch",
+      "de": "Deutsch",
+      "it": "Italienisch",
+      "fr": "Französisch"
+    },
+    "deleteAll": "Alles löschen",
+    "deleteAllDesc": "Entfernt alle Sticker",
+    "deleteAllAlertDesc": "Sind Sie sicher, dass Sie alle Aufkleber löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "footerTitle": "Meine WM 2026",
+    "footerSubtitle": "v1.0.0 • von Robotics"
+  },
+  "stats": {
+    "title": "MEIN FORTSCHRITT",
+    "stickers": "Sticker",
+    "missing": "Fehlen",
+    "repeated": "Doppelt",
+    "progressByTeam": "Fortschritt nach Team"
+  },
+  "stadiums": {
+    "title": "WM 2026 Stadien",
+    "subtitle": "{{totalCount}} Stadien in {{countryCount}} Ländern"
+  },
+  "summary": {
+    "title": "DEIN ALBUM",
+    "missing": "{{percent}}% fehlen"
+  },
+  "stickerModal": {
+    "question1": "Wie viele <1>doppelte</1> Sticker hast du?",
+    "saveRepeated": "Doppelte speichern",
+    "removeFromAlbum": "Aus Album entfernen"
+  },
+  "matchCard": {
+    "day": "Tag {{date}}",
+    "at": "um {{time}}"
+  },
+  "filters": {
+    "all": "Alle",
+    "missing": "Fehlen",
+    "owned": "Habe ich",
+    "duplicates": "Doppelt"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "komplett"
+    },
+    "mainHeader": {
+      "search": "Suchen..."
+    }
+  },
+  "teams": {
+    "mex": "Mexiko",
+    "afs": "Südafrika",
+    "cds": "Südkorea",
+    "cze": "Tschechien",
+    "can": "Kanada",
+    "ita": "Italien",
+    "qat": "Katar",
+    "sui": "Schweiz",
+    "bra": "Brasilien",
+    "mar": "Marokko",
+    "hai": "Haiti",
+    "esc": "Schottland",
+    "eua": "USA",
+    "par": "Paraguay",
+    "aus": "Australien",
+    "tur": "Türkei",
+    "ale": "Deutschland",
+    "cuw": "Curaçao",
+    "cmf": "Elfenbeinküste",
+    "ecu": "Ecuador",
+    "hol": "Niederlande",
+    "jap": "Japan",
+    "ucr": "Ukraine",
+    "tun": "Tunesien",
+    "bel": "Belgien",
+    "egi": "Ägypten",
+    "ira": "Iran",
+    "nzl": "Neuseeland",
+    "esp": "Spanien",
+    "cpv": "Kap Verde",
+    "ars": "Saudi-Arabien",
+    "uru": "Uruguay",
+    "fra": "Frankreich",
+    "sen": "Senegal",
+    "bol": "Bolivien",
+    "nor": "Norwegen",
+    "arg": "Argentinien",
+    "alg": "Algerien",
+    "aut": "Österreich",
+    "jor": "Jordanien",
+    "por": "Portugal",
+    "rdc": "DR Kongo",
+    "uzb": "Usbekistan",
+    "col": "Kolumbien",
+    "ing": "England",
+    "cro": "Kroatien",
+    "gha": "Ghana",
+    "pan": "Panama"
+  },
+  "tabs": {
+    "album": "Album",
+    "general": "Allgemein",
+    "stadiums": "Stadien",
+    "games": "Spiele",
+    "stats": "Fortschritt",
+    "settings": "Einstellungen"
+  },
+  "album": {
+    "title": "MEINE WM 2026",
+    "empty": "Keine Sticker in dieser Kategorie"
+  },
+  "general": {
+    "title": "ÜBERBLICK",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} Sticker ({{pct}}%)"
+  },
+  "games": {
+    "title": "Alle Spiele",
+    "subtitle": "FIFA WM 2026",
+    "filters": {
+      "all": "Alle",
+      "team": "Team",
+      "day": "Tag"
+    },
+    "empty": "Keine Spiele gefunden"
+  },
+  "stickers": {
+    "badge": "Abzeichen",
+    "team": "Mannschaft"
+  }
+}

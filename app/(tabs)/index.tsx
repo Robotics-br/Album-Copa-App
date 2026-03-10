@@ -10,6 +10,7 @@ import MainHeader from '../../src/components/MainHeader';
 import StickerCard from '../../src/components/StickerCard';
 import StickerModal from '../../src/components/StickerModal';
 import TeamHeader from '../../src/components/TeamHeader';
+import { useTranslation } from 'react-i18next';
 
 import type { Sticker } from '../../src/types';
 
@@ -41,6 +42,7 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 
 export default function AlbumScreen() {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
   const collection = useCollectionStore((s) => s.collection);
   const { stickerFilter, currentTeam } = useAlbumFiltersStore();
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
@@ -148,7 +150,7 @@ export default function AlbumScreen() {
       if (item.type === 'empty') {
         return (
           <Text className="p-12 text-center text-[13px] text-text-secondary">
-            Nenhuma figurinha nesta categoria
+            {i18n_t('album.empty')}
           </Text>
         );
       }
@@ -186,7 +188,7 @@ export default function AlbumScreen() {
     <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
       <View className="px-3 py-2">
         <Text className="text-[14px] font-bold uppercase tracking-widest text-gold">
-          MINHA COPA 2026
+          {i18n_t('album.title')}
         </Text>
       </View>
 

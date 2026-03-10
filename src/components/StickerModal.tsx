@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, View, Text, Pressable } from 'react-native';
 import { X, Minus, Plus } from 'lucide-react-native';
+import { useTranslation, Trans } from 'react-i18next';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { useSettingsStore } from '../store/useSettingsStore';
@@ -17,6 +18,7 @@ interface StickerModalProps {
 
 export default function StickerModal({ sticker, onClose }: StickerModalProps) {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
   const { getQuantity, setQuantity } = useCollectionStore();
   const soundEnabled = useSettingsStore((s) => s.soundEnabled);
   const [duplicates, setDuplicates] = useState(0);
@@ -60,16 +62,23 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
           <View className="mb-6 flex-row items-center gap-3">
             <Text className="text-[32px]">{team?.flag}</Text>
             <View>
-              <Text className="text-[18px] font-bold text-text">{sticker.name}</Text>
-              <Text className="text-[13px] text-text-secondary">
-                {team?.name} · {sticker.code}
+              <Text className="mb-1 text-[13px] font-bold uppercase text-gold">
+                {team ? i18n_t(`teams.${team.id}`) : ''}
               </Text>
+              <View className="flex-row items-center gap-2">
+                <Text className="text-[18px] font-bold text-text">{sticker.name}</Text>
+                <Text className="text-[13px] text-text-secondary">
+                  {team ? i18n_t(`teams.${team.id}`) : ''} · {sticker.code}
+                </Text>
+              </View>
             </View>
           </View>
 
           <Text className="mb-4 text-center text-[15px] font-medium text-text">
-            Quantas figurinhas <Text className="text-[17px] font-bold text-gold">repetidas</Text>{' '}
-            você tem?
+            <Trans i18nKey="stickerModal.question1">
+              Quantas figurinhas <Text className="text-[17px] font-bold text-gold">repetidas</Text>{' '}
+              você tem?
+            </Trans>
           </Text>
 
           <View className="mb-4 flex-row items-center justify-center gap-6">
@@ -122,13 +131,17 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
           <AnimatedPressable
             onPress={handleSave}
             className="mb-3 items-center rounded-xl bg-gold py-3.5">
-            <Text className="text-[15px] font-bold text-[#0F1923]">Salvar Repetidas</Text>
+            <Text className="text-[15px] font-bold text-[#0F1923]">
+              {i18n_t('stickerModal.saveRepeated')}
+            </Text>
           </AnimatedPressable>
 
           <AnimatedPressable
             onPress={handleRemove}
             className="items-center rounded-xl border border-red-500/30 bg-red-500/10 py-3.5">
-            <Text className="text-[15px] font-bold text-red-500">Remover do Álbum</Text>
+            <Text className="text-[15px] font-bold text-red-500">
+              {i18n_t('stickerModal.removeFromAlbum')}
+            </Text>
           </AnimatedPressable>
         </Pressable>
       </Pressable>

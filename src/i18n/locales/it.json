@@ -1,0 +1,160 @@
+{
+  "settings": {
+    "title": "IMPOSTAZIONI",
+    "visualStyle": "Stile visivo",
+    "themesSubtitle": "Temi ispirati a giochi popolari",
+    "themes": {
+      "original-dark": "Originale scuro",
+      "original-light": "Originale chiaro",
+      "minecraft": "Minecraft",
+      "fortnite": "Fortnite",
+      "mario": "Mario",
+      "gta": "GTA",
+      "freefire": "Free Fire",
+      "genshin": "Genshin Impact",
+      "roblox": "Roblox",
+      "lego": "Lego"
+    },
+    "accessibility": "Accessibilità",
+    "seniorMode": "Modalità Senior",
+    "seniorModeDesc": "Pulsanti e testi più grandi",
+    "sound": "Suono",
+    "soundDesc": "Suoni durante la raccolta delle figurine",
+    "language": "Lingua",
+    "languageDesc": "Seleziona la lingua dell'app",
+    "languages": {
+      "system": "Sistema",
+      "pt": "Portoghese",
+      "en": "Inglese",
+      "es": "Spagnolo",
+      "de": "Tedesco",
+      "it": "Italiano",
+      "fr": "Francese"
+    },
+    "deleteAll": "Cancella tutto",
+    "deleteAllDesc": "Rimuove tutte le figurine",
+    "deleteAllAlertDesc": "Sei sicuro di voler eliminare tutti gli adesivi? Questa azione non può essere annullata.",
+    "cancel": "Annulla",
+    "delete": "Cancella",
+    "footerTitle": "Il mio Mondiale 2026",
+    "footerSubtitle": "v1.0.0 • by Robotics"
+  },
+  "stats": {
+    "title": "I MIEI PROGRESSI",
+    "stickers": "Figurine",
+    "missing": "Mancanti",
+    "repeated": "Doppioni",
+    "progressByTeam": "Progresso per Squadra"
+  },
+  "stadiums": {
+    "title": "Stadi Mondiali 2026",
+    "subtitle": "{{totalCount}} stadi in {{countryCount}} paesi"
+  },
+  "summary": {
+    "title": "IL TUO ALBUM",
+    "missing": "{{percent}}% mancante"
+  },
+  "stickerModal": {
+    "question1": "Quante figurine <1>doppie</1> hai?",
+    "saveRepeated": "Salva Doppioni",
+    "removeFromAlbum": "Rimuovi dall'Album"
+  },
+  "matchCard": {
+    "day": "giorno {{date}}",
+    "at": "alle {{time}}"
+  },
+  "filters": {
+    "all": "Tutte",
+    "missing": "Mancanti",
+    "owned": "Possedute",
+    "duplicates": "Doppioni"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "completo"
+    },
+    "mainHeader": {
+      "search": "Cerca..."
+    }
+  },
+  "teams": {
+    "mex": "Messico",
+    "afs": "Sudafrica",
+    "cds": "Corea del Sud",
+    "cze": "Rep. Ceca",
+    "can": "Canada",
+    "ita": "Italia",
+    "qat": "Qatar",
+    "sui": "Svizzera",
+    "bra": "Brasile",
+    "mar": "Marocco",
+    "hai": "Haiti",
+    "esc": "Scozia",
+    "eua": "USA",
+    "par": "Paraguay",
+    "aus": "Australia",
+    "tur": "Turchia",
+    "ale": "Germania",
+    "cuw": "Curaçao",
+    "cmf": "Costa d'Avorio",
+    "ecu": "Ecuador",
+    "hol": "Paesi Bassi",
+    "jap": "Giappone",
+    "ucr": "Ucraina",
+    "tun": "Tunisia",
+    "bel": "Belgio",
+    "egi": "Egitto",
+    "ira": "Iran",
+    "nzl": "Nuova Zelanda",
+    "esp": "Spagna",
+    "cpv": "Capo Verde",
+    "ars": "Arabia Saudita",
+    "uru": "Uruguay",
+    "fra": "Francia",
+    "sen": "Senegal",
+    "bol": "Bolivia",
+    "nor": "Norvegia",
+    "arg": "Argentina",
+    "alg": "Algeria",
+    "aut": "Austria",
+    "jor": "Giordania",
+    "por": "Portogallo",
+    "rdc": "RD Congo",
+    "uzb": "Uzbekistan",
+    "col": "Colombia",
+    "ing": "Inghilterra",
+    "cro": "Croazia",
+    "gha": "Ghana",
+    "pan": "Panama"
+  },
+  "tabs": {
+    "album": "Album",
+    "general": "Generale",
+    "stadiums": "Stadi",
+    "games": "Partite",
+    "stats": "Progressi",
+    "settings": "Impostazioni"
+  },
+  "album": {
+    "title": "IL MIO MONDIALE 2026",
+    "empty": "Nessuna figurina in questa categoria"
+  },
+  "general": {
+    "title": "PANORAMICA",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} figurine ({{pct}}%)"
+  },
+  "games": {
+    "title": "Tutte le partite",
+    "subtitle": "Coppa del Mondo FIFA 2026",
+    "filters": {
+      "all": "Tutte",
+      "team": "Squadra",
+      "day": "Giorno"
+    },
+    "empty": "Nessuna partita trovata"
+  },
+  "stickers": {
+    "badge": "Scudetto",
+    "team": "Squadra"
+  }
+}

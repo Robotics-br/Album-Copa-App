@@ -6,6 +6,7 @@ import AnimatedPressable from './ui/AnimatedPressable';
 import SummaryCard from './SummaryCard';
 import TeamTabs from './TeamTabs';
 import FilterBar from './FilterBar';
+import { useTranslation } from 'react-i18next';
 
 interface MainHeaderProps {
   searchQuery: string;
@@ -14,16 +15,17 @@ interface MainHeaderProps {
 
 const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
   const t = useTheme();
+  const { t: i18n_t } = useTranslation();
 
   return (
     <View className="bg-bg pb-2">
       <SummaryCard />
-      <View className="border-border mx-3 my-2.5 flex-row items-center rounded-xl border bg-surface px-3">
+      <View className="mx-3 my-2.5 flex-row items-center rounded-xl border border-border bg-surface px-3">
         <Search size={16} color={t.textSecondary} />
         <TextInput
           value={searchQuery}
           onChangeText={setSearchQuery}
-          placeholder="Nome do jogador ou código"
+          placeholder={i18n_t('components.mainHeader.search')}
           placeholderTextColor={t.textSecondary}
           returnKeyType="search"
           style={{ color: t.text }}

@@ -1,0 +1,160 @@
+{
+  "settings": {
+    "title": "PARAMÈTRES",
+    "visualStyle": "Style visuel",
+    "themesSubtitle": "Thèmes inspirés de jeux populaires",
+    "themes": {
+      "original-dark": "Original sombre",
+      "original-light": "Original clair",
+      "minecraft": "Minecraft",
+      "fortnite": "Fortnite",
+      "mario": "Mario",
+      "gta": "GTA",
+      "freefire": "Free Fire",
+      "genshin": "Genshin Impact",
+      "roblox": "Roblox",
+      "lego": "Lego"
+    },
+    "accessibility": "Accessibilité",
+    "seniorMode": "Mode Senior",
+    "seniorModeDesc": "Boutons et textes plus grands",
+    "sound": "Son",
+    "soundDesc": "Sons lors de la collecte d'autocollants",
+    "language": "Langue",
+    "languageDesc": "Sélectionnez la langue de l'application",
+    "languages": {
+      "system": "Système",
+      "pt": "Portugais",
+      "en": "Anglais",
+      "es": "Espagnol",
+      "de": "Allemand",
+      "it": "Italien",
+      "fr": "Français"
+    },
+    "deleteAll": "Tout supprimer",
+    "deleteAllDesc": "Supprime tous les autocollants",
+    "deleteAllAlertDesc": "Êtes-vous sûr de vouloir supprimer tous les autocollants ? Cette action est irréversible.",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "footerTitle": "Ma Coupe du Monde 2026",
+    "footerSubtitle": "v1.0.0 • par Robotics"
+  },
+  "stats": {
+    "title": "MES PROGRÈS",
+    "stickers": "Autocollants",
+    "missing": "Manquants",
+    "repeated": "Doubles",
+    "progressByTeam": "Progression par Équipe"
+  },
+  "stadiums": {
+    "title": "Stades Coupe du Monde 2026",
+    "subtitle": "{{totalCount}} stades dans {{countryCount}} pays"
+  },
+  "summary": {
+    "title": "TON ALBUM",
+    "missing": "{{percent}}% manquant"
+  },
+  "stickerModal": {
+    "question1": "Combien d'autocollants en <1>double</1> avez-vous ?",
+    "saveRepeated": "Enregistrer les doubles",
+    "removeFromAlbum": "Retirer de l'album"
+  },
+  "matchCard": {
+    "day": "jour {{date}}",
+    "at": "à {{time}}"
+  },
+  "filters": {
+    "all": "Tous",
+    "missing": "Manquants",
+    "owned": "Possédés",
+    "duplicates": "Doubles"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "complet"
+    },
+    "mainHeader": {
+      "search": "Rechercher..."
+    }
+  },
+  "teams": {
+    "mex": "Mexique",
+    "afs": "Afrique du Sud",
+    "cds": "Corée du Sud",
+    "cze": "Rép. Tchèque",
+    "can": "Canada",
+    "ita": "Italie",
+    "qat": "Qatar",
+    "sui": "Suisse",
+    "bra": "Brésil",
+    "mar": "Maroc",
+    "hai": "Haïti",
+    "esc": "Écosse",
+    "eua": "USA",
+    "par": "Paraguay",
+    "aus": "Australie",
+    "tur": "Turquie",
+    "ale": "Allemagne",
+    "cuw": "Curaçao",
+    "cmf": "Côte d'Ivoire",
+    "ecu": "Équateur",
+    "hol": "Pays-Bas",
+    "jap": "Japon",
+    "ucr": "Ukraine",
+    "tun": "Tunisie",
+    "bel": "Belgique",
+    "egi": "Égypte",
+    "ira": "Iran",
+    "nzl": "Nouvelle-Zélande",
+    "esp": "Espagne",
+    "cpv": "Cap-Vert",
+    "ars": "Arabie Saoudite",
+    "uru": "Uruguay",
+    "fra": "France",
+    "sen": "Sénégal",
+    "bol": "Bolivie",
+    "nor": "Norvège",
+    "arg": "Argentine",
+    "alg": "Algérie",
+    "aut": "Autriche",
+    "jor": "Jordanie",
+    "por": "Portugal",
+    "rdc": "RD Congo",
+    "uzb": "Ouzbékistan",
+    "col": "Colombie",
+    "ing": "Angleterre",
+    "cro": "Croatie",
+    "gha": "Ghana",
+    "pan": "Panama"
+  },
+  "tabs": {
+    "album": "Album",
+    "general": "Général",
+    "stadiums": "Stades",
+    "games": "Matchs",
+    "stats": "Progrès",
+    "settings": "Paramètres"
+  },
+  "album": {
+    "title": "MA COUPE DU MONDE 2026",
+    "empty": "Aucun autocollant dans cette catégorie"
+  },
+  "general": {
+    "title": "APERÇU",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} autocollants ({{pct}}%)"
+  },
+  "games": {
+    "title": "Tous les matchs",
+    "subtitle": "Coupe du Monde FIFA 2026",
+    "filters": {
+      "all": "Tous",
+      "team": "Équipe",
+      "day": "Jour"
+    },
+    "empty": "Aucun match trouvé"
+  },
+  "stickers": {
+    "badge": "Écusson",
+    "team": "Équipe"
+  }
+}
