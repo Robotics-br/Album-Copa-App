@@ -1029,6 +1029,8 @@ for (const s of stickers) {
   else stickersBySection.set(s.section, [s]);
 }
 
+export const teamMap = new Map(teams.map((t) => [t.id, t]));
+
 export function getStickersByTeam(sectionId: string): Sticker[] {
   return stickersBySection.get(sectionId) ?? [];
 }

@@ -6,12 +6,13 @@ import { Search, X } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
-import { teams, stickers as allStickers } from '../../src/data/teams';
+import { teams, stickers as allStickers, getStickersByTeam, teamMap } from '../../src/data/teams';
 import SummaryCard from '../../src/components/SummaryCard';
 import FilterBar from '../../src/components/FilterBar';
 import TeamTabs from '../../src/components/TeamTabs';
 import StickerCard from '../../src/components/StickerCard';
 import StickerModal from '../../src/components/StickerModal';
+import TeamHeader from '../../src/components/TeamHeader';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 
 import type { Sticker } from '../../src/types';
@@ -21,7 +22,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const GAP = 6;
 const ITEM_WIDTH = (SCREEN_WIDTH - 16 - GAP * (COLUMNS - 1)) / COLUMNS;
 
-type TeamHeaderItem = { type: 'team-header'; sectionId: string; count: number; owned: number };
+type TeamHeaderItem = { type: 'team-header'; sectionId: string; totalCount: number };
 type StickerRowItem = { type: 'sticker-row'; stickers: Sticker[] };
 type EmptyItem = { type: 'empty' };
 type ListItem = TeamHeaderItem | StickerRowItem | EmptyItem;
@@ -41,8 +42,6 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
   }
   return chunks;
 }
-
-const teamMap = new Map(teams.map((t) => [t.id, t]));
 
 export default function AlbumScreen() {
   const t = useTheme();
@@ -102,12 +101,10 @@ export default function AlbumScreen() {
     for (const team of teams) {
       const stickers = byTeam.get(team.id);
       if (!stickers?.length) continue;
-      const ownedInTeam = stickers.filter((s) => getQty(s.code) > 0).length;
       items.push({
         type: 'team-header',
         sectionId: team.id,
-        count: stickers.length,
-        owned: ownedInTeam,
+        totalCount: getStickersByTeam(team.id).length,
       });
       const rows = chunkArray(stickers, COLUMNS);
       for (const row of rows) {
@@ -117,7 +114,7 @@ export default function AlbumScreen() {
 
     if (items.length === 0) return [{ type: 'empty' }];
     return items;
-  }, [filtered, currentTeam, getQty]);
+  }, [filtered, currentTeam]);
 
   const renderItem = useCallback(
     ({ item }: { item: ListItem }) => {
@@ -130,27 +127,7 @@ export default function AlbumScreen() {
       }
 
       if (item.type === 'team-header') {
-        const team = teamMap.get(item.sectionId);
-        return (
-          <View
-            style={{
-              marginTop: 4,
-              borderTopWidth: 1,
-              borderTopColor: t.border,
-              paddingTop: 6,
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: 8,
-              paddingHorizontal: 12,
-              paddingVertical: 6,
-            }}>
-            <Text style={{ fontSize: 15 }}>{team?.flag}</Text>
-            <Text style={{ fontSize: 14, fontWeight: '600', color: t.text }}>{team?.name}</Text>
-            <Text style={{ marginLeft: 'auto', fontSize: 12, color: t.textSecondary }}>
-              {stickerFilter === 'all' ? `${item.owned}/${item.count}` : item.count}
-            </Text>
-          </View>
-        );
+        return <TeamHeader sectionId={item.sectionId} totalCount={item.totalCount} />;
       }
 
       return (
