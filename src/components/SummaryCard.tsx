@@ -1,11 +1,10 @@
-import React, { useMemo, useState, useCallback } from 'react';
+import React, { useMemo, useState, useCallback, useEffect } from 'react';
 import { View, Text, Image, Pressable, Modal } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSequence,
   withTiming,
-  runOnJS,
 } from 'react-native-reanimated';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
@@ -42,44 +41,47 @@ function SummaryCard() {
   const rotation = useSharedValue(0);
 
   const handlePress = useCallback(() => {
-    setShowEasterEgg(true);
     scale.value = 0;
     rotation.value = 0;
+    setShowEasterEgg(true);
   }, [scale, rotation]);
 
-  const triggerStars = useCallback(() => {
-    setExplosionTrigger((prev) => prev + 1);
-  }, []);
+  useEffect(() => {
+    if (showEasterEgg) {
+      if (useSettingsStore.getState().soundEnabled) playStickerCollectedSound();
 
-  const handleModalShow = useCallback(() => {
-    if (useSettingsStore.getState().soundEnabled) playStickerCollectedSound();
+      scale.value = 0;
 
-    scale.value = 0;
-    rotation.value = 0;
+      scale.value = withSequence(
+        withTiming(3.0, { duration: 1500 }),
+        withTiming(0, { duration: 500 })
+      );
 
-    scale.value = withSequence(
-      withTiming(3.0, { duration: 400 }, (finished) => {
-        if (finished) runOnJS(triggerStars)();
-      }),
-      withTiming(2.5, { duration: 300 }),
-      withTiming(2.8, { duration: 1300 })
-    );
+      const starTimer = setTimeout(() => {
+        setExplosionTrigger((prev) => prev + 1);
 
-    rotation.value = withSequence(
-      withTiming(-12, { duration: 100 }),
-      withTiming(12, { duration: 100 }),
-      withTiming(-10, { duration: 100 }),
-      withTiming(10, { duration: 100 }),
-      withTiming(-8, { duration: 100 }),
-      withTiming(8, { duration: 100 }),
-      withTiming(0, { duration: 100 })
-    );
+        rotation.value = withSequence(
+          withTiming(-12, { duration: 80 }),
+          withTiming(12, { duration: 80 }),
+          withTiming(-10, { duration: 80 }),
+          withTiming(10, { duration: 80 }),
+          withTiming(-8, { duration: 80 }),
+          withTiming(8, { duration: 80 }),
+          withTiming(0, { duration: 80 })
+        );
+      }, 1000);
 
-    setTimeout(() => {
-      setShowEasterEgg(false);
-      setExplosionTrigger(0);
-    }, 2000);
-  }, [scale, rotation, triggerStars]);
+      const closeTimer = setTimeout(() => {
+        setShowEasterEgg(false);
+        setExplosionTrigger(0);
+      }, 2000);
+
+      return () => {
+        clearTimeout(starTimer);
+        clearTimeout(closeTimer);
+      };
+    }
+  }, [showEasterEgg, scale, rotation]);
 
   const animatedEasterEggStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }, { rotate: `${rotation.value}deg` }],
@@ -120,7 +122,7 @@ function SummaryCard() {
         </View>
       </View>
 
-      <Modal transparent visible={showEasterEgg} animationType="fade" onShow={handleModalShow}>
+      <Modal transparent visible={showEasterEgg} animationType="fade">
         <View className="absolute inset-0 z-[9999] items-center justify-center bg-black/65">
           <Animated.Image
             source={getEvolutionImage(pct)}
