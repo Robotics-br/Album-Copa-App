@@ -84,7 +84,7 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
     }
     prevQty.current = qty;
     justTapped.current = false;
-  }, [qty, soundEnabled, scale, zIndex]);
+  }, [qty, soundEnabled, scale, zIndex, rotation]);
 
   const handlePress = useCallback(() => {
     const currentQty = useCollectionStore.getState().collection[sticker.code] ?? 0;
