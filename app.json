@@ -4,13 +4,13 @@
     "slug": "rbr-album-copa2026-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/app-logo.jpeg",
     "userInterfaceStyle": "automatic",
     "scheme": "minhacopa2026",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/images/app-logo.jpeg",
       "resizeMode": "contain",
-      "backgroundColor": "#1e293b"
+      "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true,
@@ -18,17 +18,28 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#1e293b",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#ffffff",
+        "foregroundImage": "./assets/images/app-logo.jpeg"
       },
-      "package": "br.com.robotics.albumcopa2026"
+      "package": "br.com.robotics.albumcopa2026",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png",
+      "favicon": "./assets/images/app-logo.jpeg",
       "bundler": "metro"
     },
-    "plugins": ["expo-router", "expo-audio"]
+    "plugins": [
+      "expo-router",
+      "expo-audio"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "77d693d7-a5cc-49b1-9d27-eaee07c6d9dd"
+      }
+    }
   }
 }
