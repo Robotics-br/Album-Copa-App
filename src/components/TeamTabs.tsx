@@ -41,7 +41,7 @@ export default function TeamTabs() {
   const renderItem = useCallback(({ item }: { item: Team }) => <MemoizedTeamTab item={item} />, []);
 
   return (
-    <View className="h-16">
+    <View className="h-18">
       <FlashList
         data={teams}
         horizontal

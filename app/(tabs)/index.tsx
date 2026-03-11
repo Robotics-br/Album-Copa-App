@@ -48,26 +48,6 @@ export default function AlbumScreen() {
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const listRef = useRef<FlashListRef<ListItem>>(null);
-
-  useEffect(() => {
-    if (listRef.current && listData && listData.length > 0) {
-      listRef.current.scrollToTop({ animated: true });
-    }
-  }, [stickerFilter]);
-
-  useEffect(() => {
-    if (searchQuery === '' && listRef.current && listData && listData.length > 0) {
-      listRef.current.scrollToTop({ animated: true });
-    }
-  }, [searchQuery]);
-
-  useEffect(() => {
-    if (listRef.current && listData && listData.length > 0) {
-      listRef.current.scrollToTop({ animated: true });
-    }
-  }, [currentTeam]);
-
   const getQty = useCallback((code: string) => collection[code] ?? 0, [collection]);
 
   const filtered = useMemo(() => {
@@ -196,13 +176,13 @@ export default function AlbumScreen() {
 
       <View className="flex-1">
         <FlashList
-          ref={listRef}
+          key={`${stickerFilter}-${currentTeam}-${searchQuery === '' ? 'idle' : 'searching'}`}
           data={listData}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           getItemType={getItemType}
           extraData={collection}
-          drawDistance={300}
+          drawDistance={1000}
           ListFooterComponent={<View className="h-5" />}
           showsVerticalScrollIndicator={false}
         />

@@ -52,7 +52,7 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
         if (soundEnabled) playStickerCollectedSound();
         successNotification();
         zIndex.value = 100;
-        
+
         // Shake animation
         rotation.value = withSequence(
           withTiming(-8, { duration: 100 }),
@@ -157,12 +157,9 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
         />
       </View>
 
-      <StarExplosion 
-        trigger={explosionTrigger} 
-        colors={[t.gold, t.owned, t.accent]} 
-      />
+      <StarExplosion trigger={explosionTrigger} colors={[t.gold, t.owned, t.accent]} />
 
-      <View className="w-full flex-row items-center justify-between z-10">
+      <View className="z-10 w-full flex-row items-center justify-between">
         <Text className="text-[14px]">{flag}</Text>
         {status !== 'missing' && <Text className="text-[10px] text-gold">★</Text>}
         {qty > 1 && (
@@ -172,7 +169,7 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
         )}
       </View>
 
-      <View className="w-full items-center z-10">
+      <View className="z-10 w-full items-center">
         <Text
           numberOfLines={1}
           style={{ color: status === 'missing' ? t.textSecondary : t.text }}
