@@ -8,6 +8,7 @@ interface CollectionState {
   toggleSticker: (code: string) => void;
   setQuantity: (code: string, qty: number) => void;
   getQuantity: (code: string) => number;
+  getDuplicatesList: () => string[];
   reset: () => void;
 }
 
@@ -32,6 +33,13 @@ export const useCollectionStore = create<CollectionState>()(
       },
 
       getQuantity: (code: string) => get().collection[code] ?? 0,
+
+      getDuplicatesList: () => {
+        const { collection } = get();
+        return Object.entries(collection)
+          .filter(([_, qty]) => qty > 1)
+          .map(([code]) => code);
+      },
 
       reset: () => set({ collection: {} }),
     }),

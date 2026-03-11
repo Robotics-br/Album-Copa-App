@@ -134,7 +134,8 @@
     "games": "Matches",
     "stats": "Progress",
     "settings": "Settings",
-    "events": "Events"
+    "events": "Events",
+    "trade": "Trade"
   },
   "album": {
     "title": "MY WORLD CUP 2026",
@@ -165,5 +166,18 @@
       "games": "Matches",
       "stadiums": "Stadiums"
     }
+  },
+  "trade": {
+    "title": "Trade Center",
+    "subtitle": "Share or Scan Stickers",
+    "tabs": {
+      "share": "My Duplicates",
+      "scan": "Scan Friend"
+    },
+    "code_desc": "Show this QR Code to a friend to scan.",
+    "matches_found": "Great news! He has {{count}} sticker(s) that you don't have!",
+    "no_matches": "Too bad, he doesn't have any stickers you need right now.",
+    "scan_btn": "Open Camera",
+    "cam_permission": "We need camera permission to scan."
   }
 }

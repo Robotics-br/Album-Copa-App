@@ -134,7 +134,8 @@
     "games": "Partidos",
     "stats": "Progreso",
     "settings": "Ajustes",
-    "events": "Eventos"
+    "events": "Eventos",
+    "trade": "Intercambio"
   },
   "album": {
     "title": "MI MUNDIAL 2026",
@@ -165,5 +166,18 @@
       "games": "Partidos",
       "stadiums": "Estadios"
     }
+  },
+  "trade": {
+    "title": "Centro de Intercambio",
+    "subtitle": "Comparte o Escanea Cromos",
+    "tabs": {
+      "share": "Mis Repetidos",
+      "scan": "Escanear Amigo"
+    },
+    "code_desc": "Muestra este Código QR a un amigo para escanear.",
+    "matches_found": "¡Buenas noticias! ¡Tiene {{count}} cromo(s) que no tienes!",
+    "no_matches": "Vaya, no tiene cromos que necesites en este momento.",
+    "scan_btn": "Abrir Cámara",
+    "cam_permission": "Necesitamos permiso de cámara para escanear."
   }
 }

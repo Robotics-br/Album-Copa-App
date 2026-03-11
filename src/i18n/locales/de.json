@@ -134,7 +134,8 @@
     "games": "Spiele",
     "stats": "Fortschritt",
     "settings": "Einstellungen",
-    "events": "Events"
+    "events": "Events",
+    "trade": "Tauschen"
   },
   "album": {
     "title": "MEINE WM 2026",
@@ -165,5 +166,18 @@
       "games": "Spiele",
       "stadiums": "Stadien"
     }
+  },
+  "trade": {
+    "title": "Tauschzentrum",
+    "subtitle": "Teilen oder Scannen von Stickern",
+    "tabs": {
+      "share": "Meine Doppelten",
+      "scan": "Freund Scannen"
+    },
+    "code_desc": "Zeige diesen QR-Code einem Freund zum Scannen.",
+    "matches_found": "Gute Nachrichten! Er hat {{count}} Sticker, die du nicht hast!",
+    "no_matches": "Schade, er hat im Moment keine Sticker, die du brauchst.",
+    "scan_btn": "Kamera Öffnen",
+    "cam_permission": "Wir benötigen die Kameraberechtigung zum Scannen."
   }
 }

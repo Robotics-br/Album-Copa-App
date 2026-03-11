@@ -134,7 +134,8 @@
     "games": "Matchs",
     "stats": "Progrès",
     "settings": "Paramètres",
-    "events": "Événements"
+    "events": "Événements",
+    "trade": "Échange"
   },
   "album": {
     "title": "MA COUPE DU MONDE 2026",
@@ -165,5 +166,18 @@
       "games": "Matchs",
       "stadiums": "Stades"
     }
+  },
+  "trade": {
+    "title": "Centre d'Échange",
+    "subtitle": "Partager ou Scanner des Autocollants",
+    "tabs": {
+      "share": "Mes Doubles",
+      "scan": "Scanner un Ami"
+    },
+    "code_desc": "Montrez ce Code QR à un ami pour qu'il le scanne.",
+    "matches_found": "Bonne nouvelle ! Il a {{count}} autocollant(s) que vous n'avez pas !",
+    "no_matches": "Dommage, il n'a pas d'autocollants dont vous avez besoin pour le moment.",
+    "scan_btn": "Ouvrir l'Appareil Photo",
+    "cam_permission": "Nous avons besoin de l'autorisation de la caméra pour scanner."
   }
 }

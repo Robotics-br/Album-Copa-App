@@ -134,7 +134,8 @@
     "games": "Jogos",
     "stats": "Progresso",
     "settings": "Ajustes",
-    "events": "Eventos"
+    "events": "Eventos",
+    "trade": "Troca"
   },
   "album": {
     "title": "MINHA COPA 2026",
@@ -165,5 +166,18 @@
       "games": "Jogos",
       "stadiums": "Estádios"
     }
+  },
+  "trade": {
+    "title": "Centro de Trocas",
+    "subtitle": "Compartilhe ou Escaneie Figurinhas",
+    "tabs": {
+      "share": "Minhas Repetidas",
+      "scan": "Escanear Amigo"
+    },
+    "code_desc": "Mostre este QR Code para um amigo escanear.",
+    "matches_found": "Boas notícias! Ele tem {{count}} figurinha(s) que você não tem!",
+    "no_matches": "Puxa, ele não tem nenhuma figurinha que você precisa no momento.",
+    "scan_btn": "Abrir Câmera",
+    "cam_permission": "Precisamos da permissão de câmera para escanear."
   }
 }

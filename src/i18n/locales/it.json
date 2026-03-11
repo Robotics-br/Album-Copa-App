@@ -134,7 +134,8 @@
     "games": "Partite",
     "stats": "Progressi",
     "settings": "Impostazioni",
-    "events": "Eventi"
+    "events": "Eventi",
+    "trade": "Scambia"
   },
   "album": {
     "title": "IL MIO MONDIALE 2026",
@@ -165,5 +166,18 @@
       "games": "Partite",
       "stadiums": "Stadi"
     }
+  },
+  "trade": {
+    "title": "Centro Scambi",
+    "subtitle": "Condividi o Scansiona Figurine",
+    "tabs": {
+      "share": "Le Mie Doppie",
+      "scan": "Scansiona Amico"
+    },
+    "code_desc": "Mostra questo QR Code a un amico per farlo scansionare.",
+    "matches_found": "Ottime notizie! Ha {{count}} figurina/e che non hai!",
+    "no_matches": "Peccato, al momento non ha figurine di cui hai bisogno.",
+    "scan_btn": "Apri Fotocamera",
+    "cam_permission": "Abbiamo bisogno dei permessi della fotocamera per scansionare."
   }
 }
