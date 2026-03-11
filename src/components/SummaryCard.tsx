@@ -18,10 +18,10 @@ function SummaryCard() {
   const pct = Math.round((ownedCount / totalStickers) * 100);
 
   const getEvolutionImage = (percent: number) => {
-    if (percent <= 10) return require('../../assets/images/album-estagio-01.png');
-    if (percent <= 35) return require('../../assets/images/album-estagio-02.png');
-    if (percent <= 65) return require('../../assets/images/album-estagio-03.png');
-    if (percent <= 90) return require('../../assets/images/album-estagio-04.png');
+    if (percent < 10) return require('../../assets/images/album-estagio-01.png');
+    if (percent < 35) return require('../../assets/images/album-estagio-02.png');
+    if (percent < 65) return require('../../assets/images/album-estagio-03.png');
+    if (percent < 90) return require('../../assets/images/album-estagio-04.png');
     return require('../../assets/images/album-estagio-05.png');
   };
 
