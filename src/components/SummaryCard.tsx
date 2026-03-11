@@ -16,6 +16,7 @@ function SummaryCard() {
     [collection]
   );
   const pct = Math.round((ownedCount / totalStickers) * 100);
+  const missingCount = totalStickers - ownedCount;
 
   const getEvolutionImage = (percent: number) => {
     if (percent < 10) return require('../../assets/images/album-estagio-01.png');
@@ -29,12 +30,14 @@ function SummaryCard() {
     <View className="mx-3 mt-2 rounded-xl border border-border bg-surface p-3">
       <View className="flex-row items-center gap-3">
         <View className="flex-1 justify-center gap-1.5">
-          <View className="flex-row items-center justify-between">
-            <Text className="text-[14px] font-bold uppercase tracking-widest text-text">
+          <View className="flex-row items-center justify-between gap-2">
+            <Text className="shrink-0 text-[14px] font-bold uppercase tracking-widest text-text">
               {i18n_t('summary.title')}
             </Text>
-            <Text className="text-[11px] font-semibold italic text-accent">
-              {i18n_t('summary.missing', { percent: 100 - pct })}
+            <Text
+              className="flex-1 flex-wrap text-right text-[11px] font-semibold italic text-accent"
+              numberOfLines={2}>
+              {i18n_t('summary.missing', { count: missingCount })}
             </Text>
           </View>
           <View className="flex-row items-center gap-2">

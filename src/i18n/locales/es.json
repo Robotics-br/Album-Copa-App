@@ -52,7 +52,7 @@
   },
   "summary": {
     "title": "TU ÁLBUM",
-    "missing": "{{percent}}% faltante"
+    "missing": "{{count}} para conquistar el mundo"
   },
   "stickerModal": {
     "question1": "¿Cuántos cromos <1>repetidos</1> tienes?",

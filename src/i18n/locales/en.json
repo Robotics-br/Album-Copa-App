@@ -52,7 +52,7 @@
   },
   "summary": {
     "title": "YOUR ALBUM",
-    "missing": "{{percent}}% missing"
+    "missing": "{{count}} to conquer the world"
   },
   "stickerModal": {
     "question1": "How many <1>repeated</1> stickers do you have?",

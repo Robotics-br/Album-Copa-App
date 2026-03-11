@@ -52,7 +52,7 @@
   },
   "summary": {
     "title": "SEU ÁLBUM",
-    "missing": "{{percent}}% faltando"
+    "missing": "{{count}} para conquistar o mundo"
   },
   "stickerModal": {
     "question1": "Quantas figurinhas <1>repetidas</1> você tem?",
