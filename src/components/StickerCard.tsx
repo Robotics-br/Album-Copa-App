@@ -7,31 +7,37 @@ import Animated, {
   withTiming,
   withSpring,
 } from 'react-native-reanimated';
-import { useTheme } from '../theme/ThemeProvider';
-import { useCollectionStore } from '../store/useCollectionStore';
-import { useSettingsStore } from '../store/useSettingsStore';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
 import { hexToRgba } from '../utils/colors';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StarExplosion } from './ui/StarExplosion';
-import { useTranslation } from 'react-i18next';
+import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
 
 interface StickerCardProps {
   sticker: Sticker;
   flag: string;
   onPress: (sticker: Sticker) => void;
+  t: ThemeColors;
+  i18n_t: (key: string, options?: any) => string;
+  qty: number;
+  toggleSticker: (code: string) => void;
+  soundEnabled: boolean;
 }
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
-  const t = useTheme();
-  const { t: i18n_t } = useTranslation();
-  const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
-  const toggleSticker = useCollectionStore((s) => s.toggleSticker);
-  const soundEnabled = useSettingsStore((s) => s.soundEnabled);
+function StickerCard({
+  sticker,
+  flag,
+  onPress,
+  t,
+  i18n_t,
+  qty,
+  toggleSticker,
+  soundEnabled,
+}: StickerCardProps) {
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
 
   const scale = useSharedValue(1);
@@ -87,12 +93,11 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
   }, [qty, soundEnabled, scale, zIndex, rotation]);
 
   const handlePress = useCallback(() => {
-    const currentQty = useCollectionStore.getState().collection[sticker.code] ?? 0;
-    const isOwned = currentQty > 0;
+    const isOwned = qty > 0;
 
     if (!isOwned) {
       justTapped.current = true;
-      if (useSettingsStore.getState().soundEnabled) playStickerCollectedSound();
+      if (soundEnabled) playStickerCollectedSound();
       successNotification();
       zIndex.value = 100;
 
@@ -119,7 +124,7 @@ function StickerCard({ sticker, flag, onPress }: StickerCardProps) {
       lightTap();
       onPress(sticker);
     }
-  }, [sticker, toggleSticker, onPress, scale, rotation, zIndex]);
+  }, [sticker, toggleSticker, onPress, scale, rotation, zIndex, qty, soundEnabled]);
 
   const bgColor = 'transparent';
 

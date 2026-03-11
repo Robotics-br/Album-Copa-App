@@ -1,10 +1,11 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
-import { View, Text, Dimensions, useWindowDimensions } from 'react-native';
+import { View, Text, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { FlashList, FlashListRef } from '@shopify/flash-list';
+import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
+import { useSettingsStore } from '../../src/store/useSettingsStore';
 import { teams, stickers as allStickers, getStickersByTeam, teamMap } from '../../src/data/teams';
 import MainHeader from '../../src/components/MainHeader';
 import StickerCard from '../../src/components/StickerCard';
@@ -49,6 +50,8 @@ export default function AlbumScreen() {
 
   const { t: i18n_t } = useTranslation();
   const collection = useCollectionStore((s) => s.collection);
+  const toggleSticker = useCollectionStore((s) => s.toggleSticker);
+  const soundEnabled = useSettingsStore((s) => s.soundEnabled);
   const { stickerFilter, currentTeam } = useAlbumFiltersStore();
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -156,6 +159,11 @@ export default function AlbumScreen() {
                 sticker={sticker}
                 flag={teamMap.get(sticker.section)?.flag ?? ''}
                 onPress={setSelectedSticker}
+                t={t}
+                i18n_t={i18n_t}
+                qty={collection[sticker.code] ?? 0}
+                toggleSticker={toggleSticker}
+                soundEnabled={soundEnabled}
               />
             </View>
           ))}
@@ -166,7 +174,7 @@ export default function AlbumScreen() {
         </View>
       );
     },
-    [t, stickerFilter, setSelectedSticker, itemWidth]
+    [setSelectedSticker, itemWidth, i18n_t, collection, toggleSticker, soundEnabled, t]
   );
 
   const keyExtractor = useCallback((item: ListItem, index: number) => {
@@ -196,10 +204,10 @@ export default function AlbumScreen() {
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           getItemType={getItemType}
-          extraData={collection}
-          drawDistance={1000}
+          extraData={{ collection, t, i18n_t, soundEnabled }}
           ListFooterComponent={<View className="h-5" />}
           showsVerticalScrollIndicator={false}
+          drawDistance={1000}
         />
       </View>
 
