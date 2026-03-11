@@ -5,9 +5,9 @@ import { useTranslation, Trans } from 'react-i18next';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { useSettingsStore } from '../store/useSettingsStore';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getTeamById } from '../data/teams';
-import { lightTap, successNotification, errorNotification } from '../utils/haptics';
-import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
+import { lightTap } from '../utils/haptics';
 import AnimatedPressable from './ui/AnimatedPressable';
 import type { Sticker } from '../types';
 
@@ -20,7 +20,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
   const { getQuantity, setQuantity } = useCollectionStore();
-  const soundEnabled = useSettingsStore((s) => s.soundEnabled);
+  const insets = useSafeAreaInsets();
   const [duplicates, setDuplicates] = useState(0);
 
   useEffect(() => {
@@ -48,7 +48,8 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
       <Pressable className="flex-1 justify-end bg-black/50" onPress={onClose}>
         <Pressable
           onPress={(e) => e.stopPropagation()}
-          className="rounded-t-[24px] border-t border-border bg-surface p-6 pb-10">
+          className="rounded-t-[24px] border-t border-border bg-surface p-6"
+          style={{ paddingBottom: Math.max(24, 16 + insets.bottom) }}>
           <AnimatedPressable
             onPress={() => {
               lightTap();
