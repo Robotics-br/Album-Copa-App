@@ -18,8 +18,9 @@
     "accessibility": "Accesibilidad",
     "seniorMode": "Modo Senior",
     "seniorModeDesc": "Botones y textos más grandes",
-    "sound": "Sonido",
     "soundDesc": "Sonidos al recolectar cromos",
+    "animations": "Animaciones",
+    "animationsDesc": "Activa o desativa las animaciones de los cromos",
     "language": "Idioma",
     "languageDesc": "Seleccione el idioma de la aplicación",
     "languages": {

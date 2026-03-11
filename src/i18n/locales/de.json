@@ -18,8 +18,9 @@
     "accessibility": "Barrierefreiheit",
     "seniorMode": "Seniorenmodus",
     "seniorModeDesc": "Größere Schaltflächen und Texte",
-    "sound": "Ton",
     "soundDesc": "Töne beim Sammeln von Stickern",
+    "animations": "Animationen",
+    "animationsDesc": "Aktiviert oder deaktiviert Kartenanimationen",
     "language": "Sprache",
     "languageDesc": "Wählen Sie die App-Sprache",
     "languages": {

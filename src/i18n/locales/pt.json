@@ -18,8 +18,9 @@
     "accessibility": "Acessibilidade",
     "seniorMode": "Modo Sênior",
     "seniorModeDesc": "Botões e textos maiores",
-    "sound": "Som",
     "soundDesc": "Sons ao coletar figurinhas",
+    "animations": "Animações",
+    "animationsDesc": "Ativa ou desativa animações nos cards",
     "language": "Idioma",
     "languageDesc": "Selecione o idioma do aplicativo",
     "languages": {

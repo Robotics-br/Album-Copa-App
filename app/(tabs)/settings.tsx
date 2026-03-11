@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, Pressable, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Volume2, VolumeX, Eye, Trash2 } from 'lucide-react-native';
+import { Volume2, VolumeX, Eye, Trash2, Zap, ZapOff } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useSettingsStore } from '../../src/store/useSettingsStore';
@@ -43,10 +43,12 @@ export default function SettingsScreen() {
     seniorMode,
     soundEnabled,
     language,
+    animationsEnabled,
     setStyle,
     toggleSeniorMode,
     toggleSound,
     setLanguage,
+    toggleAnimations,
   } = useSettingsStore();
   const resetCollection = useCollectionStore((s) => s.reset);
 
@@ -164,6 +166,22 @@ export default function SettingsScreen() {
               </View>
             </View>
             <Toggle value={soundEnabled} onValueChange={toggleSound} />
+          </View>
+          <View className="flex-row items-center justify-between border-t border-border px-4 py-3.5">
+            <View className="flex-row items-center gap-3">
+              {animationsEnabled ? (
+                <Zap size={20} color={theme.text} />
+              ) : (
+                <ZapOff size={20} color={theme.text} />
+              )}
+              <View>
+                <Text className="text-[15px] font-medium text-text">{t('settings.animations')}</Text>
+                <Text className="text-[11px] text-text-secondary">
+                  {t('settings.animationsDesc')}
+                </Text>
+              </View>
+            </View>
+            <Toggle value={animationsEnabled} onValueChange={toggleAnimations} />
           </View>
         </View>
 

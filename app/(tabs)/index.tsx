@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 import type { Sticker } from '../../src/types';
+import StickerCardLight from '@/components/StickerCardLight';
 
 const COLUMNS = 5;
 const GAP = 6;
@@ -51,7 +52,7 @@ export default function AlbumScreen() {
   const { t: i18n_t } = useTranslation();
   const collection = useCollectionStore((s) => s.collection);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
-  const soundEnabled = useSettingsStore((s) => s.soundEnabled);
+  const { soundEnabled, animationsEnabled } = useSettingsStore();
   const { stickerFilter, currentTeam } = useAlbumFiltersStore();
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -155,16 +156,29 @@ export default function AlbumScreen() {
           style={{ paddingHorizontal: HORIZONTAL_PADDING }}>
           {item.stickers.map((sticker) => (
             <View key={sticker.code} style={{ width: itemWidth }}>
-              <StickerCard
-                sticker={sticker}
-                flag={teamMap.get(sticker.section)?.flag ?? ''}
-                onPress={setSelectedSticker}
-                t={t}
-                i18n_t={i18n_t}
-                qty={collection[sticker.code] ?? 0}
-                toggleSticker={toggleSticker}
-                soundEnabled={soundEnabled}
-              />
+              {animationsEnabled ? (
+                <StickerCard
+                  sticker={sticker}
+                  flag={teamMap.get(sticker.section)?.flag ?? ''}
+                  onPress={setSelectedSticker}
+                  t={t}
+                  i18n_t={i18n_t}
+                  qty={collection[sticker.code] ?? 0}
+                  toggleSticker={toggleSticker}
+                  soundEnabled={soundEnabled}
+                />
+              ) : (
+                <StickerCardLight
+                  sticker={sticker}
+                  flag={teamMap.get(sticker.section)?.flag ?? ''}
+                  onPress={setSelectedSticker}
+                  t={t}
+                  i18n_t={i18n_t}
+                  qty={collection[sticker.code] ?? 0}
+                  toggleSticker={toggleSticker}
+                  soundEnabled={soundEnabled}
+                />
+              )}
             </View>
           ))}
           {phantomCount > 0 &&
@@ -174,7 +188,7 @@ export default function AlbumScreen() {
         </View>
       );
     },
-    [setSelectedSticker, itemWidth, i18n_t, collection, toggleSticker, soundEnabled, t]
+    [setSelectedSticker, itemWidth, i18n_t, collection, toggleSticker, soundEnabled, t, animationsEnabled]
   );
 
   const keyExtractor = useCallback((item: ListItem, index: number) => {
@@ -204,7 +218,7 @@ export default function AlbumScreen() {
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           getItemType={getItemType}
-          extraData={{ collection, t, i18n_t, soundEnabled }}
+          extraData={{ collection, animationsEnabled }}
           ListFooterComponent={<View className="h-5" />}
           showsVerticalScrollIndicator={false}
           drawDistance={1000}

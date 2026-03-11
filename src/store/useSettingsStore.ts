@@ -9,12 +9,14 @@ interface SettingsState {
   soundEnabled: boolean;
   favoriteTeam: string | null;
   language: string | null;
+  animationsEnabled: boolean;
 
   setStyle: (style: ThemeStyle) => void;
   toggleSeniorMode: () => void;
   toggleSound: () => void;
   setFavoriteTeam: (teamId: string | null) => void;
   setLanguage: (lang: string) => void;
+  toggleAnimations: () => void;
   resetSettings: () => void;
 }
 
@@ -24,6 +26,7 @@ const defaults = {
   soundEnabled: true,
   favoriteTeam: null,
   language: null,
+  animationsEnabled: true,
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -36,6 +39,7 @@ export const useSettingsStore = create<SettingsState>()(
       toggleSound: () => set((s) => ({ soundEnabled: !s.soundEnabled })),
       setFavoriteTeam: (teamId) => set({ favoriteTeam: teamId }),
       setLanguage: (lang) => set({ language: lang }),
+      toggleAnimations: () => set((s) => ({ animationsEnabled: !s.animationsEnabled })),
       resetSettings: () => set(defaults),
     }),
     {

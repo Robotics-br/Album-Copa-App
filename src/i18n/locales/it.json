@@ -18,8 +18,9 @@
     "accessibility": "Accessibilità",
     "seniorMode": "Modalità Senior",
     "seniorModeDesc": "Pulsanti e testi più grandi",
-    "sound": "Suono",
     "soundDesc": "Suoni durante la raccolta delle figurine",
+    "animations": "Animazioni",
+    "animationsDesc": "Attiva o disattiva le animazioni delle figurine",
     "language": "Lingua",
     "languageDesc": "Seleziona la lingua dell'app",
     "languages": {

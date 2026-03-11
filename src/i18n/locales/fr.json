@@ -18,8 +18,9 @@
     "accessibility": "Accessibilité",
     "seniorMode": "Mode Senior",
     "seniorModeDesc": "Boutons et textes plus grands",
-    "sound": "Son",
     "soundDesc": "Sons lors de la collecte d'autocollants",
+    "animations": "Animations",
+    "animationsDesc": "Active ou désactive les animations des stickers",
     "language": "Langue",
     "languageDesc": "Sélectionnez la langue de l'application",
     "languages": {
