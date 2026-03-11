@@ -2,6 +2,7 @@ import '../global.css';
 import React from 'react';
 import { Slot } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, useTheme } from '../src/theme/ThemeProvider';
 import { useEffect } from 'react';
 import { useSettingsStore } from '../src/store/useSettingsStore';
@@ -34,11 +35,12 @@ function InnerLayout() {
     </>
   );
 }
-
 export default function RootLayout() {
   return (
-    <ThemeProvider>
-      <InnerLayout />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <InnerLayout />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

@@ -1,17 +1,19 @@
 import React, { useMemo } from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { teams, stickers, totalStickers, getStickersByTeam } from '../../src/data/teams';
 import ProgressRing from '../../src/components/ui/ProgressRing';
 import ProgressBar from '../../src/components/ui/ProgressBar';
 import { useTranslation } from 'react-i18next';
+import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 export default function StatsScreen() {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
   const collection = useCollectionStore((s) => s.collection);
+  const insets = useSafeAreaInsets();
 
   const stats = useMemo(() => {
     const owned = stickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
@@ -34,8 +36,8 @@ export default function StatsScreen() {
   }, [collection]);
 
   return (
-    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
-      <View className="px-3 py-2">
+    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
         <Text className="text-[14px] font-bold uppercase text-gold">{i18n_t('stats.title')}</Text>
       </View>
 
@@ -82,6 +84,6 @@ export default function StatsScreen() {
           ))}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }

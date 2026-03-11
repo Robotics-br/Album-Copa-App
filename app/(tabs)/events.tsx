@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { View, Text, ScrollView, Pressable } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { ChevronDown, ChevronUp } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -20,6 +20,7 @@ import { getStadiumsByCountry } from '../../src/data/stadiums';
 import MatchCard from '../../src/components/MatchCard';
 import StadiumCard from '../../src/components/StadiumCard';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
+import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 type FilterKind = 'all' | 'team' | 'day';
 type GlobalTab = 'games' | 'stadiums';
@@ -32,6 +33,7 @@ function formatDateOption(dateStr: string): string {
 export default function EventsScreen() {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
+  const insets = useSafeAreaInsets();
 
   const [activeTab, setActiveTab] = useState<GlobalTab>('games');
 
@@ -66,7 +68,10 @@ export default function EventsScreen() {
 
   const renderGames = () => (
     <>
-      <View className="mb-2 gap-2.5 px-3">
+      <View 
+        style={{ paddingHorizontal: HORIZONTAL_PADDING }}
+        className="mb-2 gap-2.5"
+      >
         <View className="flex-row gap-1.5">
           {filterTabs.map(({ key, label }) => {
             const active = filterKind === key;
@@ -146,7 +151,7 @@ export default function EventsScreen() {
         )}
       </View>
 
-      <View className="flex-1 px-3">
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="flex-1">
         {filteredMatches.length === 0 ? (
           <Text className="p-6 text-center text-text-secondary">{i18n_t('games.empty')}</Text>
         ) : (
@@ -193,13 +198,13 @@ export default function EventsScreen() {
   );
 
   return (
-    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
-      <View className="px-3 py-2">
+    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
         <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('events.title')}</Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('events.subtitle')}</Text>
       </View>
 
-      <View className="mb-3 px-3">
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-3">
         <View className="flex-row items-center rounded-xl border border-border bg-surface-light p-1">
           <AnimatedPressable
             onPress={() => setActiveTab('games')}
@@ -225,6 +230,6 @@ export default function EventsScreen() {
       </View>
 
       {activeTab === 'games' ? renderGames() : renderStadiums()}
-    </SafeAreaView>
+    </View>
   );
 }

@@ -4,6 +4,7 @@ import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { teamMap, getStickersByTeam } from '../data/teams';
 import { useTranslation } from 'react-i18next';
+import { HORIZONTAL_PADDING } from '../utils/consts';
 
 interface TeamHeaderProps {
   sectionId: string;
@@ -28,7 +29,7 @@ const TeamHeader = ({ sectionId, totalCount }: TeamHeaderProps) => {
 
   return (
     <View 
-      style={{ paddingHorizontal: 16 }}
+      style={{ paddingHorizontal: HORIZONTAL_PADDING }}
       className="mt-1 flex-row items-center justify-between border-t border-border bg-bg pb-1 pt-1.5"
     >
       <View className="flex-row items-center gap-2">

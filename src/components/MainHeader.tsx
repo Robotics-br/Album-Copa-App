@@ -7,6 +7,7 @@ import SummaryCard from './SummaryCard';
 import TeamTabs from './TeamTabs';
 import FilterBar from './FilterBar';
 import { useTranslation } from 'react-i18next';
+import { HORIZONTAL_PADDING } from '../utils/consts';
 
 interface MainHeaderProps {
   searchQuery: string;
@@ -21,7 +22,7 @@ const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
     <View className="bg-bg pb-2">
       <SummaryCard />
       <View 
-        style={{ marginHorizontal: 16 }}
+        style={{ marginHorizontal: HORIZONTAL_PADDING }}
         className="my-2.5 flex-row items-center rounded-xl border border-border bg-surface px-3"
       >
         <Search size={16} color={t.textSecondary} />

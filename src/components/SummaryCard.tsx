@@ -14,6 +14,7 @@ import { playStickerCollectedSound } from '../utils/sounds';
 import { StarExplosion } from './ui/StarExplosion';
 import ProgressBar from './ui/ProgressBar';
 import { useTranslation } from 'react-i18next';
+import { HORIZONTAL_PADDING } from '../utils/consts';
 
 function SummaryCard() {
   const t = useTheme();
@@ -89,7 +90,7 @@ function SummaryCard() {
 
   return (
     <View 
-      style={{ marginHorizontal: 16 }}
+      style={{ marginHorizontal: HORIZONTAL_PADDING }}
       className="mt-2 rounded-xl border border-border bg-surface p-3"
     >
       <View className="flex-row items-center gap-3">

@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { useFocusEffect } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
@@ -13,6 +13,7 @@ import StickerCard from '../../src/components/StickerCard';
 import { getStickerByCode, getTeamById } from '../../src/data/teams';
 import { FlashList } from '@shopify/flash-list';
 import type { Sticker } from '../../src/types';
+import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 type TradeTab = 'share' | 'scan';
 
@@ -163,14 +164,16 @@ export default function TradeScreen() {
     );
   };
 
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
-      <View className="px-3 py-2">
+    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
         <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('trade.title')}</Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('trade.subtitle')}</Text>
       </View>
 
-      <View className="mb-2 mt-2 px-3">
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-2 mt-2">
         <View className="flex-row items-center rounded-xl border border-border bg-surface-light p-1">
           <AnimatedPressable
             onPress={() => setActiveTab('share')}
@@ -196,6 +199,6 @@ export default function TradeScreen() {
       </View>
 
       {activeTab === 'share' ? renderShare() : renderScan()}
-    </SafeAreaView>
+    </View>
   );
 }

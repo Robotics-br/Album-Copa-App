@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, Pressable, Alert } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Volume2, VolumeX, Eye, Trash2 } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -9,6 +9,7 @@ import { useCollectionStore } from '../../src/store/useCollectionStore';
 import Toggle from '../../src/components/ui/Toggle';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import type { ThemeStyle } from '../../src/types';
+import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 const styleOptions: { id: ThemeStyle; labelKey: string }[] = [
   { id: 'original-dark', labelKey: 'settings.themes.original-dark' },
@@ -36,6 +37,7 @@ const languageOptions = [
 export default function SettingsScreen() {
   const theme = useTheme();
   const { t } = useTranslation();
+  const insets = useSafeAreaInsets();
   const {
     style,
     seniorMode,
@@ -60,8 +62,8 @@ export default function SettingsScreen() {
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
-      <View className="px-3 py-2">
+    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
         <Text className="text-[14px] font-bold uppercase text-gold">{t('settings.title')}</Text>
       </View>
 
@@ -186,6 +188,6 @@ export default function SettingsScreen() {
           </Text>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
