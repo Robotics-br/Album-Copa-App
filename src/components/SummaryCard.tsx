@@ -41,7 +41,7 @@ function SummaryCard() {
   const scale = useSharedValue(0);
   const rotation = useSharedValue(0);
 
-  const handleLongPress = useCallback(() => {
+  const handlePress = useCallback(() => {
     setShowEasterEgg(true);
     scale.value = 0;
     rotation.value = 0;
@@ -110,7 +110,7 @@ function SummaryCard() {
         </View>
 
         <View className="ml-1 justify-center border-l border-border pl-3">
-          <Pressable onPress={handleLongPress}>
+          <Pressable onPress={handlePress}>
             <Image
               source={getEvolutionImage(pct)}
               style={{ width: 44, height: 44 }}
