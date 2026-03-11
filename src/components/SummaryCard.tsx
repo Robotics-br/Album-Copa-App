@@ -88,7 +88,10 @@ function SummaryCard() {
   }));
 
   return (
-    <View className="mx-3 mt-2 rounded-xl border border-border bg-surface p-3">
+    <View 
+      style={{ marginHorizontal: 16 }}
+      className="mt-2 rounded-xl border border-border bg-surface p-3"
+    >
       <View className="flex-row items-center gap-3">
         <View className="flex-1 justify-center gap-1.5">
           <View className="flex-row items-center justify-between gap-2">

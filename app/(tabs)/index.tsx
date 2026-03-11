@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import { View, Text, Dimensions, useWindowDimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList, FlashListRef } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -14,10 +14,10 @@ import { useTranslation } from 'react-i18next';
 
 import type { Sticker } from '../../src/types';
 
+// Altere este valor para mudar o padding horizontal de todo o app (Ex: 12 para px-3, 16 para px-4)
+export const HORIZONTAL_PADDING = 16;
 const COLUMNS = 5;
-const SCREEN_WIDTH = Dimensions.get('window').width;
 const GAP = 6;
-const ITEM_WIDTH = (SCREEN_WIDTH - 16 - GAP * (COLUMNS - 1)) / COLUMNS;
 
 type TeamHeaderItem = { type: 'team-header'; sectionId: string; totalCount: number };
 type StickerRowItem = { type: 'sticker-row'; stickers: Sticker[] };
@@ -41,7 +41,13 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 }
 
 export default function AlbumScreen() {
+  const { width: windowWidth } = useWindowDimensions();
   const t = useTheme();
+  
+  const itemWidth = useMemo(() => {
+    return Math.floor((windowWidth - HORIZONTAL_PADDING * 2 - GAP * (COLUMNS - 1)) / COLUMNS);
+  }, [windowWidth]);
+
   const { t: i18n_t } = useTranslation();
   const collection = useCollectionStore((s) => s.collection);
   const { stickerFilter, currentTeam } = useAlbumFiltersStore();
@@ -139,10 +145,15 @@ export default function AlbumScreen() {
         return <TeamHeader sectionId={item.sectionId} totalCount={item.totalCount} />;
       }
 
+      const phantomCount = COLUMNS - item.stickers.length;
+
       return (
-        <View className="mb-1.5 flex-row px-2">
+        <View 
+          className="mb-1.5 flex-row justify-between" 
+          style={{ paddingHorizontal: HORIZONTAL_PADDING }}
+        >
           {item.stickers.map((sticker) => (
-            <View key={sticker.code} style={{ width: ITEM_WIDTH, marginRight: GAP }}>
+            <View key={sticker.code} style={{ width: itemWidth }}>
               <StickerCard
                 sticker={sticker}
                 flag={teamMap.get(sticker.section)?.flag ?? ''}
@@ -150,10 +161,15 @@ export default function AlbumScreen() {
               />
             </View>
           ))}
+          {phantomCount > 0 && 
+            Array.from({ length: phantomCount }).map((_, i) => (
+              <View key={`phantom-${i}`} style={{ width: itemWidth }} />
+            ))
+          }
         </View>
       );
     },
-    [t, stickerFilter, setSelectedSticker]
+    [t, stickerFilter, setSelectedSticker, itemWidth]
   );
 
   const keyExtractor = useCallback((item: ListItem, index: number) => {
@@ -166,7 +182,7 @@ export default function AlbumScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-bg" edges={['top']}>
-      <View className="px-3 py-2">
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
         <Text className="text-[14px] font-bold uppercase tracking-widest text-gold">
           {i18n_t('album.title')}
         </Text>

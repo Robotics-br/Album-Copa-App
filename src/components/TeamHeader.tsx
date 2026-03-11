@@ -27,7 +27,10 @@ const TeamHeader = ({ sectionId, totalCount }: TeamHeaderProps) => {
   const team = teamMap.get(sectionId);
 
   return (
-    <View className="mt-1 flex-row items-center justify-between border-t border-border bg-bg px-3 pb-1 pt-1.5">
+    <View 
+      style={{ paddingHorizontal: 16 }}
+      className="mt-1 flex-row items-center justify-between border-t border-border bg-bg pb-1 pt-1.5"
+    >
       <View className="flex-row items-center gap-2">
         <Text className="text-[20px]">{team?.flag}</Text>
         <Text className="text-[13px] font-bold uppercase text-text-secondary">
