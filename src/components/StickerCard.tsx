@@ -1,11 +1,10 @@
-import React, { useCallback, useMemo, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { Pressable, Text, View, StyleSheet } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSequence,
   withTiming,
-  withSpring,
 } from 'react-native-reanimated';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
@@ -43,8 +42,10 @@ function StickerCard({
   const scale = useSharedValue(1);
   const rotation = useSharedValue(0);
   const zIndex = useSharedValue(0);
+
   const prevQty = useRef(qty);
   const justTapped = useRef(false);
+  const prevStickerCode = useRef(sticker.code);
   const [explosionTrigger, setExplosionTrigger] = React.useState(0);
 
   const animatedStyle = useAnimatedStyle(() => ({
@@ -53,13 +54,18 @@ function StickerCard({
   }));
 
   useEffect(() => {
+    if (prevStickerCode.current !== sticker.code) {
+      prevStickerCode.current = sticker.code;
+      prevQty.current = qty;
+      return;
+    }
+
     if (qty > prevQty.current) {
       if (!justTapped.current) {
         if (soundEnabled) playStickerCollectedSound();
         successNotification();
         zIndex.value = 100;
 
-        // Shake animation
         rotation.value = withSequence(
           withTiming(-8, { duration: 100 }),
           withTiming(8, { duration: 100 }),
@@ -90,7 +96,7 @@ function StickerCard({
     }
     prevQty.current = qty;
     justTapped.current = false;
-  }, [qty, soundEnabled, scale, zIndex, rotation]);
+  }, [qty, sticker.code, soundEnabled, scale, zIndex, rotation]);
 
   const handlePress = useCallback(() => {
     const isOwned = qty > 0;
@@ -101,7 +107,6 @@ function StickerCard({
       successNotification();
       zIndex.value = 100;
 
-      // Shake animation
       rotation.value = withSequence(
         withTiming(-8, { duration: 100 }),
         withTiming(8, { duration: 100 }),
@@ -152,7 +157,6 @@ function StickerCard({
           backgroundColor: bgColor,
         },
       ]}>
-      {/* Remove overflow hidden wrapper if needed, but the wrapper is safe inside animated pressable */}
       <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: 6, overflow: 'hidden' }}>
         <LinearGradient
           colors={gradientColors}
@@ -191,4 +195,9 @@ function StickerCard({
   );
 }
 
-export default React.memo(StickerCard);
+export default React.memo(StickerCard, (prevProps, nextProps) => {
+  return (
+    prevProps.sticker.code === nextProps.sticker.code &&
+    prevProps.soundEnabled === nextProps.soundEnabled
+  );
+});

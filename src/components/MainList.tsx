@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, memo } from 'react';
 import { View, Text } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { teams, getStickersByTeam, teamMap } from '../data/teams';
@@ -22,6 +22,62 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
   }
   return chunks;
 }
+
+const StickerRow = memo(
+  ({
+    item,
+    itemWidth,
+    animationsEnabled,
+    soundEnabled,
+    toggleSticker,
+    setSelectedSticker,
+    t,
+    i18n_t,
+  }: any) => {
+    const phantomCount = COLUMNS - item.stickers.length;
+
+    return (
+      <View
+        className="mb-1.5 flex-row justify-between"
+        style={{ paddingHorizontal: HORIZONTAL_PADDING }}>
+        {item.stickers.map((sticker: Sticker, index: any) => (
+          <View key={`slot-${index}`} style={{ width: itemWidth }}>
+            {animationsEnabled ? (
+              <StickerCard
+                sticker={sticker}
+                flag={teamMap.get(sticker.section)?.flag ?? ''}
+                onPress={setSelectedSticker}
+                t={t}
+                i18n_t={i18n_t}
+                toggleSticker={toggleSticker}
+                soundEnabled={soundEnabled}
+              />
+            ) : (
+              <StickerCardLight
+                sticker={sticker}
+                flag={teamMap.get(sticker.section)?.flag ?? ''}
+                onPress={setSelectedSticker}
+                t={t}
+                i18n_t={i18n_t}
+                toggleSticker={toggleSticker}
+                soundEnabled={soundEnabled}
+              />
+            )}
+          </View>
+        ))}
+
+        {/* 2. MUDANÇA CRÍTICA: Os phantoms continuam a contagem das keys */}
+        {phantomCount > 0 &&
+          Array.from({ length: phantomCount }).map((_, i) => (
+            <View key={`slot-${item.stickers.length + i}`} style={{ width: itemWidth }} />
+          ))}
+      </View>
+    );
+  },
+  (prevProps, nextProps) => {
+    return prevProps.item.stickers[0]?.code === nextProps.item.stickers[0]?.code;
+  }
+);
 
 interface MainListProps {
   filteredStickers: Sticker[];
@@ -97,6 +153,7 @@ export default function MainList({
     return items;
   }, [filteredStickers, currentTeam]);
 
+  // 2. RENDER ITEM LIMPO E OTIMIZADO
   const renderItem = useCallback(
     ({ item }: { item: ListItem }) => {
       if (item.type === 'empty') {
@@ -111,45 +168,21 @@ export default function MainList({
         return <TeamHeader sectionId={item.sectionId} totalCount={item.totalCount} />;
       }
 
-      const phantomCount = COLUMNS - item.stickers.length;
-
       return (
-        <View
-          className="mb-1.5 flex-row justify-between"
-          style={{ paddingHorizontal: HORIZONTAL_PADDING }}>
-          {item.stickers.map((sticker) => (
-            <View key={sticker.code} style={{ width: itemWidth }}>
-              {animationsEnabled ? (
-                <StickerCard
-                  sticker={sticker}
-                  flag={teamMap.get(sticker.section)?.flag ?? ''}
-                  onPress={setSelectedSticker}
-                  t={t}
-                  i18n_t={i18n_t}
-                  toggleSticker={toggleSticker}
-                  soundEnabled={soundEnabled}
-                />
-              ) : (
-                <StickerCardLight
-                  sticker={sticker}
-                  flag={teamMap.get(sticker.section)?.flag ?? ''}
-                  onPress={setSelectedSticker}
-                  t={t}
-                  i18n_t={i18n_t}
-                  toggleSticker={toggleSticker}
-                  soundEnabled={soundEnabled}
-                />
-              )}
-            </View>
-          ))}
-          {phantomCount > 0 &&
-            Array.from({ length: phantomCount }).map((_, i) => (
-              <View key={`phantom-${i}`} style={{ width: itemWidth }} />
-            ))}
-        </View>
+        <StickerRow
+          item={item}
+          itemWidth={itemWidth}
+          animationsEnabled={animationsEnabled}
+          soundEnabled={soundEnabled}
+          toggleSticker={toggleSticker}
+          setSelectedSticker={setSelectedSticker}
+          t={t}
+          i18n_t={i18n_t}
+        />
       );
     },
-    [setSelectedSticker, itemWidth, i18n_t, toggleSticker, soundEnabled, t, animationsEnabled]
+    // Removido t e i18n_t das dependências para evitar recriação desnecessária da função
+    [setSelectedSticker, itemWidth, toggleSticker, soundEnabled, animationsEnabled]
   );
 
   const keyExtractor = useCallback((item: ListItem) => {
@@ -171,9 +204,7 @@ export default function MainList({
         extraData={animationsEnabled}
         ListFooterComponent={<View className="h-5" />}
         showsVerticalScrollIndicator={false}
-        drawDistance={500}
-        decelerationRate={0.8}
-        scrollEventThrottle={16}
+        // 3. REMOVIDAS PROPS ANTIGAS (drawDistance, decelerationRate, scrollEventThrottle)
       />
     </View>
   );

@@ -27,15 +27,23 @@ const StickerCardLight = ({
 }: StickerCardLightProps) => {
   const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
+
   const prevQty = useRef(qty);
+  const prevStickerCode = useRef(sticker.code);
 
   useEffect(() => {
+    if (prevStickerCode.current !== sticker.code) {
+      prevStickerCode.current = sticker.code;
+      prevQty.current = qty;
+      return;
+    }
+
     if (qty < prevQty.current) {
       if (soundEnabled) playStickerRemovedSound();
       errorNotification();
     }
     prevQty.current = qty;
-  }, [qty, soundEnabled]);
+  }, [qty, sticker.code, soundEnabled]);
 
   const handlePress = useCallback(() => {
     const isOwned = qty > 0;
@@ -50,15 +58,10 @@ const StickerCardLight = ({
     }
   }, [sticker, qty, toggleSticker, onPress, soundEnabled]);
 
-  const borderColor =
-    status === 'owned' ? t.owned : status === 'duplicate' ? t.gold : t.border;
+  const borderColor = status === 'owned' ? t.owned : status === 'duplicate' ? t.gold : t.border;
 
   const bgClass =
-    status === 'owned'
-      ? 'bg-owned/15'
-      : status === 'duplicate'
-        ? 'bg-gold/15'
-        : 'bg-surface';
+    status === 'owned' ? 'bg-owned/15' : status === 'duplicate' ? 'bg-gold/15' : 'bg-surface';
 
   return (
     <Pressable
@@ -92,4 +95,9 @@ const StickerCardLight = ({
   );
 };
 
-export default React.memo(StickerCardLight);
+export default React.memo(StickerCardLight, (prevProps, nextProps) => {
+  return (
+    prevProps.sticker.code === nextProps.sticker.code &&
+    prevProps.soundEnabled === nextProps.soundEnabled
+  );
+});
