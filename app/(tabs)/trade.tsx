@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Alert, ActivityIndicator } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,10 @@ import QRCode from 'react-native-qrcode-svg';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useSettingsStore } from '../../src/store/useSettingsStore';
+import * as Print from 'expo-print';
+import * as Sharing from 'expo-sharing';
+import { Asset } from 'expo-asset';
+import { File } from 'expo-file-system';
 
 import StickerCard from '../../src/components/StickerCard';
 import StickerCardLight from '../../src/components/StickerCardLight';
@@ -29,6 +33,7 @@ export default function TradeScreen() {
   const [scannedMatches, setScannedMatches] = useState<Sticker[]>([]);
   const [hasScanned, setHasScanned] = useState(false);
   const [qrPayload, setQrPayload] = useState('[]');
+  const [isExporting, setIsExporting] = useState(false);
 
   const getQuantity = useCollectionStore((s) => s.getQuantity);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
@@ -61,6 +66,78 @@ export default function TradeScreen() {
     }
   };
 
+  const handleExport = async () => {
+    const duplicates = useCollectionStore.getState().getDuplicatesList();
+    if (duplicates.length === 0) {
+      Alert.alert(i18n_t('trade.pdf_title'), i18n_t('album.empty'));
+      return;
+    }
+
+    setIsExporting(true);
+
+    try {
+      if (!(await Sharing.isAvailableAsync())) {
+        Alert.alert('Erro', 'O compartilhamento não está disponível neste dispositivo.');
+        setIsExporting(false);
+        return;
+      }
+
+      const asset = Asset.fromModule(require('../../assets/images/app-logo.jpeg'));
+      await asset.downloadAsync();
+
+      const uri = asset.localUri || asset.uri;
+      if (!uri) throw new Error('Could not resolve asset URI');
+
+      const file = new File(uri);
+      const base64 = await file.base64();
+      const logoBase64 = `data:image/jpeg;base64,${base64}`;
+
+      const stickerItems = duplicates
+        .map((code) => {
+          const s = getStickerByCode(code);
+          return s
+            ? `<li><strong>${s.code}</strong> - ${i18n_t(`teams.${s.section}`)}: ${s.name}</li>`
+            : '';
+        })
+        .filter(Boolean)
+        .join('');
+
+      const html = `
+        <html>
+          <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+            <style>
+              body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 40px; color: #0F1923; }
+              .header { display: flex; align-items: center; margin-bottom: 40px; border-bottom: 2px solid #E2B01F; padding-bottom: 20px; }
+              .logo { width: 60px; height: 60px; border-radius: 12px; margin-right: 20px; }
+              .title { font-size: 24px; font-weight: bold; color: #0F1923; margin: 0; }
+              ul { list-style: none; padding: 0; }
+              li { font-size: 16px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+              strong { color: #E2B01F; }
+            </style>
+          </head>
+          <body>
+            <div class="header">
+              <img src="${logoBase64}" class="logo" />
+              <h1 class="title">${i18n_t('trade.pdf_title')}</h1>
+            </div>
+            <ul>
+              ${stickerItems}
+            </ul>
+          </body>
+        </html>
+      `;
+
+      const { uri: pdfUri } = await Print.printToFileAsync({ html });
+      await Sharing.shareAsync(pdfUri, { UTI: '.pdf', mimeType: 'application/pdf' });
+    } catch (error: any) {
+      console.error('Error generating PDF:', error);
+      Alert.alert('Erro', `Não foi possível gerar o PDF: ${error.message}`);
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   const renderShare = () => {
     return (
       <View className="flex-1 items-center justify-center gap-6 p-6">
@@ -69,9 +146,28 @@ export default function TradeScreen() {
           style={{ elevation: 10, shadowColor: t.gold, shadowOpacity: 0.2, shadowRadius: 20 }}>
           <QRCode value={qrPayload} size={width * 0.65} color="#0F1923" backgroundColor="white" />
         </View>
-        <Text className="px-4 text-center text-[14px]" style={{ color: t.textSecondary }}>
+        <Text className="px-4 text-center text-[15px]" style={{ color: t.textSecondary }}>
           {i18n_t('trade.code_desc')}
         </Text>
+        <Text
+          className="mt-2 px-6 text-center text-[15px] font-medium"
+          style={{ color: t.gold, opacity: 0.9 }}>
+          {i18n_t('trade.update_notice')}
+        </Text>
+
+        <AnimatedPressable
+          onPress={handleExport}
+          disabled={isExporting}
+          className="mt-6 flex-row items-center gap-3 rounded-2xl px-8 py-4"
+          style={{ backgroundColor: t.gold, opacity: isExporting ? 0.7 : 1 }}>
+          {isExporting ? (
+            <ActivityIndicator size="small" color="#0F1923" />
+          ) : (
+            <Text className="text-[16px] font-bold text-[#0F1923]">
+              {i18n_t('trade.export_btn')}
+            </Text>
+          )}
+        </AnimatedPressable>
       </View>
     );
   };

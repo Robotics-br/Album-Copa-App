@@ -177,9 +177,12 @@
       "scan": "Escanear Amigo"
     },
     "code_desc": "Muestra este Código QR a un amigo para escanear.",
+    "update_notice": "No olvides actualizar tus repetidas si realizas un intercambio.",
     "matches_found": "¡Buenas noticias! ¡Tiene {{count}} cromo(s) que no tienes!",
     "no_matches": "Vaya, no tiene cromos que necesites en este momento.",
     "scan_btn": "Abrir Cámara",
-    "cam_permission": "Necesitamos permiso de cámara para escanear."
+    "cam_permission": "Necesitamos permiso de cámara para escanear.",
+    "export_btn": "Exportar Repetidos",
+    "pdf_title": "Lista de Repetidos"
   }
 }

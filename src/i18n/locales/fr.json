@@ -177,9 +177,12 @@
       "scan": "Scanner un Ami"
     },
     "code_desc": "Montrez ce Code QR à un ami pour qu'il le scanne.",
+    "update_notice": "N'oubliez pas de mettre à jour vos doubles si vous effectuez un échange.",
     "matches_found": "Bonne nouvelle ! Il a {{count}} autocollant(s) que vous n'avez pas !",
     "no_matches": "Dommage, il n'a pas d'autocollants dont vous avez besoin pour le moment.",
     "scan_btn": "Ouvrir l'Appareil Photo",
-    "cam_permission": "Nous avons besoin de l'autorisation de la caméra pour scanner."
+    "cam_permission": "Nous avons besoin de l'autorisation de la caméra pour scanner.",
+    "export_btn": "Exporter les Doubles",
+    "pdf_title": "Liste des Doubles"
   }
 }

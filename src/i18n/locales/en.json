@@ -177,9 +177,12 @@
       "scan": "Scan Friend"
     },
     "code_desc": "Show this QR Code to a friend to scan.",
+    "update_notice": "Don't forget to update your duplicates if you make a trade.",
     "matches_found": "Great news! He has {{count}} sticker(s) that you don't have!",
     "no_matches": "Too bad, he doesn't have any stickers you need right now.",
     "scan_btn": "Open Camera",
-    "cam_permission": "We need camera permission to scan."
+    "cam_permission": "We need camera permission to scan.",
+    "export_btn": "Export Duplicates",
+    "pdf_title": "Duplicates List"
   }
 }

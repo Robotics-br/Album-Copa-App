@@ -177,9 +177,12 @@
       "scan": "Freund Scannen"
     },
     "code_desc": "Zeige diesen QR-Code einem Freund zum Scannen.",
+    "update_notice": "Vergessen Sie nicht, Ihre Doppelten zu aktualisieren, wenn Sie einen Tausch vornehmen.",
     "matches_found": "Gute Nachrichten! Er hat {{count}} Sticker, die du nicht hast!",
     "no_matches": "Schade, er hat im Moment keine Sticker, die du brauchst.",
     "scan_btn": "Kamera Öffnen",
-    "cam_permission": "Wir benötigen die Kameraberechtigung zum Scannen."
+    "cam_permission": "Wir benötigen die Kameraberechtigung zum Scannen.",
+    "export_btn": "Doppelte Exportieren",
+    "pdf_title": "Liste der Doppelten"
   }
 }
