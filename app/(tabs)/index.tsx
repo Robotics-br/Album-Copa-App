@@ -1,29 +1,21 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { View, Text, useWindowDimensions, FlatList } from 'react-native';
+import { View, Text, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
 import { useSettingsStore } from '../../src/store/useSettingsStore';
-import { teams, stickers as allStickers, getStickersByTeam, teamMap } from '../../src/data/teams';
+import { stickers as allStickers } from '../../src/data/teams';
 import MainHeader from '../../src/components/MainHeader';
-import StickerCard from '../../src/components/StickerCard';
 import StickerModal from '../../src/components/StickerModal';
-import TeamHeader from '../../src/components/TeamHeader';
 import { useTranslation } from 'react-i18next';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
+import MainList from '../../src/components/MainList';
 
 import type { Sticker } from '../../src/types';
-import StickerCardLight from '@/components/StickerCardLight';
 
 const COLUMNS = 5;
 const GAP = 6;
-
-type TeamHeaderItem = { type: 'team-header'; sectionId: string; totalCount: number };
-type StickerRowItem = { type: 'sticker-row'; stickers: Sticker[] };
-type EmptyItem = { type: 'empty' };
-type ListItem = TeamHeaderItem | StickerRowItem | EmptyItem;
 
 function normalize(str: string): string {
   return str
@@ -31,14 +23,6 @@ function normalize(str: string): string {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-zA-Z0-9\s]/g, '')
     .toLowerCase();
-}
-
-function chunkArray<T>(arr: T[], size: number): T[][] {
-  const chunks: T[][] = [];
-  for (let i = 0; i < arr.length; i += size) {
-    chunks.push(arr.slice(i, i + size));
-  }
-  return chunks;
 }
 
 export default function AlbumScreen() {
@@ -87,116 +71,6 @@ export default function AlbumScreen() {
     return result;
   }, [stickerFilter, getQty, searchQuery]);
 
-  const listData = useMemo((): ListItem[] => {
-    if (currentTeam) {
-      const teamStickers = filtered.filter((s) => s.section === currentTeam);
-      if (teamStickers.length === 0) return [{ type: 'empty' }];
-
-      const items: ListItem[] = [
-        {
-          type: 'team-header',
-          sectionId: currentTeam,
-          totalCount: getStickersByTeam(currentTeam).length,
-        },
-      ];
-
-      const rows = chunkArray(teamStickers, COLUMNS).map((row) => ({
-        type: 'sticker-row' as const,
-        stickers: row,
-      }));
-
-      return [...items, ...rows];
-    }
-
-    const byTeam = new Map<string, Sticker[]>();
-    for (const s of filtered) {
-      const list = byTeam.get(s.section) ?? [];
-      list.push(s);
-      byTeam.set(s.section, list);
-    }
-
-    const items: ListItem[] = [];
-    for (const team of teams) {
-      const stickers = byTeam.get(team.id);
-      if (!stickers?.length) continue;
-      items.push({
-        type: 'team-header',
-        sectionId: team.id,
-        totalCount: getStickersByTeam(team.id).length,
-      });
-      const rows = chunkArray(stickers, COLUMNS);
-      for (const row of rows) {
-        items.push({ type: 'sticker-row', stickers: row });
-      }
-    }
-
-    if (items.length === 0) return [{ type: 'empty' }];
-    return items;
-  }, [filtered, currentTeam]);
-
-  const renderItem = useCallback(
-    ({ item }: { item: ListItem }) => {
-      if (item.type === 'empty') {
-        return (
-          <Text className="p-12 text-center text-[13px] text-text-secondary">
-            {i18n_t('album.empty')}
-          </Text>
-        );
-      }
-
-      if (item.type === 'team-header') {
-        return <TeamHeader sectionId={item.sectionId} totalCount={item.totalCount} />;
-      }
-
-      const phantomCount = COLUMNS - item.stickers.length;
-
-      return (
-        <View
-          className="mb-1.5 flex-row justify-between"
-          style={{ paddingHorizontal: HORIZONTAL_PADDING }}>
-          {item.stickers.map((sticker) => (
-            <View key={sticker.code} style={{ width: itemWidth }}>
-              {animationsEnabled ? (
-                <StickerCard
-                  sticker={sticker}
-                  flag={teamMap.get(sticker.section)?.flag ?? ''}
-                  onPress={setSelectedSticker}
-                  t={t}
-                  i18n_t={i18n_t}
-                  toggleSticker={toggleSticker}
-                  soundEnabled={soundEnabled}
-                />
-              ) : (
-                <StickerCardLight
-                  sticker={sticker}
-                  flag={teamMap.get(sticker.section)?.flag ?? ''}
-                  onPress={setSelectedSticker}
-                  t={t}
-                  i18n_t={i18n_t}
-                  toggleSticker={toggleSticker}
-                  soundEnabled={soundEnabled}
-                />
-              )}
-            </View>
-          ))}
-          {phantomCount > 0 &&
-            Array.from({ length: phantomCount }).map((_, i) => (
-              <View key={`phantom-${i}`} style={{ width: itemWidth }} />
-            ))}
-        </View>
-      );
-    },
-    [setSelectedSticker, itemWidth, i18n_t, toggleSticker, soundEnabled, t, animationsEnabled]
-  );
-
-  const keyExtractor = useCallback((item: ListItem, index: number) => {
-    if (item.type === 'empty') return 'empty';
-    if (item.type === 'team-header') return `header-${item.sectionId}`;
-    return `row-${item.stickers[0].code}`;
-  }, []);
-
-  const getItemType = useCallback((item: ListItem) => item.type, []);
-
   const insets = useSafeAreaInsets();
 
   return (
@@ -209,19 +83,19 @@ export default function AlbumScreen() {
 
       <MainHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
 
-      <View className="flex-1">
-        <FlashList
-          key={`${stickerFilter}-${currentTeam}-${searchQuery === '' ? 'idle' : 'searching'}`}
-          data={listData}
-          renderItem={renderItem}
-          keyExtractor={keyExtractor}
-          getItemType={getItemType}
-          extraData={animationsEnabled}
-          ListFooterComponent={<View className="h-5" />}
-          showsVerticalScrollIndicator={false}
-          drawDistance={500}
-        />
-      </View>
+      <MainList
+        filteredStickers={filtered}
+        currentTeam={currentTeam}
+        itemWidth={itemWidth}
+        animationsEnabled={animationsEnabled}
+        soundEnabled={soundEnabled}
+        toggleSticker={toggleSticker}
+        setSelectedSticker={setSelectedSticker}
+        t={t}
+        i18n_t={i18n_t}
+        stickerFilter={stickerFilter}
+        searchQuery={searchQuery}
+      />
 
       <StickerModal sticker={selectedSticker} onClose={() => setSelectedSticker(null)} />
     </View>
