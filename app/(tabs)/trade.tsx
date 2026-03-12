@@ -92,7 +92,7 @@ export default function TradeScreen() {
       const logoBase64 = `data:image/jpeg;base64,${base64}`;
 
       const collection = useCollectionStore.getState().collection;
-          const teamsWithDuplicates = teams
+      const teamsWithDuplicates = teams
         .map((team: Team) => {
           const teamStickers = getStickersByTeam(team.id);
           const teamDuplicates = teamStickers
@@ -101,32 +101,44 @@ export default function TradeScreen() {
 
           const teamOwned = teamStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
 
-          return { ...team, duplicates: teamDuplicates, owned: teamOwned, total: teamStickers.length };
+          return {
+            ...team,
+            duplicates: teamDuplicates,
+            owned: teamOwned,
+            total: teamStickers.length,
+          };
         })
         .filter((t: any) => t.duplicates.length > 0);
 
       const sectionsHtml = teamsWithDuplicates
         .map((team: any) => {
           const gridHtml = team.duplicates
-            .map((s: any) => `
+            .map(
+              (s: any) => `
               <div class="sticker-box">
                 ${s.code}
                 ${s.qty > 1 ? `<div class="badge">+${s.qty}</div>` : ''}
               </div>
-            `)
+            `
+            )
             .join('');
 
+          // Mudança aqui: Retornando um <tr> com um <td>
           return `
-            <div class="team-section">
-              <div class="team-header">
-                <span class="flag">${team.flag}</span>
-                <span class="team-name">${i18n_t(`teams.${team.id}`)}</span>
-                <span class="team-count">${team.owned}/${team.total}</span>
-              </div>
-              <div class="grid">
-                ${gridHtml}
-              </div>
-            </div>
+            <tr>
+              <td class="team-cell">
+                <div class="team-section">
+                  <div class="team-header">
+                    <span class="flag">${team.flag}</span>
+                    <span class="team-name">${i18n_t(`teams.${team.id}`)}</span>
+                    <span class="team-count">${team.owned}/${team.total}</span>
+                  </div>
+                  <div class="grid">
+                    ${gridHtml}
+                  </div>
+                </div>
+              </td>
+            </tr>
           `;
         })
         .join('');
@@ -161,18 +173,19 @@ export default function TradeScreen() {
                 print-color-adjust: exact;
               }
               
-              /* Repetition & Overlap Fixes */
               table { 
                 width: 100%; 
                 border-collapse: separate;
                 border-spacing: 0;
               }
               thead { 
-                display: table-header-group !important; 
+                display: table-header-group; 
               }
               
-              .header-row {
-                width: 100%;
+              /* Quebra de página: evita que um time seja cortado ao meio se possível */
+              tr {
+                page-break-inside: avoid;
+                break-inside: avoid;
               }
 
               .header-cell {
@@ -182,10 +195,6 @@ export default function TradeScreen() {
                 background-color: ${pdfColors.bg};
               }
               
-              .header-spacer {
-                height: 30px; /* Force space between header and content on every page */
-              }
-
               .header-content { 
                 display: flex; 
                 align-items: center; 
@@ -195,19 +204,18 @@ export default function TradeScreen() {
               .title { 
                 font-size: 26px; 
                 font-weight: bold; 
-                color: ${pdfColors.goldDark}; 
+                color: ${pdfColors.gold}; 
                 margin: 0; 
                 line-height: 1.2; 
               }
               
-              .content-cell {
-                padding-top: 10px;
+              .team-cell {
+                padding-top: 20px;
+                padding-bottom: 20px;
               }
               
               .team-section { 
-                margin-bottom: 40px; 
-                page-break-inside: avoid; 
-                break-inside: avoid;
+                width: 100%;
               }
               .team-header { 
                 display: flex; 
@@ -257,7 +265,7 @@ export default function TradeScreen() {
           <body>
             <table>
               <thead>
-                <tr class="header-row">
+                <tr>
                   <th class="header-cell">
                     <div class="header-content">
                       <img src="${logoBase64}" class="logo" />
@@ -265,18 +273,9 @@ export default function TradeScreen() {
                     </div>
                   </th>
                 </tr>
-                <tr>
-                  <td>
-                    <div class="header-spacer"></div>
-                  </td>
-                </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="content-cell">
-                    ${sectionsHtml}
-                  </td>
-                </tr>
+                ${sectionsHtml}
               </tbody>
             </table>
           </body>
