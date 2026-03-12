@@ -12,6 +12,7 @@ import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sou
 import { hexToRgba } from '../utils/colors';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StarExplosion } from './ui/StarExplosion';
+import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
 
@@ -21,7 +22,6 @@ interface StickerCardProps {
   onPress: (sticker: Sticker) => void;
   t: ThemeColors;
   i18n_t: (key: string, options?: any) => string;
-  qty: number;
   toggleSticker: (code: string) => void;
   soundEnabled: boolean;
 }
@@ -34,10 +34,10 @@ function StickerCard({
   onPress,
   t,
   i18n_t,
-  qty,
   toggleSticker,
   soundEnabled,
 }: StickerCardProps) {
+  const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
 
   const scale = useSharedValue(1);

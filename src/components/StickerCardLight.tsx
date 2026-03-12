@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { lightTap, successNotification } from '../utils/haptics';
-import { playStickerCollectedSound } from '../utils/sounds';
-import { hexToRgba } from '../utils/colors';
+import { lightTap, successNotification, errorNotification } from '../utils/haptics';
+import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
+import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
 
@@ -12,7 +12,6 @@ interface StickerCardLightProps {
   onPress: (sticker: Sticker) => void;
   t: ThemeColors;
   i18n_t: (key: string, options?: any) => string;
-  qty: number;
   toggleSticker: (code: string) => void;
   soundEnabled: boolean;
 }
@@ -23,14 +22,25 @@ const StickerCardLight = ({
   onPress,
   t,
   i18n_t,
-  qty,
   toggleSticker,
   soundEnabled,
 }: StickerCardLightProps) => {
+  const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
+  const prevQty = useRef(qty);
+
+  useEffect(() => {
+    if (qty < prevQty.current) {
+      if (soundEnabled) playStickerRemovedSound();
+      errorNotification();
+    }
+    prevQty.current = qty;
+  }, [qty, soundEnabled]);
 
   const handlePress = useCallback(() => {
-    if (qty === 0) {
+    const isOwned = qty > 0;
+
+    if (!isOwned) {
       if (soundEnabled) playStickerCollectedSound();
       successNotification();
       toggleSticker(sticker.code);
@@ -38,63 +48,45 @@ const StickerCardLight = ({
       lightTap();
       onPress(sticker);
     }
-  }, [sticker.code, qty, toggleSticker, onPress, soundEnabled]);
-
-  const backgroundColor =
-    status === 'owned'
-      ? hexToRgba(t.owned, 0.15)
-      : status === 'duplicate'
-        ? hexToRgba(t.gold, 0.15)
-        : t.surface;
+  }, [sticker, qty, toggleSticker, onPress, soundEnabled]);
 
   const borderColor =
     status === 'owned' ? t.owned : status === 'duplicate' ? t.gold : t.border;
 
+  const bgClass =
+    status === 'owned'
+      ? 'bg-owned/15'
+      : status === 'duplicate'
+        ? 'bg-gold/15'
+        : 'bg-surface';
+
   return (
     <Pressable
       onPress={handlePress}
-      style={{
-        height: 80,
-        backgroundColor,
-        borderColor,
-        borderWidth: 1.5,
-        borderRadius: 8,
-        padding: 6,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}>
-      <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text style={{ fontSize: 14 }}>{flag}</Text>
-        {status !== 'missing' && <Text style={{ fontSize: 10, color: t.gold }}>★</Text>}
+      className={`h-[80px] items-center justify-between overflow-hidden rounded-lg border-[1.5px] p-1.5 ${bgClass}`}
+      style={{ borderColor }}>
+      <View className="z-10 w-full flex-row items-center justify-between">
+        <Text className="text-[14px]">{flag}</Text>
+        {status !== 'missing' && <Text className="text-[10px] text-gold">★</Text>}
         {qty > 1 && (
-          <View
-            style={{
-              backgroundColor: t.duplicate,
-              borderRadius: 10,
-              paddingHorizontal: 6,
-              paddingVertical: 2,
-            }}>
-            <Text style={{ fontSize: 10, fontWeight: 'bold', color: 'white' }}>+{qty - 1}</Text>
+          <View className="rounded-full bg-duplicate px-1.5 py-0.5">
+            <Text className="text-[10px] font-bold text-white">+{qty - 1}</Text>
           </View>
         )}
       </View>
 
-      <View style={{ width: '100%', alignItems: 'center' }}>
+      <View className="z-10 w-full items-center">
         <Text
           numberOfLines={1}
-          style={{
-            color: status === 'missing' ? t.textSecondary : t.text,
-            fontSize: 10,
-            fontWeight: '600',
-            textAlign: 'center',
-          }}>
+          style={{ color: status === 'missing' ? t.textSecondary : t.text }}
+          className="text-center text-[10px] font-semibold">
           {sticker.name.startsWith('Escudo ')
             ? `${i18n_t('stickers.badge')} ${i18n_t(`teams.${sticker.section}`)}`
             : sticker.name.startsWith('Seleção ')
               ? `${i18n_t('stickers.team')} ${i18n_t(`teams.${sticker.section}`)}`
               : sticker.name}
         </Text>
-        <Text style={{ color: t.gold, fontSize: 8, fontWeight: 'bold' }}>{sticker.code}</Text>
+        <Text className="text-[8px] font-bold text-gold">{sticker.code}</Text>
       </View>
     </Pressable>
   );

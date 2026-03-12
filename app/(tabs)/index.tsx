@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
-import { View, Text, useWindowDimensions } from 'react-native';
+import React, { useState, useMemo, useCallback } from 'react';
+import { View, Text, useWindowDimensions, FlatList } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -163,7 +163,6 @@ export default function AlbumScreen() {
                   onPress={setSelectedSticker}
                   t={t}
                   i18n_t={i18n_t}
-                  qty={collection[sticker.code] ?? 0}
                   toggleSticker={toggleSticker}
                   soundEnabled={soundEnabled}
                 />
@@ -174,7 +173,6 @@ export default function AlbumScreen() {
                   onPress={setSelectedSticker}
                   t={t}
                   i18n_t={i18n_t}
-                  qty={collection[sticker.code] ?? 0}
                   toggleSticker={toggleSticker}
                   soundEnabled={soundEnabled}
                 />
@@ -188,7 +186,7 @@ export default function AlbumScreen() {
         </View>
       );
     },
-    [setSelectedSticker, itemWidth, i18n_t, collection, toggleSticker, soundEnabled, t, animationsEnabled]
+    [setSelectedSticker, itemWidth, i18n_t, toggleSticker, soundEnabled, t, animationsEnabled]
   );
 
   const keyExtractor = useCallback((item: ListItem, index: number) => {
@@ -218,10 +216,10 @@ export default function AlbumScreen() {
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           getItemType={getItemType}
-          extraData={{ collection, animationsEnabled }}
+          extraData={animationsEnabled}
           ListFooterComponent={<View className="h-5" />}
           showsVerticalScrollIndicator={false}
-          drawDistance={1000}
+          drawDistance={500}
         />
       </View>
 

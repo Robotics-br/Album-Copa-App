@@ -8,8 +8,10 @@ import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import QRCode from 'react-native-qrcode-svg';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
+import { useSettingsStore } from '../../src/store/useSettingsStore';
 
 import StickerCard from '../../src/components/StickerCard';
+import StickerCardLight from '../../src/components/StickerCardLight';
 import { getStickerByCode, getTeamById } from '../../src/data/teams';
 import { FlashList } from '@shopify/flash-list';
 import type { Sticker } from '../../src/types';
@@ -29,6 +31,8 @@ export default function TradeScreen() {
   const [qrPayload, setQrPayload] = useState('[]');
 
   const getQuantity = useCollectionStore((s) => s.getQuantity);
+  const toggleSticker = useCollectionStore((s) => s.toggleSticker);
+  const { soundEnabled, animationsEnabled } = useSettingsStore();
 
   useFocusEffect(
     useCallback(() => {
@@ -126,13 +130,23 @@ export default function TradeScreen() {
                 <FlashList
                   data={scannedMatches}
                   keyExtractor={(item) => item.code}
+                  extraData={animationsEnabled}
                   numColumns={5}
                   ItemSeparatorComponent={() => <View className="h-2" />}
                   renderItem={({ item }) => {
                     const team = getTeamById(item.section);
+                    const CardComponent = animationsEnabled ? StickerCard : StickerCardLight;
                     return (
                       <View className="flex-1 px-1">
-                        <StickerCard sticker={item} flag={team?.flag ?? ''} onPress={() => {}} />
+                        <CardComponent
+                          sticker={item}
+                          flag={team?.flag ?? ''}
+                          onPress={() => {}}
+                          t={t}
+                          i18n_t={i18n_t}
+                          toggleSticker={toggleSticker}
+                          soundEnabled={soundEnabled}
+                        />
                       </View>
                     );
                   }}
