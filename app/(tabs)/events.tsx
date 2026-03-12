@@ -191,7 +191,7 @@ export default function EventsScreen() {
           </Pressable>
 
           {expandedStadiums[country] &&
-            stadiumList.map((stadium) => <StadiumCard key={stadium.name} stadium={stadium} />)}
+            stadiumList.map((stadium) => <StadiumCard key={stadium.id} stadium={stadium} />)}
         </View>
       ))}
     </ScrollView>

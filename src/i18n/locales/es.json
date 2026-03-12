@@ -50,7 +50,18 @@
   },
   "stadiums": {
     "title": "Estadios del Mundial 2026",
-    "subtitle": "{{totalCount}} estadios en {{countryCount}} países"
+    "subtitle": "{{totalCount}} estadios en {{countryCount}} países",
+    "opened": "Inaugurado en {{year}}",
+    "data": {
+      "bc_place": {
+        "name": "BC Place Vancouver",
+        "desc": "Ahora en su quinta década de existencia, el BC Place Vancouver sigue siendo una pieza arquitectónica asombrosa situada a orillas de la entrada de False Creek.\n\nEl área, que ha sido renovada recientemente, es el hogar del equipo de la MLS Vancouver Whitecaps y de los BC Lions de la Canadian Football League (CFL), y también ha albergado ocasionalmente a la selección nacional de Canadá.\n\nUno de los partidos más memorables en el BC Place Vancouver fue cuando el recinto albergó la final de la Copa Mundial Femenina de la FIFA 2015™, donde EE. UU. derrotó al campeón defensor Japón por 5-2, gracias en gran parte a un hat-trick de Carli Lloyd en los primeros 15 minutos."
+      },
+      "toronto": {
+        "name": "Toronto Stadium",
+        "desc": "El Toronto Stadium fue construido específicamente para que Canadá albergara la Copa Mundial Sub-20 de la FIFA 2007™ y fue el escenario de la final donde Argentina salió triunfante, con Sergio Agüero ganando el Balón de Oro y la Bota de Oro.\n\nEl recinto, que cuenta con una cubierta estilo Premier League inglesa y gradas empinadas en ambos extremos del campo, fue sede del punto culminante de la campaña de Canadá para llegar a la Copa Mundial de la FIFA 2022™, cuando aseguraron su boleto a Qatar con una victoria sobre Jamaica.\n\nEl campo también cuenta con experiencia previa en torneos, habiendo albergado también la Copa Mundial Femenina de la FIFA Sub-20™ en 2014."
+      }
+    }
   },
   "summary": {
     "title": "TU ÁLBUM",

@@ -50,7 +50,18 @@
   },
   "stadiums": {
     "title": "Stades Coupe du Monde 2026",
-    "subtitle": "{{totalCount}} stades dans {{countryCount}} pays"
+    "subtitle": "{{totalCount}} stades dans {{countryCount}} pays",
+    "opened": "Inauguré en {{year}}",
+    "data": {
+      "bc_place": {
+        "name": "BC Place Vancouver",
+        "desc": "Entrant aujourd'hui dans sa cinquième décennie d'existence, le BC Place Vancouver reste une pièce d'architecture époustouflante située sur les rives du False Creek.\n\nLe quartier, qui a récemment fait l'objet de rénovations, abrite l'équipe de la MLS Vancouver Whitecaps et les BC Lions de la Ligue canadienne de football (LCF), et a également accueilli occasionnellement l'équipe nationale du Canada.\n\nL'un des matches les plus mémorables au BC Place Vancouver a eu lieu lorsque le site a accueilli la finale de la Coupe du Monde Féminine de la FIFA 2015™, où les États-Unis ont battu le tenant du titre, le Japon, par 5-2, grâce notamment à un triplé de Carli Lloyd dans les 15 premières minutes."
+      },
+      "toronto": {
+        "name": "Toronto Stadium",
+        "desc": "Le Toronto Stadium a été construit spécialement pour le Canada, hôte de la Coupe du Monde U-20 de la FIFA 2007™, et a accueilli la finale où l'Argentine est sortie triomphante, Sergio Agüero remportant le Ballon d'Or et le Soulier d'Or.\n\nLe site, qui dispose d'un toit de style Premier League anglaise et de tribunes raides à chaque extrémité du terrain, a accueilli le point culminante de la campagne du Canada pour se qualifier pour la Coupe du Monde de la FIFA 2022™, lorsque son billet pour le Qatar a été assuré par une victoire contre la Jamaïque.\n\nLe terrain dispose également d'une expérience préalable dans les tournois, ayant également accueilli la Coupe du Monde Féminine U-20 de la FIFA™ en 2014."
+      }
+    }
   },
   "summary": {
     "title": "TON ALBUM",

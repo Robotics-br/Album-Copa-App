@@ -1,50 +1,58 @@
 export interface Stadium {
+  id: string;
   name: string;
   city: string;
   country: string;
   countryFlag: string;
   capacity: string;
-  image: string;
+  opened?: string;
+  image: any;
+  descriptionKey: string;
 }
 
 export const stadiums: Stadium[] = [
   {
+    id: 'metlife',
     name: 'MetLife Stadium',
     city: 'East Rutherford, NJ',
     country: 'EUA',
     countryFlag: '🇺🇸',
     capacity: '82.500',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Metlife_stadium_%28Aerial_view%29.jpg/1280px-Metlife_stadium_%28Aerial_view%29.jpg',
+    image: require('../../assets/images/stadiums/metlifeStadium.jpg'),
+    descriptionKey: 'stadiums.data.metlife.desc',
   },
   {
+    id: 'sofi',
     name: 'SoFi Stadium',
     city: 'Los Angeles, CA',
     country: 'EUA',
     countryFlag: '🇺🇸',
     capacity: '70.000',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/SoFi_Stadium_-_August_2020.jpg/1280px-SoFi_Stadium_-_August_2020.jpg',
+    image: require('../../assets/images/stadiums/sofiStadium.jpg'),
+    descriptionKey: 'stadiums.data.sofi.desc',
   },
   {
+    id: 'att',
     name: 'AT&T Stadium',
     city: 'Arlington, TX',
     country: 'EUA',
     countryFlag: '🇺🇸',
     capacity: '80.000',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/AT%26T_Stadium_Arlington_Texas.jpg/1280px-AT%26T_Stadium_Arlington_Texas.jpg',
+    image: require('../../assets/images/stadiums/atetStadium.jpg'),
+    descriptionKey: 'stadiums.data.att.desc',
   },
   {
+    id: 'hard_rock',
     name: 'Hard Rock Stadium',
     city: 'Miami, FL',
     country: 'EUA',
     countryFlag: '🇺🇸',
     capacity: '65.000',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Hard_Rock_Stadium_aerial.jpg/1280px-Hard_Rock_Stadium_aerial.jpg',
+    image: require('../../assets/images/stadiums/hardRockStadium.jpg'),
+    descriptionKey: 'stadiums.data.hard_rock.desc',
   },
   {
+    id: 'nrg',
     name: 'NRG Stadium',
     city: 'Houston, TX',
     country: 'EUA',
@@ -52,17 +60,20 @@ export const stadiums: Stadium[] = [
     capacity: '72.000',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Reliantstadium.jpg/1280px-Reliantstadium.jpg',
+    descriptionKey: 'stadiums.data.nrg.desc',
   },
   {
+    id: 'mercedes_benz',
     name: 'Mercedes-Benz Stadium',
     city: 'Atlanta, GA',
     country: 'EUA',
     countryFlag: '🇺🇸',
     capacity: '71.000',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Mercedes-Benz_Stadium%2C_Atlanta%2C_Georgia_-_panoramio.jpg/1280px-Mercedes-Benz_Stadium%2C_Atlanta%2C_Georgia_-_panoramio.jpg',
+    image: require('../../assets/images/stadiums/mercedesBenzStadium.jpg'),
+    descriptionKey: 'stadiums.data.mercedes_benz.desc',
   },
   {
+    id: 'lincoln',
     name: 'Lincoln Financial Field',
     city: 'Philadelphia, PA',
     country: 'EUA',
@@ -70,26 +81,30 @@ export const stadiums: Stadium[] = [
     capacity: '69.000',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Lincoln_Financial_Field_%28Aerial_view%29.jpg/1280px-Lincoln_Financial_Field_%28Aerial_view%29.jpg',
+    descriptionKey: 'stadiums.data.lincoln.desc',
   },
   {
+    id: 'lumen',
     name: 'Lumen Field',
     city: 'Seattle, WA',
     country: 'EUA',
     countryFlag: '🇺🇸',
     capacity: '69.000',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/CenturyLink_Field.jpg/1280px-CenturyLink_Field.jpg',
+    image: require('../../assets/images/stadiums/lumenField.jpg'),
+    descriptionKey: 'stadiums.data.lumen.desc',
   },
   {
+    id: 'gillette',
     name: 'Gillette Stadium',
     city: 'Foxborough, MA',
     country: 'EUA',
     countryFlag: '🇺🇸',
     capacity: '65.000',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Gillette_Stadium_%28Top_View%29.jpg/1280px-Gillette_Stadium_%28Top_View%29.jpg',
+    image: require('../../assets/images/stadiums/gilletteStadium.jpg'),
+    descriptionKey: 'stadiums.data.gillette.desc',
   },
   {
+    id: 'arrowhead',
     name: 'Arrowhead Stadium',
     city: 'Kansas City, MO',
     country: 'EUA',
@@ -97,17 +112,20 @@ export const stadiums: Stadium[] = [
     capacity: '76.000',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Arrowhead_Stadium_2010.jpg/1280px-Arrowhead_Stadium_2010.jpg',
+    descriptionKey: 'stadiums.data.arrowhead.desc',
   },
   {
+    id: 'levis',
     name: "Levi's Stadium",
     city: 'Santa Clara, CA',
     country: 'EUA',
     countryFlag: '🇺🇸',
     capacity: '68.500',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Levis_stadium.jpg/1280px-Levis_stadium.jpg',
+    image: require('../../assets/images/stadiums/levisStadium.jpg'),
+    descriptionKey: 'stadiums.data.levis.desc',
   },
   {
+    id: 'azteca',
     name: 'Estadio Azteca',
     city: 'Cidade do México',
     country: 'México',
@@ -115,8 +133,10 @@ export const stadiums: Stadium[] = [
     capacity: '87.000',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Estadio_Azteca_2.jpg/1280px-Estadio_Azteca_2.jpg',
+    descriptionKey: 'stadiums.data.azteca.desc',
   },
   {
+    id: 'bbva',
     name: 'Estadio BBVA',
     city: 'Monterrey',
     country: 'México',
@@ -124,33 +144,39 @@ export const stadiums: Stadium[] = [
     capacity: '53.000',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Estadio_BBVA_Bancomer_%2825425042741%29.jpg/1280px-Estadio_BBVA_Bancomer_%2825425042741%29.jpg',
+    descriptionKey: 'stadiums.data.bbva.desc',
   },
   {
+    id: 'akron',
     name: 'Estadio Akron',
     city: 'Guadalajara',
     country: 'México',
     countryFlag: '🇲🇽',
     capacity: '49.000',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Estadio_Omnilife.jpg/1280px-Estadio_Omnilife.jpg',
+    image: require('../../assets/images/stadiums/estadioAkron.jpg'),
+    descriptionKey: 'stadiums.data.akron.desc',
   },
   {
-    name: 'BMO Field',
+    id: 'toronto',
+    name: 'Toronto Stadium',
     city: 'Toronto',
     country: 'Canadá',
     countryFlag: '🇨🇦',
-    capacity: '30.000',
+    capacity: '45.000',
     image:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/BMO_Field_2016_East.jpg/1280px-BMO_Field_2016_East.jpg',
+    descriptionKey: 'stadiums.data.toronto.desc',
   },
   {
-    name: 'BC Place',
+    id: 'bc_place',
+    name: 'BC Place Vancouver',
     city: 'Vancouver',
     country: 'Canadá',
     countryFlag: '🇨🇦',
-    capacity: '54.500',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/BC_Place_2015.jpg/1280px-BC_Place_2015.jpg',
+    capacity: '54.000',
+    opened: '1983',
+    image: require('../../assets/images/stadiums/bcPlace.jpg'),
+    descriptionKey: 'stadiums.data.bc_place.desc',
   },
 ];
 
