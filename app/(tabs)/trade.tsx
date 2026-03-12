@@ -13,12 +13,13 @@ import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
 import { Asset } from 'expo-asset';
 import { File } from 'expo-file-system';
+import { themeMap } from '../../src/theme/themes';
 
 import StickerCard from '../../src/components/StickerCard';
 import StickerCardLight from '../../src/components/StickerCardLight';
-import { getStickerByCode, getTeamById } from '../../src/data/teams';
+import { getStickerByCode, getTeamById, teams, getStickersByTeam } from '../../src/data/teams';
 import { FlashList } from '@shopify/flash-list';
-import type { Sticker } from '../../src/types';
+import type { Team, Sticker } from '../../src/types';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 type TradeTab = 'share' | 'scan';
@@ -67,8 +68,8 @@ export default function TradeScreen() {
   };
 
   const handleExport = async () => {
-    const duplicates = useCollectionStore.getState().getDuplicatesList();
-    if (duplicates.length === 0) {
+    const duplicatesList = useCollectionStore.getState().getDuplicatesList();
+    if (duplicatesList.length === 0) {
       Alert.alert(i18n_t('trade.pdf_title'), i18n_t('album.empty'));
       return;
     }
@@ -84,46 +85,200 @@ export default function TradeScreen() {
 
       const asset = Asset.fromModule(require('../../assets/images/app-logo.jpeg'));
       await asset.downloadAsync();
-
-      const uri = asset.localUri || asset.uri;
-      if (!uri) throw new Error('Could not resolve asset URI');
-
-      const file = new File(uri);
+      const assetUri = asset.localUri || asset.uri;
+      if (!assetUri) throw new Error('Could not resolve asset URI');
+      const file = new File(assetUri);
       const base64 = await file.base64();
       const logoBase64 = `data:image/jpeg;base64,${base64}`;
 
-      const stickerItems = duplicates
-        .map((code) => {
-          const s = getStickerByCode(code);
-          return s
-            ? `<li><strong>${s.code}</strong> - ${i18n_t(`teams.${s.section}`)}: ${s.name}</li>`
-            : '';
+      const collection = useCollectionStore.getState().collection;
+          const teamsWithDuplicates = teams
+        .map((team: Team) => {
+          const teamStickers = getStickersByTeam(team.id);
+          const teamDuplicates = teamStickers
+            .filter((s: Sticker) => (collection[s.code] ?? 0) > 1)
+            .map((s: Sticker) => ({ ...s, qty: (collection[s.code] ?? 0) - 1 }));
+
+          const teamOwned = teamStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
+
+          return { ...team, duplicates: teamDuplicates, owned: teamOwned, total: teamStickers.length };
         })
-        .filter(Boolean)
+        .filter((t: any) => t.duplicates.length > 0);
+
+      const sectionsHtml = teamsWithDuplicates
+        .map((team: any) => {
+          const gridHtml = team.duplicates
+            .map((s: any) => `
+              <div class="sticker-box">
+                ${s.code}
+                ${s.qty > 1 ? `<div class="badge">+${s.qty}</div>` : ''}
+              </div>
+            `)
+            .join('');
+
+          return `
+            <div class="team-section">
+              <div class="team-header">
+                <span class="flag">${team.flag}</span>
+                <span class="team-name">${i18n_t(`teams.${team.id}`)}</span>
+                <span class="team-count">${team.owned}/${team.total}</span>
+              </div>
+              <div class="grid">
+                ${gridHtml}
+              </div>
+            </div>
+          `;
+        })
         .join('');
+
+      const pdfTheme = themeMap['original-light'];
+      const pdfColors = {
+        bg: '#ffffff',
+        text: pdfTheme.text,
+        textSecondary: pdfTheme.textSecondary,
+        border: pdfTheme.border,
+        gold: pdfTheme.gold,
+        goldDark: pdfTheme.goldDark,
+        owned: pdfTheme.owned,
+        duplicate: pdfTheme.duplicate,
+      };
 
       const html = `
         <html>
           <head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
             <style>
-              body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 40px; color: #0F1923; }
-              .header { display: flex; align-items: center; margin-bottom: 40px; border-bottom: 2px solid #E2B01F; padding-bottom: 20px; }
+              @page { 
+                margin: 15mm 10mm; 
+              }
+              body { 
+                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+                margin: 0;
+                padding: 0; 
+                color: ${pdfColors.text}; 
+                background-color: ${pdfColors.bg};
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+              }
+              
+              /* Repetition & Overlap Fixes */
+              table { 
+                width: 100%; 
+                border-collapse: separate;
+                border-spacing: 0;
+              }
+              thead { 
+                display: table-header-group !important; 
+              }
+              
+              .header-row {
+                width: 100%;
+              }
+
+              .header-cell {
+                padding: 0 0 15px 0;
+                border-bottom: 3px solid ${pdfColors.gold};
+                text-align: left;
+                background-color: ${pdfColors.bg};
+              }
+              
+              .header-spacer {
+                height: 30px; /* Force space between header and content on every page */
+              }
+
+              .header-content { 
+                display: flex; 
+                align-items: center; 
+                width: 100%;
+              }
               .logo { width: 60px; height: 60px; border-radius: 12px; margin-right: 20px; }
-              .title { font-size: 24px; font-weight: bold; color: #0F1923; margin: 0; }
-              ul { list-style: none; padding: 0; }
-              li { font-size: 16px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
-              strong { color: #E2B01F; }
+              .title { 
+                font-size: 26px; 
+                font-weight: bold; 
+                color: ${pdfColors.goldDark}; 
+                margin: 0; 
+                line-height: 1.2; 
+              }
+              
+              .content-cell {
+                padding-top: 10px;
+              }
+              
+              .team-section { 
+                margin-bottom: 40px; 
+                page-break-inside: avoid; 
+                break-inside: avoid;
+              }
+              .team-header { 
+                display: flex; 
+                align-items: center; 
+                gap: 12px; 
+                margin-bottom: 15px; 
+                padding-bottom: 10px;
+                border-bottom: 1px solid ${pdfColors.border};
+              }
+              .flag { font-size: 22px; margin-right: 12px; }
+              .team-name { font-size: 18px; font-weight: bold; color: ${pdfColors.text}; flex: 1; }
+              .team-count { font-size: 15px; color: ${pdfColors.textSecondary}; font-weight: 500; }
+              
+              .grid { 
+                display: flex; 
+                flex-wrap: wrap; 
+                gap: 12px; 
+              }
+              .sticker-box {
+                width: 52px;
+                height: 52px;
+                border: 2px solid ${pdfColors.owned};
+                background-color: ${pdfColors.owned};
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                font-weight: bold;
+                color: #ffffff;
+                position: relative;
+              }
+              .badge {
+                position: absolute;
+                top: -8px;
+                right: -8px;
+                background-color: ${pdfColors.duplicate};
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 2px 6px;
+                font-size: 9px;
+                border: 1.5px solid #ffffff;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+              }
             </style>
           </head>
           <body>
-            <div class="header">
-              <img src="${logoBase64}" class="logo" />
-              <h1 class="title">${i18n_t('trade.pdf_title')}</h1>
-            </div>
-            <ul>
-              ${stickerItems}
-            </ul>
+            <table>
+              <thead>
+                <tr class="header-row">
+                  <th class="header-cell">
+                    <div class="header-content">
+                      <img src="${logoBase64}" class="logo" />
+                      <h1 class="title">${i18n_t('trade.pdf_title')}</h1>
+                    </div>
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="header-spacer"></div>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="content-cell">
+                    ${sectionsHtml}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </body>
         </html>
       `;
