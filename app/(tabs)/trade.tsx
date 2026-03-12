@@ -110,38 +110,14 @@ export default function TradeScreen() {
         })
         .filter((t: any) => t.duplicates.length > 0);
 
-      const sectionsHtml = teamsWithDuplicates
-        .map((team: any) => {
-          const gridHtml = team.duplicates
-            .map(
-              (s: any) => `
-              <div class="sticker-box">
-                ${s.code}
-                ${s.qty > 1 ? `<div class="badge">+${s.qty}</div>` : ''}
-              </div>
-            `
-            )
-            .join('');
-
-          // Mudança aqui: Retornando um <tr> com um <td>
-          return `
-            <tr>
-              <td class="team-cell">
-                <div class="team-section">
-                  <div class="team-header">
-                    <span class="flag">${team.flag}</span>
-                    <span class="team-name">${i18n_t(`teams.${team.id}`)}</span>
-                    <span class="team-count">${team.owned}/${team.total}</span>
-                  </div>
-                  <div class="grid">
-                    ${gridHtml}
-                  </div>
-                </div>
-              </td>
-            </tr>
-          `;
-        })
-        .join('');
+      // --- LÓGICA DE PAGINAÇÃO MANUAL ---
+      // Agrupa de 4 em 4 times. Sabendo que têm até 2 linhas,
+      // 4 times ocupam cerca de 60% a 70% de uma folha A4 com segurança.
+      const TEAMS_PER_PAGE = 4;
+      const pages = [];
+      for (let i = 0; i < teamsWithDuplicates.length; i += TEAMS_PER_PAGE) {
+        pages.push(teamsWithDuplicates.slice(i, i + TEAMS_PER_PAGE));
+      }
 
       const pdfTheme = themeMap['original-light'];
       const pdfColors = {
@@ -155,139 +131,176 @@ export default function TradeScreen() {
         duplicate: pdfTheme.duplicate,
       };
 
-      const html = `
-        <html>
-          <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-            <style>
-              @page { 
-                margin: 15mm 10mm; 
-              }
-              body { 
-                font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-                margin: 0;
-                padding: 0; 
-                color: ${pdfColors.text}; 
-                background-color: ${pdfColors.bg};
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-              }
-              
-              table { 
-                width: 100%; 
-                border-collapse: separate;
-                border-spacing: 0;
-              }
-              thead { 
-                display: table-header-group; 
-              }
-              
-              /* Quebra de página: evita que um time seja cortado ao meio se possível */
-              tr {
-                page-break-inside: avoid;
-                break-inside: avoid;
-              }
+      // Gera o HTML já paginado
+      const pagesHtml = pages
+        .map((pageTeams: any[]) => {
+          const pageContent = pageTeams
+            .map((team: any) => {
+              const gridHtml = team.duplicates
+                .map(
+                  (s: any) => `
+            <div class="sticker-box">
+              ${s.code}
+              ${s.qty > 1 ? `<div class="badge">+${s.qty}</div>` : ''}
+            </div>
+          `
+                )
+                .join('');
 
-              .header-cell {
-                padding: 0 0 15px 0;
-                border-bottom: 3px solid ${pdfColors.gold};
-                text-align: left;
-                background-color: ${pdfColors.bg};
-              }
-              
-              .header-content { 
-                display: flex; 
-                align-items: center; 
-                width: 100%;
-              }
-              .logo { width: 60px; height: 60px; border-radius: 12px; margin-right: 20px; }
-              .title { 
-                font-size: 26px; 
-                font-weight: bold; 
-                color: ${pdfColors.gold}; 
-                margin: 0; 
-                line-height: 1.2; 
-              }
-              
-              .team-cell {
-                padding-top: 20px;
-                padding-bottom: 20px;
-              }
-              
-              .team-section { 
-                width: 100%;
-              }
-              .team-header { 
-                display: flex; 
-                align-items: center; 
-                gap: 12px; 
-                margin-bottom: 15px; 
-                padding-bottom: 10px;
-                border-bottom: 1px solid ${pdfColors.border};
-              }
-              .flag { font-size: 22px; margin-right: 12px; }
-              .team-name { font-size: 18px; font-weight: bold; color: ${pdfColors.text}; flex: 1; }
-              .team-count { font-size: 15px; color: ${pdfColors.textSecondary}; font-weight: 500; }
-              
-              .grid { 
-                display: flex; 
-                flex-wrap: wrap; 
-                gap: 12px; 
-              }
-              .sticker-box {
-                width: 52px;
-                height: 52px;
-                border: 2px solid ${pdfColors.owned};
-                background-color: ${pdfColors.owned};
-                border-radius: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 11px;
-                font-weight: bold;
-                color: #ffffff;
-                position: relative;
-              }
-              .badge {
-                position: absolute;
-                top: -8px;
-                right: -8px;
-                background-color: ${pdfColors.duplicate};
-                color: #ffffff;
-                border-radius: 12px;
-                padding: 2px 6px;
-                font-size: 9px;
-                border: 1.5px solid #ffffff;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-              }
-            </style>
-          </head>
-          <body>
-            <table>
-              <thead>
-                <tr>
-                  <th class="header-cell">
-                    <div class="header-content">
-                      <img src="${logoBase64}" class="logo" />
-                      <h1 class="title">${i18n_t('trade.pdf_title')}</h1>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                ${sectionsHtml}
-              </tbody>
-            </table>
-          </body>
-        </html>
+              return `
+          <div class="team-section">
+            <div class="team-header">
+              <span class="flag">${team.flag}</span>
+              <span class="team-name">${i18n_t(`teams.${team.id}`)}</span>
+              <span class="team-count">${team.owned}/${team.total}</span>
+            </div>
+            <div class="grid">
+              ${gridHtml}
+            </div>
+          </div>
+        `;
+            })
+            .join('');
+
+          // Cada página é envelopada em uma div com o header e as sections dentro
+          return `
+        <div class="page">
+          <div class="header-content">
+            <img src="${logoBase64}" class="logo" />
+            <h1 class="title">${i18n_t('trade.pdf_title')}</h1>
+          </div>
+          <div class="page-body">
+            ${pageContent}
+          </div>
+        </div>
       `;
+        })
+        .join('');
+
+      const html = `
+      <html>
+        <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+          <style>
+            @page { 
+              margin: 5mm 10mm 5mm 10mm; 
+            }
+            body { 
+              font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+              margin: 0;
+              padding: 0; 
+              color: ${pdfColors.text}; 
+              background-color: ${pdfColors.bg};
+              -webkit-print-color-adjust: exact;
+              print-color-adjust: exact;
+            }
+            
+            /* --- CONTROLE DE PÁGINA --- */
+            .page {
+              page-break-after: always; /* Força quebra após cada bloco */
+              padding-bottom: 10px;
+            }
+            .page:last-child {
+              page-break-after: auto; /* Evita uma página em branco no final */
+            }
+
+            /* --- HEADER SEGURO PARA IOS --- */
+            .header-content { 
+              display: block; 
+              width: 100%;
+              padding-bottom: 10px;
+              margin-bottom: 1'5px;
+              border-bottom: 3px solid ${pdfColors.gold};
+              text-align: left;
+            }
+            .logo { 
+              width: 60px; 
+              height: 60px; 
+              border-radius: 12px; 
+              margin-right: 15px;
+              display: inline-block;
+              vertical-align: middle;
+            }
+            .title { 
+              font-size: 26px; 
+              font-weight: bold; 
+              color: ${pdfColors.gold}; 
+              margin: 0; 
+              line-height: 1.2; 
+              display: inline-block;
+              vertical-align: middle;
+            }
+            
+            /* --- LAYOUT DOS TIMES --- */
+            .team-section { 
+              width: 100%;
+              margin-bottom: 30px;
+              page-break-inside: avoid; /* Segunda camada de segurança para evitar cortes */
+              break-inside: avoid;
+            }
+            .team-header { 
+              display: flex; 
+              align-items: center; 
+              gap: 12px; 
+              margin-bottom: 15px; 
+              padding-bottom: 10px;
+              border-bottom: 1px solid ${pdfColors.border};
+            }
+            .flag { font-size: 22px; margin-right: 12px; }
+            .team-name { font-size: 18px; font-weight: bold; color: ${pdfColors.text}; flex: 1; }
+            .team-count { font-size: 15px; color: ${pdfColors.textSecondary}; font-weight: 500; }
+            
+            .grid { 
+              display: flex; 
+              flex-wrap: wrap; 
+              gap: 12px; 
+            }
+            .sticker-box {
+              width: 52px;
+              height: 52px;
+              border: 2px solid ${pdfColors.owned};
+              background-color: ${pdfColors.owned};
+              border-radius: 10px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 11px;
+              font-weight: bold;
+              color: #ffffff;
+              position: relative;
+            }
+            .badge {
+              position: absolute;
+              top: -8px;
+              right: -8px;
+              background-color: ${pdfColors.duplicate};
+              color: #ffffff;
+              border-radius: 12px;
+              padding: 2px 6px;
+              font-size: 9px;
+              border: 1.5px solid #ffffff;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+          </style>
+        </head>
+        <body>
+          ${pagesHtml}
+        </body>
+      </html>
+    `;
 
       const { uri: pdfUri } = await Print.printToFileAsync({ html });
+
+      // CORREÇÃO DO BUG DO LOADING:
+      // Removemos o loading do 'finally' e disparamos false AQUI.
+      // Assim que a janela de share abrir, a sua tela já voltou ao normal.
+      setIsExporting(false);
+
       await Sharing.shareAsync(pdfUri, { UTI: '.pdf', mimeType: 'application/pdf' });
     } catch (error: any) {
       console.error('Error generating PDF:', error);
       Alert.alert('Erro', `Não foi possível gerar o PDF: ${error.message}`);
-    } finally {
+      // Apenas no catch precisamos garantir que desative o loading caso dê erro antes
       setIsExporting(false);
     }
   };
