@@ -14,13 +14,13 @@ import * as Sharing from 'expo-sharing';
 import { Asset } from 'expo-asset';
 import { File } from 'expo-file-system';
 import { themeMap } from '../../src/theme/themes';
-
 import StickerCard from '../../src/components/StickerCard';
 import StickerCardLight from '../../src/components/StickerCardLight';
 import { getStickerByCode, getTeamById, teams, getStickersByTeam } from '../../src/data/teams';
 import { FlashList } from '@shopify/flash-list';
 import type { Team, Sticker } from '../../src/types';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
+import { Platform } from 'react-native';
 
 type TradeTab = 'share' | 'scan';
 
@@ -110,13 +110,29 @@ export default function TradeScreen() {
         })
         .filter((t: any) => t.duplicates.length > 0);
 
-      // --- LÓGICA DE PAGINAÇÃO MANUAL ---
-      // Agrupa de 4 em 4 times. Sabendo que têm até 2 linhas,
-      // 4 times ocupam cerca de 60% a 70% de uma folha A4 com segurança.
-      const TEAMS_PER_PAGE = 4;
-      const pages = [];
-      for (let i = 0; i < teamsWithDuplicates.length; i += TEAMS_PER_PAGE) {
-        pages.push(teamsWithDuplicates.slice(i, i + TEAMS_PER_PAGE));
+      const STICKERS_PER_ROW = 10;
+      const PAGE_MAX_HEIGHT = Platform.OS === 'android' ? 1030 : 900;
+      const MAIN_HEADER_HEIGHT = 100;
+      const pages: any[] = [];
+      let currentPage: any[] = [];
+      let currentHeight = MAIN_HEADER_HEIGHT;
+
+      teamsWithDuplicates.forEach((team: any) => {
+        const rows = Math.ceil(team.duplicates.length / STICKERS_PER_ROW);
+        const teamHeight = 50 + rows * 65 + 20;
+
+        if (currentHeight + teamHeight > PAGE_MAX_HEIGHT && currentPage.length > 0) {
+          pages.push(currentPage);
+          currentPage = [team];
+          currentHeight = MAIN_HEADER_HEIGHT + teamHeight;
+        } else {
+          currentPage.push(team);
+          currentHeight += teamHeight;
+        }
+      });
+
+      if (currentPage.length > 0) {
+        pages.push(currentPage);
       }
 
       const pdfTheme = themeMap['original-light'];
@@ -131,7 +147,6 @@ export default function TradeScreen() {
         duplicate: pdfTheme.duplicate,
       };
 
-      // Gera o HTML já paginado
       const pagesHtml = pages
         .map((pageTeams: any[]) => {
           const pageContent = pageTeams
@@ -162,7 +177,6 @@ export default function TradeScreen() {
             })
             .join('');
 
-          // Cada página é envelopada em uma div com o header e as sections dentro
           return `
         <div class="page">
           <div class="header-content">
@@ -195,21 +209,18 @@ export default function TradeScreen() {
               print-color-adjust: exact;
             }
             
-            /* --- CONTROLE DE PÁGINA --- */
             .page {
-              page-break-after: always; /* Força quebra após cada bloco */
               padding-bottom: 10px;
             }
-            .page:last-child {
-              page-break-after: auto; /* Evita uma página em branco no final */
+            .page + .page {
+              page-break-before: always; 
             }
 
-            /* --- HEADER SEGURO PARA IOS --- */
             .header-content { 
               display: block; 
               width: 100%;
               padding-bottom: 10px;
-              margin-bottom: 1'5px;
+              margin-bottom: 15px;
               border-bottom: 3px solid ${pdfColors.gold};
               text-align: left;
             }
@@ -231,11 +242,10 @@ export default function TradeScreen() {
               vertical-align: middle;
             }
             
-            /* --- LAYOUT DOS TIMES --- */
             .team-section { 
               width: 100%;
               margin-bottom: 30px;
-              page-break-inside: avoid; /* Segunda camada de segurança para evitar cortes */
+              page-break-inside: avoid;
               break-inside: avoid;
             }
             .team-header { 
@@ -254,6 +264,7 @@ export default function TradeScreen() {
               display: flex; 
               flex-wrap: wrap; 
               gap: 12px; 
+              max-width: 670px;
             }
             .sticker-box {
               width: 52px;
@@ -291,16 +302,12 @@ export default function TradeScreen() {
 
       const { uri: pdfUri } = await Print.printToFileAsync({ html });
 
-      // CORREÇÃO DO BUG DO LOADING:
-      // Removemos o loading do 'finally' e disparamos false AQUI.
-      // Assim que a janela de share abrir, a sua tela já voltou ao normal.
       setIsExporting(false);
 
       await Sharing.shareAsync(pdfUri, { UTI: '.pdf', mimeType: 'application/pdf' });
     } catch (error: any) {
       console.error('Error generating PDF:', error);
       Alert.alert('Erro', `Não foi possível gerar o PDF: ${error.message}`);
-      // Apenas no catch precisamos garantir que desative o loading caso dê erro antes
       setIsExporting(false);
     }
   };
