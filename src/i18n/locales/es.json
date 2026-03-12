@@ -60,7 +60,21 @@
       "toronto": {
         "name": "Toronto Stadium",
         "desc": "El Toronto Stadium fue construido específicamente para que Canadá albergara la Copa Mundial Sub-20 de la FIFA 2007™ y fue el escenario de la final donde Argentina salió triunfante, con Sergio Agüero ganando el Balón de Oro y la Bota de Oro.\n\nEl recinto, que cuenta con una cubierta estilo Premier League inglesa y gradas empinadas en ambos extremos del campo, fue sede del punto culminante de la campaña de Canadá para llegar a la Copa Mundial de la FIFA 2022™, cuando aseguraron su boleto a Qatar con una victoria sobre Jamaica.\n\nEl campo también cuenta con experiencia previa en torneos, habiendo albergado también la Copa Mundial Femenina de la FIFA Sub-20™ en 2014."
-      }
+      },
+      "metlife": { "name": "New York New Jersey Stadium (MetLife Stadium)", "desc": "Mientras que este estadio ha estado más acostumbrado a albergar a las superestrellas de la NFL a lo largo de los años, lo mejor que el fútbol tiene para ofrecer se dirigirá al recinto en 2026...\n\nUn estadio multiusos que se inauguró en 2010, el campo actualmente alberga a los New York Giants y New York Jets de la NFL." },
+      "sofi": { "name": "Los Angeles Stadium (SoFi Stadium)", "desc": "El Los Angeles Stadium es la sede más nueva elegida para albergar la Copa Mundial de la FIFA 2026, habiéndose inaugurado en septiembre de 2020." },
+      "att": { "name": "Dallas Stadium (AT&T Stadium)", "desc": "El Dallas Stadium es un ejemplo asombroso de arquitectura de estadios, que brinda una experiencia de visitante única en la vida tanto para eventos deportivos como musicales." },
+      "hard_rock": { "name": "Miami Stadium (Hard Rock Stadium)", "desc": "El Miami Stadium sirve como hogar de los Miami Dolphins, el Gran Premio de Miami de Fórmula 1 y otros grandes eventos." },
+      "nrg": { "name": "Houston Stadium (NRG Stadium)", "desc": "Anfitrión del MLS All-Star Game y de partidos de las selecciones nacionales tanto de EE. UU. como de México." },
+      "mercedes_benz": { "name": "Atlanta Stadium (Mercedes-Benz Stadium)", "desc": "El Atlanta Stadium fue diseñado pensando en los seguidores y ofrece una experiencia de fan galardonada." },
+      "lincoln": { "name": "Philadelphia Stadium (Lincoln Financial Field)", "desc": "El Philadelphia Stadium se inauguró con un partido amistoso de gran éxito entre el Manchester United contra el Barcelona en agosto de 2003." },
+      "lumen": { "name": "Seattle Stadium (Lumen Field)", "desc": "Este estadio cuenta con una forma de herradura única con un extremo norte abierto para ofrecer una vista impresionante del horizonte de Seattle." },
+      "gillette": { "name": "Boston Stadium (Gillette Stadium)", "desc": "El Boston Stadium ha sido objeto de un importante proyecto de renovación antes del torneo de 2026." },
+      "arrowhead": { "name": "Kansas City Stadium (Arrowhead Stadium)", "desc": "El Kansas City Stadium está certificado por Guinness World Records como el lugar de deportes al aire libre más ruidoso del mundo." },
+      "levis": { "name": "San Francisco Bay Area Stadium (Levi's Stadium)", "desc": "Una de las sedes más nuevas encargadas de albergar el torneo, el San Francisco Bay Area Stadium está ubicado en la ciudad de Santa Clara." },
+      "azteca": { "name": "Mexico City Stadium (Estadio Azteca)", "desc": "Un verdadero coliseo del fútbol mundial y el primero en albergar una tercera Copa Mundial de la FIFA™." },
+      "bbva": { "name": "Estadio Monterrey (Estadio BBVA)", "desc": "El equipo mexicano Monterrey juega su fútbol en esta maravilla de los tiempos modernos." },
+      "akron": { "name": "Estadio Guadalajara (Estadio Akron)", "desc": "Construido en terreno elevado y con un diseño esférico, similar a un coliseo." }
     }
   },
   "summary": {

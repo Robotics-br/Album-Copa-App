@@ -53,13 +53,69 @@
     "subtitle": "{{totalCount}} estádios em {{countryCount}} países",
     "opened": "Inaugurado em {{year}}",
     "data": {
-      "bc_place": {
-        "name": "BC Place Vancouver",
-        "desc": "Agora em sua quinta década de existência, o BC Place Vancouver continua sendo uma peça de arquitetura de cair o queixo, situada às margens da enseada de False Creek.\n\nA área – que passou recentemente por renovações – é a casa do time da MLS Vancouver Whitecaps e da equipe da Liga Canadense de Futebol (CFL) BC Lions, e também recebeu ocasionalmente a seleção nacional do Canadá.\n\nUma das partidas mais memoráveis no BC Place Vancouver ocorreu quando o local sediou a final da Copa do Mundo Feminina da FIFA 2015™, onde os EUA derrotaram o Japão, então campeão, por 5 a 2, graças em grande parte a um 'hat-trick' de Carli Lloyd nos primeiros 15 minutos."
+      "metlife": {
+        "name": "New York New Jersey Stadium (MetLife Stadium)",
+        "desc": "Embora este estádio tenha sido mais usado para receber as superestrelas da NFL ao longo dos anos, o melhor que o futebol tem a oferecer irá para o campo em 2026, à medida que um esporte diferente assume o centro do palco.\n\nUm estádio multiuso inaugurado em 2010, o campo atualmente abriga o New York Giants e o New York Jets da NFL. Foi o local da final da Copa América Centenário de 2016, quando o Chile derrotou a Argentina de Lionel Messi nos pênaltis. Inúmeros artistas de primeira linha se apresentaram no New York New Jersey Stadium, incluindo Bruce Springsteen, Beyoncé, Ed Sheeran e Taylor Swift.\n\nO local foi a peça central para a conclusão da Copa do Mundo de Clubes da FIFA 2025™, enquanto milhões de fãs ao redor do globo assistiam à emocionante vitória do Chelsea por 3 a 0 sobre o Paris Saint-Germain, além de sediar as semifinais, uma quarta de final e cinco jogos da fase de grupos."
+      },
+      "sofi": {
+        "name": "Los Angeles Stadium (SoFi Stadium)",
+        "desc": "O Los Angeles Stadium é o local mais novo escolhido para sediar a Copa do Mundo da FIFA 2026, tendo sido inaugurado em setembro de 2020. Está situado a apenas 30 minutos de carro do famoso Rose Bowl Stadium em Pasadena, que sediou a final da Copa do Mundo em 1994.\n\nTanto o Los Angeles Rams quanto o Los Angeles Chargers jogam suas partidas da NFL no local, que também sediou o Super Bowl LVI, onde os Rams derrotaram o Cincinnati Bengals por 23-20 em 2022.\n\nO Los Angeles Stadium já recebeu diversos concertos sob seu teto icônico e único, com Taylor Swift, BTS e Ed Sheeran entre os artistas que passaram pelo local."
+      },
+      "att": {
+        "name": "Dallas Stadium (AT&T Stadium)",
+        "desc": "O Dallas Stadium é um exemplo de cair o queixo da arquitetura de estádios, proporcionando uma experiência de visitante única tanto para eventos esportivos quanto musicais, enquanto ostenta diversas peças de arte incríveis e 2.300 metros quadrados de telas de vídeo internas.\n\nDesde sua inauguração em 2009, o local tem sido a casa do cinco vezes vencedor do Super Bowl, o Dallas Cowboys, e também sediou a Copa Ouro da Concacaf e partidas da seleção nacional do México ao longo dos anos.\n\nOutros grandes eventos no Dallas Stadium incluem o Super Bowl XLV, a final do College Football Playoff de 2015, o Draft da NFL de 2018, jogos do Big 12 Championship, Cotton Bowl Classic, NCAA Men's Final Four, AMA Supercross Championship e múltiplas lutas de boxe de campeonato mundial."
+      },
+      "hard_rock": {
+        "name": "Miami Stadium (Hard Rock Stadium)",
+        "desc": "O Miami Stadium serve como casa para o Miami Dolphins, Grande Prêmio de Miami de Fórmula 1, torneio de tênis Miami Open, Universidade de Miami, Orange Blossom Classic e jogos de futebol americano universitário Orange Bowl, Jazz in the Gardens e outros concertos e festivais.\n\nO local apresenta entretenimento de classe mundial e demonstra sua versatilidade ao sediar uma ampla variedade de eventos, incluindo seis Super Bowls, o Pro Bowl da NFL de 2010, El Clásico Miami, grandes shows e partidas internacionais de futebol.\n\nO estádio sediou oito partidas durante a Copa do Mundo de Clubes da FIFA 2025™, incluindo o jogo de abertura entre Al Ahly FC e Inter Miami CF e o confronto das oitavas de final onde o Real Madrid C.F. superou o gigante europeu Juventus FC a caminho das quartas de final."
+      },
+      "nrg": {
+        "name": "Houston Stadium (NRG Stadium)",
+        "desc": "Anfitrião do MLS All-Star Game, partidas das seleções nacionais dos EUA e do México, bem como três jogos da Copa América Centenário em 2016, o Houston Stadium tem muita tradição no futebol e certamente ganhará mais antes de 2026.\n\nInaugurado em 2002, o campo, que também abriga o famoso Houston Rodeo, tem um teto retrátil e é famoso por sua seção 'Bull Pen', que abriga a torcida mais barulhenta do Houston Texans da NFL em casa."
+      },
+      "mercedes_benz": {
+        "name": "Atlanta Stadium (Mercedes-Benz Stadium)",
+        "desc": "O Atlanta Stadium foi projetado pensando nos torcedores e oferece uma experiência premiada para os fãs. Com mais de 90 metros de altura, possui um teto retrátil único, a primeira tela de vídeo orbital de 360 graus e foi aclamado como o estádio mais sustentável do mundo.\n\nO estádio é a casa do Atlanta United da Major League Soccer (MLS) e do Atlanta Falcons da National Football League (NFL). Desde sua abertura em 2017, o estádio sediou os maiores eventos dos Estados Unidos, incluindo o MLS All-Star Game, College Football Play-off National Championship Game, Super Bowl LIII, inúmeros amistosos internacionais e concertos de superestrelas mundiais.\n\nO local em Atlanta sediou cinco partidas da Copa do Mundo de Clubes da FIFA 2025, incluindo três jogos da fase de grupos, dois das oitavas de final e o emocionante confronto das quartas de final entre Paris Saint-Germain e FC Bayern München."
+      },
+      "lincoln": {
+        "name": "Philadelphia Stadium (Lincoln Financial Field)",
+        "desc": "O Philadelphia Stadium foi inaugurado com um amistoso de peso entre Manchester United contra o Barcelona em agosto de 2003, com Ronaldinho servindo Patrick Kluivert para marcar o primeiro gol da arena.\n\nO local passaria a receber jogos da seleção dos EUA, a final da Copa Ouro de 2015 e o Manchester United novamente nos anos seguintes, além de se tornar a residência permanente do Philadelphia Eagles da NFL e a casa temporária do time da MLS Philadelphia Union durante a temporada de 2010.\n\nO local foi palco de um total de oito partidas durante a Copa do Mundo de Clubes da FIFA 2025, com seis jogos do grupo, uma partida das oitavas de final e a vitória do campeão Chelsea sobre o Palmeiras nas quartas de final, disputada em 4 de julho."
+      },
+      "lumen": {
+        "name": "Seattle Stadium (Lumen Field)",
+        "desc": "Este estádio possui um formato de ferradura único com uma extremidade norte aberta para oferecer uma vista deslumbrante do horizonte de Seattle.\n\nAparecendo duas vezes no Guinness World Records como o estádio ao ar livre mais barulhento, com as façanhas alcançadas em setembro e dezembro de 2013, o campo tornou-se conhecido como uma fortaleza para o Seattle Sounders da MLS e o Seattle Seahawks da NFL.\n\nA atmosfera caseira foi talvez melhor evidenciada em 5 de maio de 2022, quando os Sounders derrotaram a equipe mexicana Pumas por 3 a 0 para conquistar uma vitória agregada de 5 a 2 e erguer a Liga dos Campeões da Concacaf, tornando-se o primeiro time americano a vencer a competição em seu novo formato e se qualificar para a Copa do Mundo de Clubes da FIFA 2025.\n\nOs Sounders jogaram todas as suas três partidas da Copa do Mundo de Clubes em casa, sede de seis partidas ao todo durante o torneio de 2025."
+      },
+      "gillette": {
+        "name": "Boston Stadium (Gillette Stadium)",
+        "desc": "O Boston Stadium passou por um grande projeto de renovação antes do torneio de 2026. O campo agora ostenta o maior placar de vídeo de alta definição ao ar livre do país (medindo 2.000 metros quadrados), 4.600 metros quadrados de espaços cercados por vidro para hospitalidade e funções, conectividade de 360 graus entre todos os níveis dos corredores e muito mais.\n\nO Boston Stadium, que abriga o New England Revolution da MLS e o New England Patriots da NFL, sediou inúmeras partidas de futebol ao longo dos anos, incluindo a Copa do Mundo Feminina da FIFA 2003™, Copa América Centenário, Copa Ouro da Concacaf e International Champions Cup, e é um local regular de concertos para grandes artistas."
+      },
+      "arrowhead": {
+        "name": "Kansas City Stadium (Arrowhead Stadium)",
+        "desc": "O Kansas City Stadium é certificado pelo Guinness World Records como o local de esportes ao ar livre mais barulhento do mundo e sediou um recorde de cinco campeonatos consecutivos da Conferência da NFL de 2019 a 23.\n\nA arena, que é a casa do Kansas City Chiefs da NFL, atingiu um nível de decibéis recorde de 142,2 quando os Chiefs enfrentaram o New England Patriots em 2014.\n\nConhecida como a capital do futebol da América, Kansas City é a casa do Sporting KC, duas vezes campeão da MLS, e do KC Current, finalista da National Women's Soccer League (NWSL) de 2022, e é uma área metropolitana bi-estatal que se estende pela linha divisória entre o Missouri e o Kansas."
+      },
+      "levis": {
+        "name": "San Francisco Bay Area Stadium (Levi's Stadium)",
+        "desc": "Um dos estádios mais novos encarregados de sediar o torneio, o San Francisco Bay Area Stadium está localizado na cidade de Santa Clara.\n\nCasa do San Francisco 49ers da NFL desde sua inauguração em 2014, o estádio foi selecionado para sediar o Super Bowl 50 em fevereiro de 2016, onde o Coldplay liderou o show do intervalo com apoio de Beyoncé e Bruno Mars. Também sediou o Super Bowl LX em fevereiro de 2026, com o rapper e cantor Bad Bunny como atração do show do intervalo.\n\nO local sediou a primeira partida da Copa América Centenário em junho de 2016, quando a Colômbia derrotou os EUA, e também recebeu a Wrestlemania e o confronto da NHL de 2015 entre o LA Kings e o San Jose Sharks."
+      },
+      "azteca": {
+        "name": "Mexico City Stadium (Estadio Azteca)",
+        "desc": "Um verdadeiro coliseu do futebol mundial e o primeiro a sediar uma terceira Copa do Mundo da FIFA™, o Mexico City Stadium – que recebeu nomes como Pelé e Diego Maradona em duas finais pulsantes de Copa do Mundo em 1970 e 1986 – mais uma vez assumirá o centro do palco.\n\nO trabalho diário da arena é sediar o Club América da Liga MX, bem como a seleção nacional do México, enquanto Cruz Azul, Pumas, Atlante, Atlético Español e Necaxa já jogaram seu futebol aqui anteriormente.\n\nO Mexico City Stadium foi o palco da final da Copa do Mundo Sub-17 da FIFA™ em 2011, quando um público recorde de 98.943 pessoas estabeleceu a marca de maior número de torcedores em qualquer jogo na história do prestigioso torneio juvenil."
+      },
+      "bbva": {
+        "name": "Estadio Monterrey (Estadio BBVA)",
+        "desc": "O Monterrey joga seu futebol nesta maravilha moderna, equipada com soluções de energia compactas e equipamentos de baixa voltagem. O campo foi o primeiro nas Américas a obter a certificação de prata do Leadership in Energy & Environmental Design (LEED) após sua inauguração em 2015.\n\nAlém de ser a casa do Monterrey durante a temporada da Liga MX, o local também sediou oito jogos no Campeonato Concacaf W de 2022, inclulindo a vitória por 1 a 0 dos EUA na final sobre o Canadá. Coldplay, Bad Bunny e Justin Bieber se apresentaram no campo em sua primeira década."
+      },
+      "akron": {
+        "name": "Estadio Guadalajara (Estadio Akron)",
+        "desc": "Construído em terreno elevado e com um design esférico, semelhante a um coliseu, o Estadio Guadalajara é certamente um dos locais mais atraentes destinados a realizar partidas na Copa do Mundo da FIFA em 2026.\n\nInaugurado em 2010, o estádio é a casa das Chivas de Guadalajara. O time masculino garantiu sua histórica campanha de títulos dobrados (primeira divisão e copa) em 2017 e a vitória na Liga dos Campeões da Concacaf em 2018, enquanto os dois títulos do time feminino em 2017 e 2022 aumentam a coleção de troféus.\n\nO Estadio Guadalajara foi um dos principais locais da Copa do Mundo Sub-17 da FIFA em 2011 e sediou os Jogos Pan-Americanos no mesmo ano."
       },
       "toronto": {
-        "name": "Toronto Stadium",
+        "name": "Toronto Stadium (BMO Field)",
         "desc": "O Toronto Stadium foi construído especificamente para o Canadá sediar a Copa do Mundo Sub-20 da FIFA 2007™ e foi palco da final onde a Argentina saiu vitoriosa, com Sergio Aguero conquistando a Bola de Ouro e a Chuteira de Ouro.\n\nO local, que tem uma cobertura estilo Premier League inglesa e arquibancadas íngremes em ambas as extremidades do campo, sediou o ápice da campanha do Canadá para chegar à Copa do Mundo da FIFA 2022™, quando sua vaga para o Catar foi garantida com uma vitória sobre a Jamaica.\n\nO campo também tem experiência anterior em torneios, tendo sediado a Copa do Mundo Feminina Sub-20 da FIFA em 2014."
+      },
+      "bc_place": {
+        "name": "BC Place Vancouver (BC Place)",
+        "desc": "Agora em sua quinta década de existência, o BC Place Vancouver continua sendo uma peça de arquitetura de cair o queixo, situada às margens da enseada de False Creek.\n\nA área – que passou recentemente por renovações – é a casa do time da MLS Vancouver Whitecaps e da equipe da Liga Canadense de Futebol (CFL) BC Lions, e também recebeu ocasionalmente a seleção nacional do Canadá.\n\nUma das partidas mais memoráveis no BC Place Vancouver ocorreu quando o local sediou a final da Copa do Mundo Feminina da FIFA 2015™, onde os EUA derrotaram o Japão, então campeão, por 5 a 2, graças em grande parte a um 'hat-trick' de Carli Lloyd nos primeiros 15 minutos."
       }
     }
   },
@@ -93,7 +149,7 @@
   "teams": {
     "mex": "México",
     "afs": "África do Sul",
-    "cds": "Coreia do Sul",
+    "cds": "Corea do Sul",
     "cze": "Rep. Tcheca",
     "can": "Canadá",
     "ita": "Itália",
