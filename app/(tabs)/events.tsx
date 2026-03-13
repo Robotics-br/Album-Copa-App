@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import type { Stadium } from '../../src/data/stadiums';
 
-// Data
 import { teams } from '../../src/data/teams';
 import {
   matches,
@@ -19,7 +18,6 @@ import {
 } from '../../src/data/matches';
 import { getStadiumsByCountry } from '../../src/data/stadiums';
 
-// Components
 import MatchCard from '../../src/components/MatchCard';
 import StadiumCard from '../../src/components/StadiumCard';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';

@@ -6,7 +6,9 @@ import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getTeamById } from '../data/teams';
-import { lightTap } from '../utils/haptics';
+import { lightTap, successNotification, errorNotification } from '../utils/haptics';
+import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
+import { useSettingsStore } from '../store/useSettingsStore';
 import AnimatedPressable from './ui/AnimatedPressable';
 import type { Sticker } from '../types';
 
@@ -19,6 +21,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
   const { getQuantity, setQuantity } = useCollectionStore();
+  const { soundEnabled } = useSettingsStore();
   const insets = useSafeAreaInsets();
   const [duplicates, setDuplicates] = useState(0);
 
@@ -32,12 +35,28 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
   const team = getTeamById(sticker.section);
 
   const handleSave = () => {
-    const newTotal = duplicates + 1; // 1 no álbum + as repetidas
+    const currentTotal = getQuantity(sticker.code);
+    const newTotal = duplicates + 1;
+
+    if (soundEnabled) {
+      if (newTotal > currentTotal) {
+        playStickerCollectedSound();
+        successNotification();
+      } else if (newTotal < currentTotal) {
+        playStickerRemovedSound();
+        errorNotification();
+      }
+    }
+
     setQuantity(sticker.code, newTotal);
     onClose();
   };
 
   const handleRemove = () => {
+    if (soundEnabled) {
+      playStickerRemovedSound();
+      errorNotification();
+    }
     setQuantity(sticker.code, 0);
     onClose();
   };

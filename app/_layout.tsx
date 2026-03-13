@@ -18,7 +18,6 @@ function InnerLayout() {
     const handleLanguageChange = () => {
       let lng = language;
       if (!lng) {
-        // Fallback to system language if not set by the user
         const deviceLanguage = getLocales()[0]?.languageCode ?? 'pt';
         lng = ['pt', 'en', 'es', 'de', 'it', 'fr'].includes(deviceLanguage) ? deviceLanguage : 'pt';
       }
