@@ -11,9 +11,8 @@ import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useSettingsStore } from '../../src/store/useSettingsStore';
 import * as Print from 'expo-print';
 import * as Sharing from 'expo-sharing';
-import { Asset } from 'expo-asset';
-import { File } from 'expo-file-system';
 import { themeMap } from '../../src/theme/themes';
+import { LOGO_BASE64 } from '../../src/utils/logo_base64';
 import StickerCard from '../../src/components/StickerCard';
 import StickerCardLight from '../../src/components/StickerCardLight';
 import { getStickerByCode, getTeamById, teams, getStickersByTeam } from '../../src/data/teams';
@@ -62,7 +61,7 @@ export default function TradeScreen() {
 
         setScannedMatches(mappedStickers);
       }
-    } catch (error) {
+    } catch {
       console.log('Invalid QR Code');
     }
   };
@@ -83,14 +82,7 @@ export default function TradeScreen() {
         return;
       }
 
-      const asset = Asset.fromModule(require('../../assets/images/app-logo.jpeg'));
-      await asset.downloadAsync();
-      const assetUri = asset.localUri || asset.uri;
-      if (!assetUri) throw new Error('Could not resolve asset URI');
-      const absoluteUri = assetUri.startsWith('file://') ? assetUri : `file://${assetUri}`;
-      const file = new File(absoluteUri);
-      const base64 = await file.base64();
-      const logoBase64 = `data:image/jpeg;base64,${base64}`;
+      const logoBase64 = LOGO_BASE64;
 
       const collection = useCollectionStore.getState().collection;
       const teamsWithDuplicates = teams
