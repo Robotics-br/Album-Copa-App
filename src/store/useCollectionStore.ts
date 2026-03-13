@@ -10,6 +10,8 @@ interface CollectionState {
   getQuantity: (code: string) => number;
   getDuplicatesList: () => string[];
   reset: () => void;
+  _hasHydrated: boolean;
+  setHasHydrated: (state: boolean) => void;
 }
 
 export const useCollectionStore = create<CollectionState>()(
@@ -42,10 +44,15 @@ export const useCollectionStore = create<CollectionState>()(
       },
 
       reset: () => set({ collection: {} }),
+      _hasHydrated: false,
+      setHasHydrated: (state: boolean) => set({ _hasHydrated: state }),
     }),
     {
       name: '@copa2026/collection',
       storage: createJSONStorage(() => AsyncStorage),
+      onRehydrateStorage: (state) => {
+        return () => state.setHasHydrated(true);
+      },
     }
   )
 );

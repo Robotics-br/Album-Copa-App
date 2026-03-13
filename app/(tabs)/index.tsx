@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { View, Text, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -32,15 +32,19 @@ export default function AlbumScreen() {
     return Math.floor((windowWidth - HORIZONTAL_PADDING * 2 - GAP * (COLUMNS - 1)) / COLUMNS);
   }, [windowWidth]);
 
-  const { t: i18n_t } = useTranslation();
+  const isHydrated = useCollectionStore((s) => s._hasHydrated);
   const collection = useCollectionStore((s) => s.collection);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
+  const { t: i18n_t } = useTranslation();
+
   const { soundEnabled, animationsEnabled } = useSettingsStore();
   const { stickerFilter, currentTeam, setTeam, searchQuery, setSearchQuery } =
     useAlbumFiltersStore();
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
 
   const getQty = useCallback((code: string) => collection[code] ?? 0, [collection]);
+
+  const insets = useSafeAreaInsets();
 
   const filtered = useMemo(() => {
     let result = allStickers;
@@ -70,14 +74,20 @@ export default function AlbumScreen() {
     return result;
   }, [stickerFilter, getQty, searchQuery]);
 
-  const insets = useSafeAreaInsets();
-
   const onSearch = (query: string) => {
     setSearchQuery(query);
     if (query.length > 0) {
       setTeam(null);
     }
   };
+
+  if (!isHydrated) {
+    return (
+      <View className="flex-1 items-center justify-center bg-bg">
+        <Text className="text-gold opacity-50">{i18n_t('common.loading') ?? '...'}</Text>
+      </View>
+    );
+  }
 
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>

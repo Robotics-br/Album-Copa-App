@@ -255,7 +255,7 @@ export default function EventsScreen() {
                 <X color="white" size={32} />
               </View>
 
-              <View className="overflow-hidden rounded-2xl bg-[#1A1A1A]">
+              <View className="items-center overflow-hidden rounded-2xl bg-[#1A1A1A]">
                 {selectedStadium && (
                   <Image
                     source={selectedStadium.image}
