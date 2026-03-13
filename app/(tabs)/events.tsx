@@ -14,7 +14,8 @@ import {
   getMatchesByTeam,
   getMatchesByDate,
 } from '../../src/data/matches';
-import { getStadiumsByCountry } from '../../src/data/stadiums';
+import { stadiums, getStadiumsByCountry } from '../../src/data/stadiums';
+import { Image as RNImage } from 'react-native';
 
 // Components
 import MatchCard from '../../src/components/MatchCard';
@@ -34,6 +35,16 @@ export default function EventsScreen() {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
   const insets = useSafeAreaInsets();
+
+  // Prefetch stadium images using standard Image
+  React.useEffect(() => {
+    stadiums.forEach((s) => {
+      const source = RNImage.resolveAssetSource(s.image);
+      if (source && source.uri) {
+        RNImage.prefetch(source.uri);
+      }
+    });
+  }, []);
 
   const [activeTab, setActiveTab] = useState<GlobalTab>('games');
 
@@ -102,7 +113,7 @@ export default function EventsScreen() {
                 return (
                   <AnimatedPressable
                     key={team.id}
-                    onPress={() => setTeamId(team.id)}
+                    onPress={() => setTeamId(active ? '' : team.id)}
                     className="rounded-lg border px-3 py-1.5"
                     style={{
                       backgroundColor: active ? t.gold : t.surfaceLight,
@@ -111,7 +122,7 @@ export default function EventsScreen() {
                     <Text
                       className="text-[12px] font-semibold"
                       style={{ color: active ? '#0F1923' : t.text }}>
-                      {team.flag} {team.code}
+                      {team.flag} {i18n_t(`teams.${team.id}`)}
                     </Text>
                   </AnimatedPressable>
                 );
@@ -130,7 +141,7 @@ export default function EventsScreen() {
               return (
                 <AnimatedPressable
                   key={date}
-                  onPress={() => setSelectedDate(date)}
+                  onPress={() => setSelectedDate(active ? '' : date)}
                   className="rounded-lg border px-3.5 py-2"
                   style={{
                     backgroundColor: active ? t.gold : t.surfaceLight,

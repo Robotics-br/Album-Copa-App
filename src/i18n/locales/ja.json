@@ -1,0 +1,204 @@
+{
+  "settings": {
+    "title": "設定",
+    "visualStyle": "ビジュアルスタイル",
+    "themesSubtitle": "人気のゲームにインスパイアされたテーマ",
+    "themes": {
+      "original-dark": "オリジナル・ダーク",
+      "original-light": "オリジナル・ライト",
+      "minecraft": "マインクラフト",
+      "fortnite": "フォートナイト",
+      "mario": "マリオ",
+      "gta": "GTA",
+      "freefire": "フリー・ファイア",
+      "genshin": "原神",
+      "roblox": "ロブロックス",
+      "lego": "レゴ"
+    },
+    "accessibility": "アクセシビリティ",
+    "seniorMode": "シニアモード",
+    "seniorModeDesc": "ボタンと文字を大きく表示",
+    "sound": "サウンド",
+    "soundDesc": "シール収得時の効果音",
+    "animations": "アニメーション",
+    "animationsDesc": "カードのアニメーションを有効/無効",
+    "language": "言語",
+    "languageDesc": "アプリの言語を選択",
+    "languages": {
+      "system": "システム設定",
+      "pt": "ポルトガル語",
+      "en": "英語",
+      "es": "スペイン語",
+      "de": "ドイツ語",
+      "it": "イタリア語",
+      "fr": "フランス語",
+      "he": "ヘブライ語",
+      "zh": "中国語",
+      "ar": "アラビア語",
+      "ja": "日本語",
+      "hi": "ヒンディー語"
+    },
+    "deleteAll": "すべて削除",
+    "deleteAllDesc": "すべてのシールを削除します",
+    "deleteAllAlertDesc": "本当にすべてのシールを削除してもよろしいですか？この操作は取り消せません。",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "footerTitle": "マイ・ワールドカップ 2026",
+    "footerSubtitle": "v1.0.0 • Robotics制作"
+  },
+  "stats": {
+    "title": "進行状況",
+    "stickers": "シール",
+    "missing": "不足",
+    "repeated": "重複",
+    "progressByTeam": "チーム別の進捗"
+  },
+  "stadiums": {
+    "title": "2026 ワールドカップ・スタジアム",
+    "subtitle": "{{countryCount}}カ国、全{{totalCount}}会場",
+    "opened": "{{year}}年開場",
+    "data": {
+      "metlife": {
+        "name": "ニューヨーク・ニュージャージー・スタジアム (メットライフ・スタジアム)",
+        "desc": "2010年に開場した多目的スタジアムで、NFLのニューヨーク・ジャイアンツとニューヨーク・ジェッツの本拠地です。"
+      },
+      "sofi": {
+        "name": "ロサンゼルス・スタジアム (SoFiスタジアム)",
+        "desc": "FIFAワールドカップ2026の開催会場として選ばれた最新のスタジアムで、2020年9月に開場しました。"
+      }
+    }
+  },
+  "summary": {
+    "title": "あなたのアルバム",
+    "missing": "世界制覇まであと {{count}}"
+  },
+  "stickerModal": {
+    "question1": "何枚の<1>重複</1>シールを持っていますか？",
+    "saveRepeated": "重複分を保存",
+    "removeFromAlbum": "アルバムから削除"
+  },
+  "matchCard": {
+    "day": "{{date}}日目",
+    "at": "{{time}}〜"
+  },
+  "filters": {
+    "all": "すべて",
+    "missing": "不足",
+    "owned": "所持",
+    "duplicates": "重複"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "完了"
+    },
+    "mainHeader": {
+      "search": "検索..."
+    }
+  },
+  "teams": {
+    "mex": "メキシコ",
+    "afs": "南アフリカ",
+    "cds": "韓国",
+    "cze": "チェコ",
+    "can": "カナダ",
+    "ita": "イタリア",
+    "qat": "カタール",
+    "sui": "スイス",
+    "bra": "ブラジル",
+    "mar": "モロッコ",
+    "hai": "ハイチ",
+    "esc": "スコットランド",
+    "eua": "アメリカ",
+    "par": "パラグアイ",
+    "aus": "オーストラリア",
+    "tur": "トルコ",
+    "ale": "ドイツ",
+    "cuw": "キュラソー",
+    "cmf": "コートジボワール",
+    "ecu": "エクアドル",
+    "hol": "オランダ",
+    "jap": "日本",
+    "ucr": "ウクライナ",
+    "tun": "チュニジア",
+    "bel": "ベルギー",
+    "egi": "エジプト",
+    "ira": "イラン",
+    "nzl": "ニュージーランド",
+    "esp": "スペイン",
+    "cpv": "カーボベルデ",
+    "ars": "サウジアラビア",
+    "uru": "ウルグアイ",
+    "fra": "フランス",
+    "sen": "セネガル",
+    "bol": "ボリビア",
+    "nor": "ノルウェー",
+    "arg": "アルゼンチン",
+    "alg": "アルジェリア",
+    "aut": "オーストリア",
+    "jor": "ヨルダン",
+    "por": "ポルトガル",
+    "rdc": "コンゴ民主共和国",
+    "uzb": "ウズベキスタン",
+    "col": "コロンビア",
+    "ing": "イングランド",
+    "cro": "クロアチア",
+    "gha": "ガーナ",
+    "pan": "パナマ"
+  },
+  "tabs": {
+    "album": "アルバム",
+    "general": "概要",
+    "stadiums": "会場",
+    "games": "試合",
+    "stats": "進捗",
+    "settings": "設定",
+    "events": "イベント",
+    "trade": "トレード"
+  },
+  "album": {
+    "title": "マイ ワールドカップ 2026",
+    "empty": "このカテゴリーにはシールがありません"
+  },
+  "general": {
+    "title": "オーバービュー",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}}枚 ({{pct}}%)"
+  },
+  "games": {
+    "title": "全試合",
+    "subtitle": "2026 FIFAワールドカップ",
+    "filters": {
+      "all": "すべて",
+      "team": "チーム",
+      "day": "日付"
+    },
+    "empty": "試合が見つかりません"
+  },
+  "stickers": {
+    "badge": "エンブレム",
+    "team": "代表"
+  },
+  "events": {
+    "title": "イベント",
+    "subtitle": "FIFAワールドカップ 2026",
+    "tabs": {
+      "games": "試合",
+      "stadiums": "会場"
+    }
+  },
+  "trade": {
+    "title": "トレードセンター",
+    "subtitle": "交換またはスキャン",
+    "tabs": {
+      "share": "自分の重複分",
+      "scan": "友達をスキャン"
+    },
+    "code_desc": "友達にこのQRコードを見せてスキャンしてもらおう。",
+    "update_notice": "交換が成立したら重複枚数の更新を忘れずに。",
+    "matches_found": "朗報！あなたが持っていないシールを {{count}}枚持っています！",
+    "no_matches": "残念ながら、現在必要なシールは持っていないようです。",
+    "scan_btn": "カメラ起動",
+    "cam_permission": "スキャンにはカメラの使用許可が必要です。",
+    "export_btn": "重複分を出力",
+    "pdf_title": "重複リスト"
+  }
+}

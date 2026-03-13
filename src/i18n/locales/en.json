@@ -31,7 +31,12 @@
       "es": "Spanish",
       "de": "German",
       "it": "Italian",
-      "fr": "French"
+      "fr": "French",
+      "he": "Hebrew",
+      "zh": "Mandarin",
+      "ar": "Arabic",
+      "ja": "Japanese",
+      "hi": "Hindi"
     },
     "deleteAll": "Delete all",
     "deleteAllDesc": "Removes all stickers",

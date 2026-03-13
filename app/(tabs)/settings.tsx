@@ -10,6 +10,7 @@ import Toggle from '../../src/components/ui/Toggle';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import type { ThemeStyle } from '../../src/types';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
+import LanguageSelector from '../../src/components/LanguageSelector';
 
 const styleOptions: { id: ThemeStyle; labelKey: string }[] = [
   { id: 'original-dark', labelKey: 'settings.themes.original-dark' },
@@ -23,17 +24,6 @@ const styleOptions: { id: ThemeStyle; labelKey: string }[] = [
   { id: 'roblox', labelKey: 'settings.themes.roblox' },
   { id: 'lego', labelKey: 'settings.themes.lego' },
 ];
-
-const languageOptions = [
-  { id: null, labelKey: 'settings.languages.system' },
-  { id: 'pt', labelKey: 'settings.languages.pt' },
-  { id: 'en', labelKey: 'settings.languages.en' },
-  { id: 'es', labelKey: 'settings.languages.es' },
-  { id: 'de', labelKey: 'settings.languages.de' },
-  { id: 'it', labelKey: 'settings.languages.it' },
-  { id: 'fr', labelKey: 'settings.languages.fr' },
-];
-
 export default function SettingsScreen() {
   const theme = useTheme();
   const { t } = useTranslation();
@@ -110,27 +100,7 @@ export default function SettingsScreen() {
           <Text className="px-3 pb-3 pt-0 text-[11px] text-text-secondary">
             {t('settings.languageDesc')}
           </Text>
-          <View className="flex-row flex-wrap gap-2 px-4 pb-4">
-            {languageOptions.map(({ id, labelKey }) => {
-              const active = language === id;
-              return (
-                <AnimatedPressable
-                  key={id || 'system'}
-                  onPress={() => setLanguage(id as string)}
-                  className="w-[31%] items-center rounded-xl border-2 px-2 py-2.5"
-                  style={{
-                    borderColor: active ? theme.gold : theme.border,
-                    backgroundColor: active ? `${theme.gold}25` : theme.surfaceLight,
-                  }}>
-                  <Text
-                    className="text-center text-[12px] font-semibold"
-                    style={{ color: active ? theme.gold : theme.text }}>
-                    {t(labelKey)}
-                  </Text>
-                </AnimatedPressable>
-              );
-            })}
-          </View>
+          <LanguageSelector currentLanguage={language} onSelect={setLanguage} />
         </View>
 
         <View className="overflow-hidden rounded-2xl border border-border bg-surface">

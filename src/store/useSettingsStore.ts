@@ -15,7 +15,7 @@ interface SettingsState {
   toggleSeniorMode: () => void;
   toggleSound: () => void;
   setFavoriteTeam: (teamId: string | null) => void;
-  setLanguage: (lang: string) => void;
+  setLanguage: (lang: string | null) => void;
   toggleAnimations: () => void;
   resetSettings: () => void;
 }

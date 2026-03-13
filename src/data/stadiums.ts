@@ -63,8 +63,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇺🇸',
     capacity: '72.000',
     opened: '2002',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Reliantstadium.jpg/1280px-Reliantstadium.jpg',
+    image: require('../../assets/images/stadiums/nrg.png'),
     descriptionKey: 'stadiums.data.nrg.desc',
   },
   {
@@ -86,8 +85,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇺🇸',
     capacity: '69.000',
     opened: '2003',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Lincoln_Financial_Field_%28Aerial_view%29.jpg/1280px-Lincoln_Financial_Field_%28Aerial_view%29.jpg',
+    image: require('../../assets/images/stadiums/lincoln.png'),
     descriptionKey: 'stadiums.data.lincoln.desc',
   },
   {
@@ -120,8 +118,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇺🇸',
     capacity: '73.000',
     opened: '1972',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Arrowhead_Stadium_2010.jpg/1280px-Arrowhead_Stadium_2010.jpg',
+    image: require('../../assets/images/stadiums/arrowhead.png'),
     descriptionKey: 'stadiums.data.arrowhead.desc',
   },
   {
@@ -143,8 +140,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇲🇽',
     capacity: '83.000',
     opened: '1966',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Estadio_Azteca_2.jpg/1280px-Estadio_Azteca_2.jpg',
+    image: require('../../assets/images/stadiums/azteca.png'),
     descriptionKey: 'stadiums.data.azteca.desc',
   },
   {
@@ -155,8 +151,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇲🇽',
     capacity: '53.500',
     opened: '2015',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Estadio_BBVA_Bancomer_%2825425042741%29.jpg/1280px-Estadio_BBVA_Bancomer_%2825425042741%29.jpg',
+    image: require('../../assets/images/stadiums/bbva.png'),
     descriptionKey: 'stadiums.data.bbva.desc',
   },
   {
@@ -178,8 +173,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇨🇦',
     capacity: '45.000',
     opened: '2007',
-    image:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/BMO_Field_2016_East.jpg/1280px-BMO_Field_2016_East.jpg',
+    image: require('../../assets/images/stadiums/toronto.png'),
     descriptionKey: 'stadiums.data.toronto.desc',
   },
   {

@@ -19,11 +19,11 @@ export default function MatchCard({ match }: { match: Match }) {
     <View className="gap-1.5 rounded-xl border border-border bg-surface p-3.5">
       <View className="flex-row flex-wrap items-center gap-2">
         <Text className="text-[15px] font-bold text-text">
-          {home.flag} {home.name}
+          {home.flag} {i18n_t(`teams.${match.homeTeamId}`)}
         </Text>
         <Text className="text-[13px] font-semibold text-text-secondary">×</Text>
         <Text className="text-[15px] font-bold text-text">
-          {away.flag} {away.name}
+          {away.flag} {i18n_t(`teams.${match.awayTeamId}`)}
         </Text>
       </View>
       <View className="flex-row items-center gap-2">

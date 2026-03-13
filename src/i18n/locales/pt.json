@@ -31,7 +31,12 @@
       "es": "Espanhol",
       "de": "Alemão",
       "it": "Italiano",
-      "fr": "Francês"
+      "fr": "Francês",
+      "he": "Hebraico",
+      "zh": "Mandarim",
+      "ar": "Árabe",
+      "ja": "Japonês",
+      "hi": "Hindi"
     },
     "deleteAll": "Apagar tudo",
     "deleteAllDesc": "Remove todas as figurinhas",

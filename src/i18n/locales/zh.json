@@ -1,0 +1,204 @@
+{
+  "settings": {
+    "title": "设置",
+    "visualStyle": "视觉风格",
+    "themesSubtitle": "灵感来自热门游戏的主题",
+    "themes": {
+      "original-dark": "原始深色",
+      "original-light": "原始浅色",
+      "minecraft": "我的世界",
+      "fortnite": "堡垒之夜",
+      "mario": "马力欧",
+      "gta": "侠盗猎车手",
+      "freefire": "自由之火",
+      "genshin": "原神",
+      "roblox": "罗布乐思",
+      "lego": "乐高"
+    },
+    "accessibility": "辅助功能",
+    "seniorMode": "长辈模式",
+    "seniorModeDesc": "更大的按钮和文本",
+    "sound": "音效",
+    "soundDesc": "收集贴纸时的声效",
+    "animations": "动画",
+    "animationsDesc": "启用或禁用卡片动画",
+    "language": "语言",
+    "languageDesc": "选择应用程序语言",
+    "languages": {
+      "system": "系统默认",
+      "pt": "葡萄牙语",
+      "en": "英语",
+      "es": "西班牙语",
+      "de": "德语",
+      "it": "意大利语",
+      "fr": "法语",
+      "he": "希伯来语",
+      "zh": "中文（普通话）",
+      "ar": "阿拉伯语",
+      "ja": "日语",
+      "hi": "印地语"
+    },
+    "deleteAll": "全部删除",
+    "deleteAllDesc": "移除所有贴纸",
+    "deleteAllAlertDesc": "您确定要删除所有贴纸吗？此操作无法撤销。",
+    "cancel": "取消",
+    "delete": "删除",
+    "footerTitle": "我的 2026 世界杯",
+    "footerSubtitle": "v1.0.0 • 由 Robotics 提供"
+  },
+  "stats": {
+    "title": "我的进度",
+    "stickers": "贴纸",
+    "missing": "缺失",
+    "repeated": "重复",
+    "progressByTeam": "各队进度"
+  },
+  "stadiums": {
+    "title": "2026 世界杯体育场",
+    "subtitle": "{{countryCount}} 个国家的 {{totalCount}} 个体育场",
+    "opened": "启用年份 {{year}}",
+    "data": {
+      "metlife": {
+        "name": "纽约新泽西体育场 (大都会人寿体育场)",
+        "desc": "一体育场于 2010 年启用，目前是 NFL 纽约巨人队和纽约喷气机队的主场。"
+      },
+      "sofi": {
+        "name": "洛杉矶体育场 (SoFi 体育场)",
+        "desc": "这是为承办 2026 年 FIFA 世界杯而选定的最新场地，于 2020 年 9 月投入使用。"
+      }
+    }
+  },
+  "summary": {
+    "title": "您的相册",
+    "missing": "还差 {{count}} 张征服世界"
+  },
+  "stickerModal": {
+    "question1": "你有多少张<1>重复</1>贴纸？",
+    "saveRepeated": "保存重复项",
+    "removeFromAlbum": "从相册移除"
+  },
+  "matchCard": {
+    "day": "第 {{date}} 天",
+    "at": "{{time}}"
+  },
+  "filters": {
+    "all": "全部",
+    "missing": "缺失",
+    "owned": "已有",
+    "duplicates": "重复"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "已完成"
+    },
+    "mainHeader": {
+      "search": "搜索..."
+    }
+  },
+  "teams": {
+    "mex": "墨西哥",
+    "afs": "南非",
+    "cds": "韩国",
+    "cze": "捷克",
+    "can": "加拿大",
+    "ita": "意大利",
+    "qat": "卡塔尔",
+    "sui": "瑞士",
+    "bra": "巴西",
+    "mar": "摩洛哥",
+    "hai": "海地",
+    "esc": "苏格兰",
+    "eua": "美国",
+    "par": "巴拉圭",
+    "aus": "澳大利亚",
+    "tur": "土耳其",
+    "ale": "德国",
+    "cuw": "库拉索",
+    "cmf": "科特迪瓦",
+    "ecu": "厄瓜多尔",
+    "hol": "荷兰",
+    "jap": "日本",
+    "ucr": "乌克兰",
+    "tun": "突尼斯",
+    "bel": "比利时",
+    "egi": "埃及",
+    "ira": "伊朗",
+    "nzl": "新西兰",
+    "esp": "西班牙",
+    "cpv": "佛得角",
+    "ars": "沙特阿拉伯",
+    "uru": "乌拉圭",
+    "fra": "法国",
+    "sen": "塞内加尔",
+    "bol": "玻利维亚",
+    "nor": "挪威",
+    "arg": "阿根廷",
+    "alg": "阿尔及利亚",
+    "aut": "奥地利",
+    "jor": "约旦",
+    "por": "葡萄牙",
+    "rdc": "刚果民主共和国",
+    "uzb": "乌兹别克斯坦",
+    "col": "哥伦比亚",
+    "ing": "英格兰",
+    "cro": "克罗地亚",
+    "gha": "加纳",
+    "pan": "巴拿马"
+  },
+  "tabs": {
+    "album": "相册",
+    "general": "总览",
+    "stadiums": "体育场",
+    "games": "比赛",
+    "stats": "进度",
+    "settings": "设置",
+    "events": "活动",
+    "trade": "交易"
+  },
+  "album": {
+    "title": "我的 2026 世界杯",
+    "empty": "此分类下没有贴纸"
+  },
+  "general": {
+    "title": "概览",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} 张贴纸 ({{pct}}%)"
+  },
+  "games": {
+    "title": "所有比赛",
+    "subtitle": "2026 FIFA 世界杯",
+    "filters": {
+      "all": "全部",
+      "team": "球队",
+      "day": "日期"
+    },
+    "empty": "未找到比赛"
+  },
+  "stickers": {
+    "badge": "队徽",
+    "team": "球队"
+  },
+  "events": {
+    "title": "活动",
+    "subtitle": "2026 FIFA 世界杯",
+    "tabs": {
+      "games": "比赛",
+      "stadiums": "体育场"
+    }
+  },
+  "trade": {
+    "title": "交易中心",
+    "subtitle": "分享或扫描贴纸",
+    "tabs": {
+      "share": "我的重复贴纸",
+      "scan": "扫描好友"
+    },
+    "code_desc": "将此二维码展示给朋友进行扫描。",
+    "update_notice": "交易后别忘了更新您的重复贴纸数量。",
+    "matches_found": "好消息！他有 {{count}} 张你没有的贴纸！",
+    "no_matches": "很遗憾，他目前没有你需要填补的贴纸。",
+    "scan_btn": "打开相机",
+    "cam_permission": "我们需要相机权限才能进行扫描。",
+    "export_btn": "导出重复列表",
+    "pdf_title": "重复贴纸清单"
+  }
+}
