@@ -63,7 +63,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇺🇸',
     capacity: '72.000',
     opened: '2002',
-    image: require('../../assets/images/stadiums/nrg.png'),
+    image: require('../../assets/images/stadiums/nrg.jpg'),
     descriptionKey: 'stadiums.data.nrg.desc',
   },
   {
@@ -85,7 +85,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇺🇸',
     capacity: '69.000',
     opened: '2003',
-    image: require('../../assets/images/stadiums/lincoln.png'),
+    image: require('../../assets/images/stadiums/lincoln.jpg'),
     descriptionKey: 'stadiums.data.lincoln.desc',
   },
   {
@@ -118,7 +118,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇺🇸',
     capacity: '73.000',
     opened: '1972',
-    image: require('../../assets/images/stadiums/arrowhead.png'),
+    image: require('../../assets/images/stadiums/arrowhead.jpg'),
     descriptionKey: 'stadiums.data.arrowhead.desc',
   },
   {
@@ -140,7 +140,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇲🇽',
     capacity: '83.000',
     opened: '1966',
-    image: require('../../assets/images/stadiums/azteca.png'),
+    image: require('../../assets/images/stadiums/azteca.jpg'),
     descriptionKey: 'stadiums.data.azteca.desc',
   },
   {
@@ -151,7 +151,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇲🇽',
     capacity: '53.500',
     opened: '2015',
-    image: require('../../assets/images/stadiums/bbva.png'),
+    image: require('../../assets/images/stadiums/bbva.jpg'),
     descriptionKey: 'stadiums.data.bbva.desc',
   },
   {
@@ -173,7 +173,7 @@ export const stadiums: Stadium[] = [
     countryFlag: '🇨🇦',
     capacity: '45.000',
     opened: '2007',
-    image: require('../../assets/images/stadiums/toronto.png'),
+    image: require('../../assets/images/stadiums/toronto.jpg'),
     descriptionKey: 'stadiums.data.toronto.desc',
   },
   {
