@@ -1,10 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, ScrollView, Pressable } from 'react-native';
+import { View, Text, ScrollView, Pressable, Modal, Dimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
-import { ChevronDown, ChevronUp } from 'lucide-react-native';
+import { Image } from 'expo-image';
+import { ChevronDown, ChevronUp, X } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useTranslation } from 'react-i18next';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import type { Stadium } from '../../src/data/stadiums';
 
 // Data
 import { teams } from '../../src/data/teams';
@@ -22,6 +25,8 @@ import StadiumCard from '../../src/components/StadiumCard';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+
 type FilterKind = 'all' | 'team' | 'day';
 type GlobalTab = 'games' | 'stadiums';
 
@@ -36,6 +41,7 @@ export default function EventsScreen() {
   const insets = useSafeAreaInsets();
 
   const [activeTab, setActiveTab] = useState<GlobalTab>('games');
+  const [selectedStadium, setSelectedStadium] = useState<Stadium | null>(null);
 
   const [filterKind, setFilterKind] = useState<FilterKind>('all');
   const [teamId, setTeamId] = useState('');
@@ -43,7 +49,7 @@ export default function EventsScreen() {
 
   const stadiumGroups = useMemo(() => getStadiumsByCountry(), []);
   const [expandedStadiums, setExpandedStadiums] = useState<Record<string, boolean>>(
-    Object.fromEntries(Object.keys(stadiumGroups).map((k) => [k, true]))
+    Object.fromEntries(Object.keys(stadiumGroups).map((k) => [k, false])) // Começa fechado para salvar memória
   );
 
   const toggleStadiumGroup = (key: string) => {
@@ -185,7 +191,13 @@ export default function EventsScreen() {
           </Pressable>
 
           {expandedStadiums[country] &&
-            stadiumList.map((stadium) => <StadiumCard key={stadium.id} stadium={stadium} />)}
+            stadiumList.map((stadium) => (
+              <StadiumCard
+                key={stadium.id}
+                stadium={stadium}
+                onImagePress={(s) => setSelectedStadium(s)}
+              />
+            ))}
         </View>
       ))}
     </ScrollView>
@@ -224,6 +236,53 @@ export default function EventsScreen() {
       </View>
 
       {activeTab === 'games' ? renderGames() : renderStadiums()}
+
+      <Modal
+        visible={!!selectedStadium}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setSelectedStadium(null)}>
+        <Pressable
+          style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.9)' }}
+          onPress={() => setSelectedStadium(null)}
+          className="items-center justify-center p-4">
+          {selectedStadium && (
+            <Animated.View
+              entering={FadeIn.duration(300)}
+              exiting={FadeOut.duration(200)}
+              className="w-full shadow-2xl">
+              <View className="absolute right-0 top-[-50] z-50">
+                <X color="white" size={32} />
+              </View>
+
+              <View className="overflow-hidden rounded-2xl bg-[#1A1A1A]">
+                {selectedStadium && (
+                  <Image
+                    source={selectedStadium.image}
+                    style={{ width: SCREEN_WIDTH - 40, aspectRatio: 16 / 9 }}
+                    contentFit="contain"
+                    priority="high"
+                    cachePolicy="disk"
+                    transition={200}
+                    recyclingKey={selectedStadium.id}
+                  />
+                )}
+              </View>
+
+              <View className="mt-4 items-center">
+                <Text className="text-center text-[18px] font-bold text-white">
+                  {i18n_t(`stadiums.data.${selectedStadium.id}.name`, {
+                    defaultValue: selectedStadium.name,
+                  })}
+                </Text>
+                <Text className="text-center text-[14px] text-gray-400">
+                  {selectedStadium.city}, {selectedStadium.country}
+                </Text>
+              </View>
+            </Animated.View>
+          )}
+        </Pressable>
+      </Modal>
     </View>
   );
 }
