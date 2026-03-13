@@ -33,9 +33,9 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
                 source={stadium.image}
                 style={{ width: '100%', height: '100%' }}
                 contentFit="cover"
-                cachePolicy="memory-disk"
-                priority="high"
-                transition={150}
+                cachePolicy="disk"
+                priority="low"
+                transition={200}
                 onLoadStart={() => setLoading(true)}
                 onLoadEnd={() => setLoading(false)}
                 onError={() => {

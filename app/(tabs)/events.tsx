@@ -14,8 +14,7 @@ import {
   getMatchesByTeam,
   getMatchesByDate,
 } from '../../src/data/matches';
-import { stadiums, getStadiumsByCountry } from '../../src/data/stadiums';
-import { Image as RNImage } from 'react-native';
+import { getStadiumsByCountry } from '../../src/data/stadiums';
 
 // Components
 import MatchCard from '../../src/components/MatchCard';
@@ -36,24 +35,12 @@ export default function EventsScreen() {
   const { t: i18n_t } = useTranslation();
   const insets = useSafeAreaInsets();
 
-  // Prefetch stadium images using standard Image
-  React.useEffect(() => {
-    stadiums.forEach((s) => {
-      const source = RNImage.resolveAssetSource(s.image);
-      if (source && source.uri) {
-        RNImage.prefetch(source.uri);
-      }
-    });
-  }, []);
-
   const [activeTab, setActiveTab] = useState<GlobalTab>('games');
 
-  // Games State
   const [filterKind, setFilterKind] = useState<FilterKind>('all');
   const [teamId, setTeamId] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
 
-  // Stadiums State
   const stadiumGroups = useMemo(() => getStadiumsByCountry(), []);
   const [expandedStadiums, setExpandedStadiums] = useState<Record<string, boolean>>(
     Object.fromEntries(Object.keys(stadiumGroups).map((k) => [k, true]))
@@ -63,7 +50,6 @@ export default function EventsScreen() {
     setExpandedStadiums((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  // Memos
   const uniqueDates = useMemo(() => getUniqueDates(matches), []);
   const filteredMatches = useMemo(() => {
     if (filterKind === 'team' && teamId) return getMatchesByTeam(matches, teamId);
