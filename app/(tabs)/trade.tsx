@@ -87,7 +87,8 @@ export default function TradeScreen() {
       await asset.downloadAsync();
       const assetUri = asset.localUri || asset.uri;
       if (!assetUri) throw new Error('Could not resolve asset URI');
-      const file = new File(assetUri);
+      const absoluteUri = assetUri.startsWith('file://') ? assetUri : `file://${assetUri}`;
+      const file = new File(absoluteUri);
       const base64 = await file.base64();
       const logoBase64 = `data:image/jpeg;base64,${base64}`;
 

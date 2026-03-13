@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Modal, Pressable, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ChevronRight, Languages, Check } from 'lucide-react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../theme/ThemeProvider';
 import AnimatedPressable from './ui/AnimatedPressable';
 
@@ -29,6 +30,7 @@ export default function LanguageSelector({ currentLanguage, onSelect }: Language
   const [modalVisible, setModalVisible] = useState(false);
   const { t } = useTranslation();
   const theme = useTheme();
+  const insets = useSafeAreaInsets();
 
   const selectedLang = languages.find((l) => l.id === currentLanguage) || languages[0];
 
@@ -67,7 +69,7 @@ export default function LanguageSelector({ currentLanguage, onSelect }: Language
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false} className="p-4">
-              <View className="gap-2 pb-12">
+              <View className="gap-2" style={{ paddingBottom: Math.max(insets.bottom, 20) + 20 }}>
                 {languages.map((lang) => {
                   const active = currentLanguage === lang.id;
                   return (
