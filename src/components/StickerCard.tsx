@@ -57,10 +57,42 @@ function StickerCard({
     if (prevStickerCode.current !== sticker.code) {
       prevStickerCode.current = sticker.code;
       prevQty.current = qty;
+      return;
     }
+
+    if (qty > prevQty.current) {
+      if (!justTapped.current) {
+        zIndex.value = 100;
+        rotation.value = withSequence(
+          withTiming(-8, { duration: 100 }),
+          withTiming(8, { duration: 100 }),
+          withTiming(-5, { duration: 100 }),
+          withTiming(5, { duration: 100 }),
+          withTiming(0, { duration: 100 })
+        );
+
+        scale.value = withSequence(
+          withTiming(2.0, { duration: 300 }),
+          withTiming(0.95, { duration: 200 }),
+          withTiming(1, { duration: 250 }, () => {
+            zIndex.value = withTiming(0, { duration: 0 });
+          })
+        );
+        setExplosionTrigger((prev) => prev + 1);
+      }
+    } else if (qty < prevQty.current) {
+      zIndex.value = 100;
+      scale.value = withSequence(
+        withTiming(0.92, { duration: 80 }),
+        withTiming(1, { duration: 150 }, () => {
+          zIndex.value = withTiming(0, { duration: 0 });
+        })
+      );
+    }
+
     prevQty.current = qty;
     justTapped.current = false;
-  }, [qty, sticker.code]);
+  }, [qty, sticker.code, scale, rotation, zIndex]);
 
   const handlePress = useCallback(() => {
     const isOwned = qty > 0;
