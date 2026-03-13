@@ -98,6 +98,8 @@ const StickerCardLight = ({
 export default React.memo(StickerCardLight, (prevProps, nextProps) => {
   return (
     prevProps.sticker.code === nextProps.sticker.code &&
-    prevProps.soundEnabled === nextProps.soundEnabled
+    prevProps.soundEnabled === nextProps.soundEnabled &&
+    prevProps.t === nextProps.t &&
+    prevProps.i18n_t === nextProps.i18n_t
   );
 });

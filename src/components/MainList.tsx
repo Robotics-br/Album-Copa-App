@@ -75,6 +75,14 @@ const StickerRow = memo(
     );
   },
   (prevProps, nextProps) => {
+    if (prevProps.t !== nextProps.t || prevProps.i18n_t !== nextProps.i18n_t) {
+      return false;
+    }
+
+    if (prevProps.animationsEnabled !== nextProps.animationsEnabled) {
+      return false;
+    }
+
     const prevStickers = prevProps.item.stickers;
     const nextStickers = nextProps.item.stickers;
 
@@ -191,9 +199,7 @@ export default function MainList({
         />
       );
     },
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [setSelectedSticker, itemWidth, toggleSticker, soundEnabled, animationsEnabled]
+    [itemWidth, animationsEnabled, soundEnabled, toggleSticker, setSelectedSticker, t, i18n_t]
   );
 
   const keyExtractor = useCallback((item: ListItem) => {
@@ -212,7 +218,7 @@ export default function MainList({
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         getItemType={getItemType}
-        extraData={animationsEnabled}
+        extraData={{ animationsEnabled, t, i18n_t }}
         ListFooterComponent={<View className="h-5" />}
         showsVerticalScrollIndicator={false}
       />
