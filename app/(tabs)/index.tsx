@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useRef } from 'react';
 import { View, Text, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -11,7 +11,6 @@ import StickerModal from '../../src/components/StickerModal';
 import { useTranslation } from 'react-i18next';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 import MainList from '../../src/components/MainList';
-
 import type { Sticker } from '../../src/types';
 
 const COLUMNS = 5;
@@ -37,9 +36,9 @@ export default function AlbumScreen() {
   const collection = useCollectionStore((s) => s.collection);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
   const { soundEnabled, animationsEnabled } = useSettingsStore();
-  const { stickerFilter, currentTeam } = useAlbumFiltersStore();
+  const { stickerFilter, currentTeam, setTeam, searchQuery, setSearchQuery } =
+    useAlbumFiltersStore();
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
-  const [searchQuery, setSearchQuery] = useState('');
 
   const getQty = useCallback((code: string) => collection[code] ?? 0, [collection]);
 
@@ -73,6 +72,13 @@ export default function AlbumScreen() {
 
   const insets = useSafeAreaInsets();
 
+  const onSearch = (query: string) => {
+    setSearchQuery(query);
+    if (query.length > 0) {
+      setTeam(null);
+    }
+  };
+
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
@@ -81,7 +87,7 @@ export default function AlbumScreen() {
         </Text>
       </View>
 
-      <MainHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <MainHeader searchQuery={searchQuery} setSearchQuery={onSearch} />
 
       <MainList
         filteredStickers={filtered}

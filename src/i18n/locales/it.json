@@ -53,22 +53,70 @@
     "subtitle": "{{totalCount}} stadi in {{countryCount}} paesi",
     "opened": "Inaugurato nel {{year}}",
     "data": {
-      "metlife": { "name": "New York New Jersey Stadium (MetLife Stadium)", "desc": "Mentre questo stadio è stato più abituato a ospitare le superstar della NFL nel corso degli anni, il meglio che il calcio ha da offrire si dirigerà verso il campo nel 2026." },
-      "sofi": { "name": "Los Angeles Stadium (SoFi Stadium)", "desc": "Il Los Angeles Stadium è la più recente struttura scelta per ospitare la FIFA World Cup 2026." },
-      "att": { "name": "Dallas Stadium (AT&T Stadium)", "desc": "Il Dallas Stadium è un esempio mozzafiato di architettura per stadi." },
-      "hard_rock": { "name": "Miami Stadium (Hard Rock Stadium)", "desc": "Il Miami Stadium funge da casa per i Miami Dolphins, il Gran Premio di Miami di Formula 1 e altri grandi eventi." },
-      "nrg": { "name": "Houston Stadium (NRG Stadium)", "desc": "Ospita l'MLS All-Star Game e partite delle nazionali di USA e Messico." },
-      "mercedes_benz": { "name": "Atlanta Stadium (Mercedes-Benz Stadium)", "desc": "L'Atlanta Stadium è stato progettato pensando ai tifosi e offre un'esperienza pluripremiata." },
-      "lincoln": { "name": "Philadelphia Stadium (Lincoln Financial Field)", "desc": "Il Philadelphia Stadium è stato inaugurato con un'amichevole di lusso tra Manchester United e Barcellona nell'agosto 2003." },
-      "lumen": { "name": "Seattle Stadium (Lumen Field)", "desc": "Questo stadio vanta un'unica forma a ferro di cavallo con un'estremità nord aperta." },
-      "gillette": { "name": "Boston Stadium (Gillette Stadium)", "desc": "Il Boston Stadium è stato sottoposto a un importante progetto di ristrutturazione in vista del torneo del 2026." },
-      "arrowhead": { "name": "Kansas City Stadium (Arrowhead Stadium)", "desc": "Il Kansas City Stadium è certificato dal Guinness World Records come la struttura sportiva all'aperto più rumorosa al mondo." },
-      "levis": { "name": "San Francisco Bay Area Stadium (Levi's Stadium)", "desc": "Uno degli stadi più recenti incaricati di ospitare il torneo, situato a Santa Clara." },
-      "azteca": { "name": "Mexico City Stadium (Estadio Azteca)", "desc": "Un vero colosseo del calcio mondiale e il primo a ospitare una terza FIFA World Cup™." },
-      "bbva": { "name": "Estadio Monterrey (Estadio BBVA)", "desc": "La squadra messicana del Monterrey gioca in questa meraviglia dei giorni nostri." },
-      "akron": { "name": "Estadio Guadalajara (Estadio Akron)", "desc": "Costruito su un terreno elevato con un design sferico simile a un colosseo." },
-      "toronto": { "name": "Toronto Stadium (BMO Field)", "desc": "Il Toronto Stadium è stato costruito appositamente mentre il Canada ospitava la FIFA U-20 World Cup 2007™." },
-      "bc_place": { "name": "BC Place Vancouver (BC Place)", "desc": "Giunto ormai alla sua quinta decade di vita, il BC Place Vancouver rimane un pezzo di architettura mozzafiato." }
+      "metlife": {
+        "name": "New York New Jersey Stadium (MetLife Stadium)",
+        "desc": "Mentre questo stadio è stato più abituato a ospitare le superstar della NFL nel corso degli anni, il meglio che il calcio ha da offrire si dirigerà verso il campo nel 2026."
+      },
+      "sofi": {
+        "name": "Los Angeles Stadium (SoFi Stadium)",
+        "desc": "Il Los Angeles Stadium è la più recente struttura scelta per ospitare la FIFA World Cup 2026."
+      },
+      "att": {
+        "name": "Dallas Stadium (AT&T Stadium)",
+        "desc": "Il Dallas Stadium è un esempio mozzafiato di architettura per stadi."
+      },
+      "hard_rock": {
+        "name": "Miami Stadium (Hard Rock Stadium)",
+        "desc": "Il Miami Stadium funge da casa per i Miami Dolphins, il Gran Premio di Miami di Formula 1 e altri grandi eventi."
+      },
+      "nrg": {
+        "name": "Houston Stadium (NRG Stadium)",
+        "desc": "Ospita l'MLS All-Star Game e partite delle nazionali di USA e Messico."
+      },
+      "mercedes_benz": {
+        "name": "Atlanta Stadium (Mercedes-Benz Stadium)",
+        "desc": "L'Atlanta Stadium è stato progettato pensando ai tifosi e offre un'esperienza pluripremiata."
+      },
+      "lincoln": {
+        "name": "Philadelphia Stadium (Lincoln Financial Field)",
+        "desc": "Il Philadelphia Stadium è stato inaugurato con un'amichevole di lusso tra Manchester United e Barcellona nell'agosto 2003."
+      },
+      "lumen": {
+        "name": "Seattle Stadium (Lumen Field)",
+        "desc": "Questo stadio vanta un'unica forma a ferro di cavallo con un'estremità nord aperta."
+      },
+      "gillette": {
+        "name": "Boston Stadium (Gillette Stadium)",
+        "desc": "Il Boston Stadium è stato sottoposto a un importante progetto di ristrutturazione in vista del torneo del 2026."
+      },
+      "arrowhead": {
+        "name": "Kansas City Stadium (Arrowhead Stadium)",
+        "desc": "Il Kansas City Stadium è certificato dal Guinness World Records come la struttura sportiva all'aperto più rumorosa al mondo."
+      },
+      "levis": {
+        "name": "San Francisco Bay Area Stadium (Levi's Stadium)",
+        "desc": "Uno degli stadi più recenti incaricati di ospitare il torneo, situato a Santa Clara."
+      },
+      "azteca": {
+        "name": "Mexico City Stadium (Estadio Azteca)",
+        "desc": "Un vero colosseo del calcio mondiale e il primo a ospitare una terza FIFA World Cup™."
+      },
+      "bbva": {
+        "name": "Estadio Monterrey (Estadio BBVA)",
+        "desc": "La squadra messicana del Monterrey gioca in questa meraviglia dei giorni nostri."
+      },
+      "akron": {
+        "name": "Estadio Guadalajara (Estadio Akron)",
+        "desc": "Costruito su un terreno elevato con un design sferico simile a un colosseo."
+      },
+      "toronto": {
+        "name": "Toronto Stadium (BMO Field)",
+        "desc": "Il Toronto Stadium è stato costruito appositamente mentre il Canada ospitava la FIFA U-20 World Cup 2007™."
+      },
+      "bc_place": {
+        "name": "BC Place Vancouver (BC Place)",
+        "desc": "Giunto ormai alla sua quinta decade di vita, il BC Place Vancouver rimane un pezzo di architettura mozzafiato."
+      }
     }
   },
   "summary": {

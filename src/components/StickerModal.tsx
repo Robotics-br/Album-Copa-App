@@ -4,7 +4,6 @@ import { X, Minus, Plus } from 'lucide-react-native';
 import { useTranslation, Trans } from 'react-i18next';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
-import { useSettingsStore } from '../store/useSettingsStore';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { getTeamById } from '../data/teams';
 import { lightTap } from '../utils/haptics';

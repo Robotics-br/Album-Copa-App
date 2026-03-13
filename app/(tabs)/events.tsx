@@ -68,10 +68,7 @@ export default function EventsScreen() {
 
   const renderGames = () => (
     <>
-      <View 
-        style={{ paddingHorizontal: HORIZONTAL_PADDING }}
-        className="mb-2 gap-2.5"
-      >
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-2 gap-2.5">
         <View className="flex-row gap-1.5">
           {filterTabs.map(({ key, label }) => {
             const active = filterKind === key;

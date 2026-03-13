@@ -27,10 +27,9 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
     <Animated.View layout={Layout.springify()} className="overflow-hidden bg-surface">
       <View className="flex-row gap-3 p-3">
         {/* Stadium Image Thumbnail */}
-        <Pressable 
+        <Pressable
           onPress={() => !imgError && setShowImageModal(true)}
-          className="h-16 w-[95px] overflow-hidden rounded-lg border border-border bg-surface-light active:opacity-80"
-        >
+          className="h-16 w-[95px] overflow-hidden rounded-lg border border-border bg-surface-light active:opacity-80">
           {!imgError ? (
             <Image
               source={imageSource}
@@ -46,10 +45,9 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
         </Pressable>
 
         {/* Info Content - Clickable to Expand */}
-        <Pressable 
+        <Pressable
           onPress={() => hasDescription && setExpanded(!expanded)}
-          className="flex-1 justify-center gap-1 active:opacity-70"
-        >
+          className="flex-1 justify-center gap-1 active:opacity-70">
           <View className="flex-row items-center justify-between">
             <Text className="flex-1 text-[13px] font-bold text-text" numberOfLines={1}>
               {translatedName}
@@ -87,13 +85,10 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
       </View>
 
       {expanded && hasDescription && (
-        <Animated.View 
+        <Animated.View
           entering={FadeInDown.duration(300)}
-          className="border-t border-border/10 bg-surface-light/30 px-4 pb-4 pt-2"
-        >
-          <Text className="text-[12px] leading-[18px] text-text-secondary">
-            {translatedDesc}
-          </Text>
+          className="border-border/10 bg-surface-light/30 border-t px-4 pb-4 pt-2">
+          <Text className="text-[12px] leading-[18px] text-text-secondary">{translatedDesc}</Text>
         </Animated.View>
       )}
 
@@ -102,22 +97,19 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
         visible={showImageModal}
         transparent
         animationType="fade"
-        onRequestClose={() => setShowImageModal(false)}
-      >
-        <Pressable 
+        onRequestClose={() => setShowImageModal(false)}>
+        <Pressable
           style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.9)' }}
           onPress={() => setShowImageModal(false)}
-          className="items-center justify-center p-4"
-        >
-          <Animated.View 
+          className="items-center justify-center p-4">
+          <Animated.View
             entering={FadeIn.duration(300)}
             exiting={FadeOut.duration(200)}
-            className="w-full shadow-2xl"
-          >
+            className="w-full shadow-2xl">
             <View className="absolute right-0 top-[-50] z-50">
-               <X color="white" size={32} />
+              <X color="white" size={32} />
             </View>
-            
+
             <Image
               source={imageSource}
               style={{
@@ -127,11 +119,9 @@ export default function StadiumCard({ stadium }: { stadium: Stadium }) {
               }}
               resizeMode="contain"
             />
-            
+
             <View className="mt-4 items-center">
-              <Text className="text-center text-[18px] font-bold text-white">
-                {translatedName}
-              </Text>
+              <Text className="text-center text-[18px] font-bold text-white">{translatedName}</Text>
               <Text className="text-center text-[14px] text-gray-400">
                 {stadium.city}, {stadium.country}
               </Text>

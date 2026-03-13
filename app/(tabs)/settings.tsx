@@ -175,7 +175,9 @@ export default function SettingsScreen() {
                 <ZapOff size={20} color={theme.text} />
               )}
               <View>
-                <Text className="text-[15px] font-medium text-text">{t('settings.animations')}</Text>
+                <Text className="text-[15px] font-medium text-text">
+                  {t('settings.animations')}
+                </Text>
                 <Text className="text-[11px] text-text-secondary">
                   {t('settings.animationsDesc')}
                 </Text>

@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { teams, stickers, totalStickers, getStickersByTeam } from '../../src/data/teams';
 import ProgressRing from '../../src/components/ui/ProgressRing';
@@ -10,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 export default function StatsScreen() {
-  const t = useTheme();
   const { t: i18n_t } = useTranslation();
   const collection = useCollectionStore((s) => s.collection);
   const insets = useSafeAreaInsets();

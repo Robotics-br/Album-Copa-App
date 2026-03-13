@@ -126,7 +126,7 @@ export const stadiums: Stadium[] = [
   },
   {
     id: 'levis',
-    name: 'San Francisco Bay Area Stadium (Levi\'s Stadium)',
+    name: "San Francisco Bay Area Stadium (Levi's Stadium)",
     city: 'Santa Clara, CA',
     country: 'EUA',
     countryFlag: '🇺🇸',

@@ -21,10 +21,9 @@ const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
   return (
     <View className="bg-bg pb-2">
       <SummaryCard />
-      <View 
+      <View
         style={{ marginHorizontal: HORIZONTAL_PADDING }}
-        className="my-2.5 flex-row items-center rounded-xl border border-border bg-surface px-3"
-      >
+        className="my-2.5 flex-row items-center rounded-xl border border-border bg-surface px-3">
         <Search size={16} color={t.textSecondary} />
         <TextInput
           value={searchQuery}

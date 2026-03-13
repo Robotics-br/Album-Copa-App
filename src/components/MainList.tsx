@@ -23,6 +23,7 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
   return chunks;
 }
 
+// eslint-disable-next-line react/display-name
 const StickerRow = memo(
   ({
     item,
@@ -66,7 +67,6 @@ const StickerRow = memo(
           </View>
         ))}
 
-        {/* 2. MUDANÇA CRÍTICA: Os phantoms continuam a contagem das keys */}
         {phantomCount > 0 &&
           Array.from({ length: phantomCount }).map((_, i) => (
             <View key={`slot-${item.stickers.length + i}`} style={{ width: itemWidth }} />
@@ -75,7 +75,18 @@ const StickerRow = memo(
     );
   },
   (prevProps, nextProps) => {
-    return prevProps.item.stickers[0]?.code === nextProps.item.stickers[0]?.code;
+    const prevStickers = prevProps.item.stickers;
+    const nextStickers = nextProps.item.stickers;
+
+    if (prevStickers.length !== nextStickers.length) return false;
+
+    for (let i = 0; i < prevStickers.length; i++) {
+      if (prevStickers[i].code !== nextStickers[i].code) {
+        return false;
+      }
+    }
+
+    return true;
   }
 );
 
@@ -153,7 +164,6 @@ export default function MainList({
     return items;
   }, [filteredStickers, currentTeam]);
 
-  // 2. RENDER ITEM LIMPO E OTIMIZADO
   const renderItem = useCallback(
     ({ item }: { item: ListItem }) => {
       if (item.type === 'empty') {
@@ -181,7 +191,8 @@ export default function MainList({
         />
       );
     },
-    // Removido t e i18n_t das dependências para evitar recriação desnecessária da função
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [setSelectedSticker, itemWidth, toggleSticker, soundEnabled, animationsEnabled]
   );
 
@@ -204,7 +215,6 @@ export default function MainList({
         extraData={animationsEnabled}
         ListFooterComponent={<View className="h-5" />}
         showsVerticalScrollIndicator={false}
-        // 3. REMOVIDAS PROPS ANTIGAS (drawDistance, decelerationRate, scrollEventThrottle)
       />
     </View>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
 import { getTeamById } from '../data/teams';
 import type { Match } from '../data/matches';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +10,6 @@ function formatDate(dateStr: string): string {
 }
 
 export default function MatchCard({ match }: { match: Match }) {
-  const t = useTheme();
   const { t: i18n_t } = useTranslation();
   const home = getTeamById(match.homeTeamId);
   const away = getTeamById(match.awayTeamId);

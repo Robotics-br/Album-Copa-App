@@ -30,7 +30,7 @@ export default function GeneralScreen() {
   const { width: windowWidth } = useWindowDimensions();
   const t = useTheme();
   const insets = useSafeAreaInsets();
-  
+
   const itemSize = useMemo(() => {
     return Math.floor((windowWidth - HORIZONTAL_PADDING * 2 - GAP * (COLUMNS - 1)) / COLUMNS);
   }, [windowWidth]);
@@ -66,10 +66,9 @@ export default function GeneralScreen() {
     ({ item }: { item: ListItem }) => {
       if (item.type === 'header') {
         return (
-          <View 
+          <View
             style={{ marginHorizontal: HORIZONTAL_PADDING }}
-            className="mt-3 rounded-xl border border-border bg-surface p-3.5"
-          >
+            className="mt-3 rounded-xl border border-border bg-surface p-3.5">
             <Text className="mb-2 text-[13px] text-text-secondary">
               <Trans
                 i18nKey="general.summary"
@@ -84,10 +83,9 @@ export default function GeneralScreen() {
 
       if (item.type === 'team-header') {
         return (
-          <View 
+          <View
             style={{ paddingHorizontal: HORIZONTAL_PADDING }}
-            className="mt-2 flex-row items-center gap-2 py-2"
-          >
+            className="mt-2 flex-row items-center gap-2 py-2">
             <Text className="text-[20px]">{item.team.flag}</Text>
             <Text className="flex-1 text-[15px] font-semibold text-text">
               {i18n_t(`teams.${item.team.id}`)}
@@ -100,10 +98,7 @@ export default function GeneralScreen() {
       }
 
       return (
-        <View 
-          style={{ paddingHorizontal: HORIZONTAL_PADDING }}
-          className="mb-1.5 flex-row"
-        >
+        <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-1.5 flex-row">
           {item.stickers.map((sticker) => {
             const qty = collection[sticker.code] ?? 0;
             const owned = qty > 0;
