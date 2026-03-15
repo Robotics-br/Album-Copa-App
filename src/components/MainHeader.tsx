@@ -3,6 +3,7 @@ import { View, TextInput } from 'react-native';
 import { Search, X } from 'lucide-react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import AnimatedPressable from './ui/AnimatedPressable';
+import { selectionTap } from '../utils/haptics';
 import SummaryCard from './SummaryCard';
 import TeamSelector from './TeamSelector';
 import FilterBar from './FilterBar';
@@ -36,6 +37,7 @@ const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
         />
         {searchQuery.length > 0 && (
           <AnimatedPressable
+            onPressIn={selectionTap}
             onPress={() => setSearchQuery('')}
             scaleDown={0.8}
             className="h-6 w-6 items-center justify-center rounded-full bg-surface">

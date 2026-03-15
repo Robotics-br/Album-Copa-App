@@ -141,8 +141,8 @@ function StickerCard({
   ];
 
   const missingGradientColors: readonly [string, string, ...string[]] = [
-    hexToRgba(t.border, 0.8),
-    hexToRgba(t.bg, 0.05),
+    hexToRgba(t.border, 0.9),
+    hexToRgba(t.bg, 0.8),
   ];
 
   const gradientStart = { x: 0.0, y: 0 };

@@ -112,9 +112,9 @@ export default function TeamSelector() {
                   autoFocus={false}
                 />
                 {searchQuery.length > 0 && (
-                  <TouchableOpacity onPress={() => setSearchQuery('')}>
+                  <AnimatedPressable onPressIn={selectionTap} onPress={() => setSearchQuery('')}>
                     <X size={20} color={t.textSecondary} />
-                  </TouchableOpacity>
+                  </AnimatedPressable>
                 )}
               </View>
             </View>
@@ -126,7 +126,7 @@ export default function TeamSelector() {
                 ListHeaderComponent={() => (
                   <TouchableOpacity
                     onPress={() => handleSelectTeam(null)}
-                    className="bg-surface/30 flex-row items-center border-b border-border px-6 py-5">
+                    className="flex-row items-center border-b border-border bg-surface px-6 py-5">
                     <View className="mr-5 h-11 w-11 items-center justify-center rounded-full border border-border bg-surface">
                       <Text className="text-[22px]">🌎</Text>
                     </View>
@@ -143,7 +143,7 @@ export default function TeamSelector() {
                     <TouchableOpacity
                       onPress={() => handleSelectTeam(item.id)}
                       className="flex-row items-center border-b border-border px-6 py-5"
-                      style={{ backgroundColor: isActive ? `${t.primary}10` : 'transparent' }}>
+                      style={{ backgroundColor: isActive ? `${t.primary}10` : t.surface }}>
                       <Text className="mr-5 text-[32px]">{item.flag}</Text>
                       <View className="flex-1">
                         <Text

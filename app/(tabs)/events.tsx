@@ -112,7 +112,7 @@ export default function EventsScreen() {
                     }}>
                     <Text
                       className="text-[12px] font-semibold"
-                      style={{ color: active ? t.onPrimary : t.text }}>
+                      style={{ color: active ? t.onPrimary : t.textSecondary }}>
                       {team.flag} {i18n_t(`teams.${team.id}`)}
                     </Text>
                   </AnimatedPressable>
@@ -140,7 +140,7 @@ export default function EventsScreen() {
                   }}>
                   <Text
                     className="text-[12px] font-semibold"
-                    style={{ color: active ? t.onPrimary : t.text }}>
+                    style={{ color: active ? t.onPrimary : t.textSecondary }}>
                     {formatDateOption(date)}
                   </Text>
                 </AnimatedPressable>
