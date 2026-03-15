@@ -6,6 +6,7 @@ import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sou
 import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
+import { Check } from 'lucide-react-native';
 
 interface StickerCardLightProps {
   sticker: Sticker;
@@ -77,11 +78,13 @@ const StickerCardLight = ({
         {qty > 1 && <Text className="text-[11px] font-black text-primary">+{qty - 1}</Text>}
       </View>
 
-      {status === 'missing' && (
-        <View className="absolute inset-0 z-0 items-center justify-center pb-2">
+      <View className="absolute inset-0 z-0 items-center justify-center pb-2">
+        {status === 'missing' ? (
           <Text className="text-[28px] font-light text-text-secondary">+</Text>
-        </View>
-      )}
+        ) : (
+          <Check color={t.text} size={20} />
+        )}
+      </View>
 
       <View className="z-10 w-full items-center">
         <Text

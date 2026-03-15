@@ -179,6 +179,7 @@ function StickerCard({
         {qty === 1 && <Text className="text-[10px] text-primary">★</Text>}
         {qty > 1 && <Text className="text-[11px] font-black text-primary">+{qty - 1}</Text>}
       </View>
+
       <View className="absolute inset-0 z-0 items-center justify-center pb-2">
         {status === 'missing' ? (
           <Text className="text-[28px] font-light text-text-secondary">+</Text>
