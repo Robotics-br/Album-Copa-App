@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, View, StyleSheet } from 'react-native';
 import { AppText as Text } from './ui/AppText';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
+import { hexToRgba } from '../utils/colors';
 import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
-import { Check } from 'lucide-react-native';
+import { Check, UserRoundPlus } from 'lucide-react-native';
 
 interface StickerCardLightProps {
   sticker: Sticker;
@@ -65,13 +66,25 @@ const StickerCardLight = ({
   return (
     <Pressable
       onPress={handlePress}
-      className="h-[80px] items-center justify-between rounded-lg border-[1.5px] p-1.5"
+      className="h-[80px] items-center justify-between rounded-lg p-1.5"
       style={{
-        borderColor,
         backgroundColor: borderColor,
         overflow: 'visible',
-        borderStyle: status === 'missing' ? 'dashed' : 'solid',
       }}>
+      <View
+        style={{
+          ...StyleSheet.absoluteFillObject,
+          top: 2,
+          bottom: 2,
+          left: 2,
+          right: 2,
+          borderWidth: 1.5,
+          borderColor: hexToRgba('#000000', 0.15),
+          borderStyle: status === 'missing' ? 'dashed' : 'solid',
+          borderRadius: 6,
+          zIndex: 0,
+        }}
+      />
       <View className="z-10 w-full flex-row items-center justify-between">
         <Text className="text-[14px]">{flag}</Text>
         {qty === 1 && <Text className="text-[10px] text-primary">★</Text>}
@@ -80,7 +93,7 @@ const StickerCardLight = ({
 
       <View className="absolute inset-0 z-0 items-center justify-center pb-2">
         {status === 'missing' ? (
-          <Text className="text-[28px] font-light text-text-secondary">+</Text>
+          <UserRoundPlus color={t.text} size={20} />
         ) : (
           <Check color={t.text} size={20} />
         )}

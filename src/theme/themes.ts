@@ -22,7 +22,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     textSecondary: '#8E8E93',
     border: '#2C2C2E',
 
-    owned: '#00B14F',
+    owned: '#00C752',
     duplicate: '#FFCC00',
 
     primary: '#FFCC00',

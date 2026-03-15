@@ -16,7 +16,7 @@ import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
 import { useSettingsStore } from '@/store/useSettingsStore';
-import { Check } from 'lucide-react-native';
+import { Check, UserRoundPlus } from 'lucide-react-native';
 
 interface StickerCardProps {
   sticker: Sticker;
@@ -136,13 +136,13 @@ function StickerCard({
   const borderColor = status === 'missing' ? t.border : `${t.owned}80`;
 
   const acquiredGradientColors: readonly [string, string, ...string[]] = [
-    hexToRgba(t.owned, 0.35),
-    hexToRgba(t.owned, 0.11),
+    hexToRgba(t.owned, 0.55),
+    hexToRgba(t.owned, 0.22),
   ];
 
   const missingGradientColors: readonly [string, string, ...string[]] = [
-    hexToRgba(t.border, 0.9),
-    hexToRgba(t.bg, 0.8),
+    hexToRgba(t.border, 0.7),
+    hexToRgba(t.border, 0.3),
   ];
 
   const gradientStart = { x: 0.0, y: 0 };
@@ -153,16 +153,28 @@ function StickerCard({
   return (
     <AnimatedPressable
       onPress={handlePress}
-      className={`${seniorModeEnabled ? 'h-[100px]' : 'h-[80px]'} items-center justify-between rounded-lg border-[1.5px] p-1.5`}
+      className={`${seniorModeEnabled ? 'h-[100px]' : 'h-[80px]'} items-center justify-between rounded-lg p-1.5`}
       style={[
         animatedStyle,
         {
-          borderColor,
           backgroundColor: bgColor,
           overflow: 'visible',
-          borderStyle: status === 'missing' ? 'dashed' : 'solid',
         },
       ]}>
+      <View
+        style={{
+          ...StyleSheet.absoluteFillObject,
+          top: 2,
+          bottom: 2,
+          left: 2,
+          right: 2,
+          borderWidth: 1.5,
+          borderColor,
+          borderStyle: status === 'missing' ? 'dashed' : 'solid',
+          borderRadius: 6,
+          zIndex: 0,
+        }}
+      />
       <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: 6, overflow: 'hidden' }}>
         <LinearGradient
           colors={gradientColors}
@@ -182,7 +194,7 @@ function StickerCard({
 
       <View className="absolute inset-0 z-0 items-center justify-center pb-2">
         {status === 'missing' ? (
-          <Text className="text-[28px] font-light text-text-secondary">+</Text>
+          <UserRoundPlus color={t.textSecondary} size={20} />
         ) : (
           <Check color={t.text} size={20} />
         )}
