@@ -82,7 +82,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
           <View className="mb-6 flex-row items-center gap-3">
             <Text className="text-[32px]">{team?.flag}</Text>
             <View>
-              <Text className="mb-1 text-[13px] font-bold uppercase text-gold">
+              <Text className="text-primary mb-1 text-[13px] font-bold uppercase">
                 {team ? i18n_t(`teams.${team.id}`) : ''}
               </Text>
               <View className="flex-row items-center gap-2">
@@ -94,8 +94,8 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
 
           <Text className="mb-4 text-center text-[15px] font-medium text-text">
             <Trans i18nKey="stickerModal.question1">
-              Quantas figurinhas <Text className="text-[17px] font-bold text-gold">repetidas</Text>{' '}
-              você tem?
+              Quantas figurinhas{' '}
+              <Text className="text-primary text-[17px] font-bold">repetidas</Text> você tem?
             </Trans>
           </Text>
 
@@ -107,9 +107,9 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               }}
               scaleDown={0.88}
               className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface-light">
-              <Minus size={22} color={t.gold} />
+              <Minus size={22} color={t.primary} />
             </AnimatedPressable>
-            <Text className="min-w-[60px] text-center text-[32px] font-bold text-gold">
+            <Text className="text-primary min-w-[60px] text-center text-[32px] font-bold">
               {duplicates}
             </Text>
             <AnimatedPressable
@@ -119,7 +119,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               }}
               scaleDown={0.88}
               className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface-light">
-              <Plus size={22} color={t.gold} />
+              <Plus size={22} color={t.primary} />
             </AnimatedPressable>
           </View>
 
@@ -134,8 +134,8 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                 scaleDown={0.88}
                 className="h-11 w-11 items-center justify-center rounded-xl border-2"
                 style={{
-                  backgroundColor: duplicates === n ? t.gold : t.surfaceLight,
-                  borderColor: duplicates === n ? t.gold : t.border,
+                  backgroundColor: duplicates === n ? t.primary : t.surfaceLight,
+                  borderColor: duplicates === n ? t.primary : t.border,
                 }}>
                 <Text
                   className="text-[15px] font-semibold"
@@ -148,7 +148,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
 
           <AnimatedPressable
             onPress={handleSave}
-            className="mb-3 items-center rounded-xl bg-gold py-3.5">
+            className="bg-primary mb-3 items-center rounded-xl py-3.5">
             <Text className="text-[15px] font-bold text-[#0F1923]">
               {i18n_t('stickerModal.saveRepeated')}
             </Text>

@@ -131,10 +131,10 @@ export default function TeamSelector() {
                       <Text className="text-[22px]">🌎</Text>
                     </View>
                     <Text
-                      className={`flex-1 text-[17px] ${!currentTeam ? 'font-bold text-gold' : 'font-medium text-text'}`}>
+                      className={`flex-1 text-[17px] ${!currentTeam ? 'text-primary font-bold' : 'font-medium text-text'}`}>
                       {i18n_t('components.teamSelector.allTeams')}
                     </Text>
-                    {!currentTeam && <View className="h-2.5 w-2.5 rounded-full bg-gold" />}
+                    {!currentTeam && <View className="bg-primary h-2.5 w-2.5 rounded-full" />}
                   </TouchableOpacity>
                 )}
                 renderItem={({ item }) => {
@@ -143,18 +143,18 @@ export default function TeamSelector() {
                     <TouchableOpacity
                       onPress={() => handleSelectTeam(item.id)}
                       className="flex-row items-center border-b border-border px-6 py-5"
-                      style={{ backgroundColor: isActive ? `${t.gold}10` : 'transparent' }}>
+                      style={{ backgroundColor: isActive ? `${t.primary}10` : 'transparent' }}>
                       <Text className="mr-5 text-[32px]">{item.flag}</Text>
                       <View className="flex-1">
                         <Text
-                          className={`text-[17px] ${isActive ? 'font-bold text-gold' : 'font-medium text-text'}`}>
+                          className={`text-[17px] ${isActive ? 'text-primary font-bold' : 'font-medium text-text'}`}>
                           {item.name}
                         </Text>
                         <Text className="mt-0.5 text-[12px] uppercase tracking-wider text-text-secondary">
                           {item.code}
                         </Text>
                       </View>
-                      {isActive && <View className="h-2.5 w-2.5 rounded-full bg-gold" />}
+                      {isActive && <View className="bg-primary h-2.5 w-2.5 rounded-full" />}
                     </TouchableOpacity>
                   );
                 }}

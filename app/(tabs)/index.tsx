@@ -85,7 +85,7 @@ export default function AlbumScreen() {
   if (!isHydrated) {
     return (
       <View className="flex-1 items-center justify-center bg-bg">
-        <Text className="text-gold opacity-50">{i18n_t('common.loading') ?? '...'}</Text>
+        <Text className="text-primary opacity-50">{i18n_t('common.loading') ?? '...'}</Text>
       </View>
     );
   }
@@ -93,7 +93,9 @@ export default function AlbumScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('album.title')}</Text>
+        <Text className="text-primary text-[18px] font-bold uppercase">
+          {i18n_t('album.title')}
+        </Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('album.subtitle')}</Text>
       </View>
 

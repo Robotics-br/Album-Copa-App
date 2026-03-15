@@ -20,7 +20,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         '--theme-border': colors.border,
         '--theme-text': colors.text,
         '--theme-textSecondary': colors.textSecondary,
-        '--theme-gold': colors.gold,
+        '--theme-primary': colors.primary,
         '--theme-accent': colors.accent,
         '--theme-owned': colors.owned,
         '--theme-duplicate': colors.duplicate,

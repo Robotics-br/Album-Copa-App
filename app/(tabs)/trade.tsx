@@ -142,8 +142,7 @@ export default function TradeScreen() {
         text: pdfTheme.text,
         textSecondary: pdfTheme.textSecondary,
         border: pdfTheme.border,
-        gold: pdfTheme.gold,
-        goldDark: pdfTheme.goldDark,
+        primary: pdfTheme.primary,
         owned: pdfTheme.owned,
         duplicate: pdfTheme.duplicate,
       };
@@ -222,7 +221,7 @@ export default function TradeScreen() {
               width: 100%;
               padding-bottom: 10px;
               margin-bottom: 15px;
-              border-bottom: 3px solid ${pdfColors.gold};
+              border-bottom: 3px solid ${pdfColors.primary};
               text-align: left;
             }
             .logo { 
@@ -236,7 +235,7 @@ export default function TradeScreen() {
             .title { 
               font-size: 26px; 
               font-weight: bold; 
-              color: ${pdfColors.gold}; 
+              color: ${pdfColors.primary}; 
               margin: 0; 
               line-height: 1.2; 
               display: inline-block;
@@ -330,7 +329,7 @@ export default function TradeScreen() {
           className="rounded-3xl bg-white p-6"
           style={{
             elevation: 10,
-            shadowColor: t.gold,
+            shadowColor: t.primary,
             shadowOpacity: 0.2,
             shadowRadius: 20,
           }}>
@@ -343,7 +342,7 @@ export default function TradeScreen() {
           </Text>
           <Text
             className="px-6 text-center text-[15px] font-medium"
-            style={{ color: t.gold, opacity: 0.9 }}>
+            style={{ color: t.primary, opacity: 0.9 }}>
             {i18n_t('trade.update_notice')}
           </Text>
         </View>
@@ -352,7 +351,7 @@ export default function TradeScreen() {
           onPress={handleExport}
           disabled={isExporting}
           className="mt-8 flex-row items-center gap-3 rounded-2xl px-12 py-4 shadow-sm"
-          style={{ backgroundColor: t.gold, opacity: isExporting ? 0.7 : 1 }}>
+          style={{ backgroundColor: t.primary, opacity: isExporting ? 0.7 : 1 }}>
           {isExporting ? (
             <ActivityIndicator size="small" color="#0F1923" />
           ) : (
@@ -379,7 +378,7 @@ export default function TradeScreen() {
           <AnimatedPressable
             onPress={requestPermission}
             className="rounded-xl px-6 py-3"
-            style={{ backgroundColor: t.gold }}>
+            style={{ backgroundColor: t.primary }}>
             <Text className="font-bold text-[#0F1923]">{i18n_t('trade.scan_btn')}</Text>
           </AnimatedPressable>
         </View>
@@ -401,7 +400,7 @@ export default function TradeScreen() {
             />
             <View className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
               <View
-                className="h-64 w-64 rounded-3xl border-4 border-gold bg-transparent"
+                className="border-primary h-64 w-64 rounded-3xl border-4 bg-transparent"
                 style={{ opacity: 0.8 }}
               />
             </View>
@@ -472,7 +471,9 @@ export default function TradeScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('trade.title')}</Text>
+        <Text className="text-primary text-[18px] font-bold uppercase">
+          {i18n_t('trade.title')}
+        </Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('trade.subtitle')}</Text>
       </View>
 
@@ -481,7 +482,7 @@ export default function TradeScreen() {
           <AnimatedPressable
             onPress={() => setActiveTab('share')}
             className="flex-1 items-center justify-center rounded-lg py-2.5"
-            style={{ backgroundColor: activeTab === 'share' ? t.gold : 'transparent' }}>
+            style={{ backgroundColor: activeTab === 'share' ? t.primary : 'transparent' }}>
             <Text
               className="text-[14px] font-bold"
               style={{ color: activeTab === 'share' ? '#0F1923' : t.textSecondary }}>
@@ -491,7 +492,7 @@ export default function TradeScreen() {
           <AnimatedPressable
             onPress={() => setActiveTab('scan')}
             className="flex-1 items-center justify-center rounded-lg py-2.5"
-            style={{ backgroundColor: activeTab === 'scan' ? t.gold : 'transparent' }}>
+            style={{ backgroundColor: activeTab === 'scan' ? t.primary : 'transparent' }}>
             <Text
               className="text-[14px] font-bold"
               style={{ color: activeTab === 'scan' ? '#0F1923' : t.textSecondary }}>

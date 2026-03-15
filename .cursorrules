@@ -3,28 +3,34 @@
 Estas regras devem ser seguidas por todos os agentes de IA ao ler ou escrever código neste repositório.
 
 ## 1. Estilização
+
 - **Sempre** use `nativewind` (Tailwind CSS para React Native) para estilização via `className`.
 - Evite estilos inline (`style={{...}}`) a menos que sejam para valores calculados no runtime (como opacidade dinâmica ou larguras baseadas em fórmulas complexas de layout).
 
 ## 2. Tematização e Responsividade
-- O aplicativo suporta múltiplos temas. **Sempre** use as variáveis de tema (ex: `bg-surface`, `text-gold`, `border-border`) mapeadas no `tailwind.config.js`.
+
+- O aplicativo suporta múltiplos temas. **Sempre** use as variáveis de tema (ex: `bg-surface`, `text-primary`, `border-border`) mapeadas no `tailwind.config.js`.
 - Todo novo componente ou alteração deve ser testado para garantir que responde corretamente à mudança de tema.
 
 ## 3. Qualidade do Código e Comentários
+
 - **Não** coloque comentários desnecessários ou óbvios.
 - Comentários são permitidos **apenas** para explicar lógicas muito específicas, complexas ou decisões de design não triviais.
 
 ## 4. Idioma, Nomenclatura e Internacionalização (i18n)
+
 - **Comunicação e Planejamento**: O agente deve se comunicar e gerar planos de implementação (**Implementation Plans**) OBRIGATORIAMENTE em **Português**. Termos técnicos em Inglês são permitidos.
 - **Interface do Usuário**: Textos exibidos para o usuário NUNCA devem ser inseridos diretamente (hardcoded). **Sempre** utilize a lib `i18next` em conjunto com o hook `useTranslation` (passando as chaves de tradução pelo hook `t()`). Adicione as traduções necessárias aos arquivos `json` na pasta `/src/i18n/locales`.
 - Quando criando textos dinâmicos repassados pelas props, crie a chave no json de tradução e chame o translation via o hook na UI.
 - **Código**: Variáveis, funções, classes, componentes e arquivos devem ser escritos sempre em **Inglês**.
 
 ## 5. Arquitetura
+
 - **Componentização**: Sempre que possível, extraia lógica e UI para componentes menores e reutilizáveis na pasta `src/components`.
 - Mantenha os arquivos das abas (`app/(tabs)/*`) focados na estrutura da página e orquestração.
 
 ## 6. Performance
+
 - Use `@shopify/flash-list` em vez de `FlatList` para listas longas.
 - Utilize hooks de memorização (`useMemo`, `useCallback`) de forma consciente para evitar re-renderizações desnecessárias em componentes pesados.
 - Priorize a fluidez das animações e interações.

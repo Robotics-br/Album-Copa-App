@@ -49,12 +49,12 @@ export default function StadiumCard({
               />
               {loading && (
                 <View className="absolute inset-0 items-center justify-center bg-surface-light">
-                  <ActivityIndicator size="small" color={t.gold} />
+                  <ActivityIndicator size="small" color={t.primary} />
                 </View>
               )}
             </>
           ) : (
-            <MapPin size={32} color={t.gold} />
+            <MapPin size={32} color={t.primary} />
           )}
         </Pressable>
 
@@ -68,7 +68,7 @@ export default function StadiumCard({
             {hasDescription && (
               <View className="ml-2">
                 {expanded ? (
-                  <ChevronUp size={16} color={t.gold} />
+                  <ChevronUp size={16} color={t.primary} />
                 ) : (
                   <ChevronDown size={16} color={t.textSecondary} />
                 )}
@@ -82,8 +82,8 @@ export default function StadiumCard({
               <Text className="text-[11px] text-text-secondary">{stadium.city}</Text>
             </View>
             <View className="flex-row items-center gap-1">
-              <Users size={11} color={t.gold} />
-              <Text className="text-[11px] text-gold">{stadium.capacity}</Text>
+              <Users size={11} color={t.primary} />
+              <Text className="text-primary text-[11px]">{stadium.capacity}</Text>
             </View>
             {stadium.opened && (
               <View className="flex-row items-center gap-1">

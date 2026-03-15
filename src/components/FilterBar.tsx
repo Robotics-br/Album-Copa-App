@@ -33,7 +33,7 @@ export default function FilterBar() {
               setFilter(key);
             }}
             className={`rounded-full border px-3.5 py-1.5 ${
-              active ? 'border-gold bg-gold' : 'border-border bg-surface-light'
+              active ? 'border-primary bg-primary' : 'border-border bg-surface-light'
             }`}>
             <Text
               className={`text-[13px] ${

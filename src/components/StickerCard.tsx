@@ -15,6 +15,8 @@ import { StarExplosion } from './ui/StarExplosion';
 import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
+import { useSettingsStore } from '@/store/useSettingsStore';
+import { Check } from 'lucide-react-native';
 
 interface StickerCardProps {
   sticker: Sticker;
@@ -38,6 +40,7 @@ function StickerCard({
   soundEnabled,
 }: StickerCardProps) {
   const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
+  const seniorModeEnabled = useSettingsStore((s) => s.seniorMode);
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
 
   const scale = useSharedValue(1);
@@ -130,28 +133,34 @@ function StickerCard({
 
   const bgColor = 'transparent';
 
-  const borderColor =
-    status === 'owned' ? `${t.owned}80` : status === 'duplicate' ? t.gold : t.border;
+  const borderColor = status === 'missing' ? t.border : `${t.owned}80`;
 
-  const gradientBaseColor =
-    status === 'owned' ? t.owned : status === 'duplicate' ? t.duplicate : t.textSecondary;
-  const gradientColors: readonly [string, string, ...string[]] = [
-    hexToRgba(gradientBaseColor, 0.22),
-    hexToRgba(gradientBaseColor, 0.08),
+  const acquiredGradientColors: readonly [string, string, ...string[]] = [
+    hexToRgba(t.owned, 0.35),
+    hexToRgba(t.owned, 0.11),
   ];
 
-  const gradientStart = { x: 0.1, y: 0 };
-  const gradientEnd = { x: 0.9, y: 1 };
+  const missingGradientColors: readonly [string, string, ...string[]] = [
+    hexToRgba(t.border, 0.8),
+    hexToRgba(t.bg, 0.05),
+  ];
+
+  const gradientStart = { x: 0.0, y: 0 };
+  const gradientEnd = { x: 1, y: 1 };
+
+  const gradientColors = status !== 'missing' ? acquiredGradientColors : missingGradientColors;
 
   return (
     <AnimatedPressable
       onPress={handlePress}
-      className="h-[80px] items-center justify-between overflow-hidden rounded-lg border-[1.5px] p-1.5"
+      className={`${seniorModeEnabled ? 'h-[100px]' : 'h-[80px]'} items-center justify-between rounded-lg border-[1.5px] p-1.5`}
       style={[
         animatedStyle,
         {
           borderColor,
           backgroundColor: bgColor,
+          overflow: 'visible',
+          borderStyle: status === 'missing' ? 'dashed' : 'solid',
         },
       ]}>
       <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: 6, overflow: 'hidden' }}>
@@ -163,15 +172,18 @@ function StickerCard({
         />
       </View>
 
-      <StarExplosion trigger={explosionTrigger} colors={[t.gold, t.owned, t.accent]} />
+      <StarExplosion trigger={explosionTrigger} colors={[t.primary, t.owned, t.accent]} />
 
       <View className="z-10 w-full flex-row items-center justify-between">
         <Text className="text-[14px]">{flag}</Text>
-        {status === 'owned' && <Text className="text-[10px] text-gold">★</Text>}
-        {qty > 1 && (
-          <View className="rounded-full bg-duplicate px-1.5 py-0.5">
-            <Text className="text-[10px] font-bold text-white">+{qty - 1}</Text>
-          </View>
+        {qty === 1 && <Text className="text-primary text-[10px]">★</Text>}
+        {qty > 1 && <Text className="text-primary text-[11px] font-black">+{qty - 1}</Text>}
+      </View>
+      <View className="absolute inset-0 z-0 items-center justify-center pb-2">
+        {status === 'missing' ? (
+          <Text className="text-[28px] font-light text-text-secondary">+</Text>
+        ) : (
+          <Check color={t.text} size={20} />
         )}
       </View>
 
@@ -186,7 +198,7 @@ function StickerCard({
               ? `${i18n_t('stickers.team')} ${i18n_t(`teams.${sticker.section}`)}`
               : sticker.name}
         </Text>
-        <Text className="text-[8px] font-bold text-gold">{sticker.code}</Text>
+        <Text className="text-primary text-[8px] font-bold">{sticker.code}</Text>
       </View>
     </AnimatedPressable>
   );

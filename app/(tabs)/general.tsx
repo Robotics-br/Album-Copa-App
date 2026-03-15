@@ -74,7 +74,7 @@ export default function GeneralScreen() {
               <Trans
                 i18nKey="general.summary"
                 values={{ ownedCount, totalStickers, pct }}
-                components={{ 1: <Text className="text-[18px] font-extrabold text-gold" /> }}
+                components={{ 1: <Text className="text-primary text-[18px] font-extrabold" /> }}
               />
             </Text>
             <ProgressBar percent={pct} />
@@ -145,7 +145,9 @@ export default function GeneralScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('general.title')}</Text>
+        <Text className="text-primary text-[18px] font-bold uppercase">
+          {i18n_t('general.title')}
+        </Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('general.subtitle')}</Text>
       </View>
 

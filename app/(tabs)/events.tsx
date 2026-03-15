@@ -80,8 +80,8 @@ export default function EventsScreen() {
                 onPress={() => setFilterKind(key)}
                 className="flex-1 items-center rounded-xl border py-2.5"
                 style={{
-                  backgroundColor: active ? t.gold : t.surfaceLight,
-                  borderColor: active ? t.gold : t.border,
+                  backgroundColor: active ? t.primary : t.surfaceLight,
+                  borderColor: active ? t.primary : t.border,
                 }}>
                 <Text
                   className="text-[13px] font-semibold"
@@ -107,8 +107,8 @@ export default function EventsScreen() {
                     onPress={() => setTeamId(active ? '' : team.id)}
                     className="rounded-lg border px-3 py-1.5"
                     style={{
-                      backgroundColor: active ? t.gold : t.surfaceLight,
-                      borderColor: active ? t.gold : t.border,
+                      backgroundColor: active ? t.primary : t.surfaceLight,
+                      borderColor: active ? t.primary : t.border,
                     }}>
                     <Text
                       className="text-[12px] font-semibold"
@@ -135,8 +135,8 @@ export default function EventsScreen() {
                   onPress={() => setSelectedDate(active ? '' : date)}
                   className="rounded-lg border px-3.5 py-2"
                   style={{
-                    backgroundColor: active ? t.gold : t.surfaceLight,
-                    borderColor: active ? t.gold : t.border,
+                    backgroundColor: active ? t.primary : t.surfaceLight,
+                    borderColor: active ? t.primary : t.border,
                   }}>
                   <Text
                     className="text-[12px] font-semibold"
@@ -179,7 +179,7 @@ export default function EventsScreen() {
             <Text className="text-[15px] font-bold text-text">{country}</Text>
             <View className="flex-row items-center gap-2">
               <View className="rounded-full border border-border bg-surface-light px-2.5 py-0.5">
-                <Text className="text-[11px] font-bold text-gold">{stadiumList.length}</Text>
+                <Text className="text-primary text-[11px] font-bold">{stadiumList.length}</Text>
               </View>
               {expandedStadiums[country] ? (
                 <ChevronUp size={18} color={t.textSecondary} />
@@ -205,7 +205,9 @@ export default function EventsScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('events.title')}</Text>
+        <Text className="text-primary text-[18px] font-bold uppercase">
+          {i18n_t('events.title')}
+        </Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('events.subtitle')}</Text>
       </View>
 
@@ -214,7 +216,7 @@ export default function EventsScreen() {
           <AnimatedPressable
             onPress={() => setActiveTab('games')}
             className="flex-1 items-center justify-center rounded-lg py-2"
-            style={{ backgroundColor: activeTab === 'games' ? t.gold : 'transparent' }}>
+            style={{ backgroundColor: activeTab === 'games' ? t.primary : 'transparent' }}>
             <Text
               className="text-[14px] font-bold"
               style={{ color: activeTab === 'games' ? '#0F1923' : t.textSecondary }}>
@@ -224,7 +226,7 @@ export default function EventsScreen() {
           <AnimatedPressable
             onPress={() => setActiveTab('stadiums')}
             className="flex-1 items-center justify-center rounded-lg py-2"
-            style={{ backgroundColor: activeTab === 'stadiums' ? t.gold : 'transparent' }}>
+            style={{ backgroundColor: activeTab === 'stadiums' ? t.primary : 'transparent' }}>
             <Text
               className="text-[14px] font-bold"
               style={{ color: activeTab === 'stadiums' ? '#0F1923' : t.textSecondary }}>

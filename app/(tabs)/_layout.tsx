@@ -22,7 +22,7 @@ export default function TabLayout() {
           paddingBottom: insets.bottom > 0 ? insets.bottom : 8,
           paddingTop: 6,
         },
-        tabBarActiveTintColor: t.gold,
+        tabBarActiveTintColor: t.primary,
         tabBarInactiveTintColor: t.textSecondary,
         tabBarLabelStyle: {
           fontSize: 10,

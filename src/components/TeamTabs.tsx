@@ -23,12 +23,12 @@ function TeamTab({ item }: { item: Team }) {
       }}
       className="mr-1.5 min-w-[56px] items-center rounded-xl border-2 px-3 py-2"
       style={{
-        borderColor: active ? t.gold : t.border,
-        backgroundColor: active ? `${t.gold}18` : t.surfaceLight,
+        borderColor: active ? t.primary : t.border,
+        backgroundColor: active ? `${t.primary}18` : t.surfaceLight,
       }}>
       <Text className="text-[22px]">{item.flag}</Text>
       <Text
-        style={{ color: active ? t.gold : t.textSecondary }}
+        style={{ color: active ? t.primary : t.textSecondary }}
         className="text-[10px] font-semibold">
         {item.code}
       </Text>

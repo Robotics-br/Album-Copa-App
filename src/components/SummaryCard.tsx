@@ -109,7 +109,7 @@ function SummaryCard() {
             <View className="flex-1">
               <ProgressBar percent={pct} height={8} />
             </View>
-            <Text className="min-w-[36px] text-right text-[14px] font-extrabold text-gold">
+            <Text className="text-primary min-w-[36px] text-right text-[14px] font-extrabold">
               {pct}%
             </Text>
           </View>
@@ -136,7 +136,7 @@ function SummaryCard() {
           />
           <StarExplosion
             trigger={explosionTrigger}
-            colors={[t.gold, t.owned, t.accent]}
+            colors={[t.primary, t.owned, t.accent]}
             radius={350}
           />
         </View>

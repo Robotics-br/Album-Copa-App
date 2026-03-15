@@ -82,18 +82,18 @@ export default function LanguageSelector({ currentLanguage, onSelect }: Language
                       }}
                       className="flex-row items-center justify-between rounded-2xl px-5 py-4"
                       style={{
-                        backgroundColor: active ? `${theme.gold}20` : theme.surfaceLight,
+                        backgroundColor: active ? `${theme.primary}20` : theme.surfaceLight,
                         borderWidth: 1.5,
-                        borderColor: active ? theme.gold : 'transparent',
+                        borderColor: active ? theme.primary : 'transparent',
                       }}>
                       <View className="flex-row items-center gap-3">
                         <Text
                           className="text-[15px] font-semibold"
-                          style={{ color: active ? theme.gold : theme.text }}>
+                          style={{ color: active ? theme.primary : theme.text }}>
                           {t(lang.labelKey)}
                         </Text>
                       </View>
-                      {active && <Check size={20} color={theme.gold} strokeWidth={3} />}
+                      {active && <Check size={20} color={theme.primary} strokeWidth={3} />}
                     </AnimatedPressable>
                   );
                 })}

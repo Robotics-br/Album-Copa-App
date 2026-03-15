@@ -12,7 +12,7 @@ module.exports = {
         border: 'var(--theme-border)',
         text: 'var(--theme-text)',
         'text-secondary': 'var(--theme-textSecondary)',
-        gold: 'var(--theme-gold)',
+        primary: 'var(--theme-primary)',
         accent: 'var(--theme-accent)',
         owned: 'var(--theme-owned)',
         duplicate: 'var(--theme-duplicate)',

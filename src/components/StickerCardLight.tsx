@@ -59,25 +59,29 @@ const StickerCardLight = ({
     }
   }, [sticker, qty, toggleSticker, onPress, soundEnabled]);
 
-  const borderColor = status === 'owned' ? t.owned : status === 'duplicate' ? t.gold : t.border;
-
-  const bgClass =
-    status === 'owned' ? 'bg-owned/15' : status === 'duplicate' ? 'bg-gold/15' : 'bg-surface';
+  const borderColor = status === 'missing' ? t.border : `${t.owned}80`;
 
   return (
     <Pressable
       onPress={handlePress}
-      className={`h-[80px] items-center justify-between overflow-hidden rounded-lg border-[1.5px] p-1.5 ${bgClass}`}
-      style={{ borderColor }}>
+      className="h-[80px] items-center justify-between rounded-lg border-[1.5px] p-1.5"
+      style={{
+        borderColor,
+        backgroundColor: borderColor,
+        overflow: 'visible',
+        borderStyle: status === 'missing' ? 'dashed' : 'solid',
+      }}>
       <View className="z-10 w-full flex-row items-center justify-between">
         <Text className="text-[14px]">{flag}</Text>
-        {status === 'owned' && <Text className="text-[10px] text-gold">★</Text>}
-        {qty > 1 && (
-          <View className="rounded-full bg-duplicate px-1.5 py-0.5">
-            <Text className="text-[10px] font-bold text-white">+{qty - 1}</Text>
-          </View>
-        )}
+        {qty === 1 && <Text className="text-primary text-[10px]">★</Text>}
+        {qty > 1 && <Text className="text-primary text-[11px] font-black">+{qty - 1}</Text>}
       </View>
+
+      {status === 'missing' && (
+        <View className="absolute inset-0 z-0 items-center justify-center pb-2">
+          <Text className="text-[28px] font-light text-text-secondary">+</Text>
+        </View>
+      )}
 
       <View className="z-10 w-full items-center">
         <Text
@@ -90,7 +94,7 @@ const StickerCardLight = ({
               ? `${i18n_t('stickers.team')} ${i18n_t(`teams.${sticker.section}`)}`
               : sticker.name}
         </Text>
-        <Text className="text-[8px] font-bold text-gold">{sticker.code}</Text>
+        <Text className="text-primary text-[8px] font-bold">{sticker.code}</Text>
       </View>
     </Pressable>
   );
