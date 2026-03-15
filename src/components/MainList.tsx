@@ -80,7 +80,10 @@ const StickerRow = memo(
       return false;
     }
 
-    if (prevProps.animationsEnabled !== nextProps.animationsEnabled) {
+    if (
+      prevProps.animationsEnabled !== nextProps.animationsEnabled ||
+      prevProps.soundEnabled !== nextProps.soundEnabled
+    ) {
       return false;
     }
 
@@ -219,7 +222,7 @@ export default function MainList({
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         getItemType={getItemType}
-        extraData={{ animationsEnabled, t, i18n_t }}
+        extraData={{ animationsEnabled, soundEnabled, t, i18n_t }}
         ListFooterComponent={<View className="h-5" />}
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps="always"
