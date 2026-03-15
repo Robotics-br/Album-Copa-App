@@ -37,7 +37,7 @@ export default function StatsScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-primary text-[18px] font-bold uppercase">
+        <Text className="text-[18px] font-bold uppercase text-primary">
           {i18n_t('stats.title')}
         </Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('stats.subtitle')}</Text>
@@ -60,7 +60,7 @@ export default function StatsScreen() {
             <View
               key={label}
               className="flex-1 items-center rounded-xl border border-border bg-surface p-4">
-              <Text className="text-primary text-[24px] font-extrabold">{value}</Text>
+              <Text className="text-[24px] font-extrabold text-primary">{value}</Text>
               <Text className="mt-0.5 text-[11px] text-text-secondary">{label}</Text>
             </View>
           ))}

@@ -73,8 +73,8 @@ const StickerCardLight = ({
       }}>
       <View className="z-10 w-full flex-row items-center justify-between">
         <Text className="text-[14px]">{flag}</Text>
-        {qty === 1 && <Text className="text-primary text-[10px]">★</Text>}
-        {qty > 1 && <Text className="text-primary text-[11px] font-black">+{qty - 1}</Text>}
+        {qty === 1 && <Text className="text-[10px] text-primary">★</Text>}
+        {qty > 1 && <Text className="text-[11px] font-black text-primary">+{qty - 1}</Text>}
       </View>
 
       {status === 'missing' && (
@@ -94,7 +94,7 @@ const StickerCardLight = ({
               ? `${i18n_t('stickers.team')} ${i18n_t(`teams.${sticker.section}`)}`
               : sticker.name}
         </Text>
-        <Text className="text-primary text-[8px] font-bold">{sticker.code}</Text>
+        <Text className="text-[8px] font-bold text-primary">{sticker.code}</Text>
       </View>
     </Pressable>
   );

@@ -82,7 +82,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
           <View className="mb-6 flex-row items-center gap-3">
             <Text className="text-[32px]">{team?.flag}</Text>
             <View>
-              <Text className="text-primary mb-1 text-[13px] font-bold uppercase">
+              <Text className="mb-1 text-[13px] font-bold uppercase text-primary">
                 {team ? i18n_t(`teams.${team.id}`) : ''}
               </Text>
               <View className="flex-row items-center gap-2">
@@ -95,7 +95,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
           <Text className="mb-4 text-center text-[15px] font-medium text-text">
             <Trans i18nKey="stickerModal.question1">
               Quantas figurinhas{' '}
-              <Text className="text-primary text-[17px] font-bold">repetidas</Text> você tem?
+              <Text className="text-[17px] font-bold text-primary">repetidas</Text> você tem?
             </Trans>
           </Text>
 
@@ -109,7 +109,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface">
               <Minus size={22} color={t.primary} />
             </AnimatedPressable>
-            <Text className="text-primary min-w-[60px] text-center text-[32px] font-bold">
+            <Text className="min-w-[60px] text-center text-[32px] font-bold text-primary">
               {duplicates}
             </Text>
             <AnimatedPressable
@@ -148,8 +148,8 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
 
           <AnimatedPressable
             onPress={handleSave}
-            className="bg-primary mb-3 items-center rounded-xl py-3.5">
-            <Text className="text-on-primary text-[15px] font-bold">
+            className="mb-3 items-center rounded-xl bg-primary py-3.5">
+            <Text className="text-[15px] font-bold text-on-primary">
               {i18n_t('stickerModal.saveRepeated')}
             </Text>
           </AnimatedPressable>

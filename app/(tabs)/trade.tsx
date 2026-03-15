@@ -402,7 +402,7 @@ export default function TradeScreen() {
             />
             <View className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 items-center justify-center">
               <View
-                className="border-primary h-64 w-64 rounded-3xl border-4 bg-transparent"
+                className="h-64 w-64 rounded-3xl border-4 border-primary bg-transparent"
                 style={{ opacity: 0.8 }}
               />
             </View>
@@ -473,7 +473,7 @@ export default function TradeScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-primary text-[18px] font-bold uppercase">
+        <Text className="text-[18px] font-bold uppercase text-primary">
           {i18n_t('trade.title')}
         </Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('trade.subtitle')}</Text>

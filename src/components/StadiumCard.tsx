@@ -83,7 +83,7 @@ export default function StadiumCard({
             </View>
             <View className="flex-row items-center gap-1">
               <Users size={11} color={t.primary} />
-              <Text className="text-primary text-[11px]">{stadium.capacity}</Text>
+              <Text className="text-[11px] text-primary">{stadium.capacity}</Text>
             </View>
             {stadium.opened && (
               <View className="flex-row items-center gap-1">

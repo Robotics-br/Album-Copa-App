@@ -215,7 +215,7 @@ export default function PaginatedList({
           </Text>
 
           <View
-            className={`bg-primary h-10 items-center justify-center rounded-xl px-6 ${currentPage >= totalPages - 1 ? 'opacity-30' : ''}`}
+            className={`h-10 items-center justify-center rounded-xl bg-primary px-6 ${currentPage >= totalPages - 1 ? 'opacity-30' : ''}`}
             onTouchEnd={() => currentPage < totalPages - 1 && setCurrentPage((p) => p + 1)}>
             <Text className="text-[14px] font-bold text-black">PRÓXIMO</Text>
           </View>

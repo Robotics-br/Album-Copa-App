@@ -37,7 +37,7 @@ const TeamHeader = ({ sectionId, totalCount }: TeamHeaderProps) => {
         </Text>
       </View>
       <View className="rounded-md border border-border bg-surface px-2 py-0.5">
-        <Text className="text-primary text-[11px] font-extrabold">
+        <Text className="text-[11px] font-extrabold text-primary">
           {ownedCount} / {totalCount}
         </Text>
       </View>

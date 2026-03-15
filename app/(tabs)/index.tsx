@@ -93,7 +93,7 @@ export default function AlbumScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-primary text-[18px] font-bold uppercase">
+        <Text className="text-[18px] font-bold uppercase text-primary">
           {i18n_t('album.title')}
         </Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('album.subtitle')}</Text>

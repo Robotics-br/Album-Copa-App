@@ -179,7 +179,7 @@ export default function EventsScreen() {
             <Text className="text-[15px] font-bold text-text">{country}</Text>
             <View className="flex-row items-center gap-2">
               <View className="rounded-full border border-border bg-surface px-2.5 py-0.5">
-                <Text className="text-primary text-[11px] font-bold">{stadiumList.length}</Text>
+                <Text className="text-[11px] font-bold text-primary">{stadiumList.length}</Text>
               </View>
               {expandedStadiums[country] ? (
                 <ChevronUp size={18} color={t.textSecondary} />
@@ -205,7 +205,7 @@ export default function EventsScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-primary text-[18px] font-bold uppercase">
+        <Text className="text-[18px] font-bold uppercase text-primary">
           {i18n_t('events.title')}
         </Text>
         <Text className="text-[13px] text-text-secondary">{i18n_t('events.subtitle')}</Text>

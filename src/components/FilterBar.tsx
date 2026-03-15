@@ -37,7 +37,7 @@ export default function FilterBar() {
             }`}>
             <Text
               className={`text-[13px] ${
-                active ? 'text-on-primary font-bold' : 'font-medium text-text-secondary'
+                active ? 'font-bold text-on-primary' : 'font-medium text-text-secondary'
               }`}>
               {i18n_t(labelKey)}
             </Text>
