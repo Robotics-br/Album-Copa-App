@@ -22,17 +22,24 @@
         "foregroundImage": "./assets/images/app-logo.jpeg"
       },
       "package": "br.com.robotics.albumcopa2026",
-      "permissions": ["android.permission.RECORD_AUDIO", "android.permission.MODIFY_AUDIO_SETTINGS"]
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "favicon": "./assets/images/app-logo.jpeg",
       "bundler": "metro"
     },
-    "plugins": ["expo-router", "expo-audio", "expo-asset"],
+    "plugins": [
+      "expo-router",
+      "expo-audio",
+      "expo-asset"
+    ],
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "77d693d7-a5cc-49b1-9d27-eaee07c6d9dd"
+        "projectId": "dbd18b05-a06e-4480-a431-24cb1698c7fd"
       }
     }
   }
