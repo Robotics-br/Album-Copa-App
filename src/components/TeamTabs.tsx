@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../theme/ThemeProvider';
 import { selectionTap } from '../utils/haptics';

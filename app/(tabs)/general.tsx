@@ -1,5 +1,6 @@
 import React, { useMemo, useCallback } from 'react';
-import { View, Text, Dimensions, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { AppText as Text } from '../../src/components/ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -143,7 +144,8 @@ export default function GeneralScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[14px] font-bold uppercase text-gold">{i18n_t('general.title')}</Text>
+        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('general.title')}</Text>
+        <Text className="text-[13px] text-text-secondary">{i18n_t('general.subtitle')}</Text>
       </View>
 
       <FlashList

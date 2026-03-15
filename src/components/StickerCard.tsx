@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { Pressable, Text, View, StyleSheet } from 'react-native';
+import { Pressable, View, StyleSheet } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,

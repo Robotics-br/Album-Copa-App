@@ -1,5 +1,13 @@
 import React, { useState, useCallback } from 'react';
-import { View, Text, StyleSheet, Dimensions, Alert, ActivityIndicator } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Dimensions,
+  Alert,
+  ActivityIndicator,
+  Platform,
+  ScrollView,
+} from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +27,7 @@ import { getStickerByCode, getTeamById, teams, getStickersByTeam } from '../../s
 import { FlashList } from '@shopify/flash-list';
 import type { Team, Sticker } from '../../src/types';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
-import { Platform } from 'react-native';
+import { AppText as Text } from '../../src/components/ui/AppText';
 
 type TradeTab = 'share' | 'scan';
 
@@ -307,35 +315,53 @@ export default function TradeScreen() {
 
   const renderShare = () => {
     return (
-      <View className="flex-1 items-center justify-center gap-6 p-6">
+      <ScrollView
+        className="flex-1"
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingHorizontal: HORIZONTAL_PADDING,
+          paddingTop: 10,
+          paddingBottom: Math.max(insets.bottom, 20),
+        }}
+        showsVerticalScrollIndicator={false}>
         <View
           className="rounded-3xl bg-white p-6"
-          style={{ elevation: 10, shadowColor: t.gold, shadowOpacity: 0.2, shadowRadius: 20 }}>
+          style={{
+            elevation: 10,
+            shadowColor: t.gold,
+            shadowOpacity: 0.2,
+            shadowRadius: 20,
+          }}>
           <QRCode value={qrPayload} size={width * 0.65} color="#0F1923" backgroundColor="white" />
         </View>
-        <Text className="px-4 text-center text-[15px]" style={{ color: t.textSecondary }}>
-          {i18n_t('trade.code_desc')}
-        </Text>
-        <Text
-          className="mt-2 px-6 text-center text-[15px] font-medium"
-          style={{ color: t.gold, opacity: 0.9 }}>
-          {i18n_t('trade.update_notice')}
-        </Text>
+
+        <View className="mt-8 items-center gap-3">
+          <Text className="px-4 text-center text-[15px]" style={{ color: t.textSecondary }}>
+            {i18n_t('trade.code_desc')}
+          </Text>
+          <Text
+            className="px-6 text-center text-[15px] font-medium"
+            style={{ color: t.gold, opacity: 0.9 }}>
+            {i18n_t('trade.update_notice')}
+          </Text>
+        </View>
 
         <AnimatedPressable
           onPress={handleExport}
           disabled={isExporting}
-          className="mt-6 flex-row items-center gap-3 rounded-2xl px-8 py-4"
+          className="mt-8 flex-row items-center gap-3 rounded-2xl px-12 py-4 shadow-sm"
           style={{ backgroundColor: t.gold, opacity: isExporting ? 0.7 : 1 }}>
           {isExporting ? (
             <ActivityIndicator size="small" color="#0F1923" />
           ) : (
-            <Text className="text-[16px] font-bold text-[#0F1923]">
+            <Text className="text-[17px] font-bold text-[#0F1923]">
               {i18n_t('trade.export_btn')}
             </Text>
           )}
         </AnimatedPressable>
-      </View>
+      </ScrollView>
     );
   };
 

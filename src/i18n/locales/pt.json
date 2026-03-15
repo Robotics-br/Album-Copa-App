@@ -3,6 +3,7 @@
     "title": "AJUSTES",
     "visualStyle": "Estilo visual",
     "themesSubtitle": "Temas inspirados em jogos populares",
+    "subtitle": "Personalize sua experiência",
     "themes": {
       "original-dark": "Original escuro",
       "original-light": "Original claro",
@@ -48,6 +49,7 @@
   },
   "stats": {
     "title": "MEU PROGRESSO",
+    "subtitle": "Desempenho da Coleção",
     "stickers": "Figurinhas",
     "missing": "Faltam",
     "repeated": "Repetidas",
@@ -218,10 +220,12 @@
   },
   "album": {
     "title": "MINHA COPA 2026",
+    "subtitle": "Gerencie sua coleção",
     "empty": "Nenhuma figurinha nesta categoria"
   },
   "general": {
     "title": "VISÃO GERAL",
+    "subtitle": "Painel de Controle",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} figurinhas ({{pct}}%)"
   },
   "games": {

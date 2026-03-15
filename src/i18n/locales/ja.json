@@ -3,6 +3,7 @@
     "title": "設定",
     "visualStyle": "ビジュアルスタイル",
     "themesSubtitle": "人気のゲームにインスパイアされたテーマ",
+    "subtitle": "体験をカスタマイズする",
     "themes": {
       "original-dark": "オリジナル・ダーク",
       "original-light": "オリジナル・ライト",
@@ -48,6 +49,7 @@
   },
   "stats": {
     "title": "進行状況",
+    "subtitle": "コレクションのパフォーマンス",
     "stickers": "シール",
     "missing": "不足",
     "repeated": "重複",
@@ -162,10 +164,12 @@
   },
   "album": {
     "title": "マイ ワールドカップ 2026",
+    "subtitle": "コレクションを管理する",
     "empty": "このカテゴリーにはシールがありません"
   },
   "general": {
     "title": "オーバービュー",
+    "subtitle": "コントロールパネル",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}}枚 ({{pct}}%)"
   },
   "games": {

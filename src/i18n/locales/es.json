@@ -3,6 +3,7 @@
     "title": "AJUSTES",
     "visualStyle": "Estilo visual",
     "themesSubtitle": "Temas inspirados en juegos populares",
+    "subtitle": "Personaliza tu experiencia",
     "themes": {
       "original-dark": "Original oscuro",
       "original-light": "Original claro",
@@ -43,6 +44,7 @@
   },
   "stats": {
     "title": "MI PROGRESO",
+    "subtitle": "Rendimiento de la Colección",
     "stickers": "Cromos",
     "missing": "Faltan",
     "repeated": "Repetidos",
@@ -213,10 +215,12 @@
   },
   "album": {
     "title": "MI MUNDIAL 2026",
+    "subtitle": "Gestiona tu colección",
     "empty": "Ningún cromo en esta categoría"
   },
   "general": {
     "title": "VISTA GENERAL",
+    "subtitle": "Panel de Control",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} cromos ({{pct}}%)"
   },
   "games": {

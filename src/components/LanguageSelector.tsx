@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, Pressable, ScrollView } from 'react-native';
+import { View, Modal, Pressable, ScrollView } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { useTranslation } from 'react-i18next';
 import { ChevronRight, Languages, Check } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -39,14 +40,14 @@ export default function LanguageSelector({ currentLanguage, onSelect }: Language
       <AnimatedPressable
         onPress={() => setModalVisible(true)}
         className="flex-row items-center justify-between border-t border-border px-4 py-3.5">
-        <View className="flex-row items-center gap-3">
+        <View className="flex-1 flex-row items-center gap-3">
           <Languages size={20} color={theme.text} />
-          <View>
+          <View className="mr-3 flex-1">
             <Text className="text-[15px] font-medium text-text">{t('settings.language')}</Text>
             <Text className="text-[11px] text-text-secondary">{t(selectedLang.labelKey)}</Text>
           </View>
         </View>
-        <ChevronRight size={18} color={theme.textSecondary} />
+        <ChevronRight size={18} color={theme.textSecondary} className="shrink-0" />
       </AnimatedPressable>
 
       <Modal

@@ -3,6 +3,7 @@
     "title": "הגדרות",
     "visualStyle": "סגנון ויזואלי",
     "themesSubtitle": "ערכות נושא בהשראת משחקים פופולריים",
+    "subtitle": "התאם אישית את החוויה שלך",
     "themes": {
       "original-dark": "מקורי כהה",
       "original-light": "מקורי בהיר",
@@ -48,6 +49,7 @@
   },
   "stats": {
     "title": "ההתקדמות שלי",
+    "subtitle": "ביצועי האוסף",
     "stickers": "מדבקות",
     "missing": "חסרות",
     "repeated": "כפולות",
@@ -162,10 +164,12 @@
   },
   "album": {
     "title": "מונדיאל 2026 שלי",
+    "subtitle": "נהל את האוסף שלך",
     "empty": "אין מדבקות בקטגוריה זו"
   },
   "general": {
     "title": "סקירה כללית",
+    "subtitle": "לוח בקרה",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} מדבקות ({{pct}}%)"
   },
   "games": {

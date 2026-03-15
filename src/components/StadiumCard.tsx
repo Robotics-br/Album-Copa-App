@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, Pressable, ActivityIndicator } from 'react-native';
+import { View, Pressable, ActivityIndicator } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { Image } from 'expo-image';
 import { MapPin, Users, Calendar, ChevronDown, ChevronUp } from 'lucide-react-native';
 import { useTheme } from '../theme/ThemeProvider';

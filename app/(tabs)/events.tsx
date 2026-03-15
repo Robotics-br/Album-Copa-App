@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, ScrollView, Pressable, Modal, Dimensions } from 'react-native';
+import { View, ScrollView, Pressable, Modal, Dimensions } from 'react-native';
+import { AppText as Text } from '../../src/components/ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { Image } from 'expo-image';

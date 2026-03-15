@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, View, Text, Pressable } from 'react-native';
+import { View, Modal, Pressable } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { X, Minus, Plus } from 'lucide-react-native';
 import { useTranslation, Trans } from 'react-i18next';
 import { useTheme } from '../theme/ThemeProvider';
@@ -86,9 +87,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               </Text>
               <View className="flex-row items-center gap-2">
                 <Text className="text-[18px] font-bold text-text">{sticker.name}</Text>
-                <Text className="text-[13px] text-text-secondary">
-                  {team ? i18n_t(`teams.${team.id}`) : ''} · {sticker.code}
-                </Text>
+                <Text className="mt-2 text-[13px] text-text-secondary">· {sticker.code}</Text>
               </View>
             </View>
           </View>

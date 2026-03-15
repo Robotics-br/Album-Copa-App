@@ -3,6 +3,7 @@
     "title": "SETTINGS",
     "visualStyle": "Visual style",
     "themesSubtitle": "Themes inspired by popular games",
+    "subtitle": "Customize your experience",
     "themes": {
       "original-dark": "Original dark",
       "original-light": "Original light",
@@ -48,6 +49,7 @@
   },
   "stats": {
     "title": "MY PROGRESS",
+    "subtitle": "Collection Performance",
     "stickers": "Stickers",
     "missing": "Missing",
     "repeated": "Repeated",
@@ -218,10 +220,12 @@
   },
   "album": {
     "title": "MY WORLD CUP 2026",
+    "subtitle": "Manage your collection",
     "empty": "No stickers in this category"
   },
   "general": {
     "title": "OVERVIEW",
+    "subtitle": "Control Panel",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} stickers ({{pct}}%)"
   },
   "games": {

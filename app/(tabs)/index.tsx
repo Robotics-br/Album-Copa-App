@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import { View, Text, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
+import { AppText as Text } from '../../src/components/ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
@@ -92,9 +93,8 @@ export default function AlbumScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[14px] font-bold uppercase tracking-widest text-gold">
-          {i18n_t('album.title')}
-        </Text>
+        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('album.title')}</Text>
+        <Text className="text-[13px] text-text-secondary">{i18n_t('album.subtitle')}</Text>
       </View>
 
       <MainHeader searchQuery={searchQuery} setSearchQuery={onSearch} />

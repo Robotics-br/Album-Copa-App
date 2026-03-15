@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, ScrollView, Pressable, Alert } from 'react-native';
+import { View, ScrollView, Pressable, Alert } from 'react-native';
+import { AppText as Text } from '../../src/components/ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Volume2, VolumeX, Eye, Trash2, Zap, ZapOff } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
@@ -56,7 +57,8 @@ export default function SettingsScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[14px] font-bold uppercase text-gold">{t('settings.title')}</Text>
+        <Text className="text-[18px] font-bold uppercase text-gold">{t('settings.title')}</Text>
+        <Text className="text-[13px] text-text-secondary">{t('settings.subtitle')}</Text>
       </View>
 
       <ScrollView
@@ -109,9 +111,9 @@ export default function SettingsScreen() {
           </Text>
 
           <View className="flex-row items-center justify-between border-t border-border px-4 py-3.5">
-            <View className="flex-row items-center gap-3">
+            <View className="flex-1 flex-row items-center gap-3">
               <Eye size={20} color={theme.text} />
-              <View>
+              <View className="mr-3 flex-1">
                 <Text className="text-[15px] font-medium text-text">
                   {t('settings.seniorMode')}
                 </Text>
@@ -120,31 +122,35 @@ export default function SettingsScreen() {
                 </Text>
               </View>
             </View>
-            <Toggle value={seniorMode} onValueChange={toggleSeniorMode} />
+            <View className="shrink-0">
+              <Toggle value={seniorMode} onValueChange={toggleSeniorMode} />
+            </View>
           </View>
 
           <View className="flex-row items-center justify-between border-t border-border px-4 py-3.5">
-            <View className="flex-row items-center gap-3">
+            <View className="flex-1 flex-row items-center gap-3">
               {soundEnabled ? (
                 <Volume2 size={20} color={theme.text} />
               ) : (
                 <VolumeX size={20} color={theme.text} />
               )}
-              <View>
+              <View className="mr-3 flex-1">
                 <Text className="text-[15px] font-medium text-text">{t('settings.sound')}</Text>
                 <Text className="text-[11px] text-text-secondary">{t('settings.soundDesc')}</Text>
               </View>
             </View>
-            <Toggle value={soundEnabled} onValueChange={toggleSound} />
+            <View className="shrink-0">
+              <Toggle value={soundEnabled} onValueChange={toggleSound} />
+            </View>
           </View>
           <View className="flex-row items-center justify-between border-t border-border px-4 py-3.5">
-            <View className="flex-row items-center gap-3">
+            <View className="flex-1 flex-row items-center gap-3">
               {animationsEnabled ? (
                 <Zap size={20} color={theme.text} />
               ) : (
                 <ZapOff size={20} color={theme.text} />
               )}
-              <View>
+              <View className="mr-3 flex-1">
                 <Text className="text-[15px] font-medium text-text">
                   {t('settings.animations')}
                 </Text>
@@ -153,7 +159,9 @@ export default function SettingsScreen() {
                 </Text>
               </View>
             </View>
-            <Toggle value={animationsEnabled} onValueChange={toggleAnimations} />
+            <View className="shrink-0">
+              <Toggle value={animationsEnabled} onValueChange={toggleAnimations} />
+            </View>
           </View>
         </View>
 
@@ -161,12 +169,16 @@ export default function SettingsScreen() {
           <Pressable
             onPress={handleReset}
             className="flex-row items-center gap-3 p-4 active:opacity-50">
-            <Trash2 size={20} color="#E53935" />
-            <View>
-              <Text className="text-[15px] font-medium text-[#E53935]">
-                {t('settings.deleteAll')}
-              </Text>
-              <Text className="text-[11px] text-text-secondary">{t('settings.deleteAllDesc')}</Text>
+            <View className="flex-1 flex-row items-center gap-3">
+              <Trash2 size={20} color="#E53935" />
+              <View className="flex-1">
+                <Text className="text-[15px] font-medium text-[#E53935]">
+                  {t('settings.deleteAll')}
+                </Text>
+                <Text className="text-[11px] text-text-secondary">
+                  {t('settings.deleteAllDesc')}
+                </Text>
+              </View>
             </View>
           </Pressable>
         </View>

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { View, Text, Modal, TextInput, TouchableOpacity, Pressable } from 'react-native';
+import { View, Modal, TextInput, TouchableOpacity, Pressable } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { Search, X, ChevronRight } from 'lucide-react-native';
@@ -52,7 +53,7 @@ export default function TeamSelector() {
           className="flex-row items-center justify-between rounded-xl border border-border bg-surface px-4 py-3">
           <View className="flex-1 flex-row items-center">
             <Text className="mr-3 text-[20px]">{selectedTeam ? selectedTeam.flag : '🌎'}</Text>
-            <View>
+            <View className="flex-1">
               <Text className="text-[12px] font-medium uppercase tracking-tight text-text-secondary">
                 {i18n_t('components.teamSelector.label')}
               </Text>
@@ -70,7 +71,7 @@ export default function TeamSelector() {
                 <X size={16} color={t.textSecondary} />
               </TouchableOpacity>
             )}
-            <ChevronRight size={20} color={t.textSecondary} />
+            <ChevronRight size={20} color={t.textSecondary} className="shrink-0" />
           </View>
         </AnimatedPressable>
       </View>
@@ -121,6 +122,7 @@ export default function TeamSelector() {
               <FlashList
                 data={filteredTeams}
                 keyExtractor={(item) => item.id}
+                keyboardShouldPersistTaps="always"
                 ListHeaderComponent={() => (
                   <TouchableOpacity
                     onPress={() => handleSelectTeam(null)}

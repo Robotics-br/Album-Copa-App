@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
 import { useCollectionStore } from '../store/useCollectionStore';

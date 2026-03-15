@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { getTeamById } from '../data/teams';
 import type { Match } from '../data/matches';
 import { useTranslation } from 'react-i18next';

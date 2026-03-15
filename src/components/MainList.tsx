@@ -1,5 +1,6 @@
 import React, { useMemo, useCallback, memo } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { FlashList } from '@shopify/flash-list';
 import { teams, getStickersByTeam, teamMap } from '../data/teams';
 import StickerCard from './StickerCard';
@@ -221,6 +222,7 @@ export default function MainList({
         extraData={{ animationsEnabled, t, i18n_t }}
         ListFooterComponent={<View className="h-5" />}
         showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="always"
       />
     </View>
   );

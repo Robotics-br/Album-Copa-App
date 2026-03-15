@@ -3,6 +3,7 @@
     "title": "PARAMÈTRES",
     "visualStyle": "Style visuel",
     "themesSubtitle": "Thèmes inspirés de jeux populaires",
+    "subtitle": "Personnalisez votre expérience",
     "themes": {
       "original-dark": "Original sombre",
       "original-light": "Original clair",
@@ -43,6 +44,7 @@
   },
   "stats": {
     "title": "MES PROGRÈS",
+    "subtitle": "Performance de la Collection",
     "stickers": "Autocollants",
     "missing": "Manquants",
     "repeated": "Doubles",
@@ -213,10 +215,12 @@
   },
   "album": {
     "title": "MA COUPE DU MONDE 2026",
+    "subtitle": "Gérez votre collection",
     "empty": "Aucun autocollant dans cette catégorie"
   },
   "general": {
     "title": "APERÇU",
+    "subtitle": "Panneau de Contrôle",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} autocollants ({{pct}}%)"
   },
   "games": {

@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { teamMap, getStickersByTeam } from '../data/teams';

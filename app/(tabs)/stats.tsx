@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
+import { AppText as Text } from '../../src/components/ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { teams, stickers, totalStickers, getStickersByTeam } from '../../src/data/teams';
@@ -36,7 +37,8 @@ export default function StatsScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[14px] font-bold uppercase text-gold">{i18n_t('stats.title')}</Text>
+        <Text className="text-[18px] font-bold uppercase text-gold">{i18n_t('stats.title')}</Text>
+        <Text className="text-[13px] text-text-secondary">{i18n_t('stats.subtitle')}</Text>
       </View>
 
       <ScrollView

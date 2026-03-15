@@ -3,6 +3,7 @@
     "title": "EINSTELLUNGEN",
     "visualStyle": "Visueller Stil",
     "themesSubtitle": "Von beliebten Spielen inspirierte Designs",
+    "subtitle": "Personalisiere dein Erlebnis",
     "themes": {
       "original-dark": "Original dunkel",
       "original-light": "Original hell",
@@ -43,6 +44,7 @@
   },
   "stats": {
     "title": "MEIN FORTSCHRITT",
+    "subtitle": "Sammlungsleistung",
     "stickers": "Sticker",
     "missing": "Fehlen",
     "repeated": "Doppelt",
@@ -157,10 +159,12 @@
   },
   "album": {
     "title": "MEINE WM 2026",
+    "subtitle": "Verwalte deine Sammlung",
     "empty": "Keine Sticker in dieser Kategorie"
   },
   "general": {
     "title": "ÜBERBLICK",
+    "subtitle": "Kontrollzentrum",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} Sticker ({{pct}}%)"
   },
   "games": {

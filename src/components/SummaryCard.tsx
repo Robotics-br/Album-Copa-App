@@ -1,5 +1,6 @@
 import React, { useMemo, useState, useCallback, useEffect } from 'react';
-import { View, Text, Image, Pressable, Modal } from 'react-native';
+import { View, Image, Pressable, Modal } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,

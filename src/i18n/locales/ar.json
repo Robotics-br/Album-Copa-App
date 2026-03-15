@@ -3,6 +3,7 @@
     "title": "الإعدادات",
     "visualStyle": "النمط البصري",
     "themesSubtitle": "سمات مستوحاة من الألعاب الشهيرة",
+    "subtitle": "تخصيص تجربتك",
     "themes": {
       "original-dark": "أصلي داكن",
       "original-light": "أصلي فاتح",
@@ -48,6 +49,7 @@
   },
   "stats": {
     "title": "تقدمي",
+    "subtitle": "أداء المجموعة",
     "stickers": "ملصقات",
     "missing": "مفقودة",
     "repeated": "مكررة",
@@ -162,10 +164,12 @@
   },
   "album": {
     "title": "كأس العالم الخاصة بي 2026",
+    "subtitle": "إدارة مجموعتك",
     "empty": "لا توجد ملصقات في هذه الفئة"
   },
   "general": {
     "title": "نظرة عامة",
+    "subtitle": "لوحة التحكم",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} ملصقات ({{pct}}%)"
   },
   "games": {

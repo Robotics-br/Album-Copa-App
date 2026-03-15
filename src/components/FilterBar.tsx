@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView, Text } from 'react-native';
+import { ScrollView } from 'react-native';
+import { AppText as Text } from './ui/AppText';
 import { selectionTap } from '../utils/haptics';
 import type { StickerFilter } from '../types';
 import { useAlbumFiltersStore } from '@/store/useAlbumFiltersStore';

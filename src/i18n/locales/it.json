@@ -3,6 +3,7 @@
     "title": "IMPOSTAZIONI",
     "visualStyle": "Stile visivo",
     "themesSubtitle": "Temi ispirati a giochi popolari",
+    "subtitle": "Personalizza la tua esperienza",
     "themes": {
       "original-dark": "Originale scuro",
       "original-light": "Originale chiaro",
@@ -43,6 +44,7 @@
   },
   "stats": {
     "title": "I MIEI PROGRESSI",
+    "subtitle": "Prestazioni della Collezione",
     "stickers": "Figurine",
     "missing": "Mancanti",
     "repeated": "Doppioni",
@@ -213,10 +215,12 @@
   },
   "album": {
     "title": "IL MIO MONDIALE 2026",
+    "subtitle": "Gestisci la tua collezione",
     "empty": "Nessuna figurina in questa categoria"
   },
   "general": {
     "title": "PANORAMICA",
+    "subtitle": "Pannello di Controllo",
     "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} figurine ({{pct}}%)"
   },
   "games": {
