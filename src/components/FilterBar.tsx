@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, Text } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
 import { selectionTap } from '../utils/haptics';
 import type { StickerFilter } from '../types';
 import { useAlbumFiltersStore } from '@/store/useAlbumFiltersStore';
@@ -15,7 +14,6 @@ const filters: { key: StickerFilter; labelKey: string }[] = [
 ];
 
 export default function FilterBar() {
-  const t = useTheme();
   const { t: i18n_t } = useTranslation();
   const { stickerFilter, setFilter } = useAlbumFiltersStore();
 

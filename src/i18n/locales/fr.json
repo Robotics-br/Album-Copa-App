@@ -144,6 +144,11 @@
     },
     "mainHeader": {
       "search": "Rechercher..."
+    },
+    "teamSelector": {
+      "label": "Équipe",
+      "modalTitle": "Choisir une équipe",
+      "allTeams": "Toutes les équipes"
     }
   },
   "teams": {

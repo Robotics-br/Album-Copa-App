@@ -93,6 +93,11 @@
     },
     "mainHeader": {
       "search": "खोजें..."
+    },
+    "teamSelector": {
+      "label": "टीम",
+      "modalTitle": "टीम चुनें",
+      "allTeams": "सभी टीमें"
     }
   },
   "teams": {

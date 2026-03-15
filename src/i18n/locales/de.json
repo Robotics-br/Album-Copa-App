@@ -88,6 +88,11 @@
     },
     "mainHeader": {
       "search": "Suchen..."
+    },
+    "teamSelector": {
+      "label": "Mannschaft",
+      "modalTitle": "Mannschaft auswählen",
+      "allTeams": "Alle Mannschaften"
     }
   },
   "teams": {

@@ -4,7 +4,7 @@ import { Search, X } from 'lucide-react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import AnimatedPressable from './ui/AnimatedPressable';
 import SummaryCard from './SummaryCard';
-import TeamTabs from './TeamTabs';
+import TeamSelector from './TeamSelector';
 import FilterBar from './FilterBar';
 import { useTranslation } from 'react-i18next';
 import { HORIZONTAL_PADDING } from '../utils/consts';
@@ -43,7 +43,7 @@ const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
           </AnimatedPressable>
         )}
       </View>
-      <TeamTabs />
+      <TeamSelector />
       <FilterBar />
     </View>
   );

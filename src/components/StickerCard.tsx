@@ -166,7 +166,7 @@ function StickerCard({
 
       <View className="z-10 w-full flex-row items-center justify-between">
         <Text className="text-[14px]">{flag}</Text>
-        {status !== 'missing' && <Text className="text-[10px] text-gold">★</Text>}
+        {status === 'owned' && <Text className="text-[10px] text-gold">★</Text>}
         {qty > 1 && (
           <View className="rounded-full bg-duplicate px-1.5 py-0.5">
             <Text className="text-[10px] font-bold text-white">+{qty - 1}</Text>

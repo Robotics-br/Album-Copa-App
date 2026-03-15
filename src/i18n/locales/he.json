@@ -93,6 +93,11 @@
     },
     "mainHeader": {
       "search": "חיפוש..."
+    },
+    "teamSelector": {
+      "label": "נבחרת",
+      "modalTitle": "בחר נבחרת",
+      "allTeams": "כל הנבחרות"
     }
   },
   "teams": {

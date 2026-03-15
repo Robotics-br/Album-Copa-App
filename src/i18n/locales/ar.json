@@ -93,6 +93,11 @@
     },
     "mainHeader": {
       "search": "بحث..."
+    },
+    "teamSelector": {
+      "label": "منتخب",
+      "modalTitle": "اختر منتخباً",
+      "allTeams": "جميع المنتخبات"
     }
   },
   "teams": {

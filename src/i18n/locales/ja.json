@@ -93,6 +93,11 @@
     },
     "mainHeader": {
       "search": "検索..."
+    },
+    "teamSelector": {
+      "label": "チーム",
+      "modalTitle": "チームを選択",
+      "allTeams": "すべてのチーム"
     }
   },
   "teams": {

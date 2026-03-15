@@ -93,6 +93,11 @@
     },
     "mainHeader": {
       "search": "搜索..."
+    },
+    "teamSelector": {
+      "label": "球队",
+      "modalTitle": "选择球队",
+      "allTeams": "所有球队"
     }
   },
   "teams": {
