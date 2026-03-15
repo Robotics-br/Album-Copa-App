@@ -61,14 +61,15 @@ const StickerCardLight = ({
     }
   }, [sticker, qty, toggleSticker, onPress, soundEnabled]);
 
-  const borderColor = status === 'missing' ? t.border : `${t.owned}80`;
+  const borderColor = status === 'missing' ? t.missingStickerBorder : `${t.owned}80`;
+  const backgroundColor = status === 'missing' ? t.missingStickerBg : t.owned;
 
   return (
     <Pressable
       onPress={handlePress}
       className="h-[80px] items-center justify-between rounded-lg p-1.5"
       style={{
-        backgroundColor: borderColor,
+        backgroundColor: backgroundColor,
         overflow: 'visible',
       }}>
       <View
@@ -79,7 +80,7 @@ const StickerCardLight = ({
           left: 2,
           right: 2,
           borderWidth: 1.5,
-          borderColor: hexToRgba('#000000', 0.15),
+          borderColor: borderColor,
           borderStyle: status === 'missing' ? 'dashed' : 'solid',
           borderRadius: 6,
           zIndex: 0,

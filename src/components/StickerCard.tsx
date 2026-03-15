@@ -131,7 +131,7 @@ function StickerCard({
     }
   }, [sticker, toggleSticker, onPress, scale, rotation, zIndex, qty, soundEnabled]);
 
-  const borderColor = status === 'missing' ? t.border : `${t.owned}80`;
+  const borderColor = status === 'missing' ? `${t.missingStickerBorder}CC` : `${t.owned}CC`;
 
   const acquiredGradientColors: readonly [string, string, ...string[]] = [
     hexToRgba(t.owned, 0.55),
@@ -139,8 +139,8 @@ function StickerCard({
   ];
 
   const missingGradientColors: readonly [string, string, ...string[]] = [
-    hexToRgba(t.border, 0.7),
-    hexToRgba(t.border, 0.3),
+    hexToRgba(t.missingStickerBg, 0.8),
+    hexToRgba(t.missingStickerBg, 0.4),
   ];
 
   const gradientStart = { x: 0.0, y: 0 };
@@ -169,7 +169,7 @@ function StickerCard({
           borderColor,
           borderStyle: status === 'missing' ? 'dashed' : 'solid',
           borderRadius: 6,
-          zIndex: 0,
+          zIndex: 1,
         }}
       />
       <View style={{ ...StyleSheet.absoluteFillObject, borderRadius: 6, overflow: 'hidden' }}>

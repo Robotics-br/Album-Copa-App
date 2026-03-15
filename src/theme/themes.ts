@@ -6,6 +6,8 @@ export interface ThemeColors {
   text: string;
   textSecondary: string;
   border: string;
+  missingStickerBg: string;
+  missingStickerBorder: string;
   primary: string;
   onPrimary: string;
   owned: string;
@@ -21,6 +23,8 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     text: '#FFFFFF',
     textSecondary: '#8E8E93',
     border: '#2C2C2E',
+    missingStickerBg: '#2C2C2E',
+    missingStickerBorder: '#ffffff',
     owned: '#00C752',
     duplicate: '#FFCC00',
     primary: '#ffffff',
@@ -34,6 +38,8 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     text: '#000000',
     textSecondary: '#71717A',
     border: '#E4E4E7',
+    missingStickerBg: '#E4E4E7',
+    missingStickerBorder: '#304ffe',
     owned: '#00B14F',
     duplicate: '#FFCC00',
     primary: '#304ffe',
@@ -47,6 +53,8 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     text: '#e0e7ff',
     textSecondary: '#a5b4fc',
     border: '#4f46e5',
+    missingStickerBg: '#4f46e5',
+    missingStickerBorder: '#c4b5fd',
     primary: '#c4b5fd',
     onPrimary: '#0F1923',
     owned: '#34d399',
@@ -60,6 +68,8 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     text: '#4A0E2C',
     textSecondary: '#A36681',
     border: '#F9D6E5',
+    missingStickerBg: '#F9D6E5',
+    missingStickerBorder: '#E0218A',
     primary: '#E0218A',
     onPrimary: '#FFFFFF',
     owned: '#00B14F',

@@ -17,6 +17,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         '--theme-bg': colors.bg,
         '--theme-surface': colors.surface,
         '--theme-border': colors.border,
+        '--theme-missingStickerBg': colors.missingStickerBg,
+        '--theme-missingStickerBorder': colors.missingStickerBorder,
         '--theme-text': colors.text,
         '--theme-textSecondary': colors.textSecondary,
         '--theme-primary': colors.primary,

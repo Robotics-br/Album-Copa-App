@@ -8,6 +8,8 @@ module.exports = {
         bg: 'var(--theme-bg)',
         surface: 'var(--theme-surface)',
         border: 'var(--theme-border)',
+        'missing-sticker-bg': 'var(--theme-missingStickerBg)',
+        'missing-sticker-border': 'var(--theme-missingStickerBorder)',
         text: 'var(--theme-text)',
         'text-secondary': 'var(--theme-textSecondary)',
         primary: 'var(--theme-primary)',
