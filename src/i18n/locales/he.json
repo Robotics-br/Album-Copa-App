@@ -7,14 +7,8 @@
     "themes": {
       "original-dark": "מקורי כהה",
       "original-light": "מקורי בהיר",
-      "minecraft": "מיינקראפט",
-      "fortnite": "פורטנייט",
-      "mario": "מריו",
-      "gta": "GTA",
-      "freefire": "Free Fire",
-      "genshin": "Genshin Impact",
-      "roblox": "רובלוקס",
-      "lego": "לגו"
+      "neon": "נאון",
+      "pink": "ורוד"
     },
     "accessibility": "נגישות",
     "seniorMode": "מצב מבוגרים",
