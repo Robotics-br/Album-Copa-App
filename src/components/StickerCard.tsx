@@ -131,8 +131,6 @@ function StickerCard({
     }
   }, [sticker, toggleSticker, onPress, scale, rotation, zIndex, qty, soundEnabled]);
 
-  const bgColor = 'transparent';
-
   const borderColor = status === 'missing' ? t.border : `${t.owned}80`;
 
   const acquiredGradientColors: readonly [string, string, ...string[]] = [
@@ -157,7 +155,6 @@ function StickerCard({
       style={[
         animatedStyle,
         {
-          backgroundColor: bgColor,
           overflow: 'visible',
         },
       ]}>
