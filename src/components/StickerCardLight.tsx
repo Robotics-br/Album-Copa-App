@@ -3,7 +3,6 @@ import { Pressable, View, StyleSheet } from 'react-native';
 import { AppText as Text } from './ui/AppText';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
-import { hexToRgba } from '../utils/colors';
 import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
@@ -61,7 +60,7 @@ const StickerCardLight = ({
     }
   }, [sticker, qty, toggleSticker, onPress, soundEnabled]);
 
-  const borderColor = status === 'missing' ? t.missingStickerBorder : `${t.owned}80`;
+  const borderColor = status === 'missing' ? `${t.missingStickerBorder}80` : `${t.owned}80`;
   const backgroundColor = status === 'missing' ? t.missingStickerBg : t.owned;
 
   return (
@@ -94,7 +93,7 @@ const StickerCardLight = ({
 
       <View className="absolute inset-0 z-0 items-center justify-center pb-2">
         {status === 'missing' ? (
-          <UserRoundPlus color={t.text} size={20} />
+          <UserRoundPlus color={t.textSecondary} size={20} />
         ) : (
           <Check color={t.text} size={20} />
         )}

@@ -149,6 +149,8 @@ export default function TradeScreen() {
         primary: pdfTheme.primary,
         owned: pdfTheme.owned,
         duplicate: pdfTheme.duplicate,
+        missingStickerBg: pdfTheme.missingStickerBg,
+        ownedStickerTextColor: '#000000',
       };
 
       const pagesHtml = pages
@@ -289,7 +291,7 @@ export default function TradeScreen() {
               top: -8px;
               right: -8px;
               background-color: ${pdfColors.duplicate};
-              color: #ffffff;
+              color: ${pdfColors.ownedStickerTextColor};
               border-radius: 12px;
               padding: 2px 6px;
               font-size: 9px;

@@ -111,8 +111,8 @@ export default function GeneralScreen() {
                 style={{
                   width: itemSize,
                   height: itemSize,
-                  backgroundColor: owned ? t.owned : t.surface,
-                  borderColor: owned ? t.owned : t.border,
+                  backgroundColor: owned ? t.owned : t.missingStickerBg,
+                  borderColor: owned ? t.owned : t.missingStickerBg,
                 }}>
                 <Text
                   numberOfLines={1}
@@ -122,7 +122,7 @@ export default function GeneralScreen() {
                 </Text>
                 {qty > 1 && (
                   <View className="absolute -right-0.5 -top-0.5 rounded-full bg-duplicate px-1">
-                    <Text className="text-[8px] font-bold text-white">+{qty - 1}</Text>
+                    <Text className="text-on-duplicate text-[8px] font-bold">+{qty - 1}</Text>
                   </View>
                 )}
               </View>

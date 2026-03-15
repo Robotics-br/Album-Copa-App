@@ -21,11 +21,13 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         '--theme-missingStickerBorder': colors.missingStickerBorder,
         '--theme-text': colors.text,
         '--theme-textSecondary': colors.textSecondary,
+        '--theme-ownedStickerTextColor': colors.ownedStickerTextColor,
         '--theme-primary': colors.primary,
         '--theme-onPrimary': colors.onPrimary,
         '--theme-accent': colors.accent,
         '--theme-owned': colors.owned,
         '--theme-duplicate': colors.duplicate,
+        '--theme-onDuplicate': colors.onDuplicate,
       }),
     [colors]
   );

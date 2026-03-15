@@ -94,8 +94,9 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
 
           <Text className="mb-4 text-center text-[15px] font-medium text-text">
             <Trans i18nKey="stickerModal.question1">
-              Quantas figurinhas{' '}
-              <Text className="text-[17px] font-bold text-primary">repetidas</Text> você tem?
+              {'Quantas figurinhas '}
+              <Text className="text-[17px] font-bold text-primary">repetidas</Text>
+              {' você tem?'}
             </Trans>
           </Text>
 
