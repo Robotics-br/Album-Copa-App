@@ -25,7 +25,7 @@ export default function ProgressRing({ percent, size = 140, strokeWidth = 6 }: P
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          stroke={t.surfaceLight}
+          stroke={t.surface}
           strokeWidth={strokeWidth}
           fill="none"
         />

@@ -7,12 +7,11 @@ module.exports = {
       colors: {
         bg: 'var(--theme-bg)',
         surface: 'var(--theme-surface)',
-        'surface-light': 'var(--theme-surfaceLight)',
-        'additional-surface': 'var(--theme-additionalSurface)',
         border: 'var(--theme-border)',
         text: 'var(--theme-text)',
         'text-secondary': 'var(--theme-textSecondary)',
         primary: 'var(--theme-primary)',
+        'on-primary': 'var(--theme-onPrimary)',
         accent: 'var(--theme-accent)',
         owned: 'var(--theme-owned)',
         duplicate: 'var(--theme-duplicate)',

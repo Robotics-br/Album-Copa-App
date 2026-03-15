@@ -38,7 +38,7 @@ const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
           <AnimatedPressable
             onPress={() => setSearchQuery('')}
             scaleDown={0.8}
-            className="h-6 w-6 items-center justify-center rounded-full bg-surface-light">
+            className="h-6 w-6 items-center justify-center rounded-full bg-surface">
             <X size={14} color={t.textSecondary} />
           </AnimatedPressable>
         )}

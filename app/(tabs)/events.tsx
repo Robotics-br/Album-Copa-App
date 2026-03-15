@@ -80,12 +80,12 @@ export default function EventsScreen() {
                 onPress={() => setFilterKind(key)}
                 className="flex-1 items-center rounded-xl border py-2.5"
                 style={{
-                  backgroundColor: active ? t.primary : t.surfaceLight,
+                  backgroundColor: active ? t.primary : t.surface,
                   borderColor: active ? t.primary : t.border,
                 }}>
                 <Text
                   className="text-[13px] font-semibold"
-                  style={{ color: active ? '#0F1923' : t.textSecondary }}>
+                  style={{ color: active ? t.onPrimary : t.textSecondary }}>
                   {label}
                 </Text>
               </AnimatedPressable>
@@ -107,12 +107,12 @@ export default function EventsScreen() {
                     onPress={() => setTeamId(active ? '' : team.id)}
                     className="rounded-lg border px-3 py-1.5"
                     style={{
-                      backgroundColor: active ? t.primary : t.surfaceLight,
+                      backgroundColor: active ? t.primary : t.surface,
                       borderColor: active ? t.primary : t.border,
                     }}>
                     <Text
                       className="text-[12px] font-semibold"
-                      style={{ color: active ? '#0F1923' : t.text }}>
+                      style={{ color: active ? t.onPrimary : t.text }}>
                       {team.flag} {i18n_t(`teams.${team.id}`)}
                     </Text>
                   </AnimatedPressable>
@@ -135,12 +135,12 @@ export default function EventsScreen() {
                   onPress={() => setSelectedDate(active ? '' : date)}
                   className="rounded-lg border px-3.5 py-2"
                   style={{
-                    backgroundColor: active ? t.primary : t.surfaceLight,
+                    backgroundColor: active ? t.primary : t.surface,
                     borderColor: active ? t.primary : t.border,
                   }}>
                   <Text
                     className="text-[12px] font-semibold"
-                    style={{ color: active ? '#0F1923' : t.text }}>
+                    style={{ color: active ? t.onPrimary : t.text }}>
                     {formatDateOption(date)}
                   </Text>
                 </AnimatedPressable>
@@ -178,7 +178,7 @@ export default function EventsScreen() {
             className="flex-row items-center justify-between p-3.5">
             <Text className="text-[15px] font-bold text-text">{country}</Text>
             <View className="flex-row items-center gap-2">
-              <View className="rounded-full border border-border bg-surface-light px-2.5 py-0.5">
+              <View className="rounded-full border border-border bg-surface px-2.5 py-0.5">
                 <Text className="text-primary text-[11px] font-bold">{stadiumList.length}</Text>
               </View>
               {expandedStadiums[country] ? (
@@ -212,14 +212,14 @@ export default function EventsScreen() {
       </View>
 
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-3">
-        <View className="flex-row items-center rounded-xl border border-border bg-surface-light p-1">
+        <View className="flex-row items-center rounded-xl border border-border bg-surface p-1">
           <AnimatedPressable
             onPress={() => setActiveTab('games')}
             className="flex-1 items-center justify-center rounded-lg py-2"
             style={{ backgroundColor: activeTab === 'games' ? t.primary : 'transparent' }}>
             <Text
               className="text-[14px] font-bold"
-              style={{ color: activeTab === 'games' ? '#0F1923' : t.textSecondary }}>
+              style={{ color: activeTab === 'games' ? t.onPrimary : t.textSecondary }}>
               {i18n_t('events.tabs.games')}
             </Text>
           </AnimatedPressable>
@@ -229,7 +229,7 @@ export default function EventsScreen() {
             style={{ backgroundColor: activeTab === 'stadiums' ? t.primary : 'transparent' }}>
             <Text
               className="text-[14px] font-bold"
-              style={{ color: activeTab === 'stadiums' ? '#0F1923' : t.textSecondary }}>
+              style={{ color: activeTab === 'stadiums' ? t.onPrimary : t.textSecondary }}>
               {i18n_t('events.tabs.stadiums')}
             </Text>
           </AnimatedPressable>

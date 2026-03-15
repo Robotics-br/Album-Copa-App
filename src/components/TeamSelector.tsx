@@ -67,7 +67,7 @@ export default function TeamSelector() {
             {currentTeam && (
               <TouchableOpacity
                 onPress={clearFilter}
-                className="mr-2 h-8 w-8 items-center justify-center rounded-full bg-surface-light">
+                className="mr-2 h-8 w-8 items-center justify-center rounded-full bg-surface">
                 <X size={16} color={t.textSecondary} />
               </TouchableOpacity>
             )}
@@ -95,7 +95,7 @@ export default function TeamSelector() {
                 </Text>
                 <TouchableOpacity
                   onPress={() => setModalVisible(false)}
-                  className="h-10 w-10 items-center justify-center rounded-full border border-border bg-surface-light">
+                  className="h-10 w-10 items-center justify-center rounded-full border border-border bg-surface">
                   <X size={24} color={t.text} />
                 </TouchableOpacity>
               </View>
@@ -127,7 +127,7 @@ export default function TeamSelector() {
                   <TouchableOpacity
                     onPress={() => handleSelectTeam(null)}
                     className="bg-surface/30 flex-row items-center border-b border-border px-6 py-5">
-                    <View className="mr-5 h-11 w-11 items-center justify-center rounded-full border border-border bg-surface-light">
+                    <View className="mr-5 h-11 w-11 items-center justify-center rounded-full border border-border bg-surface">
                       <Text className="text-[22px]">🌎</Text>
                     </View>
                     <Text

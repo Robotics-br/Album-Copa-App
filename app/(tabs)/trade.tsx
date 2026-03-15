@@ -333,7 +333,7 @@ export default function TradeScreen() {
             shadowOpacity: 0.2,
             shadowRadius: 20,
           }}>
-          <QRCode value={qrPayload} size={width * 0.65} color="#0F1923" backgroundColor="white" />
+          <QRCode value={qrPayload} size={width * 0.65} backgroundColor="white" />
         </View>
 
         <View className="mt-8 items-center gap-3">
@@ -353,9 +353,9 @@ export default function TradeScreen() {
           className="mt-8 flex-row items-center gap-3 rounded-2xl px-12 py-4 shadow-sm"
           style={{ backgroundColor: t.primary, opacity: isExporting ? 0.7 : 1 }}>
           {isExporting ? (
-            <ActivityIndicator size="small" color="#0F1923" />
+            <ActivityIndicator size="small" color={t.onPrimary} />
           ) : (
-            <Text className="text-[17px] font-bold text-[#0F1923]">
+            <Text className="text-[17px] font-bold" style={{ color: t.onPrimary }}>
               {i18n_t('trade.export_btn')}
             </Text>
           )}
@@ -379,7 +379,9 @@ export default function TradeScreen() {
             onPress={requestPermission}
             className="rounded-xl px-6 py-3"
             style={{ backgroundColor: t.primary }}>
-            <Text className="font-bold text-[#0F1923]">{i18n_t('trade.scan_btn')}</Text>
+            <Text className="font-bold" style={{ color: t.onPrimary }}>
+              {i18n_t('trade.scan_btn')}
+            </Text>
           </AnimatedPressable>
         </View>
       );
@@ -455,7 +457,7 @@ export default function TradeScreen() {
                 setScannedMatches([]);
               }}
               className="mt-4 items-center rounded-xl px-6 py-4"
-              style={{ backgroundColor: t.surfaceLight, borderColor: t.border, borderTopWidth: 1 }}>
+              style={{ backgroundColor: t.surface, borderColor: t.border, borderTopWidth: 1 }}>
               <Text className="text-[15px] font-bold" style={{ color: t.text }}>
                 Escanear outro amigo
               </Text>
@@ -478,14 +480,14 @@ export default function TradeScreen() {
       </View>
 
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-2 mt-2">
-        <View className="flex-row items-center rounded-xl border border-border bg-surface-light p-1">
+        <View className="flex-row items-center rounded-xl border border-border bg-surface p-1">
           <AnimatedPressable
             onPress={() => setActiveTab('share')}
             className="flex-1 items-center justify-center rounded-lg py-2.5"
             style={{ backgroundColor: activeTab === 'share' ? t.primary : 'transparent' }}>
             <Text
               className="text-[14px] font-bold"
-              style={{ color: activeTab === 'share' ? '#0F1923' : t.textSecondary }}>
+              style={{ color: activeTab === 'share' ? t.onPrimary : t.textSecondary }}>
               {i18n_t('trade.tabs.share')}
             </Text>
           </AnimatedPressable>
@@ -495,7 +497,7 @@ export default function TradeScreen() {
             style={{ backgroundColor: activeTab === 'scan' ? t.primary : 'transparent' }}>
             <Text
               className="text-[14px] font-bold"
-              style={{ color: activeTab === 'scan' ? '#0F1923' : t.textSecondary }}>
+              style={{ color: activeTab === 'scan' ? t.onPrimary : t.textSecondary }}>
               {i18n_t('trade.tabs.scan')}
             </Text>
           </AnimatedPressable>

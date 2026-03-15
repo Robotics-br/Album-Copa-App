@@ -30,7 +30,7 @@ export default function StadiumCard({
       <View className="flex-row gap-3 p-3">
         <Pressable
           onPress={() => !imgError && onImagePress(stadium)}
-          className="h-16 w-[95px] items-center justify-center overflow-hidden rounded-lg border border-border bg-surface-light active:opacity-80">
+          className="h-16 w-[95px] items-center justify-center overflow-hidden rounded-lg border border-border bg-surface active:opacity-80">
           {!imgError ? (
             <>
               <Image
@@ -48,7 +48,7 @@ export default function StadiumCard({
                 }}
               />
               {loading && (
-                <View className="absolute inset-0 items-center justify-center bg-surface-light">
+                <View className="absolute inset-0 items-center justify-center bg-surface">
                   <ActivityIndicator size="small" color={t.primary} />
                 </View>
               )}
@@ -100,7 +100,7 @@ export default function StadiumCard({
       {expanded && hasDescription && (
         <Animated.View
           entering={FadeInDown.duration(300)}
-          className="border-border/10 bg-surface-light/30 border-t px-4 pb-4 pt-2">
+          className="border-border/10 bg-surface/30 border-t px-4 pb-4 pt-2">
           <Text className="text-[12px] leading-[18px] text-text-secondary">{translatedDesc}</Text>
         </Animated.View>
       )}

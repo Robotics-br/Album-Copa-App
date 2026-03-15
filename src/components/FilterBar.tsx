@@ -33,11 +33,11 @@ export default function FilterBar() {
               setFilter(key);
             }}
             className={`rounded-full border px-3.5 py-1.5 ${
-              active ? 'border-primary bg-primary' : 'border-border bg-surface-light'
+              active ? 'border-primary bg-primary' : 'border-border bg-surface'
             }`}>
             <Text
               className={`text-[13px] ${
-                active ? 'font-bold text-[#0F1923]' : 'font-medium text-text-secondary'
+                active ? 'text-on-primary font-bold' : 'font-medium text-text-secondary'
               }`}>
               {i18n_t(labelKey)}
             </Text>

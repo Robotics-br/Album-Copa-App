@@ -75,7 +75,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
               onClose();
             }}
             scaleDown={0.85}
-            className="absolute right-4 top-4 h-8 w-8 items-center justify-center rounded-full border-2 border-border bg-surface-light">
+            className="absolute right-4 top-4 h-8 w-8 items-center justify-center rounded-full border-2 border-border bg-surface">
             <X size={20} color={t.textSecondary} />
           </AnimatedPressable>
 
@@ -106,7 +106,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                 setDuplicates(Math.max(0, duplicates - 1));
               }}
               scaleDown={0.88}
-              className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface-light">
+              className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface">
               <Minus size={22} color={t.primary} />
             </AnimatedPressable>
             <Text className="text-primary min-w-[60px] text-center text-[32px] font-bold">
@@ -118,7 +118,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                 setDuplicates(duplicates + 1);
               }}
               scaleDown={0.88}
-              className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface-light">
+              className="h-[52px] w-[52px] items-center justify-center rounded-full border-2 border-border bg-surface">
               <Plus size={22} color={t.primary} />
             </AnimatedPressable>
           </View>
@@ -134,12 +134,12 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                 scaleDown={0.88}
                 className="h-11 w-11 items-center justify-center rounded-xl border-2"
                 style={{
-                  backgroundColor: duplicates === n ? t.primary : t.surfaceLight,
+                  backgroundColor: duplicates === n ? t.primary : t.surface,
                   borderColor: duplicates === n ? t.primary : t.border,
                 }}>
                 <Text
                   className="text-[15px] font-semibold"
-                  style={{ color: duplicates === n ? '#0F1923' : t.textSecondary }}>
+                  style={{ color: duplicates === n ? t.onPrimary : t.textSecondary }}>
                   {n}
                 </Text>
               </AnimatedPressable>
@@ -149,7 +149,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
           <AnimatedPressable
             onPress={handleSave}
             className="bg-primary mb-3 items-center rounded-xl py-3.5">
-            <Text className="text-[15px] font-bold text-[#0F1923]">
+            <Text className="text-on-primary text-[15px] font-bold">
               {i18n_t('stickerModal.saveRepeated')}
             </Text>
           </AnimatedPressable>

@@ -3,11 +3,11 @@ import type { ThemeStyle } from '../types';
 export interface ThemeColors {
   bg: string;
   surface: string;
-  surfaceLight: string;
   text: string;
   textSecondary: string;
   border: string;
   primary: string;
+  onPrimary: string;
   owned: string;
   duplicate: string;
   accent: string;
@@ -18,7 +18,6 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
   'original-dark': {
     bg: '#000000',
     surface: '#111111',
-    surfaceLight: '#1C1C1E',
     text: '#FFFFFF',
     textSecondary: '#8E8E93',
     border: '#2C2C2E',
@@ -27,13 +26,13 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     duplicate: '#FFCC00',
 
     primary: '#FFCC00',
+    onPrimary: '#0F1923',
     accent: '#E31A1C',
     statusBar: 'light',
   },
   'original-light': {
-    bg: '#FFFFFF',
-    surface: '#f5f5f5',
-    surfaceLight: '#FFFFFF',
+    bg: '#f5f5f5',
+    surface: '#ffffff',
     text: '#000000',
     textSecondary: '#71717A',
     border: '#E4E4E7',
@@ -41,18 +40,19 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     owned: '#00B14F',
     duplicate: '#FFCC00',
 
-    primary: '#FFCC00',
+    primary: '#304ffe',
+    onPrimary: '#ffffff',
     accent: '#E31A1C',
     statusBar: 'dark',
   },
   minecraft: {
     bg: '#87a557',
     surface: '#c4b896',
-    surfaceLight: '#d4c9a8',
     text: '#2d2a26',
     textSecondary: '#5c5346',
     border: '#8b7355',
     primary: '#7cb342',
+    onPrimary: '#0F1923',
     owned: '#558b2f',
     duplicate: '#ff8f00',
     accent: '#f57c00',
@@ -61,11 +61,11 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
   fortnite: {
     bg: '#1e1b4b',
     surface: '#312e81',
-    surfaceLight: '#4338ca',
     text: '#e0e7ff',
     textSecondary: '#a5b4fc',
     border: '#4f46e5',
     primary: '#c4b5fd',
+    onPrimary: '#0F1923',
     owned: '#34d399',
     duplicate: '#f472b6',
     accent: '#f472b6',
@@ -74,11 +74,11 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
   mario: {
     bg: '#fef3c7',
     surface: '#ffffff',
-    surfaceLight: '#fef9c3',
     text: '#1f2937',
     textSecondary: '#92400e',
     border: '#f59e0b',
     primary: '#dc2626',
+    onPrimary: '#0F1923',
     owned: '#16a34a',
     duplicate: '#2563eb',
     accent: '#dc2626',
@@ -87,11 +87,11 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
   gta: {
     bg: '#0f172a',
     surface: '#1e293b',
-    surfaceLight: '#334155',
     text: '#f1f5f9',
     textSecondary: '#94a3b8',
     border: '#475569',
     primary: '#ec4899',
+    onPrimary: '#0F1923',
     owned: '#06b6d4',
     duplicate: '#ec4899',
     accent: '#ec4899',
@@ -100,11 +100,11 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
   freefire: {
     bg: '#1c1917',
     surface: '#292524',
-    surfaceLight: '#44403c',
     text: '#fafaf9',
     textSecondary: '#a8a29e',
     border: '#57534e',
     primary: '#ea580c',
+    onPrimary: '#0F1923',
     owned: '#22c55e',
     duplicate: '#f97316',
     accent: '#f97316',
@@ -113,11 +113,11 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
   genshin: {
     bg: '#1e1b4b',
     surface: '#312e81',
-    surfaceLight: '#4338ca',
     text: '#e0e7ff',
     textSecondary: '#a5b4fc',
     border: '#6366f1',
     primary: '#c084fc',
+    onPrimary: '#0F1923',
     owned: '#2dd4bf',
     duplicate: '#f0abfc',
     accent: '#c084fc',
@@ -126,11 +126,11 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
   roblox: {
     bg: '#ecfdf5',
     surface: '#ffffff',
-    surfaceLight: '#d1fae5',
     text: '#064e3b',
     textSecondary: '#047857',
     border: '#10b981',
     primary: '#059669',
+    onPrimary: '#0F1923',
     owned: '#10b981',
     duplicate: '#f59e0b',
     accent: '#059669',
@@ -139,11 +139,11 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
   lego: {
     bg: '#fef3c7',
     surface: '#ffffff',
-    surfaceLight: '#fef9c3',
     text: '#1f2937',
     textSecondary: '#b45309',
     border: '#f59e0b',
     primary: '#dc2626',
+    onPrimary: '#0F1923',
     owned: '#16a34a',
     duplicate: '#2563eb',
     accent: '#dc2626',

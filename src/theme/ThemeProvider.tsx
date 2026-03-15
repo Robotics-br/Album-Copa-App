@@ -16,11 +16,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       vars({
         '--theme-bg': colors.bg,
         '--theme-surface': colors.surface,
-        '--theme-surfaceLight': colors.surfaceLight,
         '--theme-border': colors.border,
         '--theme-text': colors.text,
         '--theme-textSecondary': colors.textSecondary,
         '--theme-primary': colors.primary,
+        '--theme-onPrimary': colors.onPrimary,
         '--theme-accent': colors.accent,
         '--theme-owned': colors.owned,
         '--theme-duplicate': colors.duplicate,

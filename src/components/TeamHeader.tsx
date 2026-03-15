@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { View } from 'react-native';
 import { AppText as Text } from './ui/AppText';
-import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { teamMap, getStickersByTeam } from '../data/teams';
 import { useTranslation } from 'react-i18next';
@@ -37,7 +36,7 @@ const TeamHeader = ({ sectionId, totalCount }: TeamHeaderProps) => {
           {team ? i18n_t(`teams.${team.id}`) : ''}
         </Text>
       </View>
-      <View className="rounded-md border border-border bg-surface-light px-2 py-0.5">
+      <View className="rounded-md border border-border bg-surface px-2 py-0.5">
         <Text className="text-primary text-[11px] font-extrabold">
           {ownedCount} / {totalCount}
         </Text>
