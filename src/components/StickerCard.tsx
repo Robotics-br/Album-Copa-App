@@ -210,7 +210,7 @@ function StickerCard({
       <View className="z-10 w-full items-center">
         <Text
           numberOfLines={1}
-          style={{ color: status === 'missing' ? t.textSecondary : t.ownedStickerTextColor }}
+          style={{ color: textColor }}
           className="text-center text-[10px] font-semibold">
           {sticker.name.startsWith('Escudo ')
             ? `${i18n_t('stickers.badge')} ${i18n_t(`teams.${sticker.section}`)}`

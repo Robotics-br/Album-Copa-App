@@ -62,6 +62,7 @@ const StickerCardLight = ({
 
   const borderColor = status === 'missing' ? `${t.missingStickerBorder}80` : `${t.owned}80`;
   const backgroundColor = status === 'missing' ? t.missingStickerBg : t.owned;
+  const textColor = status === 'missing' ? t.textSecondary : t.ownedStickerTextColor;
 
   return (
     <Pressable
@@ -87,22 +88,30 @@ const StickerCardLight = ({
       />
       <View className="z-10 w-full flex-row items-center justify-between">
         <Text className="text-[14px]">{flag}</Text>
-        {qty === 1 && <Text className="text-[10px] text-primary">★</Text>}
-        {qty > 1 && <Text className="text-[11px] font-black text-primary">+{qty - 1}</Text>}
+        {qty === 1 && (
+          <Text style={{ color: t.ownedStickerTextColor }} className="text-[10px]">
+            ★
+          </Text>
+        )}
+        {qty > 1 && (
+          <Text style={{ color: t.ownedStickerTextColor }} className="text-[11px] font-black">
+            +{qty - 1}
+          </Text>
+        )}
       </View>
 
       <View className="absolute inset-0 z-0 items-center justify-center pb-2">
         {status === 'missing' ? (
           <UserRoundPlus color={t.textSecondary} size={20} />
         ) : (
-          <Check color={t.text} size={20} />
+          <Check color={t.ownedStickerTextColor} size={20} />
         )}
       </View>
 
       <View className="z-10 w-full items-center">
         <Text
           numberOfLines={1}
-          style={{ color: status === 'missing' ? t.textSecondary : t.text }}
+          style={{ color: textColor }}
           className="text-center text-[10px] font-semibold">
           {sticker.name.startsWith('Escudo ')
             ? `${i18n_t('stickers.badge')} ${i18n_t(`teams.${sticker.section}`)}`
@@ -110,7 +119,9 @@ const StickerCardLight = ({
               ? `${i18n_t('stickers.team')} ${i18n_t(`teams.${sticker.section}`)}`
               : sticker.name}
         </Text>
-        <Text className="text-[8px] font-bold text-primary">{sticker.code}</Text>
+        <Text style={{ color: textColor }} className="text-[8px] font-bold">
+          {sticker.code}
+        </Text>
       </View>
     </Pressable>
   );
