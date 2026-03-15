@@ -24,7 +24,7 @@ function TeamTab({ item }: { item: Team }) {
       className="mr-1.5 min-w-[56px] items-center rounded-xl border-2 px-3 py-2"
       style={{
         borderColor: active ? t.primary : t.border,
-        backgroundColor: active ? `${t.primary}18` : t.surfaceLight,
+        backgroundColor: active ? `${t.primary}18` : t.surface,
       }}>
       <Text className="text-[22px]">{item.flag}</Text>
       <Text

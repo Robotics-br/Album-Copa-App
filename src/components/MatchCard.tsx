@@ -28,10 +28,10 @@ export default function MatchCard({ match }: { match: Match }) {
         </Text>
       </View>
       <View className="flex-row items-center gap-2">
-        <Text className="text-[13px] font-semibold italic text-primary">
+        <Text className="text-primary text-[13px] font-semibold italic">
           {i18n_t('matchCard.day', { date: formatDate(match.date) })}
         </Text>
-        <Text className="text-[13px] font-semibold text-primary">
+        <Text className="text-primary text-[13px] font-semibold">
           {i18n_t('matchCard.at', { time: match.time })}
         </Text>
       </View>

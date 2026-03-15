@@ -27,7 +27,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
 
     primary: '#FFCC00',
     onPrimary: '#0F1923',
-    accent: '#E31A1C',
+    accent: '#D70104',
     statusBar: 'light',
   },
   'original-light': {
@@ -42,7 +42,7 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
 
     primary: '#304ffe',
     onPrimary: '#ffffff',
-    accent: '#E31A1C',
+    accent: '#D70104',
     statusBar: 'dark',
   },
   minecraft: {

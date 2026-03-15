@@ -57,7 +57,7 @@ export default function SettingsScreen() {
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-primary">{t('settings.title')}</Text>
+        <Text className="text-primary text-[18px] font-bold uppercase">{t('settings.title')}</Text>
         <Text className="text-[13px] text-text-secondary">{t('settings.subtitle')}</Text>
       </View>
 
@@ -82,7 +82,7 @@ export default function SettingsScreen() {
                   className="w-[47%] items-center rounded-xl border-2 px-2 py-2.5"
                   style={{
                     borderColor: active ? theme.primary : theme.border,
-                    backgroundColor: active ? `${theme.primary}25` : theme.surfaceLight,
+                    backgroundColor: active ? `${theme.primary}25` : theme.surface,
                   }}>
                   <Text
                     className="text-[12px] font-semibold"

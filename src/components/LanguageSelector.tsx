@@ -82,7 +82,7 @@ export default function LanguageSelector({ currentLanguage, onSelect }: Language
                       }}
                       className="flex-row items-center justify-between rounded-2xl px-5 py-4"
                       style={{
-                        backgroundColor: active ? `${theme.primary}20` : theme.surfaceLight,
+                        backgroundColor: active ? `${theme.primary}20` : theme.surface,
                         borderWidth: 1.5,
                         borderColor: active ? theme.primary : 'transparent',
                       }}>

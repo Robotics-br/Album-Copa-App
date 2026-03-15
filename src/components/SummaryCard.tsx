@@ -109,7 +109,7 @@ function SummaryCard() {
             <View className="flex-1">
               <ProgressBar percent={pct} height={8} />
             </View>
-            <Text className="min-w-[36px] text-right text-[14px] font-extrabold text-primary">
+            <Text className="text-primary min-w-[36px] text-right text-[14px] font-extrabold">
               {pct}%
             </Text>
           </View>
