@@ -43,8 +43,8 @@ export default function ProgressRing({ percent, size = 140, strokeWidth = 6 }: P
           origin={`${size / 2}, ${size / 2}`}
         />
       </Svg>
-      <Text className="text-[32px] font-extrabold text-primary">{percent}%</Text>
-      <Text className="mt-0.5 text-[11px] text-text-secondary">
+      <Text className="text-[24px] font-extrabold text-primary">{percent}%</Text>
+      <Text className="mt-0.5 text-[10px] text-text-secondary">
         {i18n_t('components.progressRing.complete')}
       </Text>
     </View>

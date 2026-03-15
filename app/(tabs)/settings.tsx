@@ -10,20 +10,14 @@ import { useCollectionStore } from '../../src/store/useCollectionStore';
 import Toggle from '../../src/components/ui/Toggle';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import type { ThemeStyle } from '../../src/types';
-import { HORIZONTAL_PADDING } from '../../src/utils/consts';
+import ScreenHeader from '../../src/components/ScreenHeader';
 import LanguageSelector from '../../src/components/LanguageSelector';
 
 const styleOptions: { id: ThemeStyle; labelKey: string }[] = [
   { id: 'original-dark', labelKey: 'settings.themes.original-dark' },
   { id: 'original-light', labelKey: 'settings.themes.original-light' },
-  { id: 'minecraft', labelKey: 'settings.themes.minecraft' },
-  { id: 'fortnite', labelKey: 'settings.themes.fortnite' },
-  { id: 'mario', labelKey: 'settings.themes.mario' },
-  { id: 'gta', labelKey: 'settings.themes.gta' },
-  { id: 'freefire', labelKey: 'settings.themes.freefire' },
-  { id: 'genshin', labelKey: 'settings.themes.genshin' },
-  { id: 'roblox', labelKey: 'settings.themes.roblox' },
-  { id: 'lego', labelKey: 'settings.themes.lego' },
+  { id: 'neon', labelKey: 'settings.themes.neon' },
+  { id: 'pink', labelKey: 'settings.themes.pink' },
 ];
 export default function SettingsScreen() {
   const theme = useTheme();
@@ -56,10 +50,7 @@ export default function SettingsScreen() {
 
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-primary">{t('settings.title')}</Text>
-        <Text className="text-[13px] text-text-secondary">{t('settings.subtitle')}</Text>
-      </View>
+      <ScreenHeader titleKey="settings.title" />
 
       <ScrollView
         className="flex-1"

@@ -17,17 +17,7 @@ export interface UserCollection {
   [stickerCode: string]: number;
 }
 
-export type ThemeStyle =
-  | 'original-dark'
-  | 'original-light'
-  | 'minecraft'
-  | 'fortnite'
-  | 'mario'
-  | 'gta'
-  | 'freefire'
-  | 'genshin'
-  | 'roblox'
-  | 'lego';
+export type ThemeStyle = 'original-dark' | 'original-light' | 'neon' | 'pink';
 
 export interface AppSettings {
   seniorMode: boolean;

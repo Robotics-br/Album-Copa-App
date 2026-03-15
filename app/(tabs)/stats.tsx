@@ -7,7 +7,7 @@ import { teams, stickers, totalStickers, getStickersByTeam } from '../../src/dat
 import ProgressRing from '../../src/components/ui/ProgressRing';
 import ProgressBar from '../../src/components/ui/ProgressBar';
 import { useTranslation } from 'react-i18next';
-import { HORIZONTAL_PADDING } from '../../src/utils/consts';
+import ScreenHeader from '../../src/components/ScreenHeader';
 
 export default function StatsScreen() {
   const { t: i18n_t } = useTranslation();
@@ -36,19 +36,14 @@ export default function StatsScreen() {
 
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-primary">
-          {i18n_t('stats.title')}
-        </Text>
-        <Text className="text-[13px] text-text-secondary">{i18n_t('stats.subtitle')}</Text>
-      </View>
+      <ScreenHeader titleKey="stats.title" />
 
       <ScrollView
         className="flex-1"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ padding: 16, gap: 16 }}>
-        <View className="items-center py-4">
-          <ProgressRing percent={stats.pct} />
+        <View className="items-center py-2">
+          <ProgressRing percent={stats.pct} size={110} />
         </View>
 
         <View className="flex-row gap-2.5">
@@ -59,9 +54,9 @@ export default function StatsScreen() {
           ].map(({ label, value }) => (
             <View
               key={label}
-              className="flex-1 items-center rounded-xl border border-border bg-surface p-4">
-              <Text className="text-[24px] font-extrabold text-primary">{value}</Text>
-              <Text className="mt-0.5 text-[11px] text-text-secondary">{label}</Text>
+              className="flex-1 items-center rounded-xl border border-border bg-surface py-2.5">
+              <Text className="text-[20px] font-extrabold text-primary">{value}</Text>
+              <Text className="mt-0.5 text-[10px] text-text-secondary">{label}</Text>
             </View>
           ))}
         </View>

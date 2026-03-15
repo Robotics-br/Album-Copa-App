@@ -9,6 +9,7 @@ import { teams, stickers, totalStickers, getStickersByTeam } from '../../src/dat
 import ProgressBar from '../../src/components/ui/ProgressBar';
 import { useTranslation, Trans } from 'react-i18next';
 import type { Team, Sticker } from '../../src/types';
+import ScreenHeader from '../../src/components/ScreenHeader';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 const COLUMNS = 7;
@@ -144,12 +145,7 @@ export default function GeneralScreen() {
 
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-primary">
-          {i18n_t('general.title')}
-        </Text>
-        <Text className="text-[13px] text-text-secondary">{i18n_t('general.subtitle')}</Text>
-      </View>
+      <ScreenHeader titleKey="general.title" />
 
       <FlashList
         data={listData}

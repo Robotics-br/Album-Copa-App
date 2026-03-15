@@ -50,7 +50,7 @@ export default function TeamSelector() {
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }}>
         <AnimatedPressable
           onPress={() => setModalVisible(true)}
-          className="flex-row items-center justify-between rounded-xl border border-border bg-surface px-4 py-3">
+          className="flex-row items-center justify-between rounded-xl border border-border bg-surface px-4 py-2">
           <View className="flex-1 flex-row items-center">
             <Text className="mr-3 text-[20px]">{selectedTeam ? selectedTeam.flag : '🌎'}</Text>
             <View className="flex-1">

@@ -27,6 +27,8 @@ import { getStickerByCode, getTeamById, teams, getStickersByTeam } from '../../s
 import { FlashList } from '@shopify/flash-list';
 import type { Team, Sticker } from '../../src/types';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
+import ScreenHeader from '../../src/components/ScreenHeader';
+import { compressDuplicates, decompressDuplicates } from '../../src/utils/qrCompression';
 import { AppText as Text } from '../../src/components/ui/AppText';
 
 type TradeTab = 'share' | 'scan';
@@ -50,7 +52,7 @@ export default function TradeScreen() {
   useFocusEffect(
     useCallback(() => {
       const duplicates = useCollectionStore.getState().getDuplicatesList();
-      setQrPayload(JSON.stringify(duplicates));
+      setQrPayload(compressDuplicates(duplicates));
     }, [])
   );
 
@@ -59,8 +61,8 @@ export default function TradeScreen() {
     setHasScanned(true);
 
     try {
-      const scannedCodes: string[] = JSON.parse(data);
-      if (Array.isArray(scannedCodes)) {
+      const scannedCodes = decompressDuplicates(data);
+      if (scannedCodes.length > 0) {
         const usefulCodes = scannedCodes.filter((code) => getQuantity(code) === 0);
 
         const mappedStickers = usefulCodes
@@ -68,6 +70,8 @@ export default function TradeScreen() {
           .filter((s): s is Sticker => s !== undefined);
 
         setScannedMatches(mappedStickers);
+      } else {
+        setScannedMatches([]);
       }
     } catch {
       console.log('Invalid QR Code');
@@ -472,12 +476,7 @@ export default function TradeScreen() {
 
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-primary">
-          {i18n_t('trade.title')}
-        </Text>
-        <Text className="text-[13px] text-text-secondary">{i18n_t('trade.subtitle')}</Text>
-      </View>
+      <ScreenHeader titleKey="trade.title" />
 
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-2 mt-2">
         <View className="flex-row items-center rounded-xl border border-border bg-surface p-1">

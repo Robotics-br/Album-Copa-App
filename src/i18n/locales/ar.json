@@ -7,14 +7,8 @@
     "themes": {
       "original-dark": "أصلي داكن",
       "original-light": "أصلي فاتح",
-      "minecraft": "ماين كرافت",
-      "fortnite": "فورت نايت",
-      "mario": "ماريو",
-      "gta": "GTA",
-      "freefire": "فري فاير",
-      "genshin": "جينشين إمباكت",
-      "roblox": "روبلوكس",
-      "lego": "ليغو"
+      "neon": "نيون",
+      "pink": "وردي"
     },
     "accessibility": "سهولة الوصول",
     "seniorMode": "وضع الكبار",

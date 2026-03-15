@@ -7,14 +7,8 @@
     "themes": {
       "original-dark": "オリジナル・ダーク",
       "original-light": "オリジナル・ライト",
-      "minecraft": "マインクラフト",
-      "fortnite": "フォートナイト",
-      "mario": "マリオ",
-      "gta": "GTA",
-      "freefire": "フリー・ファイア",
-      "genshin": "原神",
-      "roblox": "ロブロックス",
-      "lego": "レゴ"
+      "neon": "ネオン",
+      "pink": "ピンク"
     },
     "accessibility": "アクセシビリティ",
     "seniorMode": "シニアモード",

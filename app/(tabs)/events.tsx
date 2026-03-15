@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import type { Stadium } from '../../src/data/stadiums';
 
+import ScreenHeader from '../../src/components/ScreenHeader';
 import { teams } from '../../src/data/teams';
 import {
   matches,
@@ -204,12 +205,7 @@ export default function EventsScreen() {
 
   return (
     <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="py-2">
-        <Text className="text-[18px] font-bold uppercase text-primary">
-          {i18n_t('events.title')}
-        </Text>
-        <Text className="text-[13px] text-text-secondary">{i18n_t('events.subtitle')}</Text>
-      </View>
+      <ScreenHeader titleKey="events.title" />
 
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-3">
         <View className="flex-row items-center rounded-xl border border-border bg-surface p-1">

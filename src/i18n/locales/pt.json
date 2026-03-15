@@ -7,14 +7,8 @@
     "themes": {
       "original-dark": "Original escuro",
       "original-light": "Original claro",
-      "minecraft": "Minecraft",
-      "fortnite": "Fortnite",
-      "mario": "Mario",
-      "gta": "GTA",
-      "freefire": "Free Fire",
-      "genshin": "Genshin Impact",
-      "roblox": "Roblox",
-      "lego": "Lego"
+      "neon": "Neon",
+      "pink": "Rosa"
     },
     "accessibility": "Acessibilidade",
     "seniorMode": "Modo Sênior",
