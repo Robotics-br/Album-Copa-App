@@ -3,7 +3,6 @@ import { Pressable, type PressableProps, type ViewStyle, type StyleProp } from '
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
-  withSpring,
   withTiming,
   Easing,
 } from 'react-native-reanimated';

@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-import { useTheme } from '../../theme/ThemeProvider';
 
 interface ProgressBarProps {
   percent: number;
@@ -8,8 +7,6 @@ interface ProgressBarProps {
 }
 
 export default function ProgressBar({ percent, height = 8 }: ProgressBarProps) {
-  const t = useTheme();
-
   return (
     <View
       className="overflow-hidden rounded-full border border-border bg-surface-light"

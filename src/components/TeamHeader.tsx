@@ -13,7 +13,6 @@ interface TeamHeaderProps {
 }
 
 const TeamHeader = ({ sectionId, totalCount }: TeamHeaderProps) => {
-  const t = useTheme();
   const { t: i18n_t } = useTranslation();
 
   const ownedCount = useCollectionStore(

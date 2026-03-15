@@ -130,6 +130,7 @@ export default function GeneralScreen() {
         </View>
       );
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [t, collection, ownedCount, pct]
   );
 
