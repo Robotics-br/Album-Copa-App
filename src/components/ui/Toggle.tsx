@@ -15,6 +15,7 @@ export default function Toggle({ value, onValueChange }: ToggleProps) {
       value={value}
       onValueChange={onValueChange}
       trackColor={{ false: t.border, true: t.owned }}
+      ios_backgroundColor={t.border}
       thumbColor="#fff"
     />
   );
