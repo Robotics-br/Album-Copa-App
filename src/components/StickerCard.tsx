@@ -154,10 +154,11 @@ function StickerCard({
   return (
     <AnimatedPressable
       onPress={handlePress}
-      className={`${seniorModeEnabled ? `h-[${ALBUM_STICKER_HEIGHT_SENIOR}px]` : `h-[${ALBUM_STICKER_HEIGHT}px]`} items-center justify-between rounded-lg p-1.5`}
+      className="items-center justify-between rounded-lg p-1.5"
       style={[
         animatedStyle,
         {
+          height: seniorModeEnabled ? ALBUM_STICKER_HEIGHT_SENIOR : ALBUM_STICKER_HEIGHT,
           overflow: 'visible',
         },
       ]}>
