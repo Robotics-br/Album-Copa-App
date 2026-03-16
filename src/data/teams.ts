@@ -3,8 +3,8 @@ import type { Team, Sticker } from '../types';
 export const teams: Team[] = [
   // Grupo A
   { id: 'mex', name: 'México', flag: '🇲🇽', code: 'MEX' },
-  { id: 'afs', name: 'África do Sul', flag: '🇿🇦', code: 'AFS' },
-  { id: 'cds', name: 'Coreia do Sul', flag: '🇰🇷', code: 'CDS' },
+  { id: 'afs', name: 'África do Sul', flag: '🇿🇦', code: 'RSA' },
+  { id: 'cds', name: 'Coreia do Sul', flag: '🇰🇷', code: 'KOR' },
   { id: 'cze', name: 'Rep. Tcheca', flag: '🇨🇿', code: 'CZE' },
   // Grupo B
   { id: 'can', name: 'Canadá', flag: '🇨🇦', code: 'CAN' },
@@ -15,31 +15,31 @@ export const teams: Team[] = [
   { id: 'bra', name: 'Brasil', flag: '🇧🇷', code: 'BRA' },
   { id: 'mar', name: 'Marrocos', flag: '🇲🇦', code: 'MAR' },
   { id: 'hai', name: 'Haiti', flag: '🇭🇹', code: 'HAI' },
-  { id: 'esc', name: 'Escócia', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', code: 'ESC' },
+  { id: 'esc', name: 'Escócia', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', code: 'SCO' },
   // Grupo D
-  { id: 'eua', name: 'EUA', flag: '🇺🇸', code: 'EUA' },
+  { id: 'eua', name: 'EUA', flag: '🇺🇸', code: 'USA' },
   { id: 'par', name: 'Paraguai', flag: '🇵🇾', code: 'PAR' },
   { id: 'aus', name: 'Austrália', flag: '🇦🇺', code: 'AUS' },
   { id: 'tur', name: 'Turquia', flag: '🇹🇷', code: 'TUR' },
   // Grupo E
-  { id: 'ale', name: 'Alemanha', flag: '🇩🇪', code: 'ALE' },
+  { id: 'ale', name: 'Alemanha', flag: '🇩🇪', code: 'GER' },
   { id: 'cuw', name: 'Curaçao', flag: '🇨🇼', code: 'CUW' },
-  { id: 'cmf', name: 'Costa do Marfim', flag: '🇨🇮', code: 'CMF' },
+  { id: 'cmf', name: 'Costa do Marfim', flag: '🇨🇮', code: 'CIV' },
   { id: 'ecu', name: 'Equador', flag: '🇪🇨', code: 'ECU' },
   // Grupo F
-  { id: 'hol', name: 'Holanda', flag: '🇳🇱', code: 'HOL' },
-  { id: 'jap', name: 'Japão', flag: '🇯🇵', code: 'JAP' },
-  { id: 'ucr', name: 'Ucrânia', flag: '🇺🇦', code: 'UCR' },
+  { id: 'hol', name: 'Holanda', flag: '🇳🇱', code: 'NED' },
+  { id: 'jap', name: 'Japão', flag: '🇯🇵', code: 'JPN' },
+  { id: 'ucr', name: 'Ucrânia', flag: '🇺🇦', code: 'UKR' },
   { id: 'tun', name: 'Tunísia', flag: '🇹🇳', code: 'TUN' },
   // Grupo G
   { id: 'bel', name: 'Bélgica', flag: '🇧🇪', code: 'BEL' },
-  { id: 'egi', name: 'Egito', flag: '🇪🇬', code: 'EGI' },
-  { id: 'ira', name: 'Irã', flag: '🇮🇷', code: 'IRA' },
+  { id: 'egi', name: 'Egito', flag: '🇪🇬', code: 'EGY' },
+  { id: 'ira', name: 'Irã', flag: '🇮🇷', code: 'IRN' },
   { id: 'nzl', name: 'Nova Zelândia', flag: '🇳🇿', code: 'NZL' },
   // Grupo H
   { id: 'esp', name: 'Espanha', flag: '🇪🇸', code: 'ESP' },
   { id: 'cpv', name: 'Cabo Verde', flag: '🇨🇻', code: 'CPV' },
-  { id: 'ars', name: 'Arábia Saudita', flag: '🇸🇦', code: 'ARS' },
+  { id: 'ars', name: 'Arábia Saudita', flag: '🇸🇦', code: 'KSA' },
   { id: 'uru', name: 'Uruguai', flag: '🇺🇾', code: 'URU' },
   // Grupo I
   { id: 'fra', name: 'França', flag: '🇫🇷', code: 'FRA' },
@@ -53,11 +53,11 @@ export const teams: Team[] = [
   { id: 'jor', name: 'Jordânia', flag: '🇯🇴', code: 'JOR' },
   // Grupo K
   { id: 'por', name: 'Portugal', flag: '🇵🇹', code: 'POR' },
-  { id: 'rdc', name: 'RD Congo', flag: '🇨🇩', code: 'RDC' },
+  { id: 'rdc', name: 'RD Congo', flag: '🇨🇩', code: 'COD' },
   { id: 'uzb', name: 'Uzbequistão', flag: '🇺🇿', code: 'UZB' },
   { id: 'col', name: 'Colômbia', flag: '🇨🇴', code: 'COL' },
   // Grupo L
-  { id: 'ing', name: 'Inglaterra', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', code: 'ING' },
+  { id: 'ing', name: 'Inglaterra', flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿', code: 'ENG' },
   { id: 'cro', name: 'Croácia', flag: '🇭🇷', code: 'CRO' },
   { id: 'gha', name: 'Gana', flag: '🇬🇭', code: 'GHA' },
   { id: 'pan', name: 'Panamá', flag: '🇵🇦', code: 'PAN' },

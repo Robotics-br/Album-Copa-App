@@ -10,7 +10,7 @@ export const specials: Section = {
 export const stadiumSection: Section = {
   id: 'stadiums',
   icon: '🏟️',
-  code: 'STA',
+  code: 'FWC',
 };
 
 export const sections: Section[] = [
@@ -49,9 +49,14 @@ const stadiumStickersNames = [
   'BC Place',
 ];
 
-function generateSectionStickers(section: Section, names: string[], isShiny: boolean): Sticker[] {
+function generateSectionStickers(
+  section: Section,
+  names: string[],
+  isShiny: boolean,
+  startAt = 1
+): Sticker[] {
   return names.map((_, index) => ({
-    code: `${section.code}${index + 1}`,
+    code: `${section.code}${index + startAt}`,
     albumIndex: 0,
     name: `stickers.${section.id}.${index + 1}`,
     section: section.id,
@@ -60,7 +65,12 @@ function generateSectionStickers(section: Section, names: string[], isShiny: boo
 }
 
 const specialStickers = generateSectionStickers(specials, specialStickersNames, true);
-const stadiumStickers = generateSectionStickers(stadiumSection, stadiumStickersNames, false);
+const stadiumStickers = generateSectionStickers(
+  stadiumSection,
+  stadiumStickersNames,
+  false,
+  specialStickers.length + 1
+);
 
 export const stickers: Sticker[] = [...specialStickers, ...stadiumStickers, ...teamStickers].map(
   (s, i) => ({ ...s, albumIndex: i + 1 })
