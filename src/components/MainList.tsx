@@ -6,10 +6,8 @@ import { sections, getStickersBySection, sectionMap } from '../data/sections';
 import StickerCard from './StickerCard';
 import StickerCardLight from './StickerCardLight';
 import SectionHeader from './SectionHeader';
-import { HORIZONTAL_PADDING } from '../utils/consts';
+import { HORIZONTAL_PADDING, ALBUM_COLUMNS } from '../utils/consts';
 import type { Sticker } from '../types';
-
-const COLUMNS = 5;
 
 type SectionHeaderItem = { type: 'section-header'; sectionId: string; totalCount: number };
 type StickerRowItem = { type: 'sticker-row'; stickers: Sticker[] };
@@ -36,7 +34,7 @@ const StickerRow = memo(
     t,
     i18n_t,
   }: any) => {
-    const phantomCount = COLUMNS - item.stickers.length;
+    const phantomCount = ALBUM_COLUMNS - item.stickers.length;
 
     return (
       <View
@@ -142,7 +140,7 @@ export default function MainList({
         },
       ];
 
-      const rows = chunkArray(sectionStickers, COLUMNS).map((row) => ({
+      const rows = chunkArray(sectionStickers, ALBUM_COLUMNS).map((row) => ({
         type: 'sticker-row' as const,
         stickers: row,
       }));
@@ -166,7 +164,7 @@ export default function MainList({
         sectionId: section.id,
         totalCount: getStickersBySection(section.id).length,
       });
-      const rows = chunkArray(stickers, COLUMNS);
+      const rows = chunkArray(stickers, ALBUM_COLUMNS);
       for (const row of rows) {
         items.push({ type: 'sticker-row', stickers: row });
       }

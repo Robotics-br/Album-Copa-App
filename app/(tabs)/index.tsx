@@ -10,12 +10,11 @@ import { stickers as allStickers } from '../../src/data/sections';
 import MainHeader from '../../src/components/MainHeader';
 import StickerModal from '../../src/components/StickerModal';
 import { useTranslation } from 'react-i18next';
-import { HORIZONTAL_PADDING } from '../../src/utils/consts';
+import { HORIZONTAL_PADDING, ALBUM_COLUMNS } from '../../src/utils/consts';
 import MainList from '../../src/components/MainList';
 import ScreenHeader from '../../src/components/ScreenHeader';
 import type { Sticker } from '../../src/types';
 
-const COLUMNS = 5;
 const GAP = 6;
 
 function normalize(str: string): string {
@@ -31,7 +30,9 @@ export default function AlbumScreen() {
   const t = useTheme();
 
   const itemWidth = useMemo(() => {
-    return Math.floor((windowWidth - HORIZONTAL_PADDING * 2 - GAP * (COLUMNS - 1)) / COLUMNS);
+    return Math.floor(
+      (windowWidth - HORIZONTAL_PADDING * 2 - GAP * (ALBUM_COLUMNS - 1)) / ALBUM_COLUMNS
+    );
   }, [windowWidth]);
 
   const isHydrated = useCollectionStore((s) => s._hasHydrated);

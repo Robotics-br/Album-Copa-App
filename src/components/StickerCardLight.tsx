@@ -6,6 +6,8 @@ import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sou
 import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
+import { ALBUM_STICKER_HEIGHT, ALBUM_STICKER_HEIGHT_SENIOR } from '@/utils/consts';
+import { useSettingsStore } from '@/store/useSettingsStore';
 
 interface StickerCardLightProps {
   sticker: Sticker;
@@ -27,6 +29,8 @@ const StickerCardLight = ({
   soundEnabled,
 }: StickerCardLightProps) => {
   const qty = useCollectionStore((s) => s.collection[sticker.code] ?? 0);
+  const seniorModeEnabled = useSettingsStore((s) => s.seniorMode);
+
   const status = qty === 0 ? 'missing' : qty === 1 ? 'owned' : 'duplicate';
 
   const prevQty = useRef(qty);
@@ -66,7 +70,7 @@ const StickerCardLight = ({
   return (
     <Pressable
       onPress={handlePress}
-      className="h-[80px] items-center justify-between rounded-lg p-1.5"
+      className={`${seniorModeEnabled ? `h-[${ALBUM_STICKER_HEIGHT_SENIOR}px]` : `h-[${ALBUM_STICKER_HEIGHT}px]`} items-center justify-between rounded-lg p-1.5`}
       style={{
         backgroundColor: backgroundColor,
         overflow: 'visible',
