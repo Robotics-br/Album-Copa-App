@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { View, Modal, Pressable } from 'react-native';
+import { View, Modal, Pressable, Platform } from 'react-native';
 import { AppText as Text } from './ui/AppText';
 import { X, Minus, Plus } from 'lucide-react-native';
 import { useTranslation, Trans } from 'react-i18next';
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { getTeamById } from '../data/teams';
+import { getSectionById } from '../data/sections';
 import { lightTap, successNotification, errorNotification } from '../utils/haptics';
 import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sounds';
 import { useSettingsStore } from '../store/useSettingsStore';
@@ -33,7 +33,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
   }, [sticker, getQuantity]);
 
   if (!sticker) return null;
-  const team = getTeamById(sticker.section);
+  const section = getSectionById(sticker.section);
 
   const handleSave = () => {
     const currentTotal = getQuantity(sticker.code);
@@ -68,7 +68,12 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
         <Pressable
           onPress={(e) => e.stopPropagation()}
           className="rounded-t-[24px] border-t border-border bg-surface p-6"
-          style={{ paddingBottom: Math.max(24, 16 + insets.bottom) }}>
+          style={{
+            paddingBottom:
+              Platform.OS === 'ios'
+                ? Math.max(24, 16 + insets.bottom)
+                : Math.max(16, insets.bottom),
+          }}>
           <AnimatedPressable
             onPress={() => {
               lightTap();
@@ -80,13 +85,19 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
           </AnimatedPressable>
 
           <View className="mb-6 flex-row items-center gap-3">
-            <Text className="text-[32px]">{team?.flag}</Text>
+            <Text className="text-[32px]">{section?.icon}</Text>
             <View>
               <Text className="mb-1 text-[13px] font-bold uppercase text-primary">
-                {team ? i18n_t(`teams.${team.id}`) : ''}
+                {section
+                  ? i18n_t(
+                      section.id === 'special' || section.id === 'stadiums'
+                        ? `sections.${section.id}`
+                        : `teams.${section.id}`
+                    )
+                  : ''}
               </Text>
               <View className="flex-row items-center gap-2">
-                <Text className="text-[18px] font-bold text-text">{sticker.name}</Text>
+                <Text className="text-[18px] font-bold text-text">{i18n_t(sticker.name)}</Text>
                 <Text className="mt-2 text-[13px] text-text-secondary">· {sticker.code}</Text>
               </View>
             </View>

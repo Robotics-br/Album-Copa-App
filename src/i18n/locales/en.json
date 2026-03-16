@@ -47,7 +47,11 @@
     "stickers": "Stickers",
     "missing": "Missing",
     "repeated": "Repeated",
-    "progressByTeam": "Progress by Team"
+    "progressBySection": "Progress by Section"
+  },
+  "sections": {
+    "special": "Specials",
+    "stadiums": "Stadiums"
   },
   "stadiums": {
     "title": "2026 World Cup Stadiums",
@@ -146,10 +150,11 @@
     "mainHeader": {
       "search": "Search by Player or Code..."
     },
-    "teamSelector": {
-      "label": "Team",
-      "modalTitle": "Select Team",
-      "allTeams": "All Teams"
+    "sectionSelector": {
+      "label": "Section",
+      "modalTitle": "Select Section",
+      "search": "Search Section...",
+      "allSections": "All Sections"
     }
   },
   "teams": {
@@ -220,7 +225,12 @@
   "general": {
     "title": "OVERVIEW",
     "subtitle": "Control Panel",
-    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} stickers ({{pct}}%)"
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} stickers ({{pct}}%)",
+    "previous": "PREVIOUS",
+    "next": "NEXT"
+  },
+  "common": {
+    "loading": "Loading..."
   },
   "games": {
     "title": "All matches",
@@ -234,7 +244,35 @@
   },
   "stickers": {
     "badge": "Badge",
-    "team": "Team"
+    "team": "Team",
+    "special": {
+      "1": "FIFA Trophy",
+      "2": "Official Mascot",
+      "3": "Panini Logo",
+      "4": "Official Ball",
+      "5": "Fair Play Trophy",
+      "6": "Official Poster",
+      "7": "FIFA Flag",
+      "8": "2026 Cup Logo"
+    },
+    "stadiums": {
+      "1": "MetLife Stadium",
+      "2": "SoFi Stadium",
+      "3": "AT&T Stadium",
+      "4": "Hard Rock Stadium",
+      "5": "NRG Stadium",
+      "6": "Mercedes-Benz Stadium",
+      "7": "Lincoln Financial Field",
+      "8": "Lumen Field",
+      "9": "Gillette Stadium",
+      "10": "Arrowhead Stadium",
+      "11": "Levi's Stadium",
+      "12": "Azteca Stadium",
+      "13": "BBVA Stadium",
+      "14": "Akron Stadium",
+      "15": "BMO Field",
+      "16": "BC Place"
+    }
   },
   "events": {
     "title": "Events",
@@ -258,6 +296,7 @@
     "scan_btn": "Open Camera",
     "cam_permission": "We need camera permission to scan.",
     "export_btn": "Export Duplicates",
-    "pdf_title": "Duplicates List"
+    "pdf_title": "Duplicates List",
+    "scan_again": "Scan another friend"
   }
 }

@@ -113,11 +113,11 @@ const StickerCardLight = ({
           numberOfLines={1}
           style={{ color: textColor }}
           className="text-center text-[10px] font-semibold">
-          {sticker.name.startsWith('Escudo ')
+          {sticker.name === 'badge'
             ? `${i18n_t('stickers.badge')} ${i18n_t(`teams.${sticker.section}`)}`
-            : sticker.name.startsWith('Seleção ')
+            : sticker.name === 'team'
               ? `${i18n_t('stickers.team')} ${i18n_t(`teams.${sticker.section}`)}`
-              : sticker.name}
+              : i18n_t(sticker.name)}
         </Text>
         <Text style={{ color: textColor }} className="text-[8px] font-bold">
           {sticker.code}

@@ -23,9 +23,14 @@ import { themeMap } from '../../src/theme/themes';
 import { LOGO_BASE64 } from '../../src/utils/logo_base64';
 import StickerCard from '../../src/components/StickerCard';
 import StickerCardLight from '../../src/components/StickerCardLight';
-import { getStickerByCode, getTeamById, teams, getStickersByTeam } from '../../src/data/teams';
+import {
+  sections,
+  getStickerByCode,
+  getStickersBySection,
+  sectionMap,
+} from '../../src/data/sections';
 import { FlashList } from '@shopify/flash-list';
-import type { Team, Sticker } from '../../src/types';
+import type { Section, Sticker } from '../../src/types';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 import ScreenHeader from '../../src/components/ScreenHeader';
 import { compressDuplicates, decompressDuplicates } from '../../src/utils/qrCompression';
@@ -97,23 +102,23 @@ export default function TradeScreen() {
       const logoBase64 = LOGO_BASE64;
 
       const collection = useCollectionStore.getState().collection;
-      const teamsWithDuplicates = teams
-        .map((team: Team) => {
-          const teamStickers = getStickersByTeam(team.id);
-          const teamDuplicates = teamStickers
+      const sectionsWithDuplicates = sections
+        .map((section: Section) => {
+          const sectionStickers = getStickersBySection(section.id);
+          const sectionDuplicates = sectionStickers
             .filter((s: Sticker) => (collection[s.code] ?? 0) > 1)
             .map((s: Sticker) => ({ ...s, qty: (collection[s.code] ?? 0) - 1 }));
 
-          const teamOwned = teamStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
+          const sectionOwned = sectionStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
 
           return {
-            ...team,
-            duplicates: teamDuplicates,
-            owned: teamOwned,
-            total: teamStickers.length,
+            ...section,
+            duplicates: sectionDuplicates,
+            owned: sectionOwned,
+            total: sectionStickers.length,
           };
         })
-        .filter((t: any) => t.duplicates.length > 0);
+        .filter((s: any) => s.duplicates.length > 0);
 
       const STICKERS_PER_ROW = 10;
       const PAGE_MAX_HEIGHT = Platform.OS === 'android' ? 1030 : 900;
@@ -122,17 +127,17 @@ export default function TradeScreen() {
       let currentPage: any[] = [];
       let currentHeight = MAIN_HEADER_HEIGHT;
 
-      teamsWithDuplicates.forEach((team: any) => {
-        const rows = Math.ceil(team.duplicates.length / STICKERS_PER_ROW);
-        const teamHeight = 50 + rows * 65 + 20;
+      sectionsWithDuplicates.forEach((section: any) => {
+        const rows = Math.ceil(section.duplicates.length / STICKERS_PER_ROW);
+        const sectionHeight = 50 + rows * 65 + 20;
 
-        if (currentHeight + teamHeight > PAGE_MAX_HEIGHT && currentPage.length > 0) {
+        if (currentHeight + sectionHeight > PAGE_MAX_HEIGHT && currentPage.length > 0) {
           pages.push(currentPage);
-          currentPage = [team];
-          currentHeight = MAIN_HEADER_HEIGHT + teamHeight;
+          currentPage = [section];
+          currentHeight = MAIN_HEADER_HEIGHT + sectionHeight;
         } else {
-          currentPage.push(team);
-          currentHeight += teamHeight;
+          currentPage.push(section);
+          currentHeight += sectionHeight;
         }
       });
 
@@ -154,10 +159,10 @@ export default function TradeScreen() {
       };
 
       const pagesHtml = pages
-        .map((pageTeams: any[]) => {
-          const pageContent = pageTeams
-            .map((team: any) => {
-              const gridHtml = team.duplicates
+        .map((pageSections: any[]) => {
+          const pageContent = pageSections
+            .map((section: any) => {
+              const gridHtml = section.duplicates
                 .map(
                   (s: any) => `
             <div class="sticker-box">
@@ -168,12 +173,15 @@ export default function TradeScreen() {
                 )
                 .join('');
 
+              const isSpecial = section.id === 'special' || section.id === 'stadiums';
+              const nameKey = isSpecial ? `sections.${section.id}` : `teams.${section.id}`;
+
               return `
           <div class="team-section">
             <div class="team-header">
-              <span class="flag">${team.flag}</span>
-              <span class="team-name">${i18n_t(`teams.${team.id}`)}</span>
-              <span class="team-count">${team.owned}/${team.total}</span>
+              <span class="flag">${section.icon}</span>
+              <span class="team-name">${i18n_t(nameKey)}</span>
+              <span class="team-count">${section.owned}/${section.total}</span>
             </div>
             <div class="grid">
               ${gridHtml}
@@ -430,13 +438,13 @@ export default function TradeScreen() {
                   numColumns={5}
                   ItemSeparatorComponent={() => <View className="h-2" />}
                   renderItem={({ item }) => {
-                    const team = getTeamById(item.section);
+                    const section = sectionMap.get(item.section);
                     const CardComponent = animationsEnabled ? StickerCard : StickerCardLight;
                     return (
                       <View className="flex-1 px-1">
                         <CardComponent
                           sticker={item}
-                          flag={team?.flag ?? ''}
+                          flag={section?.icon ?? ''}
                           onPress={() => {}}
                           t={t}
                           i18n_t={i18n_t}
@@ -465,7 +473,7 @@ export default function TradeScreen() {
               className="mt-4 items-center rounded-xl px-6 py-4"
               style={{ backgroundColor: t.surface, borderColor: t.border, borderTopWidth: 1 }}>
               <Text className="text-[15px] font-bold" style={{ color: t.text }}>
-                Escanear outro amigo
+                {i18n_t('trade.scan_again', 'Escanear outro amigo')}
               </Text>
             </AnimatedPressable>
           </View>

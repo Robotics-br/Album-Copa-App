@@ -5,7 +5,7 @@ import { useTheme } from '../theme/ThemeProvider';
 import AnimatedPressable from './ui/AnimatedPressable';
 import { selectionTap } from '../utils/haptics';
 import SummaryCard from './SummaryCard';
-import TeamSelector from './TeamSelector';
+import SectionSelector from './SectionSelector';
 import FilterBar from './FilterBar';
 import { useTranslation } from 'react-i18next';
 import { HORIZONTAL_PADDING } from '../utils/consts';
@@ -45,7 +45,7 @@ const MainHeader = ({ searchQuery, setSearchQuery }: MainHeaderProps) => {
           </AnimatedPressable>
         )}
       </View>
-      <TeamSelector />
+      <SectionSelector />
       <FilterBar />
     </View>
   );

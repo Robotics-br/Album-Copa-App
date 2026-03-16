@@ -10,7 +10,7 @@ import Animated, {
 import { useTheme } from '../theme/ThemeProvider';
 import { useCollectionStore } from '../store/useCollectionStore';
 import { useSettingsStore } from '../store/useSettingsStore';
-import { totalStickers, stickers } from '../data/teams';
+import { totalStickers, stickers } from '../data/sections';
 import { playStickerCollectedSound } from '../utils/sounds';
 import { StarExplosion } from './ui/StarExplosion';
 import ProgressBar from './ui/ProgressBar';

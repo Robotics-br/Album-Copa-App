@@ -47,7 +47,11 @@
     "stickers": "贴纸",
     "missing": "缺失",
     "repeated": "重复",
-    "progressByTeam": "各队进度"
+    "progressBySection": "按板块划分的进度"
+  },
+  "sections": {
+    "special": "特别",
+    "stadiums": "球场"
   },
   "stadiums": {
     "title": "2026 世界杯体育场",
@@ -90,10 +94,11 @@
     "mainHeader": {
       "search": "按选手或代码搜索..."
     },
-    "teamSelector": {
-      "label": "球队",
-      "modalTitle": "选择球队",
-      "allTeams": "所有球队"
+    "sectionSelector": {
+      "label": "板块",
+      "modalTitle": "选择板块",
+      "search": "搜索板块...",
+      "allSections": "所有板块"
     }
   },
   "teams": {
@@ -164,7 +169,12 @@
   "general": {
     "title": "概览",
     "subtitle": "控制面板",
-    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} 张贴纸 ({{pct}}%)"
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} 张贴纸 ({{pct}}%)",
+    "previous": "上一个",
+    "next": "下一个"
+  },
+  "common": {
+    "loading": "加载中..."
   },
   "games": {
     "title": "所有比赛",
@@ -178,7 +188,35 @@
   },
   "stickers": {
     "badge": "队徽",
-    "team": "球队"
+    "team": "球队",
+    "special": {
+      "1": "FIFA 奖杯",
+      "2": "官方吉祥物",
+      "3": "Panini 标志",
+      "4": "官方比赛用球",
+      "5": "公平竞赛奖杯",
+      "6": "官方海报",
+      "7": "FIFA 旗帜",
+      "8": "2026 世界杯标志"
+    },
+    "stadiums": {
+      "1": "大都会人寿体育场",
+      "2": "SoFi 体育场",
+      "3": "AT&T 体育场",
+      "4": "硬石体育场",
+      "5": "NRG 体育场",
+      "6": "梅赛德斯-奔驰体育场",
+      "7": "林肯金融球场",
+      "8": "流明球场",
+      "9": "吉列体育场",
+      "10": "箭头体育场",
+      "11": "李维斯体育场",
+      "12": "阿兹特克体育场",
+      "13": "BBVA 体育场",
+      "14": "阿克伦体育场",
+      "15": "BMO 球场",
+      "16": "卑诗体育馆"
+    }
   },
   "events": {
     "title": "活动",
@@ -202,6 +240,7 @@
     "scan_btn": "打开相机",
     "cam_permission": "我们需要相机权限才能进行扫描。",
     "export_btn": "导出重复列表",
-    "pdf_title": "重复贴纸清单"
+    "pdf_title": "重复贴纸清单",
+    "scan_again": "扫描另一个朋友"
   }
 }

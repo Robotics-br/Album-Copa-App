@@ -2,19 +2,19 @@ import React, { useMemo, useCallback, memo } from 'react';
 import { View } from 'react-native';
 import { AppText as Text } from './ui/AppText';
 import { FlashList } from '@shopify/flash-list';
-import { teams, getStickersByTeam, teamMap } from '../data/teams';
+import { sections, getStickersBySection, sectionMap } from '../data/sections';
 import StickerCard from './StickerCard';
 import StickerCardLight from './StickerCardLight';
-import TeamHeader from './TeamHeader';
+import SectionHeader from './SectionHeader';
 import { HORIZONTAL_PADDING } from '../utils/consts';
 import type { Sticker } from '../types';
 
 const COLUMNS = 5;
 
-type TeamHeaderItem = { type: 'team-header'; sectionId: string; totalCount: number };
+type SectionHeaderItem = { type: 'section-header'; sectionId: string; totalCount: number };
 type StickerRowItem = { type: 'sticker-row'; stickers: Sticker[] };
 type EmptyItem = { type: 'empty' };
-type ListItem = TeamHeaderItem | StickerRowItem | EmptyItem;
+type ListItem = SectionHeaderItem | StickerRowItem | EmptyItem;
 
 function chunkArray<T>(arr: T[], size: number): T[][] {
   const chunks: T[][] = [];
@@ -47,7 +47,7 @@ const StickerRow = memo(
             {animationsEnabled ? (
               <StickerCard
                 sticker={sticker}
-                flag={teamMap.get(sticker.section)?.flag ?? ''}
+                flag={sectionMap.get(sticker.section)?.icon ?? ''}
                 onPress={setSelectedSticker}
                 t={t}
                 i18n_t={i18n_t}
@@ -57,7 +57,7 @@ const StickerRow = memo(
             ) : (
               <StickerCardLight
                 sticker={sticker}
-                flag={teamMap.get(sticker.section)?.flag ?? ''}
+                flag={sectionMap.get(sticker.section)?.icon ?? ''}
                 onPress={setSelectedSticker}
                 t={t}
                 i18n_t={i18n_t}
@@ -104,7 +104,7 @@ const StickerRow = memo(
 
 interface MainListProps {
   filteredStickers: Sticker[];
-  currentTeam: string | null;
+  currentSection: string | null;
   itemWidth: number;
   animationsEnabled: boolean;
   soundEnabled: boolean;
@@ -118,7 +118,7 @@ interface MainListProps {
 
 export default function MainList({
   filteredStickers,
-  currentTeam,
+  currentSection,
   itemWidth,
   animationsEnabled,
   soundEnabled,
@@ -130,19 +130,19 @@ export default function MainList({
   searchQuery,
 }: MainListProps) {
   const listData = useMemo((): ListItem[] => {
-    if (currentTeam) {
-      const teamStickers = filteredStickers.filter((s) => s.section === currentTeam);
-      if (teamStickers.length === 0) return [{ type: 'empty' }];
+    if (currentSection) {
+      const sectionStickers = filteredStickers.filter((s) => s.section === currentSection);
+      if (sectionStickers.length === 0) return [{ type: 'empty' }];
 
       const items: ListItem[] = [
         {
-          type: 'team-header',
-          sectionId: currentTeam,
-          totalCount: getStickersByTeam(currentTeam).length,
+          type: 'section-header',
+          sectionId: currentSection,
+          totalCount: getStickersBySection(currentSection).length,
         },
       ];
 
-      const rows = chunkArray(teamStickers, COLUMNS).map((row) => ({
+      const rows = chunkArray(sectionStickers, COLUMNS).map((row) => ({
         type: 'sticker-row' as const,
         stickers: row,
       }));
@@ -150,21 +150,21 @@ export default function MainList({
       return [...items, ...rows];
     }
 
-    const byTeam = new Map<string, Sticker[]>();
+    const bySection = new Map<string, Sticker[]>();
     for (const s of filteredStickers) {
-      const list = byTeam.get(s.section) ?? [];
+      const list = bySection.get(s.section) ?? [];
       list.push(s);
-      byTeam.set(s.section, list);
+      bySection.set(s.section, list);
     }
 
     const items: ListItem[] = [];
-    for (const team of teams) {
-      const stickers = byTeam.get(team.id);
+    for (const section of sections) {
+      const stickers = bySection.get(section.id);
       if (!stickers?.length) continue;
       items.push({
-        type: 'team-header',
-        sectionId: team.id,
-        totalCount: getStickersByTeam(team.id).length,
+        type: 'section-header',
+        sectionId: section.id,
+        totalCount: getStickersBySection(section.id).length,
       });
       const rows = chunkArray(stickers, COLUMNS);
       for (const row of rows) {
@@ -174,7 +174,7 @@ export default function MainList({
 
     if (items.length === 0) return [{ type: 'empty' }];
     return items;
-  }, [filteredStickers, currentTeam]);
+  }, [filteredStickers, currentSection]);
 
   const renderItem = useCallback(
     ({ item }: { item: ListItem }) => {
@@ -186,8 +186,8 @@ export default function MainList({
         );
       }
 
-      if (item.type === 'team-header') {
-        return <TeamHeader sectionId={item.sectionId} totalCount={item.totalCount} />;
+      if (item.type === 'section-header') {
+        return <SectionHeader sectionId={item.sectionId} totalCount={item.totalCount} />;
       }
 
       return (
@@ -208,7 +208,7 @@ export default function MainList({
 
   const keyExtractor = useCallback((item: ListItem) => {
     if (item.type === 'empty') return 'empty';
-    if (item.type === 'team-header') return `header-${item.sectionId}`;
+    if (item.type === 'section-header') return `header-${item.sectionId}`;
     return `row-${item.stickers[0].code}`;
   }, []);
 
@@ -217,7 +217,7 @@ export default function MainList({
   return (
     <View className="flex-1">
       <FlashList
-        key={`${stickerFilter}-${currentTeam}-${searchQuery === '' ? 'idle' : 'searching'}`}
+        key={`${stickerFilter}-${currentSection}-${searchQuery === '' ? 'idle' : 'searching'}`}
         data={listData}
         renderItem={renderItem}
         keyExtractor={keyExtractor}

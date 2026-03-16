@@ -5,6 +5,12 @@ export interface Team {
   code: string;
 }
 
+export interface Section {
+  id: string;
+  icon: string;
+  code: string;
+}
+
 export interface Sticker {
   code: string;
   albumIndex: number;

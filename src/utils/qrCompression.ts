@@ -1,4 +1,4 @@
-import { stickers } from '../data/teams';
+import { stickers } from '../data/sections';
 
 // Alfabeto customizado para ser seguro (64 caracteres)
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';

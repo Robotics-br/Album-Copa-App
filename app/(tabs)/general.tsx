@@ -5,10 +5,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
-import { teams, stickers, totalStickers, getStickersByTeam } from '../../src/data/teams';
+import { sections, stickers, totalStickers, getStickersBySection } from '../../src/data/sections';
 import ProgressBar from '../../src/components/ui/ProgressBar';
 import { useTranslation, Trans } from 'react-i18next';
-import type { Team, Sticker } from '../../src/types';
+import type { Section, Sticker } from '../../src/types';
 import ScreenHeader from '../../src/components/ScreenHeader';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
@@ -16,9 +16,9 @@ const COLUMNS = 7;
 const GAP = 6;
 
 type HeaderItem = { type: 'header' };
-type TeamHeaderItem = { type: 'team-header'; team: Team; owned: number; total: number };
+type SectionHeaderItem = { type: 'section-header'; section: Section; owned: number; total: number };
 type StickerRowItem = { type: 'sticker-row'; stickers: Sticker[] };
-type ListItem = HeaderItem | TeamHeaderItem | StickerRowItem;
+type ListItem = HeaderItem | SectionHeaderItem | StickerRowItem;
 
 function chunkArray<T>(arr: T[], size: number): T[][] {
   const chunks: T[][] = [];
@@ -49,13 +49,18 @@ export default function GeneralScreen() {
   const listData = useMemo((): ListItem[] => {
     const items: ListItem[] = [{ type: 'header' }];
 
-    for (const team of teams) {
-      const teamStickers = getStickersByTeam(team.id);
-      const teamOwned = teamStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
+    for (const section of sections) {
+      const sectionStickers = getStickersBySection(section.id);
+      const sectionOwned = sectionStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
 
-      items.push({ type: 'team-header', team, owned: teamOwned, total: teamStickers.length });
+      items.push({
+        type: 'section-header',
+        section,
+        owned: sectionOwned,
+        total: sectionStickers.length,
+      });
 
-      const rows = chunkArray(teamStickers, COLUMNS);
+      const rows = chunkArray(sectionStickers, COLUMNS);
       for (const row of rows) {
         items.push({ type: 'sticker-row', stickers: row });
       }
@@ -83,15 +88,15 @@ export default function GeneralScreen() {
         );
       }
 
-      if (item.type === 'team-header') {
+      if (item.type === 'section-header') {
+        const isSpecial = item.section.id === 'special' || item.section.id === 'stadiums';
+        const nameKey = isSpecial ? `sections.${item.section.id}` : `teams.${item.section.id}`;
         return (
           <View
             style={{ paddingHorizontal: HORIZONTAL_PADDING }}
             className="mt-2 flex-row items-center gap-2 py-2">
-            <Text className="text-[20px]">{item.team.flag}</Text>
-            <Text className="flex-1 text-[15px] font-semibold text-text">
-              {i18n_t(`teams.${item.team.id}`)}
-            </Text>
+            <Text className="text-[20px]">{item.section.icon}</Text>
+            <Text className="flex-1 text-[15px] font-semibold text-text">{i18n_t(nameKey)}</Text>
             <Text className="text-[13px] font-medium text-text-secondary">
               {item.owned}/{item.total}
             </Text>
@@ -132,12 +137,12 @@ export default function GeneralScreen() {
       );
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [t, collection, ownedCount, pct]
+    [t, collection, ownedCount, pct, i18n_t, itemSize]
   );
 
-  const keyExtractor = useCallback((item: ListItem, index: number) => {
+  const keyExtractor = useCallback((item: ListItem) => {
     if (item.type === 'header') return 'header';
-    if (item.type === 'team-header') return `th-${item.team.id}`;
+    if (item.type === 'section-header') return `sh-${item.section.id}`;
     return `row-${item.stickers[0].code}`;
   }, []);
 

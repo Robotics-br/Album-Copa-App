@@ -6,7 +6,7 @@ import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
 import { useSettingsStore } from '../../src/store/useSettingsStore';
-import { stickers as allStickers } from '../../src/data/teams';
+import { stickers as allStickers } from '../../src/data/sections';
 import MainHeader from '../../src/components/MainHeader';
 import StickerModal from '../../src/components/StickerModal';
 import { useTranslation } from 'react-i18next';
@@ -40,7 +40,7 @@ export default function AlbumScreen() {
   const { t: i18n_t } = useTranslation();
 
   const { soundEnabled, animationsEnabled } = useSettingsStore();
-  const { stickerFilter, currentTeam, setTeam, searchQuery, setSearchQuery } =
+  const { stickerFilter, currentSection, setSection, searchQuery, setSearchQuery } =
     useAlbumFiltersStore();
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
 
@@ -79,7 +79,7 @@ export default function AlbumScreen() {
   const onSearch = (query: string) => {
     setSearchQuery(query);
     if (query.length > 0) {
-      setTeam(null);
+      setSection(null);
     }
   };
 
@@ -99,7 +99,7 @@ export default function AlbumScreen() {
 
       <MainList
         filteredStickers={filtered}
-        currentTeam={currentTeam}
+        currentSection={currentSection}
         itemWidth={itemWidth}
         animationsEnabled={animationsEnabled}
         soundEnabled={soundEnabled}

@@ -47,7 +47,11 @@
     "stickers": "Figurinhas",
     "missing": "Faltam",
     "repeated": "Repetidas",
-    "progressByTeam": "Progresso por Seleção"
+    "progressBySection": "Progresso por Seção"
+  },
+  "sections": {
+    "special": "Especiais",
+    "stadiums": "Estádios"
   },
   "stadiums": {
     "title": "Estádios da Copa 2026",
@@ -146,10 +150,11 @@
     "mainHeader": {
       "search": "Busca por Jogador ou Código..."
     },
-    "teamSelector": {
-      "label": "Seleção",
-      "modalTitle": "Selecionar Seleção",
-      "allTeams": "Todas as seleções"
+    "sectionSelector": {
+      "label": "Seção",
+      "modalTitle": "Selecionar Seção",
+      "search": "Busca por Seção...",
+      "allSections": "Todas as Seções"
     }
   },
   "teams": {
@@ -220,7 +225,12 @@
   "general": {
     "title": "VISÃO GERAL",
     "subtitle": "Painel de Controle",
-    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} figurinhas ({{pct}}%)"
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} figurinhas ({{pct}}%)",
+    "previous": "Anterior",
+    "next": "Próxima"
+  },
+  "common": {
+    "loading": "Carregando..."
   },
   "games": {
     "title": "Todos os jogos",
@@ -234,7 +244,35 @@
   },
   "stickers": {
     "badge": "Escudo",
-    "team": "Seleção"
+    "team": "Seleção",
+    "special": {
+      "1": "Taça FIFA",
+      "2": "Mascote Oficial",
+      "3": "Logo Panini",
+      "4": "Bola Oficial",
+      "5": "Troféu de Fair Play",
+      "6": "Cartaz Oficial",
+      "7": "Bandeira FIFA",
+      "8": "Logo da Copa 2026"
+    },
+    "stadiums": {
+      "1": "MetLife Stadium",
+      "2": "SoFi Stadium",
+      "3": "AT&T Stadium",
+      "4": "Hard Rock Stadium",
+      "5": "NRG Stadium",
+      "6": "Mercedes-Benz Stadium",
+      "7": "Lincoln Financial Field",
+      "8": "Lumen Field",
+      "9": "Gillette Stadium",
+      "10": "Arrowhead Stadium",
+      "11": "Levi's Stadium",
+      "12": "Estádio Azteca",
+      "13": "Estádio BBVA",
+      "14": "Estádio Akron",
+      "15": "BMO Field",
+      "16": "BC Place"
+    }
   },
   "events": {
     "title": "Eventos",
@@ -258,6 +296,7 @@
     "scan_btn": "Abrir Câmera",
     "cam_permission": "Precisamos da permissão de câmera para escanear.",
     "export_btn": "Exportar Repetidas",
-    "pdf_title": "Lista de Repetidas"
+    "pdf_title": "Lista de Repetidas",
+    "scan_again": "Escanear outro amigo"
   }
 }

@@ -1,40 +1,43 @@
 import React, { useState, useMemo } from 'react';
-import { View, Modal, TextInput, TouchableOpacity, Pressable } from 'react-native';
+import { View, Modal, TextInput, TouchableOpacity, Pressable, Platform } from 'react-native';
 import { AppText as Text } from './ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { Search, X, ChevronRight } from 'lucide-react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { selectionTap } from '../utils/haptics';
-import { teams } from '../data/teams';
+import { sections } from '../data/sections';
 import { useAlbumFiltersStore } from '@/store/useAlbumFiltersStore';
 import AnimatedPressable from './ui/AnimatedPressable';
 import { useTranslation } from 'react-i18next';
 import { HORIZONTAL_PADDING } from '../utils/consts';
 
-export default function TeamSelector() {
+export default function SectionSelector() {
   const t = useTheme();
   const insets = useSafeAreaInsets();
   const { t: i18n_t } = useTranslation();
-  const { currentTeam, setTeam } = useAlbumFiltersStore();
+  const { currentSection, setSection } = useAlbumFiltersStore();
   const [modalVisible, setModalVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const selectedTeam = useMemo(() => {
-    return teams.find((team) => team.id === currentTeam);
-  }, [currentTeam]);
+  const selectedSection = useMemo(() => {
+    return sections.find((s) => s.id === currentSection);
+  }, [currentSection]);
 
-  const filteredTeams = useMemo(() => {
+  const filteredSections = useMemo(() => {
     const query = searchQuery.toLowerCase().trim();
-    if (!query) return teams;
-    return teams.filter(
-      (team) => team.name.toLowerCase().includes(query) || team.code.toLowerCase().includes(query)
-    );
-  }, [searchQuery]);
+    if (!query) return sections;
+    return sections.filter((s) => {
+      const name = i18n_t(
+        s.id === 'special' || s.id === 'stadiums' ? `sections.${s.id}` : `teams.${s.id}`
+      );
+      return name.toLowerCase().includes(query) || s.code.toLowerCase().includes(query);
+    });
+  }, [searchQuery, i18n_t]);
 
-  const handleSelectTeam = (teamId: string | null) => {
+  const handleSelectSection = (sectionId: string | null) => {
     selectionTap();
-    setTeam(teamId);
+    setSection(sectionId);
     setModalVisible(false);
     setSearchQuery('');
   };
@@ -42,7 +45,11 @@ export default function TeamSelector() {
   const clearFilter = (e: any) => {
     e.stopPropagation();
     selectionTap();
-    setTeam(null);
+    setSection(null);
+  };
+
+  const getName = (id: string) => {
+    return i18n_t(id === 'special' || id === 'stadiums' ? `sections.${id}` : `teams.${id}`);
   };
 
   return (
@@ -52,19 +59,21 @@ export default function TeamSelector() {
           onPress={() => setModalVisible(true)}
           className="flex-row items-center justify-between rounded-xl border border-border bg-surface px-4 py-2">
           <View className="flex-1 flex-row items-center">
-            <Text className="mr-3 text-[20px]">{selectedTeam ? selectedTeam.flag : '🌎'}</Text>
+            <Text className="mr-3 text-[20px]">
+              {selectedSection ? selectedSection.icon : '🌎'}
+            </Text>
             <View className="flex-1">
               <Text className="text-[12px] font-medium uppercase tracking-tight text-text-secondary">
-                {i18n_t('components.teamSelector.label')}
+                {i18n_t('components.sectionSelector.label')}
               </Text>
               <Text className="text-[15px] font-bold text-text">
-                {selectedTeam ? selectedTeam.name : i18n_t('filters.all')}
+                {selectedSection ? getName(selectedSection.id) : i18n_t('filters.all')}
               </Text>
             </View>
           </View>
 
           <View className="flex-row items-center">
-            {currentTeam && (
+            {currentSection && (
               <TouchableOpacity
                 onPress={clearFilter}
                 className="mr-2 h-8 w-8 items-center justify-center rounded-full bg-surface">
@@ -87,11 +96,13 @@ export default function TeamSelector() {
           <Pressable
             onPress={(e) => e.stopPropagation()}
             className="h-[70%] overflow-hidden rounded-t-[32px] border-t border-border bg-bg"
-            style={{ paddingBottom: Math.max(20, insets.bottom) }}>
+            style={{
+              paddingBottom: Platform.OS === 'ios' ? Math.max(20, insets.bottom) : insets.bottom,
+            }}>
             <View className="border-b border-border bg-surface px-6 pb-5 pt-6">
               <View className="mb-5 flex-row items-center justify-between">
                 <Text className="text-[22px] font-bold text-text">
-                  {i18n_t('components.teamSelector.modalTitle')}
+                  {i18n_t('components.sectionSelector.modalTitle')}
                 </Text>
                 <TouchableOpacity
                   onPress={() => setModalVisible(false)}
@@ -105,7 +116,7 @@ export default function TeamSelector() {
                 <TextInput
                   value={searchQuery}
                   onChangeText={setSearchQuery}
-                  placeholder={i18n_t('components.mainHeader.search')}
+                  placeholder={i18n_t('components.sectionSelector.search')}
                   placeholderTextColor={t.textSecondary}
                   className="flex-1 px-3 py-4 text-[16px]"
                   style={{ color: t.text }}
@@ -120,35 +131,36 @@ export default function TeamSelector() {
             </View>
             <View className="flex-1">
               <FlashList
-                data={filteredTeams}
+                data={filteredSections}
                 keyExtractor={(item) => item.id}
                 keyboardShouldPersistTaps="always"
                 ListHeaderComponent={() => (
                   <TouchableOpacity
-                    onPress={() => handleSelectTeam(null)}
+                    onPress={() => handleSelectSection(null)}
                     className="flex-row items-center border-b border-border bg-surface px-6 py-5">
                     <View className="mr-5 h-11 w-11 items-center justify-center rounded-full border border-border bg-surface">
                       <Text className="text-[22px]">🌎</Text>
                     </View>
                     <Text
-                      className={`flex-1 text-[17px] ${!currentTeam ? 'font-bold text-primary' : 'font-medium text-text'}`}>
-                      {i18n_t('components.teamSelector.allTeams')}
+                      className={`flex-1 text-[17px] ${!currentSection ? 'font-bold text-primary' : 'font-medium text-text'}`}>
+                      {i18n_t('components.sectionSelector.allSections')}
                     </Text>
-                    {!currentTeam && <View className="h-2.5 w-2.5 rounded-full bg-primary" />}
+                    {!currentSection && <View className="h-2.5 w-2.5 rounded-full bg-primary" />}
                   </TouchableOpacity>
                 )}
                 renderItem={({ item }) => {
-                  const isActive = currentTeam === item.id;
+                  const isActive = currentSection === item.id;
+                  const name = getName(item.id);
                   return (
                     <TouchableOpacity
-                      onPress={() => handleSelectTeam(item.id)}
+                      onPress={() => handleSelectSection(item.id)}
                       className="flex-row items-center border-b border-border px-6 py-5"
                       style={{ backgroundColor: isActive ? `${t.primary}10` : t.surface }}>
-                      <Text className="mr-5 text-[32px]">{item.flag}</Text>
+                      <Text className="mr-5 text-[32px]">{item.icon}</Text>
                       <View className="flex-1">
                         <Text
                           className={`text-[17px] ${isActive ? 'font-bold text-primary' : 'font-medium text-text'}`}>
-                          {item.name}
+                          {name}
                         </Text>
                         <Text className="mt-0.5 text-[12px] uppercase tracking-wider text-text-secondary">
                           {item.code}

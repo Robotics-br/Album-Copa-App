@@ -42,7 +42,11 @@
     "stickers": "Autocollants",
     "missing": "Manquants",
     "repeated": "Doubles",
-    "progressByTeam": "Progression par Équipe"
+    "progressBySection": "Progression par Section"
+  },
+  "sections": {
+    "special": "Spéciales",
+    "stadiums": "Stades"
   },
   "stadiums": {
     "title": "Stades Coupe du Monde 2026",
@@ -141,10 +145,11 @@
     "mainHeader": {
       "search": "Rechercher par Joueur ou Code..."
     },
-    "teamSelector": {
-      "label": "Équipe",
-      "modalTitle": "Choisir une équipe",
-      "allTeams": "Toutes les équipes"
+    "sectionSelector": {
+      "label": "Section",
+      "modalTitle": "Choisir une Section",
+      "search": "Rechercher une section...",
+      "allSections": "Toutes les Sections"
     }
   },
   "teams": {
@@ -215,7 +220,12 @@
   "general": {
     "title": "APERÇU",
     "subtitle": "Panneau de Contrôle",
-    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} autocollants ({{pct}}%)"
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} autocollants ({{pct}}%)",
+    "previous": "PRÉCÉDENT",
+    "next": "SUIVANT"
+  },
+  "common": {
+    "loading": "Chargement..."
   },
   "games": {
     "title": "Tous les matchs",
@@ -229,7 +239,35 @@
   },
   "stickers": {
     "badge": "Écusson",
-    "team": "Équipe"
+    "team": "Équipe",
+    "special": {
+      "1": "Trophée FIFA",
+      "2": "Mascotte Officielle",
+      "3": "Logo Panini",
+      "4": "Ballon Officiel",
+      "5": "Trophée Fair Play",
+      "6": "Affiche Officielle",
+      "7": "Drapeau FIFA",
+      "8": "Logo Coupe 2026"
+    },
+    "stadiums": {
+      "1": "MetLife Stadium",
+      "2": "SoFi Stadium",
+      "3": "AT&T Stadium",
+      "4": "Hard Rock Stadium",
+      "5": "NRG Stadium",
+      "6": "Mercedes-Benz Stadium",
+      "7": "Lincoln Financial Field",
+      "8": "Lumen Field",
+      "9": "Gillette Stadium",
+      "10": "Arrowhead Stadium",
+      "11": "Levi's Stadium",
+      "12": "Azteca Stadium",
+      "13": "BBVA Stadium",
+      "14": "Akron Stadium",
+      "15": "BMO Field",
+      "16": "BC Place"
+    }
   },
   "events": {
     "title": "Événements",
@@ -253,6 +291,7 @@
     "scan_btn": "Ouvrir l'Appareil Photo",
     "cam_permission": "Nous avons besoin de l'autorisation de la caméra pour scanner.",
     "export_btn": "Exporter les Doubles",
-    "pdf_title": "Liste des Doubles"
+    "pdf_title": "Liste des Doubles",
+    "scan_again": "Scanner un autre ami"
   }
 }

@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
-import { teams, stickers, totalStickers, getStickersByTeam } from '../../src/data/teams';
+import { sections, stickers, totalStickers, getStickersBySection } from '../../src/data/sections';
 import ProgressRing from '../../src/components/ui/ProgressRing';
 import ProgressBar from '../../src/components/ui/ProgressBar';
 import { useTranslation } from 'react-i18next';
@@ -22,16 +22,24 @@ export default function StatsScreen() {
     );
     const pct = Math.round((owned / totalStickers) * 100);
 
-    const teamStats = teams.map((team) => {
-      const teamStickers = getStickersByTeam(team.id);
-      const teamOwned = teamStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
-      const teamPct = Math.round((teamOwned / teamStickers.length) * 100);
-      return { team, owned: teamOwned, total: teamStickers.length, pct: teamPct };
+    const sectionStats = sections.map((section) => {
+      const sectionStickers = getStickersBySection(section.id);
+      const sectionOwned = sectionStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
+      const sectionPct = Math.round((sectionOwned / sectionStickers.length) * 100);
+      return { section, owned: sectionOwned, total: sectionStickers.length, pct: sectionPct };
     });
 
-    teamStats.sort((a, b) => b.pct - a.pct);
+    sectionStats.sort((a, b) => {
+      const isASpecial = a.section.id === 'special' || a.section.id === 'stadiums';
+      const isBSpecial = b.section.id === 'special' || b.section.id === 'stadiums';
 
-    return { owned, totalDuplicates, pct, teamStats };
+      if (isASpecial && !isBSpecial) return -1;
+      if (!isASpecial && isBSpecial) return 1;
+
+      return (b.pct || 0) - (a.pct || 0);
+    });
+
+    return { owned, totalDuplicates, pct, sectionStats };
   }, [collection]);
 
   return (
@@ -63,22 +71,26 @@ export default function StatsScreen() {
 
         <View className="rounded-2xl border border-border bg-surface p-4">
           <Text className="mb-4 text-[15px] font-semibold text-text">
-            {i18n_t('stats.progressByTeam')}
+            {i18n_t('stats.progressBySection')}
           </Text>
-          {stats.teamStats.map(({ team, owned, total, pct }) => (
-            <View key={team.id} className="mb-3.5">
-              <View className="mb-1.5 flex-row items-center gap-2">
-                <Text className="text-[18px]">{team.flag}</Text>
-                <Text className="flex-1 text-[13px] font-medium text-text">
-                  {i18n_t(`teams.${team.id}`)}
-                </Text>
-                <Text className="text-[11px] font-semibold text-text-secondary">
-                  {owned}/{total}
-                </Text>
+          {stats.sectionStats.map(({ section, owned, total, pct }) => {
+            const isSpecial = section.id === 'special' || section.id === 'stadiums';
+            const nameKey = isSpecial ? `sections.${section.id}` : `teams.${section.id}`;
+            return (
+              <View key={section.id} className="mb-3.5">
+                <View className="mb-1.5 flex-row items-center gap-2">
+                  <Text className="text-[18px]">{section.icon}</Text>
+                  <Text className="flex-1 text-[13px] font-medium text-text">
+                    {i18n_t(nameKey)}
+                  </Text>
+                  <Text className="text-[11px] font-semibold text-text-secondary">
+                    {owned}/{total}
+                  </Text>
+                </View>
+                <ProgressBar percent={pct} />
               </View>
-              <ProgressBar percent={pct} />
-            </View>
-          ))}
+            );
+          })}
         </View>
       </ScrollView>
     </View>

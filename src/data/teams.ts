@@ -988,7 +988,7 @@ function buildStickers(): Sticker[] {
     result.push({
       code: `${team.code}${localIndex}`,
       albumIndex: globalIndex++,
-      name: `Escudo ${team.name}`,
+      name: 'badge',
       section: team.id,
       isShiny: true,
     });
@@ -997,7 +997,7 @@ function buildStickers(): Sticker[] {
     result.push({
       code: `${team.code}${localIndex}`,
       albumIndex: globalIndex++,
-      name: `Seleção ${team.name}`,
+      name: 'team',
       section: team.id,
       isShiny: false,
     });

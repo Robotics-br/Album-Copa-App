@@ -42,7 +42,11 @@
     "stickers": "Sticker",
     "missing": "Fehlen",
     "repeated": "Doppelt",
-    "progressByTeam": "Fortschritt nach Team"
+    "progressBySection": "Fortschritt nach Bereich"
+  },
+  "sections": {
+    "special": "Spezial",
+    "stadiums": "Stadien"
   },
   "stadiums": {
     "title": "WM 2026 Stadien",
@@ -85,10 +89,11 @@
     "mainHeader": {
       "search": "Nach Spieler oder Code suchen..."
     },
-    "teamSelector": {
-      "label": "Mannschaft",
-      "modalTitle": "Mannschaft auswählen",
-      "allTeams": "Alle Mannschaften"
+    "sectionSelector": {
+      "label": "Bereich",
+      "modalTitle": "Bereich auswählen",
+      "search": "Abschnitt suchen...",
+      "allSections": "Alle Bereiche"
     }
   },
   "teams": {
@@ -159,7 +164,12 @@
   "general": {
     "title": "ÜBERBLICK",
     "subtitle": "Kontrollzentrum",
-    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} Sticker ({{pct}}%)"
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} Sticker ({{pct}}%)",
+    "previous": "ZURÜCK",
+    "next": "WEITER"
+  },
+  "common": {
+    "loading": "Laden..."
   },
   "games": {
     "title": "Alle Spiele",
@@ -173,7 +183,35 @@
   },
   "stickers": {
     "badge": "Abzeichen",
-    "team": "Mannschaft"
+    "team": "Mannschaft",
+    "special": {
+      "1": "FIFA-Pokal",
+      "2": "Offizielles Maskottchen",
+      "3": "Panini-Logo",
+      "4": "Offizieller Ball",
+      "5": "Fairplay-Trophäe",
+      "6": "Offizielles Poster",
+      "7": "FIFA-Flagge",
+      "8": "Logo WM 2026"
+    },
+    "stadiums": {
+      "1": "MetLife Stadium",
+      "2": "SoFi Stadium",
+      "3": "AT&T Stadium",
+      "4": "Hard Rock Stadium",
+      "5": "NRG Stadium",
+      "6": "Mercedes-Benz Stadium",
+      "7": "Lincoln Financial Field",
+      "8": "Lumen Field",
+      "9": "Gillette Stadium",
+      "10": "Arrowhead Stadium",
+      "11": "Levi's Stadium",
+      "12": "Azteca-Stadion",
+      "13": "BBVA-Stadion",
+      "14": "Akron-Stadion",
+      "15": "BMO Field",
+      "16": "BC Place"
+    }
   },
   "events": {
     "title": "Events",
@@ -197,6 +235,7 @@
     "scan_btn": "Kamera Öffnen",
     "cam_permission": "Wir benötigen die Kameraberechtigung zum Scannen.",
     "export_btn": "Doppelte Exportieren",
-    "pdf_title": "Liste der Doppelten"
+    "pdf_title": "Liste der Doppelten",
+    "scan_again": "Anderen Freund scannen"
   }
 }
