@@ -23,6 +23,7 @@ import { themeMap } from '../../src/theme/themes';
 import { LOGO_BASE64 } from '../../src/utils/logo_base64';
 import StickerCard from '../../src/components/StickerCard';
 import StickerCardLight from '../../src/components/StickerCardLight';
+import StickerModal from '../../src/components/StickerModal';
 import {
   sections,
   getStickerByCode,
@@ -49,6 +50,7 @@ export default function TradeScreen() {
   const [hasScanned, setHasScanned] = useState(false);
   const [qrPayload, setQrPayload] = useState('[]');
   const [isExporting, setIsExporting] = useState(false);
+  const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
 
   const getQuantity = useCollectionStore((s) => s.getQuantity);
   const toggleSticker = useCollectionStore((s) => s.toggleSticker);
@@ -58,6 +60,11 @@ export default function TradeScreen() {
     useCallback(() => {
       const duplicates = useCollectionStore.getState().getDuplicatesList();
       setQrPayload(compressDuplicates(duplicates));
+
+      return () => {
+        setHasScanned(false);
+        setScannedMatches([]);
+      };
     }, [])
   );
 
@@ -445,7 +452,7 @@ export default function TradeScreen() {
                         <CardComponent
                           sticker={item}
                           flag={section?.icon ?? ''}
-                          onPress={() => {}}
+                          onPress={() => setSelectedSticker(item)}
                           t={t}
                           i18n_t={i18n_t}
                           toggleSticker={toggleSticker}
@@ -491,7 +498,11 @@ export default function TradeScreen() {
       <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-2 mt-2">
         <View className="flex-row items-center rounded-xl border border-border bg-surface p-1">
           <AnimatedPressable
-            onPress={() => setActiveTab('share')}
+            onPress={() => {
+              setActiveTab('share');
+              setHasScanned(false);
+              setScannedMatches([]);
+            }}
             className="flex-1 items-center justify-center rounded-lg py-2.5"
             style={{ backgroundColor: activeTab === 'share' ? t.primary : 'transparent' }}>
             <Text
@@ -514,6 +525,8 @@ export default function TradeScreen() {
       </View>
 
       {activeTab === 'share' ? renderShare() : renderScan()}
+
+      <StickerModal sticker={selectedSticker} onClose={() => setSelectedSticker(null)} />
     </View>
   );
 }
