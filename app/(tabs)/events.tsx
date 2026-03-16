@@ -1,5 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { View, ScrollView, Pressable, Modal, Dimensions } from 'react-native';
+import {
+  View,
+  ScrollView,
+  Pressable,
+  Modal,
+  Dimensions,
+  RefreshControl,
+  Animated as RNAnimated,
+} from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
@@ -13,6 +21,7 @@ import type { Stadium } from '../../src/data/stadiums';
 import ScreenHeader from '../../src/components/ScreenHeader';
 import { teams } from '../../src/data/teams';
 import {
+  Match,
   matches,
   getUniqueDates,
   getMatchesByTeam,
@@ -25,15 +34,83 @@ import StadiumCard from '../../src/components/StadiumCard';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
+import { fetchWorldCupMatches } from '../../src/services/matchService';
+
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 type FilterKind = 'all' | 'team' | 'day';
 type GlobalTab = 'games' | 'stadiums';
 
 function formatDateOption(dateStr: string): string {
-  const [, m, d] = dateStr.split('-');
+  if (!dateStr) return '';
+  const parts = dateStr.split('-');
+  if (parts.length < 3) return dateStr;
+  const [, m, d] = parts;
   return `${d}/${m}`;
 }
+
+const LoadingView = () => {
+  const { t: i18n_t } = useTranslation();
+  const theme = useTheme();
+
+  const pulseAnim = React.useRef(new RNAnimated.Value(1)).current;
+  const rotateAnim = React.useRef(new RNAnimated.Value(0)).current;
+
+  React.useEffect(() => {
+    RNAnimated.loop(
+      RNAnimated.sequence([
+        RNAnimated.timing(pulseAnim, {
+          toValue: 1.15,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        RNAnimated.timing(pulseAnim, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+
+    RNAnimated.loop(
+      RNAnimated.timing(rotateAnim, {
+        toValue: 1,
+        duration: 3000,
+        useNativeDriver: true,
+      })
+    ).start();
+  }, [pulseAnim, rotateAnim]);
+
+  const rotation = rotateAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '360deg'],
+  });
+
+  return (
+    <View className="flex-1 items-center justify-center p-10">
+      <RNAnimated.View
+        style={{
+          transform: [{ scale: pulseAnim }, { rotate: rotation }],
+          backgroundColor: theme.primary + '20',
+          padding: 24,
+          borderRadius: 40,
+        }}
+        className="mb-8 items-center justify-center">
+        <Image
+          source={require('../../assets/images/app-logo.png')}
+          style={{ width: 80, height: 80 }}
+          contentFit="contain"
+        />
+      </RNAnimated.View>
+      <Text className="mb-2 text-center text-[18px] font-bold text-text">
+        {i18n_t('games.loading')}
+      </Text>
+      <Text className="text-center text-[14px] text-text-secondary opacity-70">
+        {i18n_t('common.loading')}
+      </Text>
+    </View>
+  );
+};
 
 export default function EventsScreen() {
   const t = useTheme();
@@ -47,21 +124,51 @@ export default function EventsScreen() {
   const [teamId, setTeamId] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
 
+  const [apiMatches, setApiMatches] = useState<Match[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const currentMatches = apiMatches.length > 0 ? apiMatches : matches;
+
+  const [refreshing, setRefreshing] = useState(false);
+
+  const loadMatches = async (isRefetch = false) => {
+    if (isRefetch) setRefreshing(true);
+    try {
+      const data = await fetchWorldCupMatches();
+      if (data && data.length > 0) {
+        setApiMatches(data);
+      }
+    } catch (err) {
+      console.warn('Could not load matches from API, using local data', err);
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  };
+
+  React.useEffect(() => {
+    loadMatches();
+  }, []);
+
+  const onRefresh = React.useCallback(() => {
+    loadMatches(true);
+  }, []);
+
   const stadiumGroups = useMemo(() => getStadiumsByCountry(), []);
   const [expandedStadiums, setExpandedStadiums] = useState<Record<string, boolean>>(
-    Object.fromEntries(Object.keys(stadiumGroups).map((k) => [k, false])) // Começa fechado para salvar memória
+    Object.fromEntries(Object.keys(stadiumGroups).map((k) => [k, false]))
   );
 
   const toggleStadiumGroup = (key: string) => {
     setExpandedStadiums((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const uniqueDates = useMemo(() => getUniqueDates(matches), []);
+  const uniqueDates = useMemo(() => getUniqueDates(currentMatches), [currentMatches]);
   const filteredMatches = useMemo(() => {
-    if (filterKind === 'team' && teamId) return getMatchesByTeam(matches, teamId);
-    if (filterKind === 'day' && selectedDate) return getMatchesByDate(matches, selectedDate);
-    return matches;
-  }, [filterKind, teamId, selectedDate]);
+    if (filterKind === 'team' && teamId) return getMatchesByTeam(currentMatches, teamId);
+    if (filterKind === 'day' && selectedDate) return getMatchesByDate(currentMatches, selectedDate);
+    return currentMatches;
+  }, [filterKind, teamId, selectedDate, currentMatches]);
 
   const filterTabs: { key: FilterKind; label: string }[] = [
     { key: 'all', label: i18n_t('games.filters.all') },
@@ -151,15 +258,30 @@ export default function EventsScreen() {
         )}
       </View>
 
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="flex-1">
-        {filteredMatches.length === 0 ? (
+      <View className="flex-1">
+        {loading ? (
+          <LoadingView />
+        ) : filteredMatches.length === 0 ? (
           <Text className="p-6 text-center text-text-secondary">{i18n_t('games.empty')}</Text>
         ) : (
-          <FlashList
+          <FlashList<Match>
             data={filteredMatches}
             keyExtractor={(item) => item.id}
-            ItemSeparatorComponent={() => <View className="h-2" />}
             renderItem={({ item }) => <MatchCard match={item} />}
+            ItemSeparatorComponent={() => <View className="h-3" />}
+            contentContainerStyle={{
+              paddingHorizontal: HORIZONTAL_PADDING,
+              paddingBottom: 40,
+            }}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={onRefresh}
+                tintColor={t.primary}
+                colors={[t.primary]}
+                progressBackgroundColor={t.surface}
+              />
+            }
             showsVerticalScrollIndicator={false}
           />
         )}

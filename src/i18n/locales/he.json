@@ -79,7 +79,17 @@
   },
   "matchCard": {
     "day": "יום {{date}}",
-    "at": "בשעה {{time}}"
+    "at": "בשעה {{time}}",
+    "phases": {
+      "Gruppenphase 1": "שלב הבתים 1",
+      "Gruppenphase 2": "שלב הבתים 2",
+      "Gruppenphase 3": "שלב הבתים 3",
+      "Sechzehntelfinale": "שלב 32 האחרונות",
+      "Achtelfinale": "שמינית הגמר",
+      "Viertelfinale": "רבע הגמר",
+      "Halbfinale": "חצי הגמר",
+      "Finale": "גמר"
+    }
   },
   "filters": {
     "all": "הכל",
@@ -149,7 +159,13 @@
     "ing": "אנגליה",
     "cro": "קרואטיה",
     "gha": "גאנה",
-    "pan": "פנמה"
+    "pan": "פנמה",
+    "uefa_a": "פלייאוף אירופה A",
+    "uefa_b": "פלייאוף אירופה B",
+    "uefa_c": "פלייאוף אירופה C",
+    "uefa_d": "פלייאוף אירופה D",
+    "fifa_1": "פלייאוף פיפא 1",
+    "fifa_2": "פלייאוף פיפא 2"
   },
   "tabs": {
     "album": "אלבום",
@@ -184,6 +200,7 @@
       "team": "נבחרת",
       "day": "יום"
     },
+    "loading": "מחפש משחקים רשמיים...",
     "empty": "לא נמצאו משחקים"
   },
   "stickers": {

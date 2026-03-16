@@ -79,7 +79,17 @@
   },
   "matchCard": {
     "day": "第 {{date}} 天",
-    "at": "{{time}}"
+    "at": "{{time}}",
+    "phases": {
+      "Gruppenphase 1": "小组赛 1",
+      "Gruppenphase 2": "小组赛 2",
+      "Gruppenphase 3": "小组赛 3",
+      "Sechzehntelfinale": "1/16决赛",
+      "Achtelfinale": "1/8决赛",
+      "Viertelfinale": "1/4决赛",
+      "Halbfinale": "半决赛",
+      "Finale": "决赛"
+    }
   },
   "filters": {
     "all": "全部",
@@ -149,7 +159,13 @@
     "ing": "英格兰",
     "cro": "克罗地亚",
     "gha": "加纳",
-    "pan": "巴拿马"
+    "pan": "巴拿马",
+    "uefa_a": "欧洲附加赛 A",
+    "uefa_b": "欧洲附加赛 B",
+    "uefa_c": "欧洲附加赛 C",
+    "uefa_d": "欧洲附加赛 D",
+    "fifa_1": "FIFA 附加赛 1",
+    "fifa_2": "FIFA 附加赛 2"
   },
   "tabs": {
     "album": "相册",
@@ -184,6 +200,7 @@
       "team": "球队",
       "day": "日期"
     },
+    "loading": "正在获取官方比赛...",
     "empty": "未找到比赛"
   },
   "stickers": {

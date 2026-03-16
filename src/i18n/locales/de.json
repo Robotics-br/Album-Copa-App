@@ -74,7 +74,17 @@
   },
   "matchCard": {
     "day": "Tag {{date}}",
-    "at": "um {{time}}"
+    "at": "um {{time}}",
+    "phases": {
+      "Gruppenphase 1": "Gruppenphase 1",
+      "Gruppenphase 2": "Gruppenphase 2",
+      "Gruppenphase 3": "Gruppenphase 3",
+      "Sechzehntelfinale": "Sechzehntelfinale",
+      "Achtelfinale": "Achtelfinale",
+      "Viertelfinale": "Viertelfinale",
+      "Halbfinale": "Halbfinale",
+      "Finale": "Finale"
+    }
   },
   "filters": {
     "all": "Alle",
@@ -144,7 +154,13 @@
     "ing": "England",
     "cro": "Kroatien",
     "gha": "Ghana",
-    "pan": "Panama"
+    "pan": "Panama",
+    "uefa_a": "Playoff UEFA A",
+    "uefa_b": "Playoff UEFA B",
+    "uefa_c": "Playoff UEFA C",
+    "uefa_d": "Playoff UEFA D",
+    "fifa_1": "FIFA-Playoff 1",
+    "fifa_2": "FIFA-Playoff 2"
   },
   "tabs": {
     "album": "Album",
@@ -179,6 +195,7 @@
       "team": "Team",
       "day": "Tag"
     },
+    "loading": "Suche nach offiziellen Spielen...",
     "empty": "Keine Spiele gefunden"
   },
   "stickers": {

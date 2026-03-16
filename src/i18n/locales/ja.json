@@ -79,7 +79,17 @@
   },
   "matchCard": {
     "day": "{{date}}日目",
-    "at": "{{time}}〜"
+    "at": "{{time}}〜",
+    "phases": {
+      "Gruppenphase 1": "グループステージ 1",
+      "Gruppenphase 2": "グループステージ 2",
+      "Gruppenphase 3": "グループステージ 3",
+      "Sechzehntelfinale": "ラウンド32",
+      "Achtelfinale": "ラウンド16",
+      "Viertelfinale": "準々決勝",
+      "Halbfinale": "準決勝",
+      "Finale": "決勝"
+    }
   },
   "filters": {
     "all": "すべて",
@@ -149,7 +159,13 @@
     "ing": "イングランド",
     "cro": "クロアチア",
     "gha": "ガーナ",
-    "pan": "パナマ"
+    "pan": "パナマ",
+    "uefa_a": "UEFAプレーオフ A",
+    "uefa_b": "UEFAプレーオフ B",
+    "uefa_c": "UEFAプレーオフ C",
+    "uefa_d": "UEFAプレーオフ D",
+    "fifa_1": "FIFAプレーオフ 1",
+    "fifa_2": "FIFAプレーオフ 2"
   },
   "tabs": {
     "album": "アルバム",
@@ -184,6 +200,7 @@
       "team": "チーム",
       "day": "日付"
     },
+    "loading": "公式試合を検索中...",
     "empty": "試合が見つかりません"
   },
   "stickers": {

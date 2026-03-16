@@ -4,7 +4,7 @@
     "slug": "rbr-album-copa2026-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/app-logo.jpeg",
+    "icon": "./assets/images/app-logo.png",
     "userInterfaceStyle": "automatic",
     "scheme": "minhacopa2026",
     "ios": {
@@ -14,13 +14,13 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#ffffff",
-        "foregroundImage": "./assets/images/app-logo.jpeg"
+        "foregroundImage": "./assets/images/app-logo.png"
       },
       "package": "br.com.robotics.albumcopa2026",
       "permissions": ["android.permission.RECORD_AUDIO", "android.permission.MODIFY_AUDIO_SETTINGS"]
     },
     "web": {
-      "favicon": "./assets/images/app-logo.jpeg",
+      "favicon": "./assets/images/app-logo.png",
       "bundler": "metro"
     },
     "plugins": [

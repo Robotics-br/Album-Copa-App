@@ -16,7 +16,7 @@ export default function ScreenHeader({ titleKey }: ScreenHeaderProps) {
       style={{ paddingHorizontal: HORIZONTAL_PADDING }}
       className="flex-row items-center justify-between py-2.5">
       <Image
-        source={require('../../assets/images/app-logo.jpeg')}
+        source={require('../../assets/images/app-logo.png')}
         style={{ width: 32, height: 32, borderRadius: 8 }}
         resizeMode="cover"
       />

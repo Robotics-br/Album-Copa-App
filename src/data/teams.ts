@@ -61,6 +61,13 @@ export const teams: Team[] = [
   { id: 'cro', name: 'Croácia', flag: '🇭🇷', code: 'CRO' },
   { id: 'gha', name: 'Gana', flag: '🇬🇭', code: 'GHA' },
   { id: 'pan', name: 'Panamá', flag: '🇵🇦', code: 'PAN' },
+  // Playoff / Placeholder teams
+  { id: 'uefa_a', name: 'Playoff UEFA A', flag: '🇪🇺', code: 'UEFA-A' },
+  { id: 'uefa_b', name: 'Playoff UEFA B', flag: '🇪🇺', code: 'UEFA-B' },
+  { id: 'uefa_c', name: 'Playoff UEFA C', flag: '🇪🇺', code: 'UEFA-C' },
+  { id: 'uefa_d', name: 'Playoff UEFA D', flag: '🇪🇺', code: 'UEFA-D' },
+  { id: 'fifa_1', name: 'Repescagem 1', flag: '🏳️', code: 'FIFA-1' },
+  { id: 'fifa_2', name: 'Repescagem 2', flag: '🏳️', code: 'FIFA-2' },
 ];
 
 const squads: Record<string, string[]> = {
