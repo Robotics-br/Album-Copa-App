@@ -7,11 +7,6 @@
     "icon": "./assets/images/app-logo.jpeg",
     "userInterfaceStyle": "automatic",
     "scheme": "minhacopa2026",
-    "splash": {
-      "image": "./assets/images/app-splash.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "br.com.robotics.albumcopa2026"
@@ -28,7 +23,20 @@
       "favicon": "./assets/images/app-logo.jpeg",
       "bundler": "metro"
     },
-    "plugins": ["expo-router", "expo-audio", "expo-asset"],
+    "plugins": [
+      "expo-router",
+      "expo-audio",
+      "expo-asset",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ffffff",
+          "image": "./assets/images/app-splash.png",
+          "imageWidth": 200,
+          "resizeMode": "cover"
+        }
+      ]
+    ],
     "extra": {
       "router": {},
       "eas": {

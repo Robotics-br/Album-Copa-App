@@ -122,7 +122,7 @@ export default function GeneralScreen() {
                 </Text>
                 {qty > 1 && (
                   <View className="absolute -right-0.5 -top-0.5 rounded-full bg-duplicate px-1">
-                    <Text className="text-on-duplicate text-[8px] font-bold">+{qty - 1}</Text>
+                    <Text className="text-[8px] font-bold text-on-duplicate">+{qty - 1}</Text>
                   </View>
                 )}
               </View>
