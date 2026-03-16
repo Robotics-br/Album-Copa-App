@@ -16,7 +16,7 @@
     "sound": "Sound effects",
     "soundDesc": "Sounds when collecting stickers",
     "animations": "Animations",
-    "animationsDesc": "Enables or disables card animations",
+    "animationsDesc": "Enables or disables sticker animations",
     "language": "Language",
     "languageDesc": "Select the app language",
     "languages": {
@@ -31,7 +31,8 @@
       "zh": "Mandarin",
       "ar": "Arabic",
       "ja": "Japanese",
-      "hi": "Hindi"
+      "hi": "Hindi",
+      "nl": "Dutch"
     },
     "deleteAll": "Delete all",
     "deleteAllDesc": "Removes all stickers",
@@ -257,7 +258,11 @@
       "day": "Day"
     },
     "loading": "Searching official matches...",
-    "empty": "No matches found"
+    "empty": "No matches found",
+    "error": {
+      "title": "Oops! Could not load matches",
+      "retry": "Try Again"
+    }
   },
   "stickers": {
     "badge": "Badge",

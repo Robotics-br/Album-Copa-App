@@ -16,7 +16,7 @@
     "sound": "Efectos de sonido",
     "soundDesc": "Sonidos al coleccionar cromos",
     "animations": "Animaciones",
-    "animationsDesc": "Activa o desativa las animaciones de los cromos",
+    "animationsDesc": "Activa o desactiva las animaciones de los cromos",
     "language": "Idioma",
     "languageDesc": "Seleccione el idioma de la aplicación",
     "languages": {
@@ -26,7 +26,13 @@
       "es": "Español",
       "de": "Alemán",
       "it": "Italiano",
-      "fr": "Francés"
+      "fr": "Francés",
+      "he": "Hebreo",
+      "zh": "Chino",
+      "ar": "Árabe",
+      "ja": "Japonés",
+      "hi": "Hindi",
+      "nl": "Holandés"
     },
     "deleteAll": "Borrar todo",
     "deleteAllDesc": "Elimina todos los cromos",
@@ -252,7 +258,11 @@
       "day": "Día"
     },
     "loading": "Buscando partidos oficiales...",
-    "empty": "No se encontraron partidos"
+    "empty": "No se encontraron partidos",
+    "error": {
+      "title": "¡Opps! No se pudieron cargar los partidos",
+      "retry": "Intentar de nuevo"
+    }
   },
   "stickers": {
     "badge": "Escudo",

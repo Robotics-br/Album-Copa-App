@@ -25,6 +25,7 @@ const languages = [
   { id: 'ar', labelKey: 'settings.languages.ar' },
   { id: 'ja', labelKey: 'settings.languages.ja' },
   { id: 'hi', labelKey: 'settings.languages.hi' },
+  { id: 'nl', labelKey: 'settings.languages.nl' },
 ];
 
 export default function LanguageSelector({ currentLanguage, onSelect }: LanguageSelectorProps) {

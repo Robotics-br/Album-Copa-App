@@ -12,7 +12,7 @@ import { AppText as Text } from '../../src/components/ui/AppText';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { Image } from 'expo-image';
-import { ChevronDown, ChevronUp, X } from 'lucide-react-native';
+import { ChevronDown, ChevronUp, X, WifiOff } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useTranslation } from 'react-i18next';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
@@ -20,13 +20,7 @@ import type { Stadium } from '../../src/data/stadiums';
 
 import ScreenHeader from '../../src/components/ScreenHeader';
 import { teams } from '../../src/data/teams';
-import {
-  Match,
-  matches,
-  getUniqueDates,
-  getMatchesByTeam,
-  getMatchesByDate,
-} from '../../src/data/matches';
+import { Match, getUniqueDates, getMatchesByTeam, getMatchesByDate } from '../../src/data/matches';
 import { getStadiumsByCountry } from '../../src/data/stadiums';
 
 import MatchCard from '../../src/components/MatchCard';
@@ -112,6 +106,32 @@ const LoadingView = () => {
   );
 };
 
+const ErrorView = ({ onRetry }: { onRetry: () => void }) => {
+  const { t: i18n_t } = useTranslation();
+  const t = useTheme();
+
+  return (
+    <View className="flex-1 items-center justify-center p-10">
+      <View
+        className="mb-6 items-center justify-center rounded-full p-6"
+        style={{ backgroundColor: t.primary + '15' }}>
+        <WifiOff size={48} color={t.primary} />
+      </View>
+      <Text className="mb-6 text-center text-[18px] font-bold text-text">
+        {i18n_t('games.error.title')}
+      </Text>
+      <AnimatedPressable
+        onPress={onRetry}
+        className="rounded-xl px-10 py-3.5"
+        style={{ backgroundColor: t.primary }}>
+        <Text className="text-[15px] font-bold" style={{ color: t.onPrimary }}>
+          {i18n_t('games.error.retry')}
+        </Text>
+      </AnimatedPressable>
+    </View>
+  );
+};
+
 export default function EventsScreen() {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
@@ -126,20 +146,22 @@ export default function EventsScreen() {
 
   const [apiMatches, setApiMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
-
-  const currentMatches = apiMatches.length > 0 ? apiMatches : matches;
+  const [error, setError] = useState(false);
 
   const [refreshing, setRefreshing] = useState(false);
 
   const loadMatches = async (isRefetch = false) => {
     if (isRefetch) setRefreshing(true);
+    else setLoading(true);
+    setError(false);
     try {
       const data = await fetchWorldCupMatches();
       if (data && data.length > 0) {
         setApiMatches(data);
       }
     } catch (err) {
-      console.warn('Could not load matches from API, using local data', err);
+      console.warn('Could not load matches from API', err);
+      setError(true);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -163,12 +185,12 @@ export default function EventsScreen() {
     setExpandedStadiums((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const uniqueDates = useMemo(() => getUniqueDates(currentMatches), [currentMatches]);
+  const uniqueDates = useMemo(() => getUniqueDates(apiMatches), [apiMatches]);
   const filteredMatches = useMemo(() => {
-    if (filterKind === 'team' && teamId) return getMatchesByTeam(currentMatches, teamId);
-    if (filterKind === 'day' && selectedDate) return getMatchesByDate(currentMatches, selectedDate);
-    return currentMatches;
-  }, [filterKind, teamId, selectedDate, currentMatches]);
+    if (filterKind === 'team' && teamId) return getMatchesByTeam(apiMatches, teamId);
+    if (filterKind === 'day' && selectedDate) return getMatchesByDate(apiMatches, selectedDate);
+    return apiMatches;
+  }, [filterKind, teamId, selectedDate, apiMatches]);
 
   const filterTabs: { key: FilterKind; label: string }[] = [
     { key: 'all', label: i18n_t('games.filters.all') },
@@ -261,10 +283,13 @@ export default function EventsScreen() {
       <View className="flex-1">
         {loading ? (
           <LoadingView />
+        ) : error ? (
+          <ErrorView onRetry={() => loadMatches()} />
         ) : filteredMatches.length === 0 ? (
           <Text className="p-6 text-center text-text-secondary">{i18n_t('games.empty')}</Text>
         ) : (
           <FlashList<Match>
+            key={`${teamId}-${selectedDate}`}
             data={filteredMatches}
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => <MatchCard match={item} />}

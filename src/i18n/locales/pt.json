@@ -16,7 +16,7 @@
     "sound": "Efeitos sonoros",
     "soundDesc": "Sons ao coletar figurinhas",
     "animations": "Animações",
-    "animationsDesc": "Ativa ou desativa animações nos cards",
+    "animationsDesc": "Ativa ou desativa animações nas figurinhas",
     "language": "Idioma",
     "languageDesc": "Selecione o idioma do aplicativo",
     "languages": {
@@ -31,7 +31,8 @@
       "zh": "Mandarim",
       "ar": "Árabe",
       "ja": "Japonês",
-      "hi": "Hindi"
+      "hi": "Hindi",
+      "nl": "Holandês"
     },
     "deleteAll": "Apagar tudo",
     "deleteAllDesc": "Remove todas as figurinhas",
@@ -257,7 +258,11 @@
       "day": "Dia"
     },
     "loading": "Buscando jogos oficiais...",
-    "empty": "Nenhum jogo encontrado"
+    "empty": "Nenhum jogo encontrado",
+    "error": {
+      "title": "Ops! Não foi possível carregar as partidas",
+      "retry": "Tentar Novamente"
+    }
   },
   "stickers": {
     "badge": "Escudo",

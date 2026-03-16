@@ -16,7 +16,7 @@
     "sound": "Soundeffekte",
     "soundDesc": "Töne beim Sammeln von Stickern",
     "animations": "Animationen",
-    "animationsDesc": "Aktiviert oder deaktiviert Kartenanimationen",
+    "animationsDesc": "Aktiviert oder deaktiviert Sticker-Animationen",
     "language": "Sprache",
     "languageDesc": "Wählen Sie die App-Sprache",
     "languages": {
@@ -26,7 +26,13 @@
       "es": "Spanisch",
       "de": "Deutsch",
       "it": "Italienisch",
-      "fr": "Französisch"
+      "fr": "Französisch",
+      "he": "Hebräisch",
+      "zh": "Mandarin",
+      "ar": "Arabisch",
+      "ja": "Japanisch",
+      "hi": "Hindi",
+      "nl": "Niederländisch"
     },
     "deleteAll": "Alles löschen",
     "deleteAllDesc": "Entfernt alle Sticker",
@@ -196,7 +202,11 @@
       "day": "Tag"
     },
     "loading": "Suche nach offiziellen Spielen...",
-    "empty": "Keine Spiele gefunden"
+    "empty": "Keine Spiele gefunden",
+    "error": {
+      "title": "Oops! Die Spiele konnten nicht geladen werden",
+      "retry": "Erneut versuchen"
+    }
   },
   "stickers": {
     "badge": "Abzeichen",

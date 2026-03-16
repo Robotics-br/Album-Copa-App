@@ -26,7 +26,13 @@
       "es": "Spagnolo",
       "de": "Tedesco",
       "it": "Italiano",
-      "fr": "Francese"
+      "fr": "Francese",
+      "he": "Ebraico",
+      "zh": "Mandarino",
+      "ar": "Arabo",
+      "ja": "Giapponese",
+      "hi": "Hindi",
+      "nl": "Olandese"
     },
     "deleteAll": "Cancella tutto",
     "deleteAllDesc": "Rimuove tutte le figurine",
@@ -252,7 +258,11 @@
       "day": "Giorno"
     },
     "loading": "Ricerca partite ufficiali...",
-    "empty": "Nessuna partita trovata"
+    "empty": "Nessuna partita trovata",
+    "error": {
+      "title": "Ops! Impossibile caricare le partite",
+      "retry": "Riprova"
+    }
   },
   "stickers": {
     "badge": "Scudetto",

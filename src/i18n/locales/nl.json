@@ -1,0 +1,324 @@
+{
+  "settings": {
+    "title": "INSTELLINGEN",
+    "visualStyle": "Visuele stijl",
+    "themesSubtitle": "Thema's geïnspireerd door populaire spellen",
+    "subtitle": "Personaliseer je ervaring",
+    "themes": {
+      "original-dark": "Origineel donker",
+      "original-light": "Origineel licht",
+      "neon": "Neon",
+      "pink": "Roze"
+    },
+    "accessibility": "Toegankelijkheid",
+    "seniorMode": "Seniorenmodus",
+    "seniorModeDesc": "Grotere knoppen en teksten",
+    "sound": "Geluidsieffecten",
+    "soundDesc": "Geluiden bij het verzamelen van stickers",
+    "animations": "Animaties",
+    "animationsDesc": "Schakel sticker-animaties in of uit",
+    "language": "Taal",
+    "languageDesc": "Selecteer de app-taal",
+    "languages": {
+      "system": "Systeem",
+      "pt": "Portugees",
+      "en": "Engels",
+      "es": "Spaans",
+      "de": "Duits",
+      "it": "Italiaans",
+      "fr": "Frans",
+      "he": "Hebreeuws",
+      "zh": "Mandarijn",
+      "ar": "Arabisch",
+      "ja": "Japans",
+      "hi": "Hindi",
+      "nl": "Nederlands"
+    },
+    "deleteAll": "Alles verwijderen",
+    "deleteAllDesc": "Verwijdert alle stickers",
+    "deleteAllAlertDesc": "Weet je zeker dat je alle stickers wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "footerTitle": "Mijn WK 2026",
+    "footerSubtitle": "v1.0.0 • door Robotics"
+  },
+  "stats": {
+    "title": "MIJN VOORTGANG",
+    "subtitle": "Collectieprestaties",
+    "stickers": "Stickers",
+    "missing": "Ontbrekend",
+    "repeated": "Dubbel",
+    "progressBySection": "Voortgang per sectie"
+  },
+  "sections": {
+    "special": "Specials",
+    "stadiums": "Stadions"
+  },
+  "stadiums": {
+    "title": "WK 2026 Stadions",
+    "subtitle": "{{totalCount}} stadions in {{countryCount}} landen",
+    "opened": "Geopend in {{year}}",
+    "data": {
+      "metlife": {
+        "name": "New York New Jersey Stadium (MetLife Stadium)",
+        "desc": "Hoewel dit stadion door de jaren heen vaker supersterren van de NFL heeft verwelkomd, zal het beste wat voetbal te bieden heeft in 2026 naar dit terrein komen wanneer een andere sport centraal staat.\n\nEen multifunctioneel stadion dat in 2010 werd geopend en momenteel de thuisbasis is van de New York Giants en New York Jets van de NFL. Het was het toneel voor de finale van de Copa América Centenario 2016, toen Chili de Argentinië van Lionel Messi versloeg na strafschoppen. Talloze topartiesten hebben opgetreden in het New York New Jersey Stadium, waaronder Bruce Springsteen, Beyoncé, Ed Sheeran en Taylor Swift.\n\nHet stadion vormde de kern van de afsluiting van de FIFA Club World Cup 2025™, waar fans van over de hele wereld afstemden om Chelsea's spannende 3-0 overwinning op Paris Saint-Germain te zien, terwijl hier ook de halve finales, één kwartfinale en vijf groepswedstrijden plaatsvonden."
+      },
+      "sofi": {
+        "name": "Los Angeles Stadium (SoFi Stadium)",
+        "desc": "Los Angeles Stadium is de nieuwste locatie die is gekozen voor het WK 2026 en werd geopend in september 2020. Het ligt op slechts 30 minuten rijden van het beroemde Rose Bowl Stadium in Pasadena, waar de WK-finale in 1994 plaatsvond.\n\nZowel de Los Angeles Rams als de Los Angeles Chargers spelen hun NFL-wedstrijden op deze locatie, die ook gastheer was voor Super Bowl LVI toen de Rams de Cincinnati Bengals met 23-20 versloegen in 2022.\n\nLos Angeles Stadium heeft al een aantal concerten onder zijn iconische en unieke dak gehuisvest, met artiesten als Taylor Swift, BTS en Ed Sheeran die de locatie hebben gesierd."
+      },
+      "att": {
+        "name": "Dallas Stadium (AT&T Stadium)",
+        "desc": "Dallas Stadium is een verbazingwekkend voorbeeld van stadionarchitectuur, dat een 'unieke' bezoekerservaring biedt voor zowel sport- als muziekevenementen, terwijl het beschikt over verschillende ongelooflijke kunstwerken en 25.000 vierkante meter aan videoschermen binnen.\n\nSinds de opening in 2009 is het stadion de thuisbasis van vijfvoudig Super Bowl-winnaars de Dallas Cowboys, en door de jaren heen zijn hier ook de Concacaf Gold Cup en wedstrijden van het Mexicaanse nationale team georganiseerd.\n\nAndere grote evenementen in het Dallas Stadium zijn Super Bowl XLV, de finale van de College Football Playoff 2015, de NFL Draft van 2018, de finales van het Big 12-kampioenschap, de Cotton Bowl Classic, de NCAA Men's Final Four, het AMA Supercross-kampioenschap en meerdere wereldkampioenschappen boksen."
+      },
+      "hard_rock": {
+        "name": "Miami Stadium (Hard Rock Stadium)",
+        "desc": "Miami Stadium dient als thuisbasis voor de Miami Dolphins, de Grand Prix van Miami in de Formule 1, het Miami Open tennistoernooi, de Universiteit van Miami, de Orange Blossom Classic en Orange Bowl college football-wedstrijden, Jazz in the Gardens en andere concerten en festivals.\n\nDe locatie biedt entertainment van wereldklasse en toont zijn veelzijdigheid in het hosten van een breed scala aan evenementen, waaronder zes Super Bowls, de NFL Pro Bowl van 2010, El Clásico Miami, grote concerten en internationale voetbalwedstrijden.\n\nHet stadion was gastheer voor acht wedstrijden tijdens de FIFA Club World Cup 2025™, waaronder de openingswedstrijd tussen Al Ahly FC en Inter Miami CF en de achtste finale waarin Real Madrid C.F. zijn Europese rivaal Juventus FC versloeg op weg naar de kwartfinales."
+      },
+      "nrg": {
+        "name": "Houston Stadium (NRG Stadium)",
+        "desc": "Houston Stadium, waar de MLS All-Star-wedstrijd, nationale teamwedstrijden van zowel de VS als Mexico, evenals drie wedstrijden tijdens de Copa América Centenario in 2016 hebben plaatsgevonden, heeft veel voetbalhistorie en zal er voor 2026 zeker meer verzamelen.\n\nHet stadion, dat in 2002 werd geopend en ook de thuisbasis is van de beroemde Houston Rodeo, heeft een uitschuifbaar dak en staat bekend om zijn 'Bull Pen'-gedeelte, waar de luidruchtigste supporters van de Houston Texans in de NFL verblijven."
+      },
+      "mercedes_benz": {
+        "name": "Atlanta Stadium (Mercedes-Benz Stadium)",
+        "desc": "Atlanta Stadium is ontworpen met supporters in het achterhoofd en biedt een bekroonde fanervaring. Met een hoogte van meer dan 90 meter beschikt het over een uniek uitschuifbaar dak, een uniek 360-graden halo-videoscherm en wordt het geprezen als het meest duurzame stadion ter wereld.\n\nHet stadion is de thuisbasis van Atlanta United uit de Major League Soccer (MLS) en de Atlanta Falcons uit de National Football League (NFL). Sinds de opening in 2017 heeft het stadion de grootste evenementen in de Verenigde Staten gehuisvest, waaronder de MLS All-Star Game, de finale van de College Football Playoff, Super Bowl LIII, talrijke internationale vriendschappelijke wedstrijden en concerten van wereldsterren.\n\nDe locatie in Atlanta was gastheer voor vijf wedstrijden van de FIFA Club World Cup 2025, waaronder drie groepswedstrijden, twee achtste finales en de spannende kwartfinale tussen Paris Saint-Germain en FC Bayern München."
+      },
+      "lincoln": {
+        "name": "Philadelphia Stadium (Lincoln Financial Field)",
+        "desc": "Philadelphia Stadium opende met een spectaculaire vriendschappelijke wedstrijd tussen Manchester United en Barcelona in augustus 2003, waarbij Ronaldinho Patrick Kluivert bediende voor het eerste doelpunt in het stadion.\n\nHet zou daarna gastheer zijn voor wedstrijden van het Amerikaanse nationale team, de finale van de Gold Cup 2015 en opnieuw Manchester United in de jaren daarna, en werd de permanente thuisbasis van de Philadelphia Eagles van de NFL en de tijdelijke thuisbasis van MLS-team Philadelphia Union tijdens het seizoen 2010.\n\nDe locatie was het toneel voor in totaal acht wedstrijden tijdens de FIFA Club World Cup 2025, met zes groepswedstrijden, één achtste finale en de kwartfinaleoverwinning van de uiteindelijke winnaar Chelsea op Palmeiras, die ook op 4 juli werd gespeeld."
+      },
+      "lumen": {
+        "name": "Seattle Stadium (Lumen Field)",
+        "desc": "Dit stadion beschikt over een unieke hoefijzervorm met een open noordkant voor een prachtig uitzicht op de skyline van Seattle.\n\nHet stadion is twee keer in het Guinness World Records opgenomen als het luidste openluchtstadion, prestaties behaald in september en december 2013, en staat bekend als een vesting voor teams als Seattle Sounders uit de MLS en de Seattle Seahawks uit de NFL.\n\nDe sfeer in het eigen stadion bleek wellicht het best op 5 mei 2022, toen de Sounders de Mexicaanse ploeg Pumas met 3-0 versloegen om een 5-2 overwinning over twee wedstrijden te claimen en de Concacaf Champions League te winnen. Hiermee werden ze de eerste Amerikaanse ploeg die de competitie in zijn nieuwe vorm won en zich kwalificeerde voor de FIFA Club World Cup 2025.\n\nDe Sounders speelden al hun drie Club World Cup-wedstrijden op eigen terrein, terwijl de locatie in totaal zes wedstrijden hostte tijdens het toernooi van 2025."
+      },
+      "gillette": {
+        "name": "Boston Stadium (Gillette Stadium)",
+        "desc": "Boston Stadium heeft voorafgaand aan het toernooi van 2026 een groot renovatieproject ondergaan. Het stadion beschikt nu over het grootste openlucht videoscherm in hoge definitie in het land (met een oppervlakte van 2.000 vierkante meter), hospitality- en evenementenruimtes van 4.600 vierkante meter volledig in glas, een verbinding van 360 graden tussen alle niveaus van de gangen en meer.\n\nBoston Stadium, de thuisbasis van MLS-team New England Revolution en NFL-team New England Patriots, heeft door de jaren heen talloze voetbalwedstrijden gehost, waaronder het WK vrouwen 2003, de Copa América Centenario, de Concacaf Gold Cup en de International Champions Cup, en is een vaste locatie voor concerten van topartiesten."
+      },
+      "arrowhead": {
+        "name": "Kansas City Stadium (Arrowhead Stadium)",
+        "desc": "Kansas City Stadium is door Guinness World Records gecertificeerd als de luidste openluchtsportlocatie ter wereld en was gastheer voor een record van vijf opeenvolgende NFL Conference Championships van 2019 tot 2023.\n\nDe arena, wat de thuisbasis is van de Kansas City Chiefs uit de NFL, bereikte een recordbrekend decibelniveau van 142,2 toen de Chiefs het opnamen tegen de New England Patriots in 2014.\n\nKansas City staat bekend als de voetbalhoofdstad van Amerika en is de thuisbasis van tweevoudig MLS-kampioen Sporting KC en de finalisten van de National Women's Soccer League (NWSL) 2022, KC Current. Het is een bi-statelijk grootstedelijk gebied op de grens tussen de staten Missouri en Kansas."
+      },
+      "levis": {
+        "name": "San Francisco Bay Area Stadium (Levi's Stadium)",
+        "desc": "Als een van de nieuwere stadions die belast zijn met het hosten van het toernooi, bevindt San Francisco Bay Area Stadium zich in de stad Santa Clara.\n\nSinds de opening in 2014 is het stadion de thuisbasis van de San Francisco 49ers uit de NFL. Het stadion werd geselecteerd voor de host van Super Bowl 50 in februari 2016, waar Coldplay de rustshow leidde met gastoptredens van Beyoncé en Bruno Mars. Het hostte ook Super Bowl LX in februari 2026, met superster rapper en zanger Bad Bunny als optredende artiest tijdens de rustshow.\n\nDe locatie was het toneel voor de eerste wedstrijd van de Copa América Centenario in juni 2016, toen Colombia de VS versloeg. Ook heeft het Wrestlemania en het NHL-duel tussen de LA Kings en San Jose Sharks in 2015 gehost."
+      },
+      "azteca": {
+        "name": "Mexico City Stadium (Estadio Azteca)",
+        "desc": "Een echt colosseum van het wereldvoetbal en het eerste dat voor de derde keer een FIFA WK host. Mexico City Stadium – dat legendes als Pelé en Diego Maradona verwelkomde tijdens twee zinderende WK-finales in 1970 en 1986 – zal opnieuw het middelpunt zijn.\n\nOverdag is het stadion de thuisbasis van Club América uit de Liga MX en het nationale team van Mexico, terwijl Cruz Azul, Pumas, Atlante, Atlético Español en Necaxa hier in het verleden ook hun voetbalwedstrijden hebben gespeeld.\n\nMexico City Stadium was het toneel voor de finale van het WK Onder-17 in 2011, toen een recordaantal toeschouwers van 98.943 het record vestigde voor het aantal supporters bij een wedstrijd in de geschiedenis van het prestigieuze jeugdtoernooi."
+      },
+      "bbva": {
+        "name": "Estadio Monterrey (Estadio BBVA)",
+        "desc": "De Mexicaanse club Monterrey speelt haar wedstrijden in dit moderne wonder, dat is uitgerust met compacte energieoplossingen en laagspanningsapparatuur. Het stadion was het eerste in Amerika dat een zilveren certificering ontving van Leadership in Energy & Environmental Design (LEED) na de onthulling in 2015.\n\nNaast de thuisbasis van Monterrey tijdens het Liga MX-seizoen, bood de locatie ook plaats aan acht wedstrijden tijdens het Concacaf W-kampioenschap in 2022, waaronder de 1-0 overwinning van de VS in de finale tegen Canada. Coldplay, Bad Bunny en Justin Bieber hebben in het eerste decennium in het stadion opgetreden."
+      },
+      "akron": {
+        "name": "Estadio Guadalajara (Estadio Akron)",
+        "desc": "Gebouwd op een verhoging en met een bolvormig colosseum-achtig ontwerp, is Estadio Guadalajara zeker een van de meest opvallende locaties waar wedstrijden tijdens het WK 2026 worden gehouden.\n\nGeopend in 2010 is het stadion de thuisbasis van C.D. Guadalajara. Het herenteam beveiligde hier hun historische dubbele titel (competitie en beker) tijdens het Clausura-toernooi van 2017 en de Concacaf Champions League-overwinning in 2018, en het Clausura-toernooi van 2023. De twee titels van het vrouwenteam in 2017 en 2022 dragen bij aan de prijzenkast.\n\nEstadio Guadalajara was een van de belangrijkste locaties voor het WK Onder-17 in 2011 en hostte hetzelfde jaar de Pan-Amerikaanse Spelen."
+      },
+      "toronto": {
+        "name": "Toronto Stadium (BMO Field)",
+        "desc": "Toronto Stadium werd speciaal gebouwd toen Canada het WK Onder-20 2007 hostte en was het toneel voor de finale waar Argentinië zegevierde, met Sergio Agüero die de Gouden Bal en de Gouden Schoen won.\n\nDe locatie, die beschikt over een dakoverkapping in de stijl van de Engelse Premier League en steile tribunes aan beide uiteinden van het veld, was gastheer voor de apotheose van de campagne van Canada om het WK 2022 te bereiken, waarbij hun ticket voor Qatar werd veiliggesteld met een overwinning op Jamaica.\n\nHet stadion heeft ook al ervaring met eerdere toernooien en hostte in 2014 het WK vrouwen Onder-20."
+      },
+      "bc_place": {
+        "name": "BC Place Vancouver (BC Place)",
+        "desc": "Nu in zijn vijfde decennium van bestaan, blijft BC Place Vancouver een verbazingwekkend stuk architectuur aan de oevers van de inham van False Creek.\n\nHet gebied – dat onlangs renovaties heeft ondergaan – is de thuisbasis van MLS-team Vancouver Whitecaps en het Canadian Football League (CFL)-team BC Lions, en hostte af en toe ook het nationale team van Canada.\n\nEen van de meest memorabele wedstrijden in BC Place Vancouver was toen de locatie de finale hostte van het WK vrouwen 2015, waar de VS de titelverdediger Japan met 5-2 versloeg, mede dankzij een hattrick van Carli Lloyd in de eerste 15 minuten."
+      }
+    }
+  },
+  "summary": {
+    "title": "JOUW ALBUM",
+    "missing": "{{count}} om de wereld te veroveren"
+  },
+  "stickerModal": {
+    "question1": "Hoeveel <1>dubbele</1> stickers heb je?",
+    "saveRepeated": "Dubbele opslaan",
+    "removeFromAlbum": "Uit album verwijderen"
+  },
+  "matchCard": {
+    "day": "dag {{date}}",
+    "at": "om {{time}}",
+    "phases": {
+      "Gruppenphase 1": "Groepsfase 1",
+      "Gruppenphase 2": "Groepsfase 2",
+      "Gruppenphase 3": "Groepsfase 3",
+      "Sechzehntelfinale": "Zestiende finales",
+      "Achtelfinale": "Achtste finales",
+      "Viertelfinale": "Kwartfinales",
+      "Halbfinale": "Halve finales",
+      "Finale": "Finale"
+    }
+  },
+  "filters": {
+    "all": "Alle",
+    "missing": "Ontbrekend",
+    "owned": "In bezit",
+    "duplicates": "Dubbel"
+  },
+  "components": {
+    "progressRing": {
+      "complete": "voltooid"
+    },
+    "mainHeader": {
+      "search": "Zoeken op speler of code..."
+    },
+    "sectionSelector": {
+      "label": "Sectie",
+      "modalTitle": "Selecteer sectie",
+      "search": "Sectie zoeken...",
+      "allSections": "Alle secties"
+    }
+  },
+  "teams": {
+    "mex": "Mexico",
+    "afs": "Zuid-Afrika",
+    "cds": "Zuid-Korea",
+    "cze": "Tsjechië",
+    "can": "Canada",
+    "ita": "Italië",
+    "qat": "Qatar",
+    "sui": "Zwitserland",
+    "bra": "Brazilië",
+    "mar": "Marokko",
+    "hai": "Haïti",
+    "esc": "Schotland",
+    "eua": "VS",
+    "par": "Paraguay",
+    "aus": "Australië",
+    "tur": "Turkije",
+    "ale": "Duitsland",
+    "cuw": "Curaçao",
+    "cmf": "Ivoorkust",
+    "ecu": "Ecuador",
+    "hol": "Nederland",
+    "jap": "Japan",
+    "ucr": "Oekraïne",
+    "tun": "Tunesië",
+    "bel": "België",
+    "egi": "Egypte",
+    "ira": "Iran",
+    "nzl": "Nieuw-Zeeland",
+    "esp": "Spanje",
+    "cpv": "Kaapverdië",
+    "ars": "Saoedi-Arabië",
+    "uru": "Uruguay",
+    "fra": "Frankrijk",
+    "sen": "Senegal",
+    "bol": "Bolivia",
+    "nor": "Noorwegen",
+    "arg": "Argentinië",
+    "alg": "Algerije",
+    "aut": "Oostenrijk",
+    "jor": "Jordanië",
+    "por": "Portugal",
+    "rdc": "DR Congo",
+    "uzb": "Oezbekistan",
+    "col": "Colombia",
+    "ing": "Engeland",
+    "cro": "Kroatië",
+    "gha": "Ghana",
+    "pan": "Panama",
+    "uefa_a": "Play-off UEFA A",
+    "uefa_b": "Play-off UEFA B",
+    "uefa_c": "Play-off UEFA C",
+    "uefa_d": "Play-off UEFA D",
+    "fifa_1": "FIFA Play-off 1",
+    "fifa_2": "FIFA Play-off 2"
+  },
+  "tabs": {
+    "album": "Album",
+    "general": "Overzicht",
+    "stadiums": "Stadions",
+    "games": "Wedstrijden",
+    "stats": "Voortgang",
+    "settings": "Instellingen",
+    "events": "Evenementen",
+    "trade": "Ruilen"
+  },
+  "album": {
+    "title": "MIJN WK 2026",
+    "subtitle": "Beheer je collectie",
+    "empty": "Geen stickers in deze categorie"
+  },
+  "general": {
+    "title": "OVERZICHT",
+    "subtitle": "Controlepaneel",
+    "summary": "<1>{{ownedCount}}</1> / {{totalStickers}} stickers ({{pct}}%)",
+    "previous": "VORIGE",
+    "next": "VOLGENDE"
+  },
+  "common": {
+    "loading": "Laden..."
+  },
+  "games": {
+    "title": "Alle wedstrijden",
+    "subtitle": "FIFA WK 2026",
+    "filters": {
+      "all": "Alle",
+      "team": "Team",
+      "day": "Dag"
+    },
+    "loading": "Officiële wedstrijden zoeken...",
+    "empty": "Geen wedstrijden gevonden",
+    "error": {
+      "title": "Oeps! Kan wedstrijden niet laden",
+      "retry": "Opnieuw proberen"
+    }
+  },
+  "stickers": {
+    "badge": "Embleem",
+    "team": "Team",
+    "special": {
+      "1": "FIFA Trofee",
+      "2": "Officiële Mascotte",
+      "3": "Panini Logo",
+      "4": "Officiële Bal",
+      "5": "Fair Play Trofee",
+      "6": "Officiële Poster",
+      "7": "FIFA Vlag",
+      "8": "Cup Logo 2026"
+    },
+    "stadiums": {
+      "1": "MetLife Stadium",
+      "2": "SoFi Stadium",
+      "3": "AT&T Stadium",
+      "4": "Hard Rock Stadium",
+      "5": "NRG Stadium",
+      "6": "Mercedes-Benz Stadium",
+      "7": "Lincoln Financial Field",
+      "8": "Lumen Field",
+      "9": "Gillette Stadium",
+      "10": "Arrowhead Stadium",
+      "11": "Levi's Stadium",
+      "12": "Azteca Stadion",
+      "13": "BBVA Stadion",
+      "14": "Akron Stadion",
+      "15": "BMO Field",
+      "16": "BC Place"
+    }
+  },
+  "events": {
+    "title": "Evenementen",
+    "subtitle": "FIFA WK 2026",
+    "tabs": {
+      "games": "Wedstrijden",
+      "stadiums": "Stadions"
+    }
+  },
+  "trade": {
+    "title": "Ruilcentrum",
+    "subtitle": "Stickers delen of scannen",
+    "tabs": {
+      "share": "Mijn dubbelen",
+      "scan": "Vriend scannen"
+    },
+    "code_desc": "Laat deze QR-code aan een vriend zien om te scannen.",
+    "update_notice": "Vergeet niet je dubbelen bij te werken als je een ruil doet.",
+    "matches_found": "Geweldig nieuws! Hij heeft {{count}} sticker(s) die jij niet hebt!",
+    "no_matches": "Helaas, hij heeft momenteel geen stickers die jij nodig hebt.",
+    "scan_btn": "Camera openen",
+    "cam_permission": "We hebben toestemming nodig voor de camera om te scannen.",
+    "export_btn": "Dubbelen exporteren",
+    "pdf_title": "Lijst met dubbelen",
+    "scan_again": "Andere vriend scannen"
+  }
+}

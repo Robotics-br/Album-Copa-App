@@ -1,3 +1,4 @@
+import axios from 'axios';
 import type { Match } from '../data/matches';
 
 interface OpenLigaResult {
@@ -89,10 +90,10 @@ const API_TEAM_MAPPING: Record<string, string> = {
 
 export async function fetchWorldCupMatches(): Promise<Match[]> {
   try {
-    const response = await fetch('https://www.openligadb.de/api/getmatchdata/wm26/2026');
-    if (!response.ok) throw new Error('Failed to fetch matches');
-
-    const data: OpenLigaMatch[] = await response.json();
+    const response = await axios.get<OpenLigaMatch[]>(
+      'https://www.openligadb.de/api/getmatchdata/wm26/2026'
+    );
+    const data = response.data;
 
     return data.map((m) => {
       const utcDate = new Date(m.matchDateTimeUTC);
@@ -119,6 +120,6 @@ export async function fetchWorldCupMatches(): Promise<Match[]> {
     });
   } catch (error) {
     console.error('Error fetching matches:', error);
-    return [];
+    throw error;
   }
 }

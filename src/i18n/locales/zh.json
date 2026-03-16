@@ -16,7 +16,7 @@
     "sound": "音效",
     "soundDesc": "收集贴纸时的声效",
     "animations": "动画",
-    "animationsDesc": "启用或禁用卡片动画",
+    "animationsDesc": "启用或禁用贴纸动画",
     "language": "语言",
     "languageDesc": "选择应用程序语言",
     "languages": {
@@ -31,7 +31,8 @@
       "zh": "中文（普通话）",
       "ar": "阿拉伯语",
       "ja": "日语",
-      "hi": "印地语"
+      "hi": "印地语",
+      "nl": "荷兰语"
     },
     "deleteAll": "全部删除",
     "deleteAllDesc": "移除所有贴纸",
@@ -201,7 +202,11 @@
       "day": "日期"
     },
     "loading": "正在获取官方比赛...",
-    "empty": "未找到比赛"
+    "empty": "未找到比赛",
+    "error": {
+      "title": "哎呀！无法加载比赛",
+      "retry": "再试一次"
+    }
   },
   "stickers": {
     "badge": "队徽",

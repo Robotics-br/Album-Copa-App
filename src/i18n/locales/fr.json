@@ -26,7 +26,13 @@
       "es": "Espagnol",
       "de": "Allemand",
       "it": "Italien",
-      "fr": "Français"
+      "fr": "Français",
+      "he": "Hébreu",
+      "zh": "Chinois",
+      "ar": "Arabe",
+      "ja": "Japonais",
+      "hi": "Hindi",
+      "nl": "Néerlandais"
     },
     "deleteAll": "Tout supprimer",
     "deleteAllDesc": "Supprime tous les autocollants",
@@ -252,7 +258,11 @@
       "day": "Jour"
     },
     "loading": "Recherche des matchs officiels...",
-    "empty": "Aucun match trouvé"
+    "empty": "Aucun match trouvé",
+    "error": {
+      "title": "Oups ! Impossible de charger les matchs",
+      "retry": "Réessayer"
+    }
   },
   "stickers": {
     "badge": "Écusson",
