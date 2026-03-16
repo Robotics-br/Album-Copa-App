@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Modal, Pressable, Platform } from 'react-native';
+import { View, Modal, Pressable } from 'react-native';
 import { AppText as Text } from './ui/AppText';
 import { X, Minus, Plus } from 'lucide-react-native';
 import { useTranslation, Trans } from 'react-i18next';
@@ -68,12 +68,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
         <Pressable
           onPress={(e) => e.stopPropagation()}
           className="rounded-t-[24px] border-t border-border bg-surface p-6"
-          style={{
-            paddingBottom:
-              Platform.OS === 'ios'
-                ? Math.max(24, 16 + insets.bottom)
-                : Math.max(16, insets.bottom),
-          }}>
+          style={{ paddingBottom: Math.max(24, 16 + insets.bottom) }}>
           <AnimatedPressable
             onPress={() => {
               lightTap();

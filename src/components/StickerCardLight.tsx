@@ -6,7 +6,6 @@ import { playStickerCollectedSound, playStickerRemovedSound } from '../utils/sou
 import { useCollectionStore } from '../store/useCollectionStore';
 import type { ThemeColors } from '../theme/themes';
 import type { Sticker } from '../types';
-import { Check, UserRoundPlus } from 'lucide-react-native';
 
 interface StickerCardLightProps {
   sticker: Sticker;
@@ -61,7 +60,7 @@ const StickerCardLight = ({
   }, [sticker, qty, toggleSticker, onPress, soundEnabled]);
 
   const borderColor = status === 'missing' ? `${t.missingStickerBorder}80` : `${t.owned}80`;
-  const backgroundColor = status === 'missing' ? t.missingStickerBg : t.owned;
+  const backgroundColor = status === 'missing' ? `${t.missingStickerBg}` : `${t.owned}80`;
   const textColor = status === 'missing' ? t.textSecondary : t.ownedStickerTextColor;
 
   return (
@@ -102,9 +101,13 @@ const StickerCardLight = ({
 
       <View className="absolute inset-0 z-0 items-center justify-center pb-2">
         {status === 'missing' ? (
-          <UserRoundPlus color={t.textSecondary} size={20} />
+          <Text style={{ color: t.textSecondary }} className="text-[28px]">
+            +
+          </Text>
         ) : (
-          <Check color={t.ownedStickerTextColor} size={20} />
+          <Text style={{ color: t.ownedStickerTextColor }} className="text-[20px]">
+            ✓
+          </Text>
         )}
       </View>
 
