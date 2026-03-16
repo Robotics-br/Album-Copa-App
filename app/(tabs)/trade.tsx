@@ -427,7 +427,7 @@ export default function TradeScreen() {
               <View className="flex-1 gap-4">
                 <Text
                   className="mt-2 text-center text-[15px] font-semibold"
-                  style={{ color: t.owned }}>
+                  style={{ color: t.primary }}>
                   {i18n_t('trade.matches_found', { count: scannedMatches.length })}
                 </Text>
 
@@ -471,8 +471,8 @@ export default function TradeScreen() {
                 setScannedMatches([]);
               }}
               className="mt-4 items-center rounded-xl px-6 py-4"
-              style={{ backgroundColor: t.surface, borderColor: t.border, borderTopWidth: 1 }}>
-              <Text className="text-[15px] font-bold" style={{ color: t.text }}>
+              style={{ backgroundColor: t.primary, borderColor: t.border, borderTopWidth: 1 }}>
+              <Text className="text-[15px] font-bold" style={{ color: t.onPrimary }}>
                 {i18n_t('trade.scan_again', 'Escanear outro amigo')}
               </Text>
             </AnimatedPressable>

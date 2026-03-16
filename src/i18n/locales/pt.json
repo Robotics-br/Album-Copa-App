@@ -291,7 +291,7 @@
     },
     "code_desc": "Mostre este QR Code para um amigo escanear.",
     "update_notice": "Não se esqueça de atualizar suas repetidas caso realize uma troca.",
-    "matches_found": "Boas notícias! Ele tem {{count}} figurinha(s) que você não tem!",
+    "matches_found": "Ebaaaaaa! Ele tem {{count}} figurinha(s) que você não tem!",
     "no_matches": "Puxa, ele não tem nenhuma figurinha que você precisa no momento.",
     "scan_btn": "Abrir Câmera",
     "cam_permission": "Precisamos da permissão de câmera para escanear.",
