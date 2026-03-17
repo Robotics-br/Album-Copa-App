@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Tabs } from 'expo-router';
 import { Album, LayoutGrid, Trophy, Calendar, Settings, Repeat } from 'lucide-react-native';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useTranslation } from 'react-i18next';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Platform } from 'react-native';
+import * as NavigationBar from 'expo-navigation-bar';
 
 export default function TabLayout() {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
-  const insets = useSafeAreaInsets();
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      const buttonStyle = t.statusBar ? 'light' : 'dark';
+      NavigationBar.setButtonStyleAsync(buttonStyle);
+    }
+  }, [t.headerBg, t.statusBar]);
 
   return (
     <Tabs
@@ -16,9 +23,8 @@ export default function TabLayout() {
         headerShown: false,
         tabBarStyle: {
           backgroundColor: t.headerBg,
-          height: 60 + insets.bottom,
-          paddingBottom: insets.bottom > 0 ? insets.bottom : 8,
-          paddingTop: 6,
+          borderTopWidth: 0,
+          elevation: 0,
         },
         tabBarActiveTintColor: t.onHeader,
         tabBarInactiveTintColor: t.tabInactive,

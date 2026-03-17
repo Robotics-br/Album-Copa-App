@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { View, Modal, Pressable, ScrollView } from 'react-native';
 import { AppText as Text } from './ui/AppText';
 import { useTranslation } from 'react-i18next';
-import { ChevronRight, Languages, Check } from 'lucide-react-native';
+import { ChevronRight, Languages, Check, X } from 'lucide-react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../theme/ThemeProvider';
 import AnimatedPressable from './ui/AnimatedPressable';
+import { useSettingsStore } from '../store/useSettingsStore';
+import { mediumTap } from '../utils/haptics';
 
 interface LanguageSelectorProps {
   currentLanguage: string | null;
@@ -33,6 +35,7 @@ export default function LanguageSelector({ currentLanguage, onSelect }: Language
   const { t } = useTranslation();
   const theme = useTheme();
   const insets = useSafeAreaInsets();
+  const { soundEnabled } = useSettingsStore();
 
   const selectedLang = languages.find((l) => l.id === currentLanguage) || languages[0];
 
@@ -62,12 +65,33 @@ export default function LanguageSelector({ currentLanguage, onSelect }: Language
           onPress={() => setModalVisible(false)}>
           <View
             className="overflow-hidden rounded-t-[32px]"
-            style={{ backgroundColor: theme.bg, maxHeight: '85%' }}>
+            style={{
+              backgroundColor: theme.bg,
+              maxHeight: '85%',
+              borderTopWidth: 1.5,
+              borderTopColor: theme.border,
+            }}>
             <View className="items-center border-b border-border py-4">
               <View className="bg-border/50 mb-4 h-1.5 w-12 rounded-full" />
-              <Text className="text-[16px] font-bold uppercase tracking-widest text-text">
-                {t('settings.language')}
-              </Text>
+
+              <View className="w-full flex-row items-center justify-center px-6">
+                <Text className="text-[16px] font-bold uppercase tracking-widest text-text">
+                  {t('settings.language')}
+                </Text>
+
+                <AnimatedPressable
+                  onPress={() => {
+                    if (soundEnabled) mediumTap();
+                    setModalVisible(false);
+                  }}
+                  className="absolute right-4 h-10 w-10 items-center justify-center rounded-full bg-surface"
+                  style={{
+                    borderWidth: 1,
+                    borderColor: theme.border,
+                  }}>
+                  <X size={20} color={theme.text} />
+                </AnimatedPressable>
+              </View>
             </View>
 
             <ScrollView showsVerticalScrollIndicator={false} className="p-4">
