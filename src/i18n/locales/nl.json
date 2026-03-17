@@ -318,7 +318,9 @@
     "scan_btn": "Camera openen",
     "cam_permission": "We hebben toestemming nodig voor de camera om te scannen.",
     "export_btn": "Dubbelen exporteren",
-    "pdf_title": "Lijst met dubbelen",
+    "export_missing_btn": "Ontbrekende exporteren",
+    "pdf_duplicates_title": "Lijst met dubbelen",
+    "pdf_missing_title": "Lijst met ontbrekende stickers",
     "scan_again": "Andere vriend scannen"
   }
 }

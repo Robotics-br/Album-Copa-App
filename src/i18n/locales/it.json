@@ -317,8 +317,10 @@
     "no_matches": "Peccato, al momento non ha figurine di cui hai bisogno.",
     "scan_btn": "Apri Fotocamera",
     "cam_permission": "Abbiamo bisogno dei permessi della fotocamera per scansionare.",
-    "export_btn": "Esporta Doppioni",
-    "pdf_title": "Lista dei Doppioni",
+    "export_btn": "Esporta doppie",
+    "export_missing_btn": "Esporta mancanti",
+    "pdf_duplicates_title": "Figurine doppie",
+    "pdf_missing_title": "Figurine mancanti",
     "scan_again": "Scansiona un altro amico"
   }
 }

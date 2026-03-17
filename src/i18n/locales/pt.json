@@ -318,7 +318,9 @@
     "scan_btn": "Abrir Câmera",
     "cam_permission": "Precisamos da permissão de câmera para escanear.",
     "export_btn": "Exportar Repetidas",
-    "pdf_title": "Lista de Repetidas",
+    "export_missing_btn": "Exportar Faltantes",
+    "pdf_duplicates_title": "Figurinhas Repetidas",
+    "pdf_missing_title": "Figurinhas Faltantes",
     "scan_again": "Escanear outro amigo"
   }
 }

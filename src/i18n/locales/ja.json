@@ -262,7 +262,9 @@
     "scan_btn": "カメラ起動",
     "cam_permission": "スキャンにはカメラの使用許可が必要です。",
     "export_btn": "重複分を出力",
-    "pdf_title": "重複リスト",
-    "scan_again": "別の友達をスキャン"
+    "export_missing_btn": "不足分を出力",
+    "pdf_duplicates_title": "重複リスト",
+    "pdf_missing_title": "不足リスト",
+    "scan_again": "別の朋友をスキャン"
   }
 }

@@ -318,7 +318,9 @@
     "scan_btn": "Open Camera",
     "cam_permission": "We need camera permission to scan.",
     "export_btn": "Export Duplicates",
-    "pdf_title": "Duplicates List",
+    "export_missing_btn": "Export Missing",
+    "pdf_duplicates_title": "Repeated Stickers",
+    "pdf_missing_title": "Missing Stickers",
     "scan_again": "Scan another friend"
   }
 }

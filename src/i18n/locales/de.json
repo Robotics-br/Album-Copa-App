@@ -261,8 +261,10 @@
     "no_matches": "Schade, er hat im Moment keine Sticker, die du brauchst.",
     "scan_btn": "Kamera Öffnen",
     "cam_permission": "Wir benötigen die Kameraberechtigung zum Scannen.",
-    "export_btn": "Doppelte Exportieren",
-    "pdf_title": "Liste der Doppelten",
+    "export_btn": "Doppelte exportieren",
+    "export_missing_btn": "Fehlende exportieren",
+    "pdf_duplicates_title": "Doppelte Sticker",
+    "pdf_missing_title": "Fehlende Sticker",
     "scan_again": "Anderen Freund scannen"
   }
 }

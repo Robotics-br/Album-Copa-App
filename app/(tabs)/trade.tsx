@@ -1,13 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import {
-  View,
-  StyleSheet,
-  Dimensions,
-  Alert,
-  ActivityIndicator,
-  Platform,
-  ScrollView,
-} from 'react-native';
+import { View, StyleSheet, Dimensions, Alert, ActivityIndicator, ScrollView } from 'react-native';
 import { useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
@@ -17,21 +9,13 @@ import QRCode from 'react-native-qrcode-svg';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useSettingsStore } from '../../src/store/useSettingsStore';
-import * as Print from 'expo-print';
-import * as Sharing from 'expo-sharing';
-import { themeMap } from '../../src/theme/themes';
-import { LOGO_BASE64 } from '../../src/utils/logo_base64';
 import StickerCard from '../../src/components/StickerCard';
 import StickerCardLight from '../../src/components/StickerCardLight';
 import StickerModal from '../../src/components/StickerModal';
-import {
-  sections,
-  getStickerByCode,
-  getStickersBySection,
-  sectionMap,
-} from '../../src/data/sections';
+import { generateStickerPdf } from '../../src/utils/pdfGenerator';
+import { getStickerByCode, sectionMap } from '../../src/data/sections';
 import { FlashList } from '@shopify/flash-list';
-import type { Section, Sticker } from '../../src/types';
+import type { Sticker } from '../../src/types';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 import ScreenHeader from '../../src/components/ScreenHeader';
 import { compressDuplicates, decompressDuplicates } from '../../src/utils/qrCompression';
@@ -49,7 +33,7 @@ export default function TradeScreen() {
   const [scannedMatches, setScannedMatches] = useState<Sticker[]>([]);
   const [hasScanned, setHasScanned] = useState(false);
   const [qrPayload, setQrPayload] = useState('[]');
-  const [isExporting, setIsExporting] = useState(false);
+  const [exportingType, setExportingType] = useState<'duplicates' | 'missing' | null>(null);
   const [selectedSticker, setSelectedSticker] = useState<Sticker | null>(null);
 
   const getQuantity = useCollectionStore((s) => s.getQuantity);
@@ -90,246 +74,32 @@ export default function TradeScreen() {
     }
   };
 
-  const handleExport = async () => {
-    const duplicatesList = useCollectionStore.getState().getDuplicatesList();
-    if (duplicatesList.length === 0) {
-      Alert.alert(i18n_t('trade.pdf_title'), i18n_t('album.empty'));
+  const handleExport = async (type: 'duplicates' | 'missing') => {
+    const isMissing = type === 'missing';
+    const list = isMissing
+      ? useCollectionStore.getState().getMissingList()
+      : useCollectionStore.getState().getDuplicatesList();
+
+    if (list.length === 0) {
+      Alert.alert(
+        i18n_t(isMissing ? 'trade.pdf_missing_title' : 'trade.pdf_duplicates_title'),
+        i18n_t('album.empty')
+      );
       return;
     }
 
-    setIsExporting(true);
+    setExportingType(type);
 
     try {
-      if (!(await Sharing.isAvailableAsync())) {
-        Alert.alert('Erro', 'O compartilhamento não está disponível neste dispositivo.');
-        setIsExporting(false);
-        return;
-      }
-
-      const logoBase64 = LOGO_BASE64;
-
       const collection = useCollectionStore.getState().collection;
-      const sectionsWithDuplicates = sections
-        .map((section: Section) => {
-          const sectionStickers = getStickersBySection(section.id);
-          const sectionDuplicates = sectionStickers
-            .filter((s: Sticker) => (collection[s.code] ?? 0) > 1)
-            .map((s: Sticker) => ({ ...s, qty: (collection[s.code] ?? 0) - 1 }));
+      const title = i18n_t(isMissing ? 'trade.pdf_missing_title' : 'trade.pdf_duplicates_title');
 
-          const sectionOwned = sectionStickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
-
-          return {
-            ...section,
-            duplicates: sectionDuplicates,
-            owned: sectionOwned,
-            total: sectionStickers.length,
-          };
-        })
-        .filter((s: any) => s.duplicates.length > 0);
-
-      const STICKERS_PER_ROW = 10;
-      const PAGE_MAX_HEIGHT = Platform.OS === 'android' ? 1030 : 900;
-      const MAIN_HEADER_HEIGHT = 100;
-      const pages: any[] = [];
-      let currentPage: any[] = [];
-      let currentHeight = MAIN_HEADER_HEIGHT;
-
-      sectionsWithDuplicates.forEach((section: any) => {
-        const rows = Math.ceil(section.duplicates.length / STICKERS_PER_ROW);
-        const sectionHeight = 50 + rows * 65 + 20;
-
-        if (currentHeight + sectionHeight > PAGE_MAX_HEIGHT && currentPage.length > 0) {
-          pages.push(currentPage);
-          currentPage = [section];
-          currentHeight = MAIN_HEADER_HEIGHT + sectionHeight;
-        } else {
-          currentPage.push(section);
-          currentHeight += sectionHeight;
-        }
-      });
-
-      if (currentPage.length > 0) {
-        pages.push(currentPage);
-      }
-
-      const pdfTheme = themeMap['original-light'];
-      const pdfColors = {
-        bg: '#ffffff',
-        text: pdfTheme.text,
-        textSecondary: pdfTheme.textSecondary,
-        border: pdfTheme.border,
-        primary: pdfTheme.primary,
-        owned: pdfTheme.owned,
-        duplicate: pdfTheme.duplicate,
-        missingStickerBg: pdfTheme.missingStickerBg,
-        ownedStickerTextColor: '#000000',
-      };
-
-      const pagesHtml = pages
-        .map((pageSections: any[]) => {
-          const pageContent = pageSections
-            .map((section: any) => {
-              const gridHtml = section.duplicates
-                .map(
-                  (s: any) => `
-            <div class="sticker-box">
-              ${s.code}
-              ${s.qty > 1 ? `<div class="badge">+${s.qty}</div>` : ''}
-            </div>
-          `
-                )
-                .join('');
-
-              const isSpecial = section.id === 'special' || section.id === 'stadiums';
-              const nameKey = isSpecial ? `sections.${section.id}` : `teams.${section.id}`;
-
-              return `
-          <div class="team-section">
-            <div class="team-header">
-              <span class="flag">${section.icon}</span>
-              <span class="team-name">${i18n_t(nameKey)}</span>
-              <span class="team-count">${section.owned}/${section.total}</span>
-            </div>
-            <div class="grid">
-              ${gridHtml}
-            </div>
-          </div>
-        `;
-            })
-            .join('');
-
-          return `
-        <div class="page">
-          <div class="header-content">
-            <img src="${logoBase64}" class="logo" />
-            <h1 class="title">${i18n_t('trade.pdf_title')}</h1>
-          </div>
-          <div class="page-body">
-            ${pageContent}
-          </div>
-        </div>
-      `;
-        })
-        .join('');
-
-      const html = `
-      <html>
-        <head>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-          <style>
-            @page { 
-              margin: 5mm 10mm 5mm 10mm; 
-            }
-            body { 
-              font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
-              margin: 0;
-              padding: 0; 
-              color: ${pdfColors.text}; 
-              background-color: ${pdfColors.bg};
-              -webkit-print-color-adjust: exact;
-              print-color-adjust: exact;
-            }
-            
-            .page {
-              padding-bottom: 10px;
-            }
-            .page + .page {
-              page-break-before: always; 
-            }
-
-            .header-content { 
-              display: block; 
-              width: 100%;
-              padding-bottom: 10px;
-              margin-bottom: 15px;
-              border-bottom: 3px solid ${pdfColors.primary};
-              text-align: left;
-            }
-            .logo { 
-              width: 60px; 
-              height: 60px; 
-              border-radius: 12px; 
-              margin-right: 15px;
-              display: inline-block;
-              vertical-align: middle;
-            }
-            .title { 
-              font-size: 26px; 
-              font-weight: bold; 
-              color: ${pdfColors.primary}; 
-              margin: 0; 
-              line-height: 1.2; 
-              display: inline-block;
-              vertical-align: middle;
-            }
-            
-            .team-section { 
-              width: 100%;
-              margin-bottom: 30px;
-              page-break-inside: avoid;
-              break-inside: avoid;
-            }
-            .team-header { 
-              display: flex; 
-              align-items: center; 
-              gap: 12px; 
-              margin-bottom: 15px; 
-              padding-bottom: 10px;
-              border-bottom: 1px solid ${pdfColors.border};
-            }
-            .flag { font-size: 22px; margin-right: 12px; }
-            .team-name { font-size: 18px; font-weight: bold; color: ${pdfColors.text}; flex: 1; }
-            .team-count { font-size: 15px; color: ${pdfColors.textSecondary}; font-weight: 500; }
-            
-            .grid { 
-              display: flex; 
-              flex-wrap: wrap; 
-              gap: 12px; 
-              max-width: 670px;
-            }
-            .sticker-box {
-              width: 52px;
-              height: 52px;
-              border: 2px solid ${pdfColors.owned};
-              background-color: ${pdfColors.owned};
-              border-radius: 10px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 11px;
-              font-weight: bold;
-              color: #ffffff;
-              position: relative;
-            }
-            .badge {
-              position: absolute;
-              top: -8px;
-              right: -8px;
-              background-color: ${pdfColors.duplicate};
-              color: ${pdfColors.ownedStickerTextColor};
-              border-radius: 12px;
-              padding: 2px 6px;
-              font-size: 9px;
-              border: 1.5px solid #ffffff;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            }
-          </style>
-        </head>
-        <body>
-          ${pagesHtml}
-        </body>
-      </html>
-    `;
-
-      const { uri: pdfUri } = await Print.printToFileAsync({ html });
-
-      setIsExporting(false);
-
-      await Sharing.shareAsync(pdfUri, { UTI: '.pdf', mimeType: 'application/pdf' });
+      await generateStickerPdf(type, collection, title);
     } catch (error: any) {
       console.error('Error generating PDF:', error);
       Alert.alert('Erro', `Não foi possível gerar o PDF: ${error.message}`);
-      setIsExporting(false);
+    } finally {
+      setExportingType(null);
     }
   };
 
@@ -368,19 +138,63 @@ export default function TradeScreen() {
           </Text>
         </View>
 
-        <AnimatedPressable
-          onPress={handleExport}
-          disabled={isExporting}
-          className="mt-8 flex-row items-center gap-3 rounded-2xl px-12 py-4 shadow-sm"
-          style={{ backgroundColor: t.primary, opacity: isExporting ? 0.7 : 1 }}>
-          {isExporting ? (
-            <ActivityIndicator size="small" color={t.onPrimary} />
-          ) : (
-            <Text className="text-[17px] font-bold" style={{ color: t.onPrimary }}>
-              {i18n_t('trade.export_btn')}
-            </Text>
-          )}
-        </AnimatedPressable>
+        <View className="mt-8 w-full items-center gap-4">
+          <AnimatedPressable
+            onPress={() => handleExport('duplicates')}
+            disabled={exportingType !== null}
+            style={{
+              width: '100%',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: t.primary,
+              borderRadius: 16,
+              paddingVertical: 16,
+              opacity: exportingType !== null ? 0.7 : 1,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.1,
+              shadowRadius: 4,
+              elevation: 2,
+            }}>
+            {exportingType === 'duplicates' ? (
+              <ActivityIndicator size="small" color={t.onPrimary} />
+            ) : (
+              <Text className="text-[17px] font-bold" style={{ color: t.onPrimary }}>
+                {i18n_t('trade.export_btn')}
+              </Text>
+            )}
+          </AnimatedPressable>
+
+          <AnimatedPressable
+            onPress={() => handleExport('missing')}
+            disabled={exportingType !== null}
+            style={{
+              width: '100%',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: t.surface,
+              borderRadius: 16,
+              paddingVertical: 16,
+              borderWidth: 1,
+              borderColor: t.border,
+              opacity: exportingType !== null ? 0.7 : 1,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.05,
+              shadowRadius: 4,
+              elevation: 1,
+            }}>
+            {exportingType === 'missing' ? (
+              <ActivityIndicator size="small" color={t.primary} />
+            ) : (
+              <Text className="text-[17px] font-bold" style={{ color: t.primary }}>
+                {i18n_t('trade.export_missing_btn')}
+              </Text>
+            )}
+          </AnimatedPressable>
+        </View>
       </ScrollView>
     );
   };
@@ -492,10 +306,10 @@ export default function TradeScreen() {
   const insets = useSafeAreaInsets();
 
   return (
-    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-bg">
       <ScreenHeader titleKey="trade.title" />
 
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-2 mt-2">
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="my-3">
         <View className="flex-row items-center rounded-xl border border-border bg-surface p-1">
           <AnimatedPressable
             onPress={() => {

@@ -262,7 +262,9 @@
     "scan_btn": "فتح الكاميرا",
     "cam_permission": "نحتاج لإذن الكاميرا للمسح.",
     "export_btn": "تصدير المكرر",
-    "pdf_title": "قائمة المكرر",
+    "export_missing_btn": "تصدير المفقود",
+    "pdf_duplicates_title": "قائمة المكرر",
+    "pdf_missing_title": "قائمة المفقود",
     "scan_again": "مسح صديق آخر"
   }
 }

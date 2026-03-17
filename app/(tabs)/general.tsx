@@ -1,7 +1,6 @@
 import React, { useMemo, useCallback } from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
@@ -31,7 +30,6 @@ function chunkArray<T>(arr: T[], size: number): T[][] {
 export default function GeneralScreen() {
   const { width: windowWidth } = useWindowDimensions();
   const t = useTheme();
-  const insets = useSafeAreaInsets();
 
   const itemSize = useMemo(() => {
     return Math.floor((windowWidth - HORIZONTAL_PADDING * 2 - GAP * (COLUMNS - 1)) / COLUMNS);
@@ -149,7 +147,7 @@ export default function GeneralScreen() {
   const getItemType = useCallback((item: ListItem) => item.type, []);
 
   return (
-    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-bg">
       <ScreenHeader titleKey="general.title" />
 
       <FlashList

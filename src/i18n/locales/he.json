@@ -262,7 +262,9 @@
     "scan_btn": "פתח מצלמה",
     "cam_permission": "אנו זקוקים לאישור מצלמה כדי לסרוק.",
     "export_btn": "ייצא כפולות",
-    "pdf_title": "רשימת כפולות",
+    "export_missing_btn": "ייצא חסרות",
+    "pdf_duplicates_title": "רשימת כפולות",
+    "pdf_missing_title": "רשימת חסרות",
     "scan_again": "סרוק חבר נוסף"
   }
 }

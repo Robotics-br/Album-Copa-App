@@ -262,7 +262,9 @@
     "scan_btn": "打开相机",
     "cam_permission": "我们需要相机权限才能进行扫描。",
     "export_btn": "导出重复列表",
-    "pdf_title": "重复贴纸清单",
+    "export_missing_btn": "导出缺失列表",
+    "pdf_duplicates_title": "重复贴纸清单",
+    "pdf_missing_title": "缺失贴纸清单",
     "scan_again": "扫描另一个朋友"
   }
 }

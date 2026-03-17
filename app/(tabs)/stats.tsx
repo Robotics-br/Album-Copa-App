@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { View, ScrollView } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { sections, stickers, totalStickers, getStickersBySection } from '../../src/data/sections';
 import ProgressRing from '../../src/components/ui/ProgressRing';
@@ -12,7 +11,6 @@ import ScreenHeader from '../../src/components/ScreenHeader';
 export default function StatsScreen() {
   const { t: i18n_t } = useTranslation();
   const collection = useCollectionStore((s) => s.collection);
-  const insets = useSafeAreaInsets();
 
   const stats = useMemo(() => {
     const owned = stickers.filter((s) => (collection[s.code] ?? 0) > 0).length;
@@ -43,13 +41,13 @@ export default function StatsScreen() {
   }, [collection]);
 
   return (
-    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-bg">
       <ScreenHeader titleKey="stats.title" />
 
       <ScrollView
         className="flex-1"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ padding: 16, gap: 16 }}>
+        contentContainerStyle={{ padding: 16, paddingTop: 12, gap: 16 }}>
         <View className="items-center py-2">
           <ProgressRing percent={stats.pct} size={110} />
         </View>

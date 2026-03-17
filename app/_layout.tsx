@@ -29,7 +29,7 @@ function InnerLayout() {
 
   return (
     <>
-      <StatusBar style={t.statusBar === 'light' ? 'light' : 'dark'} />
+      <StatusBar style={t.statusBar === 'light' ? 'light' : 'dark'} translucent={true} />
       <Slot />
     </>
   );

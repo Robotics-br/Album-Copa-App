@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, ScrollView, Pressable, Alert } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Volume2, VolumeX, Eye, Trash2, Zap, ZapOff } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../src/theme/ThemeProvider';
@@ -22,7 +21,6 @@ const styleOptions: { id: ThemeStyle; labelKey: string }[] = [
 export default function SettingsScreen() {
   const theme = useTheme();
   const { t } = useTranslation();
-  const insets = useSafeAreaInsets();
   const {
     style,
     seniorMode,
@@ -49,13 +47,13 @@ export default function SettingsScreen() {
   };
 
   return (
-    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-bg">
       <ScreenHeader titleKey="settings.title" />
 
       <ScrollView
         className="flex-1"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ padding: 16, gap: 16 }}>
+        contentContainerStyle={{ padding: 16, paddingTop: 12, gap: 16 }}>
         <View className="overflow-hidden rounded-2xl border border-border bg-surface">
           <Text className="p-3 pb-0 text-[12px] font-semibold uppercase tracking-widest text-text-secondary">
             {t('settings.visualStyle')}

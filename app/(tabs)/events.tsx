@@ -9,7 +9,6 @@ import {
   Animated as RNAnimated,
 } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { Image } from 'expo-image';
 import { ChevronDown, ChevronUp, X, WifiOff } from 'lucide-react-native';
@@ -135,7 +134,6 @@ const ErrorView = ({ onRetry }: { onRetry: () => void }) => {
 export default function EventsScreen() {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
-  const insets = useSafeAreaInsets();
 
   const [activeTab, setActiveTab] = useState<GlobalTab>('games');
   const [selectedStadium, setSelectedStadium] = useState<Stadium | null>(null);
@@ -351,10 +349,10 @@ export default function EventsScreen() {
   );
 
   return (
-    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-bg">
       <ScreenHeader titleKey="events.title" />
 
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-3">
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="my-3">
         <View className="flex-row items-center rounded-xl border border-border bg-surface p-1">
           <AnimatedPressable
             onPress={() => setActiveTab('games')}

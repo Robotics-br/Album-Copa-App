@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { UserCollection } from '../types';
+import { sections, getStickersBySection } from '../data/sections';
 
 interface CollectionState {
   collection: UserCollection;
@@ -9,6 +10,7 @@ interface CollectionState {
   setQuantity: (code: string, qty: number) => void;
   getQuantity: (code: string) => number;
   getDuplicatesList: () => string[];
+  getMissingList: () => string[];
   reset: () => void;
   _hasHydrated: boolean;
   setHasHydrated: (state: boolean) => void;
@@ -41,6 +43,12 @@ export const useCollectionStore = create<CollectionState>()(
         return Object.entries(collection)
           .filter(([_, qty]) => qty > 1)
           .map(([code]) => code);
+      },
+
+      getMissingList: () => {
+        const { collection } = get();
+        const allStickers = sections.flatMap((s) => getStickersBySection(s.id));
+        return allStickers.filter((s) => (collection[s.code] ?? 0) === 0).map((s) => s.code);
       },
 
       reset: () => set({ collection: {} }),

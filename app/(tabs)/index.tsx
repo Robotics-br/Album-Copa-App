@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { View, useWindowDimensions } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../../src/theme/ThemeProvider';
 import { useCollectionStore } from '../../src/store/useCollectionStore';
 import { useAlbumFiltersStore } from '../../src/store/useAlbumFiltersStore';
@@ -47,8 +46,6 @@ export default function AlbumScreen() {
 
   const getQty = useCallback((code: string) => collection[code] ?? 0, [collection]);
 
-  const insets = useSafeAreaInsets();
-
   const filtered = useMemo(() => {
     let result = allStickers;
 
@@ -93,10 +90,12 @@ export default function AlbumScreen() {
   }
 
   return (
-    <View className="flex-1 bg-bg" style={{ paddingTop: insets.top }}>
+    <View className="flex-1 bg-bg">
       <ScreenHeader titleKey="album.title" />
 
-      <MainHeader searchQuery={searchQuery} setSearchQuery={onSearch} />
+      <View className="mt-3">
+        <MainHeader searchQuery={searchQuery} setSearchQuery={onSearch} />
+      </View>
 
       <MainList
         filteredStickers={filtered}

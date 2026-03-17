@@ -15,6 +15,8 @@ module.exports = {
         'owned-sticker-text': 'var(--theme-ownedStickerTextColor)',
         primary: 'var(--theme-primary)',
         'on-primary': 'var(--theme-onPrimary)',
+        'header-bg': 'var(--theme-headerBg)',
+        'on-header': 'var(--theme-onHeader)',
         accent: 'var(--theme-accent)',
         owned: 'var(--theme-owned)',
         duplicate: 'var(--theme-duplicate)',

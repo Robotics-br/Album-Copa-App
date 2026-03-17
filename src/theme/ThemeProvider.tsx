@@ -24,6 +24,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         '--theme-ownedStickerTextColor': colors.ownedStickerTextColor,
         '--theme-primary': colors.primary,
         '--theme-onPrimary': colors.onPrimary,
+        '--theme-headerBg': colors.headerBg,
+        '--theme-onHeader': colors.onHeader,
         '--theme-accent': colors.accent,
         '--theme-owned': colors.owned,
         '--theme-duplicate': colors.duplicate,

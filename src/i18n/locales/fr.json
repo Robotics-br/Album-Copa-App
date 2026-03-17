@@ -317,8 +317,10 @@
     "no_matches": "Dommage, il n'a pas d'autocollants dont vous avez besoin pour le moment.",
     "scan_btn": "Ouvrir l'Appareil Photo",
     "cam_permission": "Nous avons besoin de l'autorisation de la caméra pour scanner.",
-    "export_btn": "Exporter les Doubles",
-    "pdf_title": "Liste des Doubles",
+    "export_btn": "Exporter les Repetées",
+    "export_missing_btn": "Exporter les Manquants",
+    "pdf_duplicates_title": "Stickers en Double",
+    "pdf_missing_title": "Stickers Manquants",
     "scan_again": "Scanner un autre ami"
   }
 }
