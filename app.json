@@ -24,7 +24,7 @@
       "bundler": "metro"
     },
     "androidNavigationBar": {
-      "backgroundColor": "#00000000"
+      "backgroundColor": "#ffffff01"
     },
     "plugins": [
       "expo-router",
