@@ -9,6 +9,7 @@ import { useSettingsStore } from '../src/store/useSettingsStore';
 import { getLocales } from 'expo-localization';
 import '../src/i18n';
 import { useTranslation } from 'react-i18next';
+
 function InnerLayout() {
   const t = useTheme();
   const { language } = useSettingsStore();

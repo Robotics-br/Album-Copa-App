@@ -4,6 +4,7 @@ import { AppText as Text } from './AppText';
 import Svg, { Circle } from 'react-native-svg';
 import { useTheme } from '../../theme/ThemeProvider';
 import { useTranslation } from 'react-i18next';
+import { Platform } from 'react-native';
 
 interface ProgressRingProps {
   percent: number;
@@ -14,13 +15,25 @@ interface ProgressRingProps {
 export default function ProgressRing({ percent, size = 140, strokeWidth = 6 }: ProgressRingProps) {
   const t = useTheme();
   const { t: i18n_t } = useTranslation();
-  const radius = (size - strokeWidth) / 2;
+  const PADDING = 2; // Buffer to prevent stroke clipping
+  const radius = (size - strokeWidth - PADDING * 2) / 2;
   const circumference = 2 * Math.PI * radius;
   const progress = circumference - (percent / 100) * circumference;
 
   return (
     <View className="items-center justify-center" style={{ width: size, height: size }}>
       <Svg width={size} height={size} style={{ position: 'absolute' }}>
+        {/* Outer border */}
+        <Circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius + strokeWidth / 2}
+          stroke={t.primary}
+          strokeWidth={1}
+          fill="none"
+          opacity={1}
+        />
+        {/* Background ring */}
         <Circle
           cx={size / 2}
           cy={size / 2}
@@ -29,6 +42,17 @@ export default function ProgressRing({ percent, size = 140, strokeWidth = 6 }: P
           strokeWidth={strokeWidth}
           fill="none"
         />
+        {/* Inner border */}
+        <Circle
+          cx={size / 2}
+          cy={size / 2}
+          r={radius - strokeWidth / 2}
+          stroke={t.primary}
+          strokeWidth={1}
+          fill="none"
+          opacity={Platform.OS === 'ios' ? 0.5 : 0.8}
+        />
+        {/* Progress ring */}
         <Circle
           cx={size / 2}
           cy={size / 2}

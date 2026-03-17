@@ -112,7 +112,6 @@ export default function TradeScreen() {
           alignItems: 'center',
           justifyContent: 'center',
           paddingHorizontal: HORIZONTAL_PADDING,
-          paddingTop: 10,
           paddingBottom: Math.max(insets.bottom, 20),
         }}
         showsVerticalScrollIndicator={false}>
@@ -124,7 +123,7 @@ export default function TradeScreen() {
             shadowOpacity: 0.2,
             shadowRadius: 20,
           }}>
-          <QRCode value={qrPayload} size={width * 0.65} backgroundColor="white" />
+          <QRCode value={qrPayload} size={width * 0.5} backgroundColor="white" />
         </View>
 
         <View className="mt-8 items-center gap-3">

@@ -21,6 +21,7 @@ module.exports = {
         owned: 'var(--theme-owned)',
         duplicate: 'var(--theme-duplicate)',
         'on-duplicate': 'var(--theme-onDuplicate)',
+        'tab-inactive': 'var(--theme-tabInactive)',
       },
     },
   },

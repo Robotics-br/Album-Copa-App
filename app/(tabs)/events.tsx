@@ -198,7 +198,7 @@ export default function EventsScreen() {
 
   const renderGames = () => (
     <>
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-2 gap-2.5">
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mb-3 mt-3 gap-2.5">
         <View className="flex-row gap-1.5">
           {filterTabs.map(({ key, label }) => {
             const active = filterKind === key;
@@ -352,7 +352,7 @@ export default function EventsScreen() {
     <View className="flex-1 bg-bg">
       <ScreenHeader titleKey="events.title" />
 
-      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="my-3">
+      <View style={{ paddingHorizontal: HORIZONTAL_PADDING }} className="mt-3">
         <View className="flex-row items-center rounded-xl border border-border bg-surface p-1">
           <AnimatedPressable
             onPress={() => setActiveTab('games')}
