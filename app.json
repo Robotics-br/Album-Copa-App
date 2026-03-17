@@ -17,7 +17,10 @@
         "foregroundImage": "./assets/images/app-logo.png"
       },
       "package": "br.com.robotics.albumcopa2026",
-      "permissions": ["android.permission.RECORD_AUDIO", "android.permission.MODIFY_AUDIO_SETTINGS"]
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "favicon": "./assets/images/app-logo.png",
@@ -46,8 +49,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "dbd18b05-a06e-4480-a431-24cb1698c7fd"
+        "projectId": "77d693d7-a5cc-49b1-9d27-eaee07c6d9dd"
       }
-    }
+    },
+    "owner": "dedeygarcia"
   }
 }
