@@ -24,7 +24,7 @@
       "bundler": "metro"
     },
     "androidNavigationBar": {
-      "backgroundColor": "#ffffff01"
+      "enforceContrast": false
     },
     "plugins": [
       "expo-router",
@@ -37,12 +37,6 @@
           "image": "./assets/images/app-splash.png",
           "imageWidth": 200,
           "resizeMode": "cover"
-        }
-      ],
-      [
-        "expo-navigation-bar",
-        {
-          "enforceContrast": false
         }
       ]
     ],
