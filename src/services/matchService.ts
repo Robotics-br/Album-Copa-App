@@ -97,11 +97,16 @@ export async function fetchWorldCupMatches(): Promise<Match[]> {
 
     return data.map((m) => {
       const utcDate = new Date(m.matchDateTimeUTC);
-      const date = utcDate.toISOString().split('T')[0];
+
+      const year = utcDate.getFullYear();
+      const month = String(utcDate.getMonth() + 1).padStart(2, '0');
+      const day = String(utcDate.getDate()).padStart(2, '0');
+      const date = `${year}-${month}-${day}`;
+
       const time =
-        utcDate.getUTCHours().toString().padStart(2, '0') +
+        utcDate.getHours().toString().padStart(2, '0') +
         ':' +
-        utcDate.getUTCMinutes().toString().padStart(2, '0');
+        utcDate.getMinutes().toString().padStart(2, '0');
 
       // Tenta encontrar o resultado final (TypeID 2)
       const finalResult = m.matchResults.find((r) => r.resultTypeID === 2);

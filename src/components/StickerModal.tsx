@@ -137,7 +137,7 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
           </View>
 
           <View className="mb-5 flex-row justify-center gap-2">
-            {[0, 1, 2, 3, 5].map((n) => (
+            {[0, 1, 2, 3, 4, 5].map((n) => (
               <AnimatedPressable
                 key={n}
                 onPress={() => {
