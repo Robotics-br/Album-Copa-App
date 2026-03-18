@@ -178,7 +178,7 @@ export default function SettingsScreen() {
             {t('settings.footerSubtitle')}
           </Text>
           <View className="mt-2 flex-row flex-wrap items-center justify-center px-8">
-            <Text className="text-[11px] text-text-secondary opacity-70">
+            <Text className="text-center text-[11px] text-text-secondary opacity-70">
               {t('settings.apiCreditPrefix')}
             </Text>
             <TouchableOpacity
