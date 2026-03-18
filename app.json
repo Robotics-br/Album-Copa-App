@@ -17,7 +17,7 @@
         "foregroundImage": "./assets/images/app-logo.png"
       },
       "package": "br.com.andreygarcia.minhacopa2026",
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": ["android.permission.MODIFY_AUDIO_SETTINGS", "android.permission.RECORD_AUDIO"]
     },
     "web": {
