@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Pressable, Alert } from 'react-native';
+import { View, ScrollView, Pressable, Alert, Linking } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
 import { Volume2, VolumeX, Eye, Trash2, Zap, ZapOff } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
@@ -176,6 +176,15 @@ export default function SettingsScreen() {
           <Text className="text-[13px] text-text-secondary">{t('settings.footerTitle')}</Text>
           <Text className="mt-1 text-[11px] text-text-secondary opacity-70">
             {t('settings.footerSubtitle')}
+          </Text>
+          <Text className="mt-6 px-8 text-center text-[11px] text-text-secondary">
+            {t('settings.apiCreditPrefix')}
+            <Text
+              style={{ color: theme.primary }}
+              onPress={() => Linking.openURL('https://www.openligadb.de')}>
+              OpenLigaDB
+            </Text>
+            .
           </Text>
         </View>
       </ScrollView>

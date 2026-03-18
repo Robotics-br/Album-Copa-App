@@ -40,7 +40,8 @@
     "cancel": "Annuler",
     "delete": "Supprimer",
     "footerTitle": "Ma Coupe du Monde 2026",
-    "footerSubtitle": "v1.0.0 • par Andrey Garcia & Volnei Garcia"
+    "footerSubtitle": "v1.0.0 • von Andrey Garcia & Volnei Garcia",
+    "apiCreditPrefix": "Données de match et statistiques gracieusement fournies par "
   },
   "stats": {
     "title": "MES PROGRÈS",

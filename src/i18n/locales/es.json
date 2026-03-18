@@ -35,7 +35,8 @@
       "nl": "Holandés"
     },
     "deleteAll": "Borrar todo",
-    "deleteAllDesc": "Elimina todos los cromos",
+    "deleteAllDesc": "Esto eliminará todos los cromos pegados, repetidos y el progreso general.",
+    "apiCreditPrefix": "Datos de partidos y estadísticas amablemente proporcionados por ",
     "deleteAllAlertDesc": "¿Estás seguro de que quieres borrar todos los cromos? Esta acción no se puede deshacer.",
     "cancel": "Cancelar",
     "delete": "Borrar",

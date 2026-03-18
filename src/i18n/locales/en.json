@@ -35,7 +35,8 @@
       "nl": "Dutch"
     },
     "deleteAll": "Delete all",
-    "deleteAllDesc": "Removes all stickers",
+    "deleteAllDesc": "This will remove all pasted stickers, duplicates, and general progress.",
+    "apiCreditPrefix": "Match data and statistics kindly provided by ",
     "deleteAllAlertDesc": "Are you sure you want to delete all stickers? This action cannot be undone.",
     "cancel": "Cancel",
     "delete": "Delete",

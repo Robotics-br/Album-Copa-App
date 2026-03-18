@@ -35,7 +35,8 @@
       "nl": "Holandês"
     },
     "deleteAll": "Apagar tudo",
-    "deleteAllDesc": "Remove todas as figurinhas",
+    "deleteAllDesc": "Isso removerá todas as figurinhas coladas, repetidas e o andamento geral.",
+    "apiCreditPrefix": "Dados de partidas e estatísticas fornecidos gentilmente por ",
     "deleteAllAlertDesc": "Tem certeza que deseja apagar todas as figurinhas? Esta ação não pode ser desfeita.",
     "cancel": "Cancelar",
     "delete": "Apagar",

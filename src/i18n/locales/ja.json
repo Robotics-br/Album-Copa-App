@@ -40,7 +40,8 @@
     "cancel": "キャンセル",
     "delete": "削除",
     "footerTitle": "マイ・ワールドカップ 2026",
-    "footerSubtitle": "v1.0.0 • Andrey Garcia & Volnei Garcia制作"
+    "footerSubtitle": "v1.0.0 • Andrey Garcia & Volnei Garcia制作",
+    "apiCreditPrefix": "試合データと統計データの提供元："
   },
   "stats": {
     "title": "進行状況",

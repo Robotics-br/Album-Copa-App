@@ -40,7 +40,8 @@
     "cancel": "Annulla",
     "delete": "Cancella",
     "footerTitle": "Il mio Mondiale 2026",
-    "footerSubtitle": "v1.0.0 • by Andrey Garcia & Volnei Garcia"
+    "footerSubtitle": "v1.0.0 • von Andrey Garcia & Volnei Garcia",
+    "apiCreditPrefix": "Dati e statistiche delle partite gentilmente offerti da "
   },
   "stats": {
     "title": "I MIEI PROGRESSI",

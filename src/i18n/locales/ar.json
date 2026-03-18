@@ -40,7 +40,8 @@
     "cancel": "إلغاء",
     "delete": "حذف",
     "footerTitle": "كأس العالم 2026 الخاص بي",
-    "footerSubtitle": "v1.0.0 • بواسطة Andrey Garcia & Volnei Garcia"
+    "footerSubtitle": "v1.0.0 • von Andrey Garcia & Volnei Garcia",
+    "apiCreditPrefix": "بيانات المباريات والإحصاءات مقدمة تفضلًا من "
   },
   "stats": {
     "title": "تقدمي",

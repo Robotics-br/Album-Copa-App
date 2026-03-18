@@ -40,7 +40,8 @@
     "cancel": "ביטול",
     "delete": "מחיקה",
     "footerTitle": "המונדיאל שלי 2026",
-    "footerSubtitle": "v1.0.0 • by Andrey Garcia & Volnei Garcia"
+    "footerSubtitle": "v1.0.0 • von Andrey Garcia & Volnei Garcia",
+    "apiCreditPrefix": "נתוני משחקים וסטטיסטיקות סופקו באדיבות על ידי "
   },
   "stats": {
     "title": "ההתקדמות שלי",
