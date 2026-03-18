@@ -46,24 +46,21 @@ Após iniciar, escaneie o QR code exibido no terminal com o app **Expo Go**.
 | `npm run ios`     | Inicia no simulador iOS    |
 | `npm run web`     | Inicia no navegador        |
 
-## Build de Produção Local (Android/AAB)
+### Build de Produção Local (Android/AAB)
 
-Para gerar seu build de produção (Play Store) **localmente**, sem gastar os créditos gratuitos da núvem da Expo, utilize os comandos do [EAS CLI](https://docs.expo.dev/build/setup/):
+Para gerar seu build de produção (Play Store) **localmente**, utilize o novo script:
 
-1. **Instale o EAS CLI (se ainda não tiver):**
-   ```bash
-   npm install -g eas-cli
-   ```
-2. **Faça login na sua conta Expo:**
-   ```bash
-   eas login
-   ```
-3. **Gere a build de produção apontando para a máquina local (`--local`):**
-   ```bash
-   eas build --platform android --profile production --local
-   ```
+```bash
+npm run build:android:prod:local
+```
 
-*Nota: Ao utilizar o EAS localmente, é necessário ter o ambiente de desenvolvimento Android (Android Studio, JDK, etc) configurado no seu computador.*
+### Outros comandos de Build
+
+| Comando | Descrição |
+| :--- | :--- |
+| `npm run build:android:debug:apk` | Gera APK manual via Gradle (para testes rápidos) |
+| `npm run build:android:preview:cloud` | Gera build de teste (Preview) na nuvem EAS |
+| `npm run build:all:prod:cloud` | Gera build de produção para todas as plataformas na nuvem EAS |
 
 ## Estrutura do projeto
 
