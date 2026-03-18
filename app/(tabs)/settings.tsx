@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Pressable, Alert, Linking, TouchableOpacity } from 'react-native';
+import { View, ScrollView, Pressable, Alert, Linking } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
 import { Volume2, VolumeX, Eye, Trash2, Zap, ZapOff } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
@@ -177,13 +177,11 @@ export default function SettingsScreen() {
           <Text className="mt-1 text-[11px] text-text-secondary opacity-70">
             {t('settings.footerSubtitle')}
           </Text>
-          <TouchableOpacity
-            className="mt-2 px-8"
-            activeOpacity={0.7}
-            onPress={() => Linking.openURL('https://www.openligadb.de')}>
+          <View className="mt-2 px-8">
             <Text className="text-center text-[11px] text-text-secondary opacity-70">
               {t('settings.apiCreditPrefix')}
               <Text
+                onPress={() => Linking.openURL('https://www.openligadb.de')}
                 style={{
                   color: theme.primary,
                   fontWeight: 'bold',
@@ -193,7 +191,7 @@ export default function SettingsScreen() {
               </Text>
               .
             </Text>
-          </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </View>
