@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Minha Copa 2026",
-    "slug": "rbr-album-copa2026-app",
+    "slug": "minha-copa2026-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app-logo.png",
@@ -9,16 +9,19 @@
     "scheme": "minhacopa2026",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "br.com.robotics.albumcopa2026"
+      "bundleIdentifier": "br.com.andreygarcia.minhacopa2026"
     },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#ffffff",
         "foregroundImage": "./assets/images/app-logo.png"
       },
-      "package": "br.com.robotics.albumcopa2026",
+      "package": "br.com.andreygarcia.minhacopa2026",
       "versionCode": 1,
-      "permissions": ["android.permission.MODIFY_AUDIO_SETTINGS"]
+      "permissions": [
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "favicon": "./assets/images/app-logo.png",
@@ -44,7 +47,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "77d693d7-a5cc-49b1-9d27-eaee07c6d9dd"
+        "projectId": "bf7a94e9-13e9-44d9-80e4-2d89b470d1bb"
       }
     },
     "owner": "dedeygarcia"
