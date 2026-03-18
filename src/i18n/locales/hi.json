@@ -247,7 +247,8 @@
     "next": "अगला"
   },
   "common": {
-    "loading": "लोड हो रहा है..."
+    "loading": "लोड हो रहा है...",
+    "error": "त्रुटि"
   },
   "games": {
     "title": "सभी मैच",
@@ -321,6 +322,7 @@
     "export_missing_btn": "बाकी लिस्ट एक्सपोर्ट करें",
     "pdf_duplicates_title": "दोबारा स्टिकर्स की सूची",
     "pdf_missing_title": "बाकी स्टिकर्स की सूची",
+    "pdf_error": "PDF जनरेट नहीं हो सका: {{message}}",
     "scan_again": "एक और दोस्त को स्कैन करें"
   }
 }

@@ -70,7 +70,7 @@ export default function TradeScreen() {
         setScannedMatches([]);
       }
     } catch {
-      console.log('Invalid QR Code');
+      // QR code inválido — ignora silenciosamente
     }
   };
 
@@ -96,8 +96,7 @@ export default function TradeScreen() {
 
       await generateStickerPdf(type, collection, title);
     } catch (error: any) {
-      console.error('Error generating PDF:', error);
-      Alert.alert('Erro', `Não foi possível gerar o PDF: ${error.message}`);
+      Alert.alert(i18n_t('common.error'), i18n_t('trade.pdf_error', { message: error.message }));
     } finally {
       setExportingType(null);
     }
@@ -293,7 +292,7 @@ export default function TradeScreen() {
               className="mt-4 items-center rounded-xl px-6 py-4"
               style={{ backgroundColor: t.primary, borderColor: t.border, borderTopWidth: 1 }}>
               <Text className="text-[15px] font-bold" style={{ color: t.onPrimary }}>
-                {i18n_t('trade.scan_again', 'Escanear outro amigo')}
+                {i18n_t('trade.scan_again')}
               </Text>
             </AnimatedPressable>
           </View>

@@ -247,7 +247,8 @@
     "next": "NEXT"
   },
   "common": {
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "error": "Error"
   },
   "games": {
     "title": "All matches",
@@ -321,6 +322,7 @@
     "export_missing_btn": "Export Missing",
     "pdf_duplicates_title": "Repeated Stickers",
     "pdf_missing_title": "Missing Stickers",
+    "pdf_error": "Could not generate the PDF: {{message}}",
     "scan_again": "Scan another friend"
   }
 }

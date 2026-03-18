@@ -247,7 +247,8 @@
     "next": "הבא"
   },
   "common": {
-    "loading": "טוען..."
+    "loading": "טוען...",
+    "error": "שגיאה"
   },
   "games": {
     "title": "כל המשחקים",
@@ -321,6 +322,7 @@
     "export_missing_btn": "ייצא חסרות",
     "pdf_duplicates_title": "רשימת כפולות",
     "pdf_missing_title": "רשימת חסרות",
+    "pdf_error": "לא ניתן ליצור את ה-PDF: {{message}}",
     "scan_again": "סרוק חבר נוסף"
   }
 }

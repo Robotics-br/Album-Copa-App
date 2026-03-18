@@ -247,7 +247,8 @@
     "next": "次へ"
   },
   "common": {
-    "loading": "読み込み中..."
+    "loading": "読み込み中...",
+    "error": "エラー"
   },
   "games": {
     "title": "全試合",
@@ -321,6 +322,7 @@
     "export_missing_btn": "不足分を出力",
     "pdf_duplicates_title": "重複リスト",
     "pdf_missing_title": "不足リスト",
+    "pdf_error": "PDFを生成できませんでした：{{message}}",
     "scan_again": "別の朋友をスキャン"
   }
 }

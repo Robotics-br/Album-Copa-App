@@ -20,7 +20,7 @@ function InnerLayout() {
       let lng = language;
       if (!lng) {
         const deviceLanguage = getLocales()[0]?.languageCode ?? 'pt';
-        lng = ['pt', 'en', 'es', 'de', 'it', 'fr'].includes(deviceLanguage) ? deviceLanguage : 'pt';
+        lng = ['pt', 'en', 'es', 'de', 'it', 'fr', 'he', 'zh', 'ar', 'ja', 'hi', 'nl'].includes(deviceLanguage) ? deviceLanguage : 'pt';
       }
       i18n.changeLanguage(lng);
     };

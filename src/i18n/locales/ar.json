@@ -247,7 +247,8 @@
     "next": "التالي"
   },
   "common": {
-    "loading": "جاري التحميل..."
+    "loading": "جاري التحميل...",
+    "error": "خطأ"
   },
   "games": {
     "title": "جميع المباريات",
@@ -321,6 +322,7 @@
     "export_missing_btn": "تصدير المفقود",
     "pdf_duplicates_title": "قائمة المكرر",
     "pdf_missing_title": "قائمة المفقود",
+    "pdf_error": "تعذّر إنشاء ملف PDF: {{message}}",
     "scan_again": "مسح صديق آخر"
   }
 }

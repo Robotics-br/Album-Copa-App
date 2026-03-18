@@ -247,7 +247,8 @@
     "next": "Próxima"
   },
   "common": {
-    "loading": "Carregando..."
+    "loading": "Carregando...",
+    "error": "Erro"
   },
   "games": {
     "title": "Todos os jogos",
@@ -321,6 +322,7 @@
     "export_missing_btn": "Exportar Faltantes",
     "pdf_duplicates_title": "Figurinhas Repetidas",
     "pdf_missing_title": "Figurinhas Faltantes",
+    "pdf_error": "Não foi possível gerar o PDF: {{message}}",
     "scan_again": "Escanear outro amigo"
   }
 }

@@ -119,7 +119,6 @@ export async function fetchWorldCupMatches(): Promise<Match[]> {
       };
     });
   } catch (error) {
-    console.error('Error fetching matches:', error);
     throw error;
   }
 }

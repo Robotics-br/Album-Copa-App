@@ -247,7 +247,8 @@
     "next": "SUIVANT"
   },
   "common": {
-    "loading": "Chargement..."
+    "loading": "Chargement...",
+    "error": "Erreur"
   },
   "games": {
     "title": "Tous les matchs",
@@ -321,6 +322,7 @@
     "export_missing_btn": "Exporter les Manquants",
     "pdf_duplicates_title": "Stickers en Double",
     "pdf_missing_title": "Stickers Manquants",
+    "pdf_error": "Impossible de générer le PDF : {{message}}",
     "scan_again": "Scanner un autre ami"
   }
 }

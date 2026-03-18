@@ -247,7 +247,8 @@
     "next": "下一个"
   },
   "common": {
-    "loading": "加载中..."
+    "loading": "加载中...",
+    "error": "错误"
   },
   "games": {
     "title": "所有比赛",
@@ -321,6 +322,7 @@
     "export_missing_btn": "导出缺失列表",
     "pdf_duplicates_title": "重复贴纸清单",
     "pdf_missing_title": "缺失贴纸清单",
+    "pdf_error": "无法生成PDF：{{message}}",
     "scan_again": "扫描另一个朋友"
   }
 }

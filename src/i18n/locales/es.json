@@ -247,7 +247,8 @@
     "next": "SIGUIENTE"
   },
   "common": {
-    "loading": "Cargando..."
+    "loading": "Cargando...",
+    "error": "Error"
   },
   "games": {
     "title": "Todos los partidos",
@@ -321,6 +322,7 @@
     "export_missing_btn": "Exportar Faltantes",
     "pdf_duplicates_title": "Cromos Repetidos",
     "pdf_missing_title": "Cromos Faltantes",
+    "pdf_error": "No se pudo generar el PDF: {{message}}",
     "scan_again": "Escanear a otro amigo"
   }
 }

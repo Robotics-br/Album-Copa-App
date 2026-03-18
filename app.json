@@ -17,7 +17,7 @@
         "foregroundImage": "./assets/images/app-logo.png"
       },
       "package": "br.com.robotics.albumcopa2026",
-      "permissions": ["android.permission.RECORD_AUDIO", "android.permission.MODIFY_AUDIO_SETTINGS"]
+      "permissions": ["android.permission.MODIFY_AUDIO_SETTINGS"]
     },
     "web": {
       "favicon": "./assets/images/app-logo.png",

@@ -247,7 +247,8 @@
     "next": "VOLGENDE"
   },
   "common": {
-    "loading": "Laden..."
+    "loading": "Laden...",
+    "error": "Fout"
   },
   "games": {
     "title": "Alle wedstrijden",
@@ -321,6 +322,7 @@
     "export_missing_btn": "Ontbrekende exporteren",
     "pdf_duplicates_title": "Lijst met dubbelen",
     "pdf_missing_title": "Lijst met ontbrekende stickers",
+    "pdf_error": "Kan de PDF niet genereren: {{message}}",
     "scan_again": "Andere vriend scannen"
   }
 }

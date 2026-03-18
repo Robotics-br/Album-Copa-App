@@ -4,11 +4,11 @@ Aplicativo mobile para gerenciamento de álbum de figurinhas da Copa do Mundo 20
 
 ## Tech Stack
 
-- **React Native** com **Expo** (SDK 55)
+- **React Native** com **Expo** (SDK 54)
 - **Expo Router** — navegação baseada em arquivos
 - **NativeWind** (TailwindCSS) — estilização
 - **Zustand** — gerenciamento de estado
-- **Supabase** — backend / banco de dados
+- **TypeScript**
 - **TypeScript**
 
 ## Pré-requisitos
@@ -46,6 +46,25 @@ Após iniciar, escaneie o QR code exibido no terminal com o app **Expo Go**.
 | `npm run ios`     | Inicia no simulador iOS    |
 | `npm run web`     | Inicia no navegador        |
 
+## Build de Produção Local (Android/AAB)
+
+Para gerar seu build de produção (Play Store) **localmente**, sem gastar os créditos gratuitos da núvem da Expo, utilize os comandos do [EAS CLI](https://docs.expo.dev/build/setup/):
+
+1. **Instale o EAS CLI (se ainda não tiver):**
+   ```bash
+   npm install -g eas-cli
+   ```
+2. **Faça login na sua conta Expo:**
+   ```bash
+   eas login
+   ```
+3. **Gere a build de produção apontando para a máquina local (`--local`):**
+   ```bash
+   eas build --platform android --profile production --local
+   ```
+
+*Nota: Ao utilizar o EAS localmente, é necessário ter o ambiente de desenvolvimento Android (Android Studio, JDK, etc) configurado no seu computador.*
+
 ## Estrutura do projeto
 
 ```
@@ -61,7 +80,7 @@ Após iniciar, escaneie o QR code exibido no terminal com o app **Expo Go**.
 ├── src/
 │   ├── components/        # Componentes reutilizáveis
 │   ├── data/              # Dados estáticos (times, jogos, estádios)
-│   ├── services/          # Supabase, storage
+│   ├── services/          # Serviços de API das partidas
 │   ├── store/             # Stores Zustand
 │   ├── theme/             # Temas e ThemeProvider
 │   ├── types/             # Tipos TypeScript

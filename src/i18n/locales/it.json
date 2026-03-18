@@ -247,7 +247,8 @@
     "next": "SUCCESSIVO"
   },
   "common": {
-    "loading": "Caricamento..."
+    "loading": "Caricamento...",
+    "error": "Errore"
   },
   "games": {
     "title": "Tutte le partite",
@@ -321,6 +322,7 @@
     "export_missing_btn": "Esporta mancanti",
     "pdf_duplicates_title": "Figurine doppie",
     "pdf_missing_title": "Figurine mancanti",
+    "pdf_error": "Impossibile generare il PDF: {{message}}",
     "scan_again": "Scansiona un altro amico"
   }
 }
