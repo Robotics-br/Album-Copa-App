@@ -30,7 +30,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         '--theme-owned': colors.owned,
         '--theme-duplicate': colors.duplicate,
         '--theme-onDuplicate': colors.onDuplicate,
-        '--theme-tabInactive': colors.tabInactive,
+        '--theme-tabBorderColor': colors.tabBorderColor,
+        '--theme-tabsBg': colors.tabsBg,
+        '--theme-tabsBgActive': colors.tabsBgActive,
+        '--theme-tabsBgInactive': colors.tabsBgInactive,
       }),
     [colors]
   );

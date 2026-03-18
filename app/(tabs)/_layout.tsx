@@ -22,12 +22,13 @@ export default function TabLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: t.headerBg,
-          borderTopWidth: 0,
+          backgroundColor: t.tabsBg,
           elevation: 0,
+          borderTopWidth: 2,
+          borderColor: t.tabBorderColor,
         },
-        tabBarActiveTintColor: t.onHeader,
-        tabBarInactiveTintColor: t.tabInactive,
+        tabBarActiveTintColor: t.tabsBgActive,
+        tabBarInactiveTintColor: t.tabsBgInactive,
         tabBarLabelStyle: {
           fontSize: 10,
           fontWeight: '500',

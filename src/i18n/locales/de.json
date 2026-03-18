@@ -59,13 +59,69 @@
     "subtitle": "{{totalCount}} Stadien in {{countryCount}} Ländern",
     "opened": "Eröffnet im Jahr {{year}}",
     "data": {
-      "bc_place": {
-        "name": "BC Place Vancouver",
-        "desc": "Das BC Place Vancouver, das nun bereits seit fünf Jahrzehnten besteht, ist nach wie vor ein atemberaubendes Stück Architektur am Ufer des False Creek.\n\nDas Gebiet, das vor kurzem renoviert wurde, ist die Heimat der MLS-Mannschaft Vancouver Whitecaps und der BC Lions aus der Canadian Football League (CFL) und war gelegentlich auch Austragungsort der kanadischen Nationalmannschaft.\n\nEines der denkwürdigsten Spiele im BC Place Vancouver fand statt, als dort das Finale der FIFA Frauen-Weltmeisterschaft 2015™ ausgetragen wurde, bei dem die USA den Titelverteidiger Japan mit 5:2 besiegten – nicht zuletzt dank eines Hattricks von Carli Lloyd innerhalb der ersten 15 Minuten."
+      "metlife": {
+        "name": "New York New Jersey Stadium (MetLife Stadium)",
+        "desc": "Ein vielseitiger Veranstaltungsort, der 2010 eröffnet wurde. Dieses Wahrzeichen von East Rutherford ist die reguläre Heimat der Giants und Jets. Im Jahr 2026 verwandelt es sich für das größte Ereignis des Weltfußballs. Zuvor war es Zeuge des kontinentalen Triumphs von Chile im Jahr 2016 und des Finales der Klub-Weltmeisterschaft 2025, bei dem Chelsea gegen PSG gewann. Legenden wie Taylor Swift und Ed Sheeran haben diese Ränge ebenfalls gefüllt."
+      },
+      "sofi": {
+        "name": "Los Angeles Stadium (SoFi Stadium)",
+        "desc": "Diese hochmoderne Arena in Inglewood wurde Ende 2020 eingeweiht und liegt nur eine kurze Fahrt vom historischen Rose Bowl entfernt. Sie dient sowohl den Rams als auch den Chargers als Heimat. Neben der Ausrichtung des Super Bowl LVI im Jahr 2022 beherbergte ihr markantes architektonisches Dach große Konzerte von Stars wie BTS und Taylor Swift."
+      },
+      "att": {
+        "name": "Dallas Stadium (AT&T Stadium)",
+        "desc": "Ein Meisterstück modernen Designs in Arlington. Diese Anlage bietet den Zuschauern durch ihre riesigen, 2.300 Quadratmeter großen Videowände eine unvergleichliche Sicht. Seit 2009 ist sie die Festung der Cowboys und war Schauplatz vielfältiger Events, vom Gold Cup über NBA All-Star Games bis hin zu bedeutenden College-Football-Playoffs und Boxweltmeisterschaften."
+      },
+      "hard_rock": {
+        "name": "Miami Stadium (Hard Rock Stadium)",
+        "desc": "Dieses multifunktionale Zentrum in Miami Gardens ist die primäre Heimat der Dolphins und der prestigeträchtigen Miami Open Tennis-Matches. Es hat bereits ein halbes Dutzend Super Bowls ausgerichtet und spielte jüngst eine Schlüsselrolle bei der Klub-WM 2025, einschließlich der Eröffnungsspiele und K.-o.-Siege von Real Madrid. Die Vielseitigkeit reicht von der Formel 1 bis hin zu großen Musikfestivals."
+      },
+      "nrg": {
+        "name": "Houston Stadium (NRG Stadium)",
+        "desc": "Bekannt für sein beeindruckendes fahrbares Dach und die energiegeladene 'Bull Pen'-Fan-Sektion, besitzt dieses Wahrzeichen Houstons eine reiche Fußballhistorie. Es hieß bereits die MLS All-Stars willkommen und war Austragungsort der Copa America 2016. Während es die Heimat der Texans ist, findet hier auch jährlich das berühmte Houston Rodeo statt."
+      },
+      "mercedes_benz": {
+        "name": "Atlanta Stadium (Mercedes-Benz Stadium)",
+        "desc": "Charakterisiert durch ein einzigartiges fahrbares Dach und einen 360-Grad-'Halo'-Bildschirm, ist diese preisgekrönte Arena in Atlanta führend in Sachen Nachhaltigkeit. Sie ist die gemeinsame Heimat von Atlanta United und den Falcons. Zu den jüngsten Highlights zählen fünf Partien während der Klub-WM 2025, darunter ein hochkarätiges Viertelfinale zwischen Paris Saint-Germain und Bayern München."
+      },
+      "lincoln": {
+        "name": "Philadelphia Stadium (Lincoln Financial Field)",
+        "desc": "Philadelphias erstklassige Freiluft-Anlage begann ihre Geschichte 2003 mit einem hochkarätigen Freundschaftsspiel zwischen Manchester United und Barcelona. Heute fester Stützpunkt der Eagles, fand hier auch das Gold-Cup-Finale 2015 statt. 2025 wurde sie intensiv für acht Klub-WM-Spiele genutzt, darunter der Sieg von Chelsea am amerikanischen Unabhängigkeitstag."
+      },
+      "lumen": {
+        "name": "Seattle Stadium (Lumen Field)",
+        "desc": "Mit einem malerischen Blick auf die Skyline von Seattle durch das offene Ende ist dieses Stadion als eines der lautesten der Sportgeschichte bekannt. Es ist die spirituelle Heimat der Sounders und Seahawks. In einer legendären Nacht im Jahr 2022 besiegten die Sounders hier Pumas und holten den kontinentalen Titel, was zu ihrer Teilnahme an der Klub-WM 2025 führte."
+      },
+      "gillette": {
+        "name": "Boston Stadium (Gillette Stadium)",
+        "desc": "Nach umfangreichen Modernisierungen verfügt dieses Stadion in Foxborough nun über einen gigantischen 2.000 Quadratmeter großen High-Definition-Bildschirm. Es dient als Heimat für die Revolution und die Patriots. Mit einer Geschichte, die die Frauen-WM 2003 und mehrere Gold Cups umfasst, bleibt es ein Pfeiler des US-Sports und ein erstklassiges Ziel für Konzerte."
+      },
+      "arrowhead": {
+        "name": "Kansas City Stadium (Arrowhead Stadium)",
+        "desc": "Als Weltrekordhalter für Lärmpegel in einem Freiluftstadion ist dieses Wahrzeichen von Kansas City die legendäre Heimat der Chiefs. Global als Fußball-Hochburg bekannt, unterstützt die Stadt sowohl Sporting KC als auch KC Current. Die Atmosphäre hier ist unerreicht; zuletzt fanden hier fünf aufeinanderfolgende NFL-Conference-Meisterschaften statt."
+      },
+      "levis": {
+        "name": "San Francisco Bay Area Stadium (Levi's Stadium)",
+        "desc": "In Santa Clara gelegen, ist diese moderne Anlage seit 2014 die Heimat der 49ers. Hier fand der legendäre Super Bowl 50 statt, und Anfang 2026 diente sie als Austragungsort für den Super Bowl LX. Über den Football hinaus war sie Schauplatz hochkarätiger Events wie dem Eröffnungsspiel der Copa America und Wrestlemania."
+      },
+      "azteca": {
+        "name": "Mexico City Stadium (Estadio Azteca)",
+        "desc": "Eine legendäre Kathedrale des Sports: Diese ikonische Stätte in Mexiko-Stadt ist die erste, die drei separate Weltmeisterschaften ausrichtet. Sie war Zeuge des Genies von Pele und Maradona in den Finals von 1970 und 1986. Derzeit Heimat von Club America und der mexikanischen Nationalmannschaft, wurden hier auch Zuschauerrekorde beim U17-WM-Finale 2011 aufgestellt."
+      },
+      "bbva": {
+        "name": "Estadio Monterrey (Estadio BBVA)",
+        "desc": "Dieses umweltfreundliche architektonische Juwel in Monterrey erhielt als erstes in der Region das LEED-Silber-Zertifikat. 2015 eingeweiht, dient es als Heimat für den CF Monterrey. Jüngst fand hier das Finale der Concacaf W Championship 2022 statt, zudem traten internationale Musikstars wie Bad Bunny und Justin Bieber auf."
+      },
+      "akron": {
+        "name": "Estadio Guadalajara (Estadio Akron)",
+        "desc": "Bekannt für seine markante Kugelform und die grasbewachsene Außenfassade, ist diese Arena in Zapopan einer der visuell beeindruckendsten Orte Mexikos. Seit 2010 ist es die Heimat von Chivas, wo mehrere Liga- und Kontinentaltitel gefeiert wurden. Zudem spielte es eine zentrale Rolle bei der U17-WM 2011 und den Panamerikanischen Spielen."
       },
       "toronto": {
-        "name": "Toronto Stadium",
-        "desc": "Das Toronto Stadium wurde eigens für die Ausrichtung der FIFA U-20-Weltmeisterschaft 2007™ in Kanada gebaut und war Schauplatz des Finales, aus dem Argentinien als Sieger hervorging, wobei Sergio Aguero den Goldenen Ball und den Goldenen Schuh gewann.\n\nDie Spielstätte, die über eine Überdachung im Stil der englischen Premier League und steile Tribünen an beiden Enden des Spielfelds verfügt, war Schauplatz des Höhepunkts der kanadischen Kampagne zur Erreichung der FIFA-Weltmeisterschaft 2022™, als das Ticket nach Katar mit einem Sieg über Jamaika gesichert wurde.\n\nDas Stadion verfügt außerdem über frühere Turniererfahrung und war 2014 auch Austragungsort der FIFA U-20-Frauen-Weltmeisterschaft™."
+        "name": "Toronto Stadium (BMO Field)",
+        "desc": "Ursprünglich für die U20-WM 2007 erbaut, sah man hier Argentinien mit einem jungen Sergio Agüero die Trophäe stemmen. Es verfügt über eine markante Überdachung und ist zum Herz des kanadischen Fußballs geworden, insbesondere während der erfolgreichen Qualifikation für 2022. Auch die U20-Frauen-WM 2014 fand hier statt."
+      },
+      "bc_place": {
+        "name": "BC Place Vancouver (BC Place)",
+        "desc": "Mit Blick auf den False Creek in Vancouver ist diese renovierte Architektur-Ikone seit Jahrzehnten der Anker der Sportszene der Stadt. Heimat der Whitecaps und BC Lions, war ihr berühmtester Moment die Ausrichtung des Frauen-WM-Finales 2015, bei dem ein historischer Hattrick den Titel für die USA sicherte."
       }
     }
   },

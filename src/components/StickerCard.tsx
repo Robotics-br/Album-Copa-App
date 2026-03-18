@@ -190,7 +190,7 @@ function StickerCard({
       <View className="z-10 w-full flex-row items-center justify-between">
         <Text className="text-[14px]">{flag}</Text>
         {qty === 1 && (
-          <Text style={{ color: t.ownedStickerTextColor }} className="text-[10px]">
+          <Text style={{ color: '#f2cd27' }} className="text-[13px]">
             ★
           </Text>
         )}

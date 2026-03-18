@@ -61,67 +61,67 @@
     "data": {
       "metlife": {
         "name": "New York New Jersey Stadium (MetLife Stadium)",
-        "desc": "Mentre questo stadio è stato più abituato a ospitare le superstar della NFL nel corso degli anni, il meglio che il calcio ha da offrire si dirigerà verso il campo nel 2026."
+        "desc": "Un impianto versatile inaugurato nel 2010, questo punto di riferimento di East Rutherford ospita abitualmente i Giants e i Jets. Nel 2026, si trasformerà per il più grande evento calcistico del pianeta. In passato, ha visto il trionfo continentale del Cile nel 2016 e la finale del Mondiale per Club 2025, dove il Chelsea ha battu il PSG. Leggende come Taylor Swift e Ed Sheeran hanno anch'esse riempito queste tribune."
       },
       "sofi": {
         "name": "Los Angeles Stadium (SoFi Stadium)",
-        "desc": "Il Los Angeles Stadium è la più recente struttura scelta per ospitare la FIFA World Cup 2026."
+        "desc": "Inaugurata a fine 2020, questa arena all'avanguardia a Inglewood si trova a breve distanza dallo storico Rose Bowl. Funge da base sia per i Rams che per i Chargers. Oltre ad aver ospitato il Super Bowl LVI nel 2022, il suo impressionante tetto architettonico ha coperto grandi concerti di star come BTS e Taylor Swift."
       },
       "att": {
         "name": "Dallas Stadium (AT&T Stadium)",
-        "desc": "Il Dallas Stadium è un esempio mozzafiato di architettura per stadi."
+        "desc": "Un capolavoro del design moderno situato ad Arlington, questa struttura offre agli spettatori una visuale impareggiabile attraverso i suoi enormi schermi video da 2.300 metri quadrati. Dal 2009 è la fortezza dei Cowboys, pur ospitando eventi diversi come la Gold Cup e l'All-Star NBA, fino ai grandi playoff di football universitario e alla boxe."
       },
       "hard_rock": {
         "name": "Miami Stadium (Hard Rock Stadium)",
-        "desc": "Il Miami Stadium funge da casa per i Miami Dolphins, il Gran Premio di Miami di Formula 1 e altri grandi eventi."
+        "desc": "Questo centro polifunzionale di Miami Gardens è la casa principale dei Dolphins e dei prestigiosi match di tennis del Miami Open. Ha ospitato una mezza dozzina di Super Bowl e recentemente ha giocato un ruolo chiave nel Mondiale per Club 2025, incluse le gare inaugurali e le vittorie del Real Madrid. La sua versatilità spazia dalla Formula 1 ai grandi festival."
       },
       "nrg": {
         "name": "Houston Stadium (NRG Stadium)",
-        "desc": "Ospita l'MLS All-Star Game e partite delle nazionali di USA e Messico."
+        "desc": "Noto per il suo impressionante tetto retrattile e per l'energica sezione di tifosi 'Bull Pen', questo simbolo di Houston vanta una ricca storia calcistica. In passato, ha accolto l'MLS All-Stars e ospitato partite della Copa América 2016. Sebbene sia la casa dei Texans, è celebre anche per ospitare l'annuale Houston Rodeo."
       },
       "mercedes_benz": {
         "name": "Atlanta Stadium (Mercedes-Benz Stadium)",
-        "desc": "L'Atlanta Stadium è stato progettato pensando ai tifosi e offre un'esperienza pluripremiata."
+        "desc": "Definito dal suo tetto retrattile unico e da uno schermo 'halo' a 360 gradi, questo premiato sito di Atlanta è leader nella sostenibilità. È la casa condivisa dell'Atlanta United e dei Falcons. Si ricordano i suoi cinque incontri durante il Mondiale per Club 2025, tra cui un emozionante quarto di finale tra PSG e Bayern Monaco."
       },
       "lincoln": {
         "name": "Philadelphia Stadium (Lincoln Financial Field)",
-        "desc": "Il Philadelphia Stadium è stato inaugurato con un'amichevole di lusso tra Manchester United e Barcellona nell'agosto 2003."
+        "desc": "Il principale impianto all'aperto di Filadelfia ha iniziato la sua storia nel 2003 con un'amichevole di alto livello tra Manchester United e Barcellona. Ora base permanente degli Eagles, ha ospitato anche la finale di Gold Cup nel 2015. Nel 2025 è stato ampiamente utilizzato per otto partite del Mondiale per Club, inclusa la vittoria del Chelsea nel Giorno dell'Indipendenza."
       },
       "lumen": {
         "name": "Seattle Stadium (Lumen Field)",
-        "desc": "Questo stadio vanta un'unica forma a ferro di cavallo con un'estremità nord aperta."
+        "desc": "Offrendo una vista pittoresca sullo skyline di Seattle attraverso la sua estremità aperta, questo stadio è riconosciuto come uno dei più rumorosi della storia dello sport. È il cuore spirituale dei Sounders e dei Seahawks. Una notte leggendaria qui ha visto i Sounders battere i Pumas nel 2022 per vincere il titolo continentale, qualificandosi per il Mondiale per Club 2025."
       },
       "gillette": {
         "name": "Boston Stadium (Gillette Stadium)",
-        "desc": "Il Boston Stadium è stato sottoposto a un importante progetto di ristrutturazione in vista del torneo del 2026."
+        "desc": "Dopo ampie ristrutturazioni, questo stadio di Foxborough dispone ora di un maxischermo ad alta definizione da 2.000 metri quadrati. Funge da base per i New England Revolution e per i Patriots. Con un passato che include il Mondiale Femminile 2003 e diverse Gold Cup, resta un pilastro dello sport americano e una meta di prim'ordine per i concerti."
       },
       "arrowhead": {
         "name": "Kansas City Stadium (Arrowhead Stadium)",
-        "desc": "Il Kansas City Stadium è certificato dal Guinness World Records come la struttura sportiva all'aperto più rumorosa al mondo."
+        "desc": "Detentore del record mondiale per i livelli di rumore in un impianto all'aperto, questo simbolo di Kansas City è la leggendaria casa dei Chiefs. Conosciuta globalmente come un bastione del calcio, la città sostiene sia lo Sporting KC che il KC Current. L'atmosfera qui è impareggiabile, avendo ospitato cinque finali di conference NFL consecutive negli ultimi anni."
       },
       "levis": {
         "name": "San Francisco Bay Area Stadium (Levi's Stadium)",
-        "desc": "Uno degli stadi più recenti incaricati di ospitare il torneo, situato a Santa Clara."
+        "desc": "Situato a Santa Clara, questo moderno impianto è la casa dei 49ers dal 2014. È stato la sede del Super Bowl 50 e ha fatto da cornice al Super Bowl LX all'inizio del 2026. Oltre al football americano, ha ospitato eventi di spicco come la partita inaugurale della Copa América e Wrestlemania."
       },
       "azteca": {
         "name": "Mexico City Stadium (Estadio Azteca)",
-        "desc": "Un vero colosseo del calcio mondiale e il primo a ospitare una terza FIFA World Cup™."
+        "desc": "Una cattedrale leggendaria dello sport, questo iconico impianto di Città del Messico è il primo a ospitare tre diversi Mondiali. È stato testimone del genio di Pelé e Maradona nelle finali del 1970 e 1986. Attualmente ospita il Club América e la nazionale messicana, e ha stabilito record di presenze durante la finale del Mondiale U-17 nel 2011."
       },
       "bbva": {
         "name": "Estadio Monterrey (Estadio BBVA)",
-        "desc": "La squadra messicana del Monterrey gioca in questa meraviglia dei giorni nostri."
+        "desc": "Questo gioiello architettonico ecologico a Monterrey è stato il primo della regione a ottenere la certificazione argento LEED. Inaugurato nel 2015, serve come casa per il CF Monterrey. Recentemente ha ospitato la finale del Campionato Femminile Concacaf 2022 e ha ricevuto star internazionali come Bad Bunny e Justin Bieber."
       },
       "akron": {
         "name": "Estadio Guadalajara (Estadio Akron)",
-        "desc": "Costruito su un terreno elevato con un design sferico simile a un colosseo."
+        "desc": "Noto per la sua suggestiva forma sferica e l'esterno coperto di erba, questo sito di Zapopan è uno dei più visivi del Messico. Dal 2010 è la casa dei Chivas, celebrando molteplici titoli nazionali e continentali. Ha inoltre giocato un ruolo centrale nel Mondiale U-17 del 2011 e nei Giochi Panamericani."
       },
       "toronto": {
         "name": "Toronto Stadium (BMO Field)",
-        "desc": "Il Toronto Stadium è stato costruito appositamente mentre il Canada ospitava la FIFA U-20 World Cup 2007™."
+        "desc": "Costruito originariamente per il Mondiale U-20 del 2007, questo impianto ha visto l'Argentina sollevare il trofeo con un giovane Sergio Agüero. Vanta una copertura distintiva ed è diventato il cuore del calcio canadese, specialmente durante la vittoriosa qualificazione per il 2022. Ha ospitato anche il Mondiale Femminile U-20 nel 2014."
       },
       "bc_place": {
         "name": "BC Place Vancouver (BC Place)",
-        "desc": "Giunto ormai alla sua quinta decade di vita, il BC Place Vancouver rimane un pezzo di architettura mozzafiato."
+        "desc": "Affacciata su False Creek a Vancouver, questa icona architettonica rinnovata ancora la scena sportiva della città da decenni. Casa dei Whitecaps e dei BC Lions, il suo momento più celebre è stato ospitare la finale del Mondiale Femminile 2015, dove una storica tripletta ha assicurato il titolo agli Stati Uniti."
       }
     }
   },

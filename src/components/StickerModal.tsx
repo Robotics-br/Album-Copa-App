@@ -92,7 +92,13 @@ export default function StickerModal({ sticker, onClose }: StickerModalProps) {
                   : ''}
               </Text>
               <View className="flex-row items-center gap-2">
-                <Text className="text-[18px] font-bold text-text">{i18n_t(sticker.name)}</Text>
+                <Text className="text-[18px] font-bold text-text">
+                  {sticker.name === 'badge'
+                    ? `${i18n_t('stickers.badge')} ${i18n_t(`teams.${sticker.section}`)}`
+                    : sticker.name === 'team'
+                      ? `${i18n_t('stickers.team')} ${i18n_t(`teams.${sticker.section}`)}`
+                      : i18n_t(sticker.name)}
+                </Text>
                 <Text className="mt-2 text-[13px] text-text-secondary">· {sticker.code}</Text>
               </View>
             </View>

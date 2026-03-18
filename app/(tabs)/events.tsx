@@ -4,7 +4,6 @@ import {
   ScrollView,
   Pressable,
   Modal,
-  Dimensions,
   RefreshControl,
   Animated as RNAnimated,
 } from 'react-native';
@@ -28,8 +27,6 @@ import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 import { fetchWorldCupMatches } from '../../src/services/matchService';
-
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 type FilterKind = 'all' | 'team' | 'day';
 type GlobalTab = 'games' | 'stadiums';
@@ -401,8 +398,8 @@ export default function EventsScreen() {
                 {selectedStadium && (
                   <Image
                     source={selectedStadium.image}
-                    style={{ width: SCREEN_WIDTH - 40, aspectRatio: 16 / 9 }}
-                    contentFit="contain"
+                    style={{ width: '100%', aspectRatio: 4 / 3 }}
+                    contentFit="cover"
                     priority="high"
                     cachePolicy="disk"
                     transition={200}

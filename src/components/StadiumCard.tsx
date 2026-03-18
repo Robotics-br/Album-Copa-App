@@ -30,7 +30,7 @@ export default function StadiumCard({
       <View className="flex-row gap-3 p-3">
         <Pressable
           onPress={() => !imgError && onImagePress(stadium)}
-          className="h-16 w-[95px] items-center justify-center overflow-hidden rounded-lg border border-border bg-surface active:opacity-80">
+          className="h-24 w-[140px] items-center justify-center overflow-hidden rounded-lg border border-border bg-surface active:opacity-80">
           {!imgError ? (
             <>
               <Image

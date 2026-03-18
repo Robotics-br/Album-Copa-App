@@ -17,7 +17,10 @@ export interface ThemeColors {
   duplicate: string;
   onDuplicate: string;
   accent: string;
-  tabInactive: string;
+  tabBorderColor: string;
+  tabsBg: string;
+  tabsBgActive: string;
+  tabsBgInactive: string;
   statusBar: 'light' | 'dark';
 }
 
@@ -36,10 +39,13 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     onDuplicate: '#000000',
     primary: '#ffffff',
     onPrimary: '#0F1923',
-    headerBg: '#304ffe',
+    headerBg: '#070c3b',
     onHeader: '#ffffff',
     accent: '#FF453A',
-    tabInactive: '#B8C0FF',
+    tabBorderColor: '#425796',
+    tabsBg: '#070c3b',
+    tabsBgActive: '#f2cd27',
+    tabsBgInactive: '#cfccc2',
     statusBar: 'light',
   },
   'original-light': {
@@ -59,7 +65,10 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     headerBg: '#304ffe',
     onHeader: '#ffffff',
     accent: '#D70104',
-    tabInactive: '#B8C0FF',
+    tabBorderColor: '#96a2ff',
+    tabsBg: '#304ffe',
+    tabsBgActive: '#f2cd27',
+    tabsBgInactive: '#B8C0FF',
     statusBar: 'dark',
   },
   neon: {
@@ -79,7 +88,10 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     duplicate: '#FFE600',
     onDuplicate: '#000000',
     accent: '#FF007F',
-    tabInactive: '#8A72C1',
+    tabBorderColor: '#3D2C8D',
+    tabsBg: '#240046',
+    tabsBgActive: '#f2cd27',
+    tabsBgInactive: '#8A72C1',
     statusBar: 'light',
   },
   pink: {
@@ -99,7 +111,10 @@ export const themeMap: Record<ThemeStyle, ThemeColors> = {
     duplicate: '#FFFFFF',
     onDuplicate: '#E0218A',
     accent: '#00C3E3',
-    tabInactive: '#F8C8DF',
+    tabBorderColor: '#c9ab22',
+    tabsBg: '#E0218A',
+    tabsBgActive: '#f2cd27',
+    tabsBgInactive: '#F8C8DF',
     statusBar: 'light',
   },
 };
