@@ -15,6 +15,7 @@
     "build:android:debug:apk": "cd android && gradlew assembleRelease && copy app\\build\\outputs\\apk\\release\\app-release.apk ..\\app-release.apk",
     "build:android:preview:cloud": "eas build --platform android --profile preview",
     "build:ios:preview:cloud": "eas build --platform ios --profile preview",
+    "build:android:prod:cloud": "eas build --platform android --profile production",
     "build:all:prod:cloud": "eas build --platform all --profile production"
   },
   "dependencies": {
