@@ -177,17 +177,23 @@ export default function SettingsScreen() {
           <Text className="mt-1 text-[11px] text-text-secondary opacity-70">
             {t('settings.footerSubtitle')}
           </Text>
-          <View className="mt-2 flex-row flex-wrap items-center justify-center px-8">
+          <TouchableOpacity
+            className="mt-2 px-8"
+            activeOpacity={0.7}
+            onPress={() => Linking.openURL('https://www.openligadb.de')}>
             <Text className="text-center text-[11px] text-text-secondary opacity-70">
               {t('settings.apiCreditPrefix')}
+              <Text
+                style={{
+                  color: theme.primary,
+                  fontWeight: 'bold',
+                  textDecorationLine: 'underline',
+                }}>
+                OpenLigaDB
+              </Text>
+              .
             </Text>
-            <TouchableOpacity
-              onPress={() => Linking.openURL('https://www.openligadb.de')}
-              activeOpacity={0.7}>
-              <Text className="text-[11px] font-bold text-primary underline">OpenLigaDB</Text>
-            </TouchableOpacity>
-            <Text className="text-[11px] text-text-secondary opacity-70">.</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
