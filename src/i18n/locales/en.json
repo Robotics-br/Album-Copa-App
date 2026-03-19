@@ -59,6 +59,7 @@
     "title": "2026 World Cup Stadiums",
     "subtitle": "{{totalCount}} stadiums in {{countryCount}} countries",
     "opened": "Opened in {{year}}",
+    "photoCredit": "Photo by: {{author}}, licensed under {{license}}",
     "data": {
       "metlife": {
         "name": "New York New Jersey Stadium (MetLife Stadium)",

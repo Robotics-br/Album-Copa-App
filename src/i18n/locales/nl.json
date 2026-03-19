@@ -59,6 +59,7 @@
     "title": "WK 2026 Stadions",
     "subtitle": "{{totalCount}} stadions in {{countryCount}} landen",
     "opened": "Geopend in {{year}}",
+    "photoCredit": "Foto door: {{author}}, gelicentieerd onder {{license}}",
     "data": {
       "metlife": {
         "name": "New York New Jersey Stadium (MetLife Stadium)",

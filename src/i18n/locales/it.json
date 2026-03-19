@@ -59,6 +59,7 @@
     "title": "Stadi Mondiali 2026",
     "subtitle": "{{totalCount}} stadi in {{countryCount}} paesi",
     "opened": "Inaugurato nel {{year}}",
+    "photoCredit": "Foto di: {{author}}, con licenza {{license}}",
     "data": {
       "metlife": {
         "name": "New York New Jersey Stadium (MetLife Stadium)",

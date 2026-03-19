@@ -59,6 +59,7 @@
     "title": "Estadios del Mundial 2026",
     "subtitle": "{{totalCount}} estadios en {{countryCount}} países",
     "opened": "Inaugurado en {{year}}",
+    "photoCredit": "Foto por: {{author}}, licenciado bajo {{license}}",
     "data": {
       "bc_place": {
         "name": "BC Place Vancouver",

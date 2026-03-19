@@ -59,6 +59,7 @@
     "title": "אצטדיוני מונדיאל 2026",
     "subtitle": "{{totalCount}} אצטדיונים ב-{{countryCount}} מדינות",
     "opened": "נפתח בשנת {{year}}",
+    "photoCredit": "תמונה מאת: {{author}}, ברישיון {{license}}",
     "data": {
       "metlife": {
         "name": "אצטדיון ניו יורק ניו ג'רזי (MetLife Stadium)",

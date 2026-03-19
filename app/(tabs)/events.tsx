@@ -6,6 +6,7 @@ import {
   Modal,
   RefreshControl,
   Animated as RNAnimated,
+  Linking,
 } from 'react-native';
 import { AppText as Text } from '../../src/components/ui/AppText';
 import { FlashList } from '@shopify/flash-list';
@@ -19,7 +20,7 @@ import type { Stadium } from '../../src/data/stadiums';
 import ScreenHeader from '../../src/components/ScreenHeader';
 import { teams } from '../../src/data/teams';
 import { Match, getUniqueDates, getMatchesByTeam, getMatchesByDate } from '../../src/data/matches';
-import { getStadiumsByCountry } from '../../src/data/stadiums';
+import { getStadiumsByCountry, StadiumLicense, licenseUrls } from '../../src/data/stadiums';
 
 import MatchCard from '../../src/components/MatchCard';
 import StadiumCard from '../../src/components/StadiumCard';
@@ -173,7 +174,7 @@ export default function EventsScreen() {
 
   const stadiumGroups = useMemo(() => getStadiumsByCountry(), []);
   const [expandedStadiums, setExpandedStadiums] = useState<Record<string, boolean>>(
-    Object.fromEntries(Object.keys(stadiumGroups).map((k) => [k, false]))
+    Object.fromEntries(Object.keys(stadiumGroups).map((k) => [k, true]))
   );
 
   const toggleStadiumGroup = (key: string) => {
@@ -417,6 +418,29 @@ export default function EventsScreen() {
                 <Text className="text-center text-[14px] text-gray-400">
                   {selectedStadium.city}, {selectedStadium.country}
                 </Text>
+                {selectedStadium.author &&
+                  selectedStadium.license &&
+                  (() => {
+                    const fullText = i18n_t('stadiums.photoCredit', {
+                      author: selectedStadium.author,
+                      license: '[[LICENSE_LINK]]',
+                    });
+                    const parts = fullText.split('[[LICENSE_LINK]]');
+
+                    return (
+                      <Text className="mt-2 text-center text-[10px] text-gray-500">
+                        {parts[0]}
+                        <Text
+                          style={{ textDecorationLine: 'underline' }}
+                          onPress={() =>
+                            Linking.openURL(licenseUrls[selectedStadium.license as StadiumLicense])
+                          }>
+                          {selectedStadium.license}
+                        </Text>
+                        {parts[1]}
+                      </Text>
+                    );
+                  })()}
               </View>
             </Animated.View>
           )}

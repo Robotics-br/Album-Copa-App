@@ -59,6 +59,7 @@
     "title": "ملاعب كأس العالم 2026",
     "subtitle": "{{totalCount}} ملعب في {{countryCount}} دول",
     "opened": "افتتح في عام {{year}}",
+    "photoCredit": "صورة بواسطة: {{author}}, مرخصة تحت {{license}}",
     "data": {
       "metlife": {
         "name": "ملعب نيويورك نيوجيرسي (MetLife Stadium)",

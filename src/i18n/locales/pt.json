@@ -59,6 +59,7 @@
     "title": "Estádios da Copa 2026",
     "subtitle": "{{totalCount}} estádios em {{countryCount}} países",
     "opened": "Inaugurado em {{year}}",
+    "photoCredit": "Foto por: {{author}}, licenciado por {{license}}",
     "data": {
       "metlife": {
         "name": "New York New Jersey Stadium (MetLife Stadium)",

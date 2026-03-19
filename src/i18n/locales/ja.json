@@ -59,6 +59,7 @@
     "title": "2026 ワールドカップ・スタジアム",
     "subtitle": "{{countryCount}}カ国、全{{totalCount}}会場",
     "opened": "{{year}}年開場",
+    "photoCredit": "写真提供：{{author}},、ライセンス：{{license}}",
     "data": {
       "metlife": {
         "name": "ニューヨーク・ニュージャージー・スタジアム (メットライフ・スタジアム)",

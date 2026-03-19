@@ -59,6 +59,7 @@
     "title": "2026 世界杯体育场",
     "subtitle": "{{countryCount}} 个国家的 {{totalCount}} 个体育场",
     "opened": "启用年份 {{year}}",
+    "photoCredit": "照片由 {{author}}, 提供，根据 {{license}} 获得许可",
     "data": {
       "metlife": {
         "name": "纽约新泽西体育场 (大都会人寿体育场)",

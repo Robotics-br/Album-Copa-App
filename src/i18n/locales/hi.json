@@ -59,6 +59,7 @@
     "title": "2026 विश्व कप स्टेडियम",
     "subtitle": "{{countryCount}} देशों में {{totalCount}} स्टेडियम",
     "opened": "{{year}} में उद्घाटन हुआ",
+    "photoCredit": "फोटो: {{author}}, द्वारा, लाइसेंस: {{license}}",
     "data": {
       "metlife": {
         "name": "न्यूयॉर्क न्यू जर्सी स्टेडियम (MetLife Stadium)",
