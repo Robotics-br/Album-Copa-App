@@ -17,7 +17,7 @@
         "foregroundImage": "./assets/images/app-logo.png"
       },
       "package": "br.com.andreygarcia.minhacopa2026",
-      "versionCode": 4,
+      "versionCode": 5,
       "permissions": ["android.permission.CAMERA"]
     },
     "web": {
