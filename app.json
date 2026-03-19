@@ -29,7 +29,13 @@
     },
     "plugins": [
       "expo-router",
-      "expo-audio",
+      [
+        "expo-audio",
+        {
+          "enableBackgroundPlayback": false,
+          "recordAudioAndroid": false
+        }
+      ],
       "expo-asset",
       [
         "expo-splash-screen",
