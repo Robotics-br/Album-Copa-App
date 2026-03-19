@@ -18,13 +18,13 @@ import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import type { Stadium } from '../../src/data/stadiums';
 
 import ScreenHeader from '../../src/components/ScreenHeader';
-import { teams } from '../../src/data/teams';
 import { Match, getUniqueDates, getMatchesByTeam, getMatchesByDate } from '../../src/data/matches';
 import { getStadiumsByCountry, StadiumLicense, licenseUrls } from '../../src/data/stadiums';
 
 import MatchCard from '../../src/components/MatchCard';
 import StadiumCard from '../../src/components/StadiumCard';
 import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
+import TeamSelector from '../../src/components/TeamSelector';
 import { HORIZONTAL_PADDING } from '../../src/utils/consts';
 
 import { fetchWorldCupMatches } from '../../src/services/matchService';
@@ -220,32 +220,7 @@ export default function EventsScreen() {
         </View>
 
         {filterKind === 'team' && (
-          <View className="overflow-hidden rounded-xl border border-border bg-surface">
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={{ padding: 8, gap: 6 }}>
-              {teams.map((team) => {
-                const active = teamId === team.id;
-                return (
-                  <AnimatedPressable
-                    key={team.id}
-                    onPress={() => setTeamId(active ? '' : team.id)}
-                    className="rounded-lg border px-3 py-1.5"
-                    style={{
-                      backgroundColor: active ? t.primary : t.surface,
-                      borderColor: active ? t.primary : t.border,
-                    }}>
-                    <Text
-                      className="text-[12px] font-semibold"
-                      style={{ color: active ? t.onPrimary : t.textSecondary }}>
-                      {team.flag} {i18n_t(`teams.${team.id}`)}
-                    </Text>
-                  </AnimatedPressable>
-                );
-              })}
-            </ScrollView>
-          </View>
+          <TeamSelector selectedTeamId={teamId} onSelectTeam={(id) => setTeamId(id || '')} />
         )}
 
         {filterKind === 'day' && (
@@ -315,17 +290,24 @@ export default function EventsScreen() {
       className="flex-1"
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ padding: 12, gap: 12 }}>
-      {Object.entries(stadiumGroups).map(([country, stadiumList]) => (
-        <View key={country} className="overflow-hidden rounded-2xl border border-border bg-surface">
+      {Object.entries(stadiumGroups).map(([countryKey, group]) => (
+        <View
+          key={countryKey}
+          className="overflow-hidden rounded-2xl border border-border bg-surface">
           <Pressable
-            onPress={() => toggleStadiumGroup(country)}
+            onPress={() => toggleStadiumGroup(countryKey)}
             className="flex-row items-center justify-between p-3.5">
-            <Text className="text-[15px] font-bold text-text">{country}</Text>
+            <View className="flex-1 flex-row items-center gap-2">
+              <Text className="text-[18px]">{group.flag}</Text>
+              <Text className="flex-1 text-[15px] font-bold text-text">
+                {i18n_t(`teams.${countryKey}`, { defaultValue: group.name })}
+              </Text>
+            </View>
             <View className="flex-row items-center gap-2">
               <View className="rounded-full border border-border bg-surface px-2.5 py-0.5">
-                <Text className="text-[11px] font-bold text-primary">{stadiumList.length}</Text>
+                <Text className="text-[11px] font-bold text-primary">{group.list.length}</Text>
               </View>
-              {expandedStadiums[country] ? (
+              {expandedStadiums[countryKey] ? (
                 <ChevronUp size={18} color={t.textSecondary} />
               ) : (
                 <ChevronDown size={18} color={t.textSecondary} />
@@ -333,8 +315,8 @@ export default function EventsScreen() {
             </View>
           </Pressable>
 
-          {expandedStadiums[country] &&
-            stadiumList.map((stadium) => (
+          {expandedStadiums[countryKey] &&
+            group.list.map((stadium) => (
               <StadiumCard
                 key={stadium.id}
                 stadium={stadium}

@@ -24,8 +24,12 @@ export default function MatchCard({ match }: { match: Match }) {
     <View className="gap-1.5 rounded-xl border border-border bg-surface p-3.5">
       <View className="flex-row items-center justify-between">
         <View className="flex-1 flex-row items-center gap-2">
-          <Text className="text-[14px] font-bold text-text">
-            {home.flag} {i18n_t(`teams.${match.homeTeamId}`)}
+          <Text className="text-[14px]">{home.flag}</Text>
+          <Text
+            className="flex-1 text-[14px] font-bold text-text"
+            numberOfLines={1}
+            ellipsizeMode="tail">
+            {i18n_t(`teams.${match.homeTeamId}`)}
           </Text>
         </View>
 
@@ -42,9 +46,13 @@ export default function MatchCard({ match }: { match: Match }) {
         </View>
 
         <View className="flex-1 flex-row items-center justify-end gap-2">
-          <Text className="text-right text-[14px] font-bold text-text" numberOfLines={1}>
-            {i18n_t(`teams.${match.awayTeamId}`)} {away.flag}
+          <Text
+            className="flex-1 text-right text-[14px] font-bold text-text"
+            numberOfLines={1}
+            ellipsizeMode="tail">
+            {i18n_t(`teams.${match.awayTeamId}`)}
           </Text>
+          <Text className="text-[14px]">{away.flag}</Text>
         </View>
       </View>
 

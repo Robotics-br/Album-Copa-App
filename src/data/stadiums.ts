@@ -13,6 +13,7 @@ export interface Stadium {
   city: string;
   country: string;
   countryFlag: string;
+  countryKey: string;
   capacity: string;
   opened?: string;
   image: any;
@@ -26,8 +27,9 @@ export const stadiums: Stadium[] = [
     id: 'metlife',
     name: 'New York New Jersey Stadium (MetLife Stadium)',
     city: 'East Rutherford, NJ',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '82.500',
     opened: '2010',
     image: require('../../assets/images/stadiums/metlifeStadium.jpg'),
@@ -39,8 +41,9 @@ export const stadiums: Stadium[] = [
     id: 'sofi',
     name: 'Los Angeles Stadium (SoFi Stadium)',
     city: 'Inglewood, CA',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '70.000',
     opened: '2020',
     image: require('../../assets/images/stadiums/sofiStadium.jpg'),
@@ -52,8 +55,9 @@ export const stadiums: Stadium[] = [
     id: 'att',
     name: 'Dallas Stadium (AT&T Stadium)',
     city: 'Arlington, TX',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '94.000',
     opened: '2009',
     image: require('../../assets/images/stadiums/atetStadium.jpg'),
@@ -65,8 +69,9 @@ export const stadiums: Stadium[] = [
     id: 'hard_rock',
     name: 'Miami Stadium (Hard Rock Stadium)',
     city: 'Miami Gardens, FL',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '65.000',
     opened: '1987',
     image: require('../../assets/images/stadiums/hardRockStadium.jpg'),
@@ -78,8 +83,9 @@ export const stadiums: Stadium[] = [
     id: 'nrg',
     name: 'Houston Stadium (NRG Stadium)',
     city: 'Houston, TX',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '72.000',
     opened: '2002',
     image: require('../../assets/images/stadiums/nrg.jpg'),
@@ -91,8 +97,9 @@ export const stadiums: Stadium[] = [
     id: 'mercedes_benz',
     name: 'Atlanta Stadium (Mercedes-Benz Stadium)',
     city: 'Atlanta, GA',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '75.000',
     opened: '2017',
     image: require('../../assets/images/stadiums/mercedesBenzStadium.jpg'),
@@ -104,8 +111,9 @@ export const stadiums: Stadium[] = [
     id: 'lincoln',
     name: 'Philadelphia Stadium (Lincoln Financial Field)',
     city: 'Philadelphia, PA',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '69.000',
     opened: '2003',
     image: require('../../assets/images/stadiums/lincoln.jpg'),
@@ -117,8 +125,9 @@ export const stadiums: Stadium[] = [
     id: 'lumen',
     name: 'Seattle Stadium (Lumen Field)',
     city: 'Seattle, WA',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '69.000',
     opened: '2002',
     image: require('../../assets/images/stadiums/lumenField.jpg'),
@@ -130,8 +139,9 @@ export const stadiums: Stadium[] = [
     id: 'gillette',
     name: 'Boston Stadium (Gillette Stadium)',
     city: 'Foxborough, MA',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '65.000',
     opened: '2002',
     image: require('../../assets/images/stadiums/gilletteStadium.jpg'),
@@ -143,8 +153,9 @@ export const stadiums: Stadium[] = [
     id: 'arrowhead',
     name: 'Kansas City Stadium (Arrowhead Stadium)',
     city: 'Kansas City, MO',
-    country: 'EUA',
+    country: 'Estados Unidos',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '73.000',
     opened: '1972',
     image: require('../../assets/images/stadiums/arrowhead.jpg'),
@@ -158,6 +169,7 @@ export const stadiums: Stadium[] = [
     city: 'Santa Clara, CA',
     country: 'EUA',
     countryFlag: '🇺🇸',
+    countryKey: 'eua',
     capacity: '71.000',
     opened: '2014',
     image: require('../../assets/images/stadiums/levisStadium.jpg'),
@@ -171,6 +183,7 @@ export const stadiums: Stadium[] = [
     city: 'Cidade do México',
     country: 'México',
     countryFlag: '🇲🇽',
+    countryKey: 'mex',
     capacity: '83.000',
     opened: '1966',
     image: require('../../assets/images/stadiums/azteca.jpg'),
@@ -184,6 +197,7 @@ export const stadiums: Stadium[] = [
     city: 'Guadalupe, NL',
     country: 'México',
     countryFlag: '🇲🇽',
+    countryKey: 'mex',
     capacity: '53.500',
     opened: '2015',
     image: require('../../assets/images/stadiums/bbva.jpg'),
@@ -197,6 +211,7 @@ export const stadiums: Stadium[] = [
     city: 'Zapopan, JAL',
     country: 'México',
     countryFlag: '🇲🇽',
+    countryKey: 'mex',
     capacity: '48.000',
     opened: '2010',
     image: require('../../assets/images/stadiums/estadioAkron.jpg'),
@@ -210,6 +225,7 @@ export const stadiums: Stadium[] = [
     city: 'Toronto',
     country: 'Canadá',
     countryFlag: '🇨🇦',
+    countryKey: 'can',
     capacity: '45.000',
     opened: '2007',
     image: require('../../assets/images/stadiums/toronto.jpg'),
@@ -223,6 +239,7 @@ export const stadiums: Stadium[] = [
     city: 'Vancouver',
     country: 'Canadá',
     countryFlag: '🇨🇦',
+    countryKey: 'can',
     capacity: '54.000',
     opened: '1983',
     image: require('../../assets/images/stadiums/bcPlace.jpg'),
@@ -232,12 +249,25 @@ export const stadiums: Stadium[] = [
   },
 ];
 
-export function getStadiumsByCountry(): Record<string, Stadium[]> {
-  const grouped: Record<string, Stadium[]> = {};
+export function getStadiumsByCountry(): Record<
+  string,
+  { flag: string; countryKey: string; name: string; list: Stadium[] }
+> {
+  const grouped: Record<
+    string,
+    { flag: string; countryKey: string; name: string; list: Stadium[] }
+  > = {};
   for (const s of stadiums) {
-    const key = `${s.countryFlag} ${s.country}`;
-    if (!grouped[key]) grouped[key] = [];
-    grouped[key].push(s);
+    const key = s.countryKey;
+    if (!grouped[key]) {
+      grouped[key] = {
+        flag: s.countryFlag,
+        countryKey: s.countryKey,
+        name: s.country,
+        list: [],
+      };
+    }
+    grouped[key].list.push(s);
   }
   return grouped;
 }
