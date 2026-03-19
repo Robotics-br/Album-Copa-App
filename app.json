@@ -46,18 +46,7 @@
           "resizeMode": "cover"
         }
       ],
-      [
-        "expo-build-properties",
-        {
-          "android": {
-            "blockPermissions": [
-              "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
-              "android.permission.RECORD_AUDIO",
-              "android.permission.MODIFY_AUDIO_SETTINGS"
-            ]
-          }
-        }
-      ]
+      "./plugins/withRemoveAudioPermissions.js"
     ],
     "extra": {
       "router": {},
