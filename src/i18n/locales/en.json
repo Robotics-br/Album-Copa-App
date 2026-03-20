@@ -41,7 +41,7 @@
     "cancel": "Cancel",
     "delete": "Delete",
     "footerTitle": "My World Cup 2026",
-    "footerSubtitle": "v1.0.0 • by Andrey Garcia & Volnei Garcia"
+    "footerSubtitle": "• by Andrey Garcia & Volnei Garcia"
   },
   "stats": {
     "title": "MY PROGRESS",
@@ -326,5 +326,22 @@
     "pdf_missing_title": "Missing Stickers",
     "pdf_error": "Could not generate the PDF: {{message}}",
     "scan_again": "Scan another friend"
+  },
+  "onboarding": {
+    "step1_title": "Welcome to Minha Copa 2026 app!",
+    "step1_desc": "Manage your album, trade stickers, and follow matches, all in one place. Use the tabs below to explore.",
+    "step2_title": "Managing Stickers",
+    "step2_desc": "In the Album tab, tap a sticker to mark it as owned. Tap an already owned sticker to add duplicates or remove it from the album.",
+    "step3_title": "Filters and Search",
+    "step3_desc": "Use filters to see only missing stickers, the ones you already have, or duplicates. You can also filter by name, sticker code, or section.",
+    "step4_title": "Trade with Friends",
+    "step4_desc": "In the Trades tab, generate your QR Code or scan a friend's. The app automatically compares albums and shows available swaps!",
+    "step5_title": "Follow the Matches",
+    "step5_desc": "In the Events tab, stay up to date with match and stadium information.",
+    "step6_title": "Make it Yours",
+    "step6_desc": "Go to Settings to change the theme, language, sound, and enable Senior Mode for larger text.",
+    "btn_next": "Next",
+    "btn_back": "Back",
+    "btn_start": "Let's Go!"
   }
 }

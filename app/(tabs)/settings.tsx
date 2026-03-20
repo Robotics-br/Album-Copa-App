@@ -11,6 +11,7 @@ import AnimatedPressable from '../../src/components/ui/AnimatedPressable';
 import type { ThemeStyle } from '../../src/types';
 import ScreenHeader from '../../src/components/ScreenHeader';
 import LanguageSelector from '../../src/components/LanguageSelector';
+import Constants from 'expo-constants';
 
 const styleOptions: { id: ThemeStyle; labelKey: string }[] = [
   { id: 'original-dark', labelKey: 'settings.themes.original-dark' },
@@ -175,6 +176,7 @@ export default function SettingsScreen() {
         <View className="items-center py-6">
           <Text className="text-[13px] text-text-secondary">{t('settings.footerTitle')}</Text>
           <Text className="mt-1 text-[11px] text-text-secondary opacity-70">
+            v{Constants.expoConfig?.version ?? '1.0.0'}
             {t('settings.footerSubtitle')}
           </Text>
           <View className="mt-2 px-8">

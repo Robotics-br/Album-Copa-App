@@ -40,7 +40,7 @@
     "cancel": "取消",
     "delete": "删除",
     "footerTitle": "我的 2026 世界杯",
-    "footerSubtitle": "v1.0.0 • von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "比赛数据和统计由以下机构友情提供："
   },
   "stats": {
@@ -326,5 +326,22 @@
     "pdf_missing_title": "缺失贴纸清单",
     "pdf_error": "无法生成PDF：{{message}}",
     "scan_again": "扫描另一个朋友"
+  },
+  "onboarding": {
+    "step1_title": "欢迎使用 Minha Copa 2026 应用！",
+    "step1_desc": "在一个地方管理相册、交换贴纸并关注比赛。请探索下方的标签页。",
+    "step2_title": "管理贴纸",
+    "step2_desc": "在“相册”选项卡中，点击贴纸将其标记为已拥有。点击已拥有的贴纸可添加重复贴纸或将其从相册中移除。",
+    "step3_title": "过滤器和搜索",
+    "step3_desc": "使用过滤器仅查看缺失的贴纸、已拥有的贴纸或重复的贴纸。你还可以按名称、贴纸代码或板块进行过滤。",
+    "step4_title": "与朋友交换",
+    "step4_desc": "在交换标签中生成二维码或扫描朋友的。应用会自动比对并显示可交换的贴纸！",
+    "step5_title": "关注比赛",
+    "step5_desc": "在“活动”选项卡中，随时了解比赛和体育场信息。",
+    "step6_title": "个性化设置",
+    "step6_desc": "在设置里可更改主题、语言、音效应，或开启老年模式放大文字。",
+    "btn_next": "下一步",
+    "btn_back": "返回",
+    "btn_start": "开始！"
   }
 }

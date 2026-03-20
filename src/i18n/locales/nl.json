@@ -40,7 +40,7 @@
     "cancel": "Annuleren",
     "delete": "Verwijderen",
     "footerTitle": "Mijn WK 2026",
-    "footerSubtitle": "v1.0.0 • door Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": "• door Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "Wedstrijdgegevens en statistieken vriendelijk aangeboden door "
   },
   "stats": {
@@ -326,5 +326,22 @@
     "pdf_missing_title": "Lijst met ontbrekende stickers",
     "pdf_error": "Kan de PDF niet genereren: {{message}}",
     "scan_again": "Andere vriend scannen"
+  },
+  "onboarding": {
+    "step1_title": "Welkom bij de Minha Copa 2026-app!",
+    "step1_desc": "Beheer je album, ruil stickers en volg wedstrijden op één plek. Gebruik de tabbladen hieronder.",
+    "step2_title": "Stickers Beheren",
+    "step2_desc": "Tik in het Album-tabblad op een sticker om deze als verzameld te markeren. Tik op een reeds verzamelde sticker om dubbelen toe te voegen of deze uit het album te verwijderen.",
+    "step3_title": "Filters en Zoeken",
+    "step3_desc": "Gebruik filters om alleen ontbrekende stickers, de stickers die je al hebt of dubbelen te zien. Je kunt ook filteren op naam, stickercode of sectie.",
+    "step4_title": "Ruil met Vrienden",
+    "step4_desc": "Genereer je QR-code of scan die van een vriend. De app vergelijkt de albums en laat zien wat je kunt ruilen!",
+    "step5_title": "Volg de Wedstrijden",
+    "step5_desc": "Blijf in het tabblad Evenementen op de hoogte van wedstrijd- en stadioninformatie.",
+    "step6_title": "Maak het Persoonlijk",
+    "step6_desc": "Ga naar Instellingen om thema, taal en geluid aan te passen, en de Seniorenmodus in te schakelen voor grotere tekst.",
+    "btn_next": "Volgende",
+    "btn_back": "Terug",
+    "btn_start": "Laten we beginnen!"
   }
 }

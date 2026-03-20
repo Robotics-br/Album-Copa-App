@@ -40,7 +40,7 @@
     "cancel": "キャンセル",
     "delete": "削除",
     "footerTitle": "マイ・ワールドカップ 2026",
-    "footerSubtitle": "v1.0.0 • Andrey Garcia & Volnei Garcia制作",
+    "footerSubtitle": "• Andrey Garcia & Volnei Garcia制作",
     "apiCreditPrefix": "試合データと統計データの提供元："
   },
   "stats": {
@@ -326,5 +326,22 @@
     "pdf_missing_title": "不足リスト",
     "pdf_error": "PDFを生成できませんでした：{{message}}",
     "scan_again": "別の朋友をスキャン"
+  },
+  "onboarding": {
+    "step1_title": "Minha Copa 2026アプリへようこそ！",
+    "step1_desc": "アルバムの管理、ステッカーの交換、試合のチェックが一つでできます。下のタブからお試しください。",
+    "step2_title": "ステッカーの管理",
+    "step2_desc": "「アルバム」タブでステッカーをタップして所持済みにします。すでに持っているステッカーをタップすると、重複分を追加したり、アルバムから削除したりできます。",
+    "step3_title": "検索とフィルター",
+    "step3_desc": "フィルターを使用して、未所持、所持済み、または重複したステッカーのみを表示します。名前、ステッカーコード、またはセクションでフィルターすることもできます。",
+    "step4_title": "友達と交換",
+    "step4_desc": "交換タブでQRコードを作成するか、友達のコードをスキャンします。アプリが自動で交換できるステッカーを表示します！",
+    "step5_title": "試合をチェック",
+    "step5_desc": "「イベント」タブで、試合やスタジアムの最新情報をチェックしましょう。",
+    "step6_title": "カスタマイズ",
+    "step6_desc": "設定でテーマ、言語、音を変更し、シニアモードで文字を大きくすることができます。",
+    "btn_next": "次へ",
+    "btn_back": "戻る",
+    "btn_start": "はじめよう！"
   }
 }

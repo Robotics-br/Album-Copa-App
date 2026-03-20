@@ -40,7 +40,7 @@
     "cancel": "Annulla",
     "delete": "Cancella",
     "footerTitle": "Il mio Mondiale 2026",
-    "footerSubtitle": "v1.0.0 • von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "Dati e statistiche delle partite gentilmente offerti da "
   },
   "stats": {
@@ -326,5 +326,22 @@
     "pdf_missing_title": "Figurine mancanti",
     "pdf_error": "Impossibile generare il PDF: {{message}}",
     "scan_again": "Scansiona un altro amico"
+  },
+  "onboarding": {
+    "step1_title": "Benvenuto nell'app Minha Copa 2026!",
+    "step1_desc": "Gestisci l'album, scambia le figurine e segui le partite, tutto in un solo posto. Usa le schede in basso.",
+    "step2_title": "Gestire le Figurine",
+    "step2_desc": "Nella scheda Album, tocca una figurina per segnarla come ottenuta. Tocca una figurina già ottenuta per aggiungere doppioni o rimuoverla dall'album.",
+    "step3_title": "Filtri e Ricerca",
+    "step3_desc": "Usa i filtri per vedere solo le figurine mancanti, quelle che già hai o i doppioni. Puoi anche filtrare per nome, codice figurina o sezione.",
+    "step4_title": "Scambia con gli Amici",
+    "step4_desc": "Nella scheda Scambi, genera il tuo QR Code o scansiona quello di un amico. L'app mostra subito cosa potete scambiare!",
+    "step5_title": "Segui le Partite",
+    "step5_desc": "Nella scheda Eventi, rimani aggiornato su partite e stadi.",
+    "step6_title": "Personalizza",
+    "step6_desc": "Vai su Impostazioni per cambiare tema, lingua, suoni e attivare la Modalità Senior per il testo più grande.",
+    "btn_next": "Avanti",
+    "btn_back": "Indietro",
+    "btn_start": "Andiamo!"
   }
 }

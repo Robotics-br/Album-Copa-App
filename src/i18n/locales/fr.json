@@ -40,7 +40,7 @@
     "cancel": "Annuler",
     "delete": "Supprimer",
     "footerTitle": "Ma Coupe du Monde 2026",
-    "footerSubtitle": "v1.0.0 • von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "Données de match et statistiques gracieusement fournies par "
   },
   "stats": {
@@ -326,5 +326,22 @@
     "pdf_missing_title": "Stickers Manquants",
     "pdf_error": "Impossible de générer le PDF : {{message}}",
     "scan_again": "Scanner un autre ami"
+  },
+  "onboarding": {
+    "step1_title": "Bienvenue sur l'application Minha Copa 2026 !",
+    "step1_desc": "Gérez votre album, échangez des vignettes et suivez les matchs au même endroit. Utilisez les onglets pour explorer.",
+    "step2_title": "Gérer vos Vignettes",
+    "step2_desc": "Dans l'onglet Album, touchez une vignette pour l'ajouter. Touchez une vignette déjà obtenue pour ajouter des doubles ou la retirer de l'album.",
+    "step3_title": "Filtres et Recherche",
+    "step3_desc": "Utilisez les filtres pour voir seulement les vignettes manquantes, celles que vous avez déjà ou les doubles. Vous pouvez aussi filtrer par nom, code de vignette ou section.",
+    "step4_title": "Échangez avec des Amis",
+    "step4_desc": "Dans Échanges, générez votre QR Code ou scanzez celui d'un ami. L'application compare et montre vos échanges possibles !",
+    "step5_title": "Suivez les Matchs",
+    "step5_desc": "Dans l'onglet Événements, restez informé des matchs et des stades.",
+    "step6_title": "Personnalisez-le",
+    "step6_desc": "Allez dans Paramètres pour changer le thème, la langue, le son et activer le Mode Sénior (texte plus grand).",
+    "btn_next": "Suivant",
+    "btn_back": "Retour",
+    "btn_start": "C'est parti !"
   }
 }

@@ -40,7 +40,7 @@
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "footerTitle": "Meine WM 2026",
-    "footerSubtitle": "v1.0.0 • von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "Spieldaten und Statistiken freundlicherweise bereitgestellt von "
   },
   "stats": {
@@ -326,5 +326,22 @@
     "pdf_missing_title": "Fehlende Sticker",
     "pdf_error": "PDF konnte nicht erstellt werden: {{message}}",
     "scan_again": "Anderen Freund scannen"
+  },
+  "onboarding": {
+    "step1_title": "Willkommen in der Minha Copa 2026 App!",
+    "step1_desc": "Verwalten Sie Ihr Album, tauschen Sie Sticker und verfolgen Sie die Spiele. Nutzen Sie die Tabs unten.",
+    "step2_title": "Sticker verwalten",
+    "step2_desc": "Tippen Sie im Album-Tab auf einen Sticker, um ihn als gesammelt zu markieren. Tippen Sie auf einen bereits gesammelten Sticker, um Duplikate hinzuzufügen oder ihn aus dem Album zu entfernen.",
+    "step3_title": "Filter und Suche",
+    "step3_desc": "Nutze die Filter, um nur fehlende, bereits gesammelte oder doppelte Sticker zu sehen. Du kannst auch nach Name, Sticker-Code oder Sektion filtern.",
+    "step4_title": "Mit Freunden tauschen",
+    "step4_desc": "Generieren Sie im Tausch-Tab Ihren QR-Code oder scannen Sie den eines Freundes. Die App vergleicht sofort Ihre Alben!",
+    "step5_title": "Spiele verfolgen",
+    "step5_desc": "Bleibe im Events-Tab über Spiele und Stadien auf dem Laufenden.",
+    "step6_title": "Passen Sie es an",
+    "step6_desc": "In den Einstellungen können Sie Design, Sprache, Ton ändern und den Senioren-Modus (größere Schrift) aktivieren.",
+    "btn_next": "Weiter",
+    "btn_back": "Zurück",
+    "btn_start": "Los geht's!"
   }
 }

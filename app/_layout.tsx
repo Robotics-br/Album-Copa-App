@@ -10,6 +10,8 @@ import { getLocales } from 'expo-localization';
 import '../src/i18n';
 import { useTranslation } from 'react-i18next';
 
+import WelcomeModal from '../src/components/WelcomeModal';
+
 function InnerLayout() {
   const t = useTheme();
   const { language } = useSettingsStore();
@@ -20,7 +22,11 @@ function InnerLayout() {
       let lng = language;
       if (!lng) {
         const deviceLanguage = getLocales()[0]?.languageCode ?? 'pt';
-        lng = ['pt', 'en', 'es', 'de', 'it', 'fr', 'he', 'zh', 'ar', 'ja', 'hi', 'nl'].includes(deviceLanguage) ? deviceLanguage : 'pt';
+        lng = ['pt', 'en', 'es', 'de', 'it', 'fr', 'he', 'zh', 'ar', 'ja', 'hi', 'nl'].includes(
+          deviceLanguage
+        )
+          ? deviceLanguage
+          : 'pt';
       }
       i18n.changeLanguage(lng);
     };
@@ -32,6 +38,7 @@ function InnerLayout() {
     <>
       <StatusBar style={t.statusBar === 'light' ? 'light' : 'dark'} translucent={true} />
       <Slot />
+      <WelcomeModal />
     </>
   );
 }

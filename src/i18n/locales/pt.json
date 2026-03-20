@@ -41,7 +41,7 @@
     "cancel": "Cancelar",
     "delete": "Apagar",
     "footerTitle": "Minha Copa 2026",
-    "footerSubtitle": "v1.0.0 • by Andrey Garcia & Volnei Garcia"
+    "footerSubtitle": "• by Andrey Garcia & Volnei Garcia"
   },
   "stats": {
     "title": "MEU PROGRESSO",
@@ -326,5 +326,22 @@
     "pdf_missing_title": "Figurinhas Faltantes",
     "pdf_error": "Não foi possível gerar o PDF: {{message}}",
     "scan_again": "Escanear outro amigo"
+  },
+  "onboarding": {
+    "step1_title": "Bem-vindo ao aplicativo Minha Copa 2026!",
+    "step1_desc": "Gerencie seu álbum, faça trocas e acompanhe os jogos, tudo em um só lugar. Use as abas abaixo para explorar.",
+    "step2_title": "Gerenciando Figurinhas",
+    "step2_desc": "Na aba Álbum, toque em uma figurinha para marcá-la como obtida. Toque em uma figurinha já obtida para adicionar repetidas ou remover do álbum.",
+    "step3_title": "Filtros e Buscas",
+    "step3_desc": "Use os filtros para ver apenas as figurinhas que faltam, as que você já tem ou as repetidas. Você também pode filtrar por nome, código da figurinha ou por seção.",
+    "step4_title": "Troque com Amigos",
+    "step4_desc": "Na aba Trocas, gere seu QR Code ou escaneie o de um amigo. O app compara automaticamente e mostra o que vocês podem trocar!",
+    "step5_title": "Acompanhe os Jogos",
+    "step5_desc": "Na aba Eventos, fique por dentro das informações dos jogos e estádios.",
+    "step6_title": "Deixe com sua cara",
+    "step6_desc": "Acesse as Configurações para mudar o tema, idioma, som e habilitar o Modo Sênior para letras maiores.",
+    "btn_next": "Próximo",
+    "btn_back": "Voltar",
+    "btn_start": "Vamos lá!"
   }
 }

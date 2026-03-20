@@ -10,6 +10,7 @@ interface SettingsState {
   favoriteTeam: string | null;
   language: string | null;
   animationsEnabled: boolean;
+  hasSeenOnboarding: boolean;
 
   setStyle: (style: ThemeStyle) => void;
   toggleSeniorMode: () => void;
@@ -17,6 +18,7 @@ interface SettingsState {
   setFavoriteTeam: (teamId: string | null) => void;
   setLanguage: (lang: string | null) => void;
   toggleAnimations: () => void;
+  completeOnboarding: () => void;
   resetSettings: () => void;
 }
 
@@ -27,6 +29,7 @@ const defaults = {
   favoriteTeam: null,
   language: null,
   animationsEnabled: true,
+  hasSeenOnboarding: false,
 };
 
 export const useSettingsStore = create<SettingsState>()(
@@ -40,6 +43,7 @@ export const useSettingsStore = create<SettingsState>()(
       setFavoriteTeam: (teamId) => set({ favoriteTeam: teamId }),
       setLanguage: (lang) => set({ language: lang }),
       toggleAnimations: () => set((s) => ({ animationsEnabled: !s.animationsEnabled })),
+      completeOnboarding: () => set({ hasSeenOnboarding: true }),
       resetSettings: () => set(defaults),
     }),
     {
