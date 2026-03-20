@@ -40,7 +40,7 @@
     "cancel": "取消",
     "delete": "删除",
     "footerTitle": "我的 2026 世界杯",
-    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": " • von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "比赛数据和统计由以下机构友情提供："
   },
   "stats": {
@@ -328,7 +328,7 @@
     "scan_again": "扫描另一个朋友"
   },
   "onboarding": {
-    "step1_title": "欢迎使用 Minha Copa 2026 应用！",
+    "step1_title": "欢迎使用 Minha Copa 2026 应用",
     "step1_desc": "在一个地方管理相册、交换贴纸并关注比赛。请探索下方的标签页。",
     "step2_title": "管理贴纸",
     "step2_desc": "在“相册”选项卡中，点击贴纸将其标记为已拥有。点击已拥有的贴纸可添加重复贴纸或将其从相册中移除。",

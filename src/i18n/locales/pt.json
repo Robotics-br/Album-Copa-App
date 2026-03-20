@@ -41,7 +41,7 @@
     "cancel": "Cancelar",
     "delete": "Apagar",
     "footerTitle": "Minha Copa 2026",
-    "footerSubtitle": "• by Andrey Garcia & Volnei Garcia"
+    "footerSubtitle": " • by Andrey Garcia & Volnei Garcia"
   },
   "stats": {
     "title": "MEU PROGRESSO",
@@ -328,7 +328,7 @@
     "scan_again": "Escanear outro amigo"
   },
   "onboarding": {
-    "step1_title": "Bem-vindo ao aplicativo Minha Copa 2026!",
+    "step1_title": "Bem-vindo ao aplicativo Minha Copa 2026",
     "step1_desc": "Gerencie seu álbum, faça trocas e acompanhe os jogos, tudo em um só lugar. Use as abas abaixo para explorar.",
     "step2_title": "Gerenciando Figurinhas",
     "step2_desc": "Na aba Álbum, toque em uma figurinha para marcá-la como obtida. Toque em uma figurinha já obtida para adicionar repetidas ou remover do álbum.",

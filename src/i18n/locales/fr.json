@@ -40,7 +40,7 @@
     "cancel": "Annuler",
     "delete": "Supprimer",
     "footerTitle": "Ma Coupe du Monde 2026",
-    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": " • von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "Données de match et statistiques gracieusement fournies par "
   },
   "stats": {
@@ -328,7 +328,7 @@
     "scan_again": "Scanner un autre ami"
   },
   "onboarding": {
-    "step1_title": "Bienvenue sur l'application Minha Copa 2026 !",
+    "step1_title": "Bienvenue sur l'application Minha Copa 2026",
     "step1_desc": "Gérez votre album, échangez des vignettes et suivez les matchs au même endroit. Utilisez les onglets pour explorer.",
     "step2_title": "Gérer vos Vignettes",
     "step2_desc": "Dans l'onglet Album, touchez une vignette pour l'ajouter. Touchez une vignette déjà obtenue pour ajouter des doubles ou la retirer de l'album.",

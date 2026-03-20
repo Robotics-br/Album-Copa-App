@@ -40,7 +40,7 @@
     "cancel": "Annuleren",
     "delete": "Verwijderen",
     "footerTitle": "Mijn WK 2026",
-    "footerSubtitle": "• door Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": " • door Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "Wedstrijdgegevens en statistieken vriendelijk aangeboden door "
   },
   "stats": {
@@ -328,7 +328,7 @@
     "scan_again": "Andere vriend scannen"
   },
   "onboarding": {
-    "step1_title": "Welkom bij de Minha Copa 2026-app!",
+    "step1_title": "Welkom bij de Minha Copa 2026-app",
     "step1_desc": "Beheer je album, ruil stickers en volg wedstrijden op één plek. Gebruik de tabbladen hieronder.",
     "step2_title": "Stickers Beheren",
     "step2_desc": "Tik in het Album-tabblad op een sticker om deze als verzameld te markeren. Tik op een reeds verzamelde sticker om dubbelen toe te voegen of deze uit het album te verwijderen.",

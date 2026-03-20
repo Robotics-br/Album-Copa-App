@@ -41,7 +41,7 @@
     "cancel": "Cancelar",
     "delete": "Borrar",
     "footerTitle": "Mi Mundial 2026",
-    "footerSubtitle": "• por Andrey Garcia & Volnei Garcia"
+    "footerSubtitle": " • por Andrey Garcia & Volnei Garcia"
   },
   "stats": {
     "title": "MI PROGRESO",
@@ -328,7 +328,7 @@
     "scan_again": "Escanear a otro amigo"
   },
   "onboarding": {
-    "step1_title": "¡Bienvenido a la aplicación Minha Copa 2026!",
+    "step1_title": "Bienvenido a la aplicación Minha Copa 2026",
     "step1_desc": "Gestiona tu álbum, haz intercambios y sigue los partidos en un solo lugar. Usa las pestañas de abajo para explorar.",
     "step2_title": "Gestionando Cromos",
     "step2_desc": "En la pestaña Álbum, toca un cromo para marcarlo como obtenido. Toca un cromo ya obtenido para añadir repetidos o eliminarlo del álbum.",

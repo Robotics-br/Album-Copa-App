@@ -40,7 +40,7 @@
     "cancel": "Abbrechen",
     "delete": "Löschen",
     "footerTitle": "Meine WM 2026",
-    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": " • von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "Spieldaten und Statistiken freundlicherweise bereitgestellt von "
   },
   "stats": {
@@ -328,7 +328,7 @@
     "scan_again": "Anderen Freund scannen"
   },
   "onboarding": {
-    "step1_title": "Willkommen in der Minha Copa 2026 App!",
+    "step1_title": "Willkommen in der Minha Copa 2026 App",
     "step1_desc": "Verwalten Sie Ihr Album, tauschen Sie Sticker und verfolgen Sie die Spiele. Nutzen Sie die Tabs unten.",
     "step2_title": "Sticker verwalten",
     "step2_desc": "Tippen Sie im Album-Tab auf einen Sticker, um ihn als gesammelt zu markieren. Tippen Sie auf einen bereits gesammelten Sticker, um Duplikate hinzuzufügen oder ihn aus dem Album zu entfernen.",

@@ -40,7 +40,7 @@
     "cancel": "ביטול",
     "delete": "מחיקה",
     "footerTitle": "המונדיאל שלי 2026",
-    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": " • von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "נתוני משחקים וסטטיסטיקות סופקו באדיבות על ידי "
   },
   "stats": {
@@ -328,7 +328,7 @@
     "scan_again": "סרוק חבר נוסף"
   },
   "onboarding": {
-    "step1_title": "ברוכים הבאים לאפליקציית Minha Copa 2026!",
+    "step1_title": "ברוכים הבאים לאפליקציית Minha Copa 2026",
     "step1_desc": "נהל את האלבום שלך, החלף מדבקות ועקוב אחר משחקים, הכל במקום אחד. השתמש בלשוניות למטה כדי לחקור.",
     "step2_title": "ניהול מדבקות",
     "step2_desc": "בלשונית האלבום, הקש על מדבקה כדי לסמן אותה כנרכשת. הקש על מדבקה שכבר בבעלותך כדי להוסיף כפילויות או להסיר אותה מהאלבום.",

@@ -40,7 +40,7 @@
     "cancel": "إلغاء",
     "delete": "حذف",
     "footerTitle": "كأس العالم 2026 الخاص بي",
-    "footerSubtitle": "• von Andrey Garcia & Volnei Garcia",
+    "footerSubtitle": " • von Andrey Garcia & Volnei Garcia",
     "apiCreditPrefix": "بيانات المباريات والإحصاءات مقدمة تفضلًا من "
   },
   "stats": {
@@ -328,7 +328,7 @@
     "scan_again": "مسح صديق آخر"
   },
   "onboarding": {
-    "step1_title": "مرحبًا بك في تطبيق Minha Copa 2026!",
+    "step1_title": "مرحبًا بك في تطبيق Minha Copa 2026",
     "step1_desc": "إدارة الألبوم الخاص بك، تبادل الملصقات ومتابعة المباريات في مكان واحد. استخدم علامات التبويب أدناه لاستكشافها.",
     "step2_title": "إدارة الملصقات",
     "step2_desc": "في علامة تبويب الألبوم، انقر فوق الملصق لتمييزه كملصق مملوك. انقر فوق ملصق مملوك بالفعل لإضافة نسخ مكررة أو إزالته من الألبوم.",

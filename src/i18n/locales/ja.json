@@ -40,7 +40,7 @@
     "cancel": "キャンセル",
     "delete": "削除",
     "footerTitle": "マイ・ワールドカップ 2026",
-    "footerSubtitle": "• Andrey Garcia & Volnei Garcia制作",
+    "footerSubtitle": " • Andrey Garcia & Volnei Garcia制作",
     "apiCreditPrefix": "試合データと統計データの提供元："
   },
   "stats": {
@@ -328,7 +328,7 @@
     "scan_again": "別の朋友をスキャン"
   },
   "onboarding": {
-    "step1_title": "Minha Copa 2026アプリへようこそ！",
+    "step1_title": "Minha Copa 2026アプリへようこそ",
     "step1_desc": "アルバムの管理、ステッカーの交換、試合のチェックが一つでできます。下のタブからお試しください。",
     "step2_title": "ステッカーの管理",
     "step2_desc": "「アルバム」タブでステッカーをタップして所持済みにします。すでに持っているステッカーをタップすると、重複分を追加したり、アルバムから削除したりできます。",
